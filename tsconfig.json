@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "outDir": "./",
+        "module": "ES2015",
+        "target": "ES5",
+        "allowJs": true,
+        "paths": {
+            "@/src": ["src/*"]
+        }
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules", "dist"]
+}

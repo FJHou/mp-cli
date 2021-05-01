@@ -1,0 +1,28 @@
+{
+  "name": "mp-cli",
+  "version": "1.0.0",
+  "description": "x",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "babel-loader": "^8.2.2",
+    "file-loader": "^6.2.0",
+    "less": "^4.1.1",
+    "less-loader": "^8.1.1",
+    "sass-loader": "^11.0.1",
+    "ts-loader": "^9.1.1",
+    "typescript": "^4.2.4",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0",
+    "wxml-loader": "^0.3.0"
+  },
+  "dependencies": {}
+}
