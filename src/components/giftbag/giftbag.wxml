@@ -1,0 +1,21 @@
+<view id="haha">
+  <view class='giftbag-cover' catchtouchmove='true'></view>
+  <view class='giftbag' style='background:url(https://thunder.jd.com/jpass/img/{{activitytype==1?"giftbag_ruhui.png":"giftbag.png"}}) no-repeat;background-size:677rpx 956rpx;'>
+    <view class='gf-li' wx:for="{{couponList}}" wx:key="index" style='background:url(https://thunder.jd.com/jpass/img/giftcoupon.png) no-repeat;background-size:490rpx 145rpx;'>
+      <view class='gf-li-msg'>
+        <view class='gf-name'>{{item.name}}</view>
+        <view class='gf-amount'>满{{item.useCondition}}可用 部分门店可用</view>
+        <view class='gf-time'>{{item.startTime}} - {{item.endTime}}</view>
+      </view>
+      <view class='gf-li-money'>
+        <text class='gf-mark'>￥</text>
+        <text class='gf-mon' style='font-size:{{item.priceSize}}px;'>{{item.price}}</text>
+      </view>
+    </view>
+    
+    
+  </view>
+  <view class='drawgift' bindtap='drawgift'></view>
+  <view class='giftaddress'>领取后在“我的优惠券”中查看{{activitytype==1?"；仅限本次领取":""}}</view>
+  <view class='closegift' bindtap='closegift'></view>
+</view>

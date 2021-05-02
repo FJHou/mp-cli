@@ -1,0 +1,114 @@
+page{
+  background:#f8f8f8;
+}
+
+.bg-color {
+  padding-bottom:60rpx;
+	background:#f8f8f8;
+	border-top: 2rpx solid #edeeef;
+}
+
+/* 割线(用在view上) */
+/* .seprate-view-line {
+  border-top:2rpx solid #edeeef;
+  margin: 1rpx 0;
+} */
+
+.sub-row-1{
+  /* height: 110rpx; */
+  padding: 0 30rpx;
+  background: #FFFFFF;
+  display:flex;
+  flex:1;
+  align-items:center;
+}
+.sub-icon{
+  display:flex;
+  align-items:center;
+  flex:1;
+}
+.icon-bg{
+  width:72rpx;
+  height:72rpx;
+  background:rgba(241,2,22,0.05);
+  border-radius: 50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.m-icon{
+  font-size: 46rpx;
+  color: #F10216;
+  display:flex;
+  align-items:center;
+}
+.settle-title{
+  font-size: 32rpx;
+  color: #333333;
+  margin-left:16rpx;
+  display: flex;
+  flex-direction: column;
+}
+.yg-txt{
+  font-size: 26rpx;
+  color: #999;
+}
+.total-txt{
+	font-size: 32rpx;
+  color: #666;
+}
+.yg-mgr{
+  margin: 14rpx 0rpx;
+}
+.zhan-txt{
+  visibility: hidden;
+}
+.yg-color{
+  color: #999;
+}
+.yg-size{
+  font-size: 26rpx;
+}
+.yg-icon{
+  font-size: 24rpx;
+}
+
+.settle-num{
+  color:#333;
+  font-size:32rpx;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+.fb {
+  font-weight: bold;
+}
+.money-icon{
+  font-size: 28rpx;
+}
+
+.row{ 
+  display:flex;
+  flex-direction:column;
+  background:#FFF;
+	padding:20rpx 0;
+	border-bottom: 1px solid #f6f6f6;
+}
+.sub-content{
+	display: flex;
+	flex: 5;
+	flex-direction: column;
+}
+.settle-main{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	line-height: 12rpx;
+}
+.settle-total{
+	font-size: 48rpx;
+	font-weight: 600;
+	color: #000;
+	line-height: 30rpx;
+}

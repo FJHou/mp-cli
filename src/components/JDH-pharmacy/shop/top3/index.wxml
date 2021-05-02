@@ -1,0 +1,44 @@
+<!-- 门店top3商品 -->
+<view class="h-top3" wx:if="{{category.length}}">
+    <title title="精选商品" is-link bind:click="gotoDSWareH5" data-target="home" link-text="全部商品"></title>
+    <slide>
+        <view class="category {{index === activeIndex ? 'active' : ''}}" wx:for="{{category}}" wx:key="id" bindtap="onCategoryChange" data-category="{{item}}">
+            {{item.name}}
+        </view>
+    </slide>
+    <view class="goods-cotent">
+        <view class="card-wrapper" wx:for="{{category[activeIndex].data}}" wx:key="name" bindtap="gotoDSWareH5" data-good="{{item}}">
+            <card card-class="card">
+                <view class="image-wrapper">
+                    <image mode="aspectFit" lazy-load src="{{item.imageUrl}}" class="good-image"></image>
+                </view>
+                <view class="good-name">{{item.wareName}}</view>
+                <price price="{{item.price}}" family="regular" price-class="price" symbol-class="symbol" number-class="number"></price>
+            </card>
+        </view>
+    </view>
+    <view class="more"  wx:if="{{category[activeIndex].loadOver}}">
+        <text>没有更多了</text>
+    </view>
+    <!-- <scroll-view class="slider-tab-scroll" scroll-x paging-enabled enhanced bindscroll="handleScroll">
+        <view class="slider-tab">
+            <view class="slider-item item{{index}}" wx:for="{{category}}" wx:key="index">
+                <view class="goods-cotent">
+                    <view class="card-wrapper" wx:for="{{category[activeIndex].data}}" wx:key="name" bindtap="gotoDSWareH5" data-good="{{item}}">
+                        <card card-class="card">
+                            <view class="image-wrapper">
+                                <image mode="aspectFit" src="{{item.imageUrl}}" class="good-image"></image>
+                            </view>
+                            <view class="good-name">{{item.wareName}}</view>
+                            <price price="{{item.price}}" family="regular" price-class="price" symbol-class="symbol" number-class="number"></price>
+                        </card>
+                    </view>
+                </view>
+                <view class="more" bindtap="gotoDSWareH5" data-target="category">
+                    <text>查看更多</text>
+                    <image class="more-icon" src="https://img13.360buyimg.com/imagetools/jfs/t1/152070/37/19266/505/602f2582E53763a92/2bdba7b67ca5cba2.png!q60" />
+                </view>
+            </view>
+        </view>
+    </scroll-view> -->
+</view>

@@ -1,0 +1,21 @@
+
+/*复制skuId*/
+.copy-wrap{
+  padding-left: 30rpx;
+  background: #fff;
+  border-top: 1rpx solid #EDEEEF;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+.copy-wrap .copy-text{
+  color: #666;
+}
+.copy-skuid-btn{
+  display: inline-block;
+  height: 100%;
+  font-size: 24rpx;
+  padding: 0 20rpx;
+  color: #F10216; 
+}

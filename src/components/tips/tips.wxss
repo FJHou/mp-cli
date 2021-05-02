@@ -1,0 +1,57 @@
+/* components/tips.wxss */
+.tips{
+  position: fixed;
+  width: 406rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  right: 30rpx;
+  top: 125rpx;
+  
+  z-index: 100;
+  background: #ffffff;
+  box-shadow: 0rpx 10rpx 30rpx 0rpx rgba(0,0,0,0.22);
+}
+.tips-iphoneX{
+  position: fixed;
+  top: 185rpx;
+}
+
+.tips-itleft{
+  background: url(https://img12.360buyimg.com/imagetools/jfs/t1/102877/34/4815/61324/5de9b9e9E5383221c/9a0c54d3afe883ce.png) no-repeat;
+  background-size: 100% 100%;
+  width: 114rpx;
+  height: 117rpx;
+  position: absolute;
+  left: -25rpx;
+  top: -25rpx;
+}
+.tips-content{
+  width: 334rpx;
+  height: 80rpx;
+  line-height: 40rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: rgba(33,33,33,1);
+  padding: 20rpx 0 0 95rpx;
+}
+.tips-iarrowtop{
+  position: absolute;
+  top: -9rpx;
+  right: 95rpx;
+  background: url(https://img13.360buyimg.com/imagetools/jfs/t1/88404/17/4826/508/5de9b9f2Ee11b5699/848ef123bb70fc4e.png) no-repeat;
+  background-size: 100% 100%;
+  width: 24rpx;
+  height: 10rpx;
+}
+.tips-iarrow-iphoneX{
+  right: 105rpx;
+}
+.tips-close{
+  position: absolute;
+  background: url(https://img10.360buyimg.com/imagetools/jfs/t1/89376/12/4921/1287/5de9bebfEb39e1390/5ba596b908b7adf3.png) no-repeat;
+  background-size: 100% 100%;
+  width: 50rpx;
+  height: 50rpx;
+  right: 25rpx;
+  top: 35rpx;
+}

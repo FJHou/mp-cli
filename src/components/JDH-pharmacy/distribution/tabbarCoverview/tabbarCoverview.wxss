@@ -1,0 +1,118 @@
+
+.tabbar_box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 98rpx;
+    border-top: 1rpx solid #EDEEEF; 
+}
+
+.tabbar_nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24rpx;
+    height: 98rpx;
+    position: relative;
+}
+.tabbarbtn{
+  /* font-size: 46rpx; */
+  visibility: visible;
+}
+.tabbarbtn_publish{
+font-size: 100rpx;
+}
+
+.tabbar_icon{
+    width: 40rpx;
+    height: 40rpx;
+}
+.tabbar_icon_publish{
+    width:80rpx;
+    height: 80rpx;
+}
+.roundBg {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 90rpx;
+  background: #fff;
+  margin-top: -35rpx;
+  box-shadow: 0 0 15rpx #ddd;
+}
+.roundPic {
+  position: absolute;
+  top:0;
+  width: 100%;
+  height: 100%;
+  background: #fff url('http://b2b-v2.oss.cn-north-1.jcloudcs.com/8bce4d4f-a010-43da-a0d3-98ed4c55083a.png') no-repeat center;
+  background-size: 144rpx 70rpx;
+  display: flex;
+  justify-content: center; 
+  /* background: blue; */
+}
+.roundColorFul1,.roundColorFul2,.roundColorFul3 {
+  border-radius: 90rpx;
+  /* background: rgba(241,2,22,.6); */
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+.roundColorFul1 {
+  width: 120rpx; 
+  height: 120rpx;
+  background:rgba(241,2,22,.1);
+  animation: ani1 2.5s linear infinite;
+}
+.roundColorFul2 {
+  width: 105rpx; 
+  height: 105rpx;
+  background:rgba(241,2,22,.2);
+  animation: ani2 2.5s linear infinite;
+}
+.roundColorFul3 {
+  width: 90rpx; 
+  height: 90rpx;
+  background:rgba(241,2,22,.6);
+  animation: ani3 2.5s linear infinite;
+}
+.roundColorFul3 image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+}
+@keyframes ani3
+{
+  0% { background: rgba(241,2,22,.6);}
+  25% { background: rgba(241,2,22,0);}
+}
+@keyframes ani2
+{
+  0% { background: rgba(241,2,22,.2);}
+  50% { background: rgba(241,2,22,0);}
+}
+@keyframes ani1
+{
+  0% { background: rgba(241,2,22,.1);}
+  75% { background: rgba(241,2,22,0);}
+}
+
+.cv-img{
+  border: none;
+  margin-bottom: 2rpx;
+}
+.cv-text{
+  font-weight: bold;
+  margin-top: 5rpx;
+}
+.red{
+  color: #F10216;
+}
+cover-view,cover-image {
+  line-height: auto;
+}

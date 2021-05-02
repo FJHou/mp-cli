@@ -1,0 +1,10 @@
+<view class="h-title">
+    <view>
+        <text class="title title-class">{{title}}</text>
+        <text class="desc desc-class">{{desc}}</text>
+    </view>
+    <view wx:if="{{isLink}}" bindtap="onClick">
+        <text class="link-text link-text-class">{{linkText}}</text>
+        <image class="arrow-icon" src="https://img13.360buyimg.com/imagetools/jfs/t1/152070/37/19266/505/602f2582E53763a92/2bdba7b67ca5cba2.png!q60"></image>
+    </view>
+</view>

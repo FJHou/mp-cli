@@ -1,0 +1,27 @@
+<scroll-view 
+    bindrefresherrefresh="bindrefresherrefresh" 
+    bindscrolltolower="bindscrolltolower"
+    bindscroll="bindscroll"
+    refresher-threshold="{{100}}" 
+		lower-threshold="{{lowerThreshold}}"
+    refresher-triggered="{{refresherTriggered}}" 
+    scroll-y="{{true}}" 
+    enable-back-to-top="{{true}}" 
+		scroll-top="{{scrollTop}}"
+    enable-back-to-top="{{true}}"
+    refresher-enabled="{{refresherEnabled}}"
+    class="jdh-scroll-view"
+    id="jdh-scroll-view"
+    style="height: {{ listHeight }}"
+>
+    <slot></slot>
+    <view class="list-empty" wx:if="{{total === 0}}">
+        <image class="empty-image" src="{{emptyImage}}"></image>
+        <text class="empty-text">{{emptyText}}</text>
+    </view>
+    <view class="list-bottom-placeholder" wx:else>
+        <van-loading size="18px" wx:if="{{loading}}">加载中...</van-loading>
+        <text class="no-more" wx:elif="{{loadOver}}">{{loadOver ? '没有更多了~': ''}}</text>
+    </view>
+</scroll-view>
+<back-top backShow="{{backHidden}}" bind:event_back="backTop"></back-top>

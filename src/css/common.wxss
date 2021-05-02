@@ -1,0 +1,53 @@
+/* pages/common/index.wxss */
+page { 
+    display: flex; 
+    flex-flow: column; 
+    min-height: 100vh;
+}
+.content {
+    flex: 1; 
+}
+.footer{
+    flex: 0;    
+}
+
+.textellipse{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.btn{
+  padding: 10rpx 20rpx;
+  min-height: 24rpx;
+  color: white;
+  border-radius: 30rpx;
+  background: -webkit-linear-gradient(left,rgb(241,0,0) 0%,rgb(255,79,24) 100%);
+  box-shadow: 0 6rpx 12rpx 0 rgba(255, 62, 62, 0.2)
+}
+
+.load-ing{ color: #808080; font-size: 22rpx; padding: 20rpx 0; text-align: center;}
+.load-nomore{ color: #808080; font-size: 22rpx; padding: 20rpx 0; text-align: center;}
+.load-none{ color: #808080; font-size: 36rpx; padding: 20rpx 0; text-align: center;}
+
+.bottom_name{ color: #c4c4c4; font-size: 22rpx; text-align: center; line-height: 2em; margin-top: 20rpx;}
+.bottom_logo{ width: 46rpx; height: 40rpx; display: block; margin: 0 auto 20rpx;}
+
+.nodata{
+  text-align: center;
+  background: #f6f6f6;
+}
+.nodata .icon{
+  width: 260rpx;
+  height: 260rpx;
+  margin: 150rpx 0 30rpx;
+}
+.nodata .desc{
+  font-size: 26rpx;
+  color: #848484;
+}
+.nodata .btn{
+  margin: 30rpx auto;
+  width: 230rpx;
+  font-size: 28rpx;
+}

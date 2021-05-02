@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "title": "../../title/index",
+		"card": "../../card/index",
+        "shop-coupon": "../../shopCoupon/shopCoupon" 
+    }
+}

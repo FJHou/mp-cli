@@ -1,0 +1,12 @@
+<view>
+<block wx:if='{{input}}'>
+  <textarea placeholder='{{placeHolderTxt}}' class='com-textarea' bindinput='inputTextarea' value='{{val}}' maxlength='-1' />
+  <button class='com-button com-button-red com-mt-40' bindtap='getConverseShortUrl'>转链</button>
+  <button class='com-button com-mt-40' bindtap='clearTextarea'>清空</button>
+</block>
+<view wx:if='{{copyShow}}' style='z-index:100000;width:400rpx;height:244rpx;background:red;border-radius:12px;margin:30rpx;background:#000;opacity:0.6;padding:20rpx;position:fixed;top:400rpx;left:125rpx'>
+  <view style='text-align:center;'><i class='iconfont icon-xuanzhong1' style="color:#FFFFFF;font-size:100rpx;" /></view>
+  <view style='color:white;font-size:16px;text-align:center;'>文案已复制</view>
+  <!-- <view style='color:white;font-size:16px;text-align:center;'>如有{{brandTxt}}助手会自动群发</view> -->
+</view>
+</view>

@@ -1,0 +1,218 @@
+/* components/indexLayer/indexLayer.wxss */
+/* @import '../../resource/iconfont/iconfont'; */
+/* 弹层动画 */
+/* .fl {
+  float: left;
+} */
+.mask1,.mask2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1010;
+}
+.mask1 {
+  z-index: 2000;
+}
+.layerAni {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1100;
+}
+
+.dislogBox {
+  display: flex;
+  /* margin: 0 0 20rpx 30rpx; */
+  /* margin-left: -100%; */
+  transition: margin-left .5s ease-out;
+}
+.dislogBox image,.noteImg .userHead {
+  /* display: block; */
+  /* flex: 1; */
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+}
+.dislogBox .dialogTxt {
+  flex: 1;
+  margin: 0 20rpx;
+  font-size:14px !important;
+}
+.dislogBox .dialogTxt .dialogTitle {
+  opacity: 0.6;
+  color: #FFFFFF;
+  letter-spacing: 0; 
+  display: block; 
+  font-size: 28rpx !important;
+}
+.dislogBox .dialogTxt .dialogContent {
+  background: #fff;
+  display: block;
+  width: 518rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  color: #333;
+  font-size: 28rpx;
+  letter-spacing: 0;
+  line-height: 42rpx;
+  margin-top: 6rpx;
+  /* margin-left: 20rpx; */
+  position: relative;
+}
+.dislogBox .dialogTxt .dialogContent::before {
+  content: '';
+  display: block;
+  width: 20rpx;
+  height: 20rpx;
+  transform: rotate(135deg);
+  background: #fff;
+  position: absolute;
+  left: -3rpx;
+  top: 22rpx;
+}
+.dialogOne {
+  width: 100%;
+  position: fixed;
+  bottom: 15rpx;
+}
+.upgradeBox {
+  position: relative;
+  /* display: none; */
+  /* width: 690rpx;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -345rpx; */
+}
+.close {
+  position: absolute;
+  right: 20rpx;
+  top: -90rpx;
+  /* background: #bbb; */
+  border: 4rpx solid #fff;
+  width: 64rpx;
+  height: 64rpx;
+  line-height: 60rpx;
+  border-radius: 50rpx;
+  text-align: center;
+  color: #fff;
+}
+.close .iconfont {
+  font-size: 20rpx;
+}
+.noteImg {
+  display: flex;
+  justify-content: center;
+}
+.noteImg .upgradePic {
+  width: 690rpx;
+  height: 602rpx;
+}
+.noteImg .upgradePic1 {
+  width: 702rpx;
+  height: 595rpx;
+}
+.upgradePicBox {
+  position: relative;
+}
+.inviteBtn {
+  position: absolute;
+  top: 380rpx;
+  left: 145rpx;
+}
+.inviteBtn .redBtn {
+  width: 400rpx;
+  height: 80rpx;
+  text-align: center;
+  background: #EF4521;
+  border-radius: 100rpx;
+  line-height: 80rpx;
+  color: #fff;
+}
+.inviteBtn1 {
+  position: absolute;
+  top: 490rpx;
+  left: 216.5rpx;
+}
+.inviteBtn1 .redBtn1 {
+  width: 269rpx;
+  height: 80rpx;
+}
+.noteImg .userHead {
+  position: absolute;
+  bottom: 5rpx;
+  left: 50%;
+  margin-left: -40rpx;
+}
+
+.xuniBtn {
+  width: 100rpx;
+  height: 100rpx;
+  background: rgba(0,0,0,0);
+  position: fixed;
+  bottom: 20rpx;
+  z-index: 1000;
+  left: 50%;
+  margin-left: -50rpx;
+}
+
+/* 魔盒样式 */
+.flex-center {
+  /* display: flex;
+  justify-content: center; */
+}
+.position-box {
+  position: absolute;
+  bottom: 250rpx;
+  left: 50%;
+}
+.mohe-scale {
+  transform: scale(0,0);
+  animation-fill-mode: forwards;
+}
+.weiDaKai image {
+  width: 551rpx;
+  height: 859rpx;
+}
+.zhongJiang1 image {
+  width: 570rpx;
+  height: 777rpx;
+}
+.zhongJiang2 image {
+  width: 600rpx;
+  height: 777rpx;
+}
+.weiZhongJiang image {
+  width: 606rpx;
+  height: 844rpx;
+}
+.lingHongBao image {
+  width: 594rpx;
+  height: 673rpx;
+}
+
+.mohe-btn {
+  width: 300rpx;
+  height: 80rpx;
+  background: rgba(0,0,0,0);
+  position: absolute;
+  bottom: 440rpx;
+  margin-left: -150rpx;
+  left: 50%;
+}
+.mohe-close {
+  width: 70rpx;
+  height: 70rpx;
+  background: rgba(0,0,0,0);
+  margin-left: -20rpx;
+}
+@keyframes moheScale {
+  from {transform: scale(0,0);}
+  to {transform: scale(1,1);}
+}

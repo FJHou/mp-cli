@@ -1,0 +1,99 @@
+.h-fresher-coupons {
+    position: relative;
+    border-radius: 10px;
+    background: url("https://img12.360buyimg.com/imagetools/jfs/t1/162967/23/6871/12177/602f7a8fE5f408484/635a08903f34006c.png!q60")
+        center center no-repeat;
+    width: 100%;
+    margin-top: 10rpx;
+    overflow: hidden;
+    &:after {
+        content:"";
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        top: 0;
+        width: 30rpx;
+        height: 100%;
+        background: url("https://img12.360buyimg.com/imagetools/jfs/t1/165939/29/13176/1553/6052e6e2E21899116/6cc7fca1e23ba55d.png") center no-repeat;
+    }
+}
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 30rpx 24rpx 0;
+}
+
+.text {
+    font-weight: bold;
+    font-size: 34rpx;
+}
+.button {
+    width: 124rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    font-size: 28rpx;
+    text-align: center;
+    background: url("https://img10.360buyimg.com/imagetools/jfs/t1/161333/22/7728/286801/603496e4Ebbbfe9aa/bf8bc9c1efeb2612.gif!q80") no-repeat center/100%;
+    border-radius: 27rpx;
+}
+
+.content {
+    .scroller {
+        white-space: nowrap;
+        padding: 30rpx 24rpx;
+    }
+}
+
+.coupon {
+    display: inline-block;
+    position: relative;
+    width: 166rpx;
+    height: 186rpx;
+    text-align: center;
+    font-size: 20rpx;
+    background: linear-gradient(
+        140deg,
+        rgba(255, 252, 241, 1) 0%,
+        rgba(255, 242, 208, 1) 100%
+    );
+    border-radius: 15rpx;
+    box-shadow:  0px 10px 20px -6px rgba(189,43,0,0.8);
+    margin-right: 15rpx;
+    &::after {
+        content: " ";
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        margin: auto;
+        width: 150rpx;
+        height: 170rpx;
+        border: 1rpx solid #dbcb78;
+        border-radius: 10rpx;
+    }
+    .name {
+        margin-top: 20rpx;
+        color: #a46634;
+    }
+    .price {
+        padding: 20rpx 0 10rpx;
+        .symbol {
+            font-size: 30rpx;
+        }
+        .number {
+            font-size: 50rpx;
+        }
+    }
+    .divider {
+        margin: auto;
+        width: 60%;
+        border-bottom: 1rpx dashed #dbcb78;
+    }
+    .description {
+        margin-top: 10rpx;
+        color: #d40000;
+    }
+}

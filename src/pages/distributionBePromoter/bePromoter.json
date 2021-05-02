@@ -1,0 +1,12 @@
+{
+  "enablePullDownRefresh": false,
+	"backgroundColor": "#fff",
+	"backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "成为推广者",
+  "navigationBarTextStyle":"black", 
+  "disableScroll": true,
+  "usingComponents": {
+
+	}
+}

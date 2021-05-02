@@ -1,0 +1,495 @@
+<!--pages/memberhome/memberhome.wxml-->
+<wxs module="filters">
+  var filters = {
+    toFix: function(value) {
+      var val = parseFloat(value);
+      val = isNaN(val) ? 0 : val;
+      return val.toFixed(2);
+    }
+  }
+  module.exports = {
+    toFix: filters.toFix
+  }
+</wxs>
+
+<!-- 弹框提示（数据库处理了已认证的状态，再次登录时需要提示）by jingxl -->
+<block wx:if="{{isVip}}">
+  <maskTip />
+</block>
+
+<!-- <nav-bar navbar-data='{{navbarData}}'></nav-bar> -->
+<view style='height: {{height+44}}px'></view>
+<view class='my-border' style="top:{{height+44}}px;"></view>
+<!-- helpModal -->
+<view class="modals-cancel" wx:if="{{false}}" style="height:{{screenHeight}}px" catchtouchmove='{{helpModal?"true":""}}' catchtap='hideHelpModal'>
+  <image src='https://b2b-v2-pre.oss.cn-north-1.jcloudcs.com/94cbd5d9-8baa-475e-9cfd-37b6929c065c.png' style='top:232rpx;height:360rpx;width:505rpx;position:fixed;left:0' />
+</view>
+<view class="mainWrap unmember-wraper" style='width:720rpx;padding-left:30rpx;border-top:1rpx solid #EDEEEF;overflow:hidden'>
+  <view class="userInfo" style="display:flex;height:{{isVip?'auto':'156rpx'}};position:relative">
+
+    <!-- 我的专属老师 -->
+    <view class="my-teacher" catchtap="showTeacher" wx:if="{{code==0}}">
+      <i class='icon iconfont icon-daoshi'></i>
+      <text class="fc-333 fs-26">我的专属导师</text>
+      <i class='iconfont icon-youcejiantou fc-333 fs-22' />
+    </view>
+ 
+    <!-- 左侧 -->
+    <view style="width:477rpx;">
+      <view style="display:flex;margin-top:60rpx;align-items:center">
+        <view class='longName' style="max-width:260rpx;height:40rpx;color:#333333;font-weight:bold;font-size:40rpx;line-height:40rpx;">{{memberInfo.jcbNickName||nickName||''}}
+        </view>
+        <view wx:if="{{isVip==true}}" style="display:flex;position:relative;align-items:center;margin-left:20rpx;">
+          <!-- memberInfo.userIdentity -->
+          <!-- 初级会员 -->
+          <image wx:if="{{memberInfo.userIdentity==1}}" src="https://b2b-v2-pre.oss.cn-north-1.jcloudcs.com/f3cb9288-b5c6-41b2-be30-df50b320a45f.png" style="width:40rpx;height:40rpx;position:relative;z-index:2;" />
+          <!-- 中级会员 -->
+          <image wx:if="{{memberInfo.userIdentity==2}}" src="https://b2b-v2-pre.oss.cn-north-1.jcloudcs.com/acf6b8a9-59d9-4471-a78a-1f40f5cab5ee.png" style="width:40rpx;height:40rpx;position:relative;z-index:2;" />
+          <!-- 高级会员 -->
+          <image wx:if="{{memberInfo.userIdentity==3}}" src="https://b2b-v2-pre.oss.cn-north-1.jcloudcs.com/c6b40700-6be5-48c0-a5e9-17fac1fd3a09.png" style="width:40rpx;height:40rpx;position:relative;z-index:2;" />
+          <view wx:if="{{memberInfo.userIdentity==1}}" style="display:flex;position:absolute;height:32rpx;background:#A5B4CB;border-radius:0 20rpx 20rpx 0;color:#fff;font-size:20rpx;align-items:center;justify-content:center;width:125rpx;left:24rpx;">{{memberInfo.inviteUserIdentityName || ''}}</view>
+          <view wx:if="{{memberInfo.userIdentity==2}}" style="display:flex;position:absolute;height:32rpx;background:#C3A166;border-radius:0 20rpx 20rpx 0;color:#fff;font-size:20rpx;align-items:center;justify-content:center;width:125rpx;left:24rpx;">{{memberInfo.inviteUserIdentityName || ''}}</view>
+          <view wx:if="{{memberInfo.userIdentity==3}}" style="display:flex;position:absolute;height:32rpx;background:#E89D38;border-radius:0 20rpx 20rpx 0;color:#fff;font-size:20rpx;align-items:center;justify-content:center;width:125rpx;left:24rpx;">{{memberInfo.inviteUserIdentityName || ''}}</view>
+        </view>
+      </view>
+      <view wx:if="{{isVip==true}}" style="display:flex;margin-top:20rpx;height:26rpx;align-items:center;">
+        <view style="font-size:26rpx;color:#C3A166;line-height:26rpx;width:210rpx">邀请码：{{memberInfo.myInviteCode || ''}}
+        </view>
+        <view style="display:flex;margin-left:20rpx;font-size:24rpx;color:#F10216;line-height:26rpx;" catchtap='saveText'>
+          复制
+        </view>
+      </view>
+      <!-- <view class='shopBtn' catchtap='createShop' wx:if="{{isVip!=true}}" style="margin-top:30rpx;width:166rpx;height:56rpx;background:linear-gradient(to right,#FD8C96, #F86069);border-radius:28rpx;display:flex;align-items:center;">
+         <view style='margin-left:20rpx;color:#ffffff;font-size:26rpx;line-height:26rpx;font-weight:bold'>我的小店<i class='iconfont icon-youcejiantou' style="font-size:22rpx;color:#ffffff;padding-left:6rpx;" /></view>
+      </view> -->
+      <view wx:if="{{isVip==true}}" style='margin-top:30rpx;display:flex;'>
+        <view catchtap='goWhere' class='shopBtn' style="width:166rpx;height:56rpx;background:linear-gradient(to right,#FD8C96, #F86069);border-radius:28rpx;display:flex;align-items:center;">
+          <view style='margin-left:20rpx;color:#ffffff;font-size:26rpx;line-height:26rpx;font-weight:bold'>我的小店
+            <i class='iconfont icon-youcejiantou' style="font-size:22rpx;color:#ffffff;padding-left:6rpx;" />
+          </view>
+        </view>
+        <!-- <block wx:if="{{hasShop==true && vipSwitch}}"> -->
+        <!-- <navigator url='/subExtractMain/pages/robot/myWeChatGroup/myWeChatGroup' style='margin-left:20rpx;display:flex;align-items:center;justify-content:center;padding:0rpx 21rpx;background:#FDE5E7;border-radius:28rpx;font-size:26rpx;line-height:26rpx;color:#f10216;height:56rpx'>
+            <i class='iconfont icon-xinzeng' style='font-size:24rpx;font-weight:bold;padding-right:10rpx' />{{brandTxt.mine1}}助手
+          </navigator> -->
+<!-- 租户版2.0 会员页助手按钮跳转更改，有群跳转到我的助手页面（myaides/myaides) -->
+        <view style='margin-left:20rpx;display:flex;align-items:center;justify-content:center;padding:0rpx 21rpx;background:#FDE5E7;border-radius:28rpx;font-size:26rpx;line-height:26rpx;color:#f10216;height:56rpx' catchtap="toMyaides">
+          <i class='iconfont icon-xinzeng' style='font-size:24rpx;font-weight:bold;padding-right:10rpx' />{{brandTxt.mine1}}助手
+        </view>
+        <!-- </block> -->
+      </view>
+    </view>
+    <!-- 右侧 -->
+    <view style="position:relative;width:243rpx;">
+      <image style="position:absolute;width:243rpx;height:177rpx;top:0;right:0" src="https://b2b-v2.oss.cn-north-1.jcloudcs.com/518afdab-1499-456d-a17b-95289f7a5c48.png" />
+      <image src="{{memberInfo.jcbHeader||avatarUrl}}" style="background:#eee;width:106rpx;height:106rpx;border:7rpx solid #ffffff;border-radius:50%;position:absolute;left:100rpx;top:65rpx;z-index:1;box-shadow: 0 0 20px 0 rgba(0,0,0,0.10);" catchtap='onLockPoint'
+        data-point-key="memberhome_header">
+      </image>
+    </view>
+
+  </view>
+  <!-- 底部空白 分割线-->
+  <view wx:if="{{isVip==true}}" style='margin-top:40rpx;height:0rpx;width:530rpx;border-bottom:1rpx dashed #DDDDDD'>
+  </view>
+  <!-- 升级进度 -->
+  <view wx:if="{{isVip==true}}" style='margin-top:30rpx' catchtap='onLockPoint' data-point-key='memberhome_progress'>
+    <view style="font-size:26rpx;color:#333333;font-weight:bold">升级进度</view>
+    <view style="display:flex;margin-top:20rpx;margin-bottom:40rpx;position:relative">
+      <view style="font-size:26rpx;">
+        <view style="color:#999999;">销售佣金</view>
+        <view>
+          <text style="color:#F10216;">{{progressInfo.currentSaleReward}}</text>
+          <text style="color:#666666">/{{progressInfo.saleRewardTotalAmount}}</text>
+        </view>
+      </view>
+      <view style="font-size:26rpx;margin-left:60rpx;">
+        <view style="color:#999999;">初级会员</view>
+        <view>
+          <text style="color:#F10216;">{{progressInfo.currentJuniorMemberNum}}</text>
+          <text style="color:#666666">/{{progressInfo.juniorMemberTotalAmount}}</text>
+        </view>
+      </view>
+      <block wx:if="{{memberInfo.userIdentity==2 || memberInfo.userIdentity==3}}">
+        <view style="font-size:26rpx;margin-left:60rpx;">
+          <view style="color:#999999;">中级会员</view>
+          <view>
+            <text style="color:#F10216;">{{progressInfo.currentMiddleMemberNum}}</text>
+            <text style="color:#666666">/{{progressInfo.middleMemberTotalAmount}}</text>
+          </view>
+        </view>
+      </block>
+      <navigator url='/pages/share/share' style="position:absolute;right:30rpx;display:flex;justify-content:center;align-items:center;color:#F10216;border:2rpx solid #F10216;border-radius:31rpx;font-size:26rpx;line-height:26rpx;width:152rpx;height:56rpx;">邀请粉丝</navigator>
+    </view>
+  </view>
+  <!-- banner -->
+  <view wx:if="{{isVip==false && showBanner==1}}" class='banner'>
+    <navigator url='/subExtractMain/pages/buyerGuideHome/buyerGuideHome'>
+      <image src='https://b2b-v2-pre.oss.cn-north-1.jcloudcs.com/5f3489a1-f258-40c8-88ac-35f10ef7ea9b.png' />
+    </navigator>
+  </view>
+  <view wx:if="{{isVip==false}}" style='display:flex;align-items:center;width:690rpx;height:80rpx;background: #fff5f5;border-radius: 0 0 12rpx 12rpx;'>
+    <block wx:if='{{invitedShort > 0 && memberFuncType==0}}'>
+      <view style='margin-left:30rpx;font-size:24rpx;line-height:24rpx;color:#F10216'>
+        再邀请{{invitedShort}}人成为会员
+      </view>
+      <navigator url='/pages/share/share' style='display:flex;align-items:center;justify-content:center;margin-left:30rpx;width:160rpx;height:48rpx;background:#F10216;border-radius:28rpx;color:#ffffff;font-size:24rpx;line-height:24rpx'>
+        邀请粉丝
+      </navigator>
+    </block>
+    <block wx:if='{{memberFuncType==1}}'>
+      <view style='margin-left:30rpx;font-size:24rpx;line-height:24rpx;color:#F10216'>
+        点击升级成为会员享更多优惠
+      </view>
+      <navigator url='/pages/memberNewUpdate/memberNewUpdate' style='display:flex;align-items:center;justify-content:center;margin-left:30rpx;width:160rpx;height:48rpx;background:#F10216;border-radius:28rpx;color:#ffffff;font-size:24rpx;line-height:24rpx'>
+        立即申请
+      </navigator>
+    </block>
+    <block wx:if="{{invitedShort <= 0 && memberFuncType==0}}">
+      <view style='margin-left:30rpx;font-size:24rpx;line-height:24rpx;color:#F10216'>
+        您现在可升级成为会员！
+      </view>
+      <navigator url='/pages/membersetting/membersetting?sourceType=1' style='display:flex;align-items:center;justify-content:center;margin-left:30rpx;width:160rpx;height:48rpx;background:#F10216;border-radius:28rpx;color:#ffffff;font-size:24rpx;line-height:24rpx'>
+        立即升级
+      </navigator>
+    </block>
+  </view>
+  <!-- 预估收益 -->
+  <view class="forecast-container">
+    <!-- 本月预估收益 -->
+    <view class='forecast-earnings-wrap'>
+      <view class='forecast-earnings-innerbox'>
+        <view class=' ta-center'>
+          <view class='fs-28' bindtap='showModal'>
+            <text class='fw-bold'>今日预估收益  </text>
+            <icon style='display:none' class='iconfont icon-bangzhuzhongxin'></icon>
+          </view>
+          <!-- <view class='fc-red fs-48 fw-bold mt-30'>¥ {{filters.toFix(theMonthEstimateIncome)}}</view> -->
+          <view class='fc-red fs-48 fw-bold mt-30'>¥ {{filters.toFix(priceInfo.incomeTotalAmountToday)}}</view>
+          <view class='for-btns' style='display:none'>
+            <navigator catchtap='onLockPoint' class='red-btn' data-point-key='memberhome_deposit' open-type='reLaunch' url='/subExtractMain/pages/extractMoney/extractMoneyView/extractMoneyView'>
+              提现
+            </navigator>
+          </view>
+        </view>
+        <view class='forecast-earnings-item-wrap'>
+          <view class='flex'>
+            <!-- <view class='flex-item ta-center forecast-earnings-item'>
+              <view class='fs-24'>今日预估收益</view>
+              <view class='fs-32'>¥ {{filters.toFix(priceInfo.incomeTotalAmountToday)}}</view>
+            </view> -->
+            <view class='flex-item ta-center forecast-earnings-item' style='display:flex;align-items:center;flex-direction:column;'>
+              <view class='fs-28' style='color:#999999;position:relative;bottom:10rpx;'>今日订单</view>
+              <view class='fs-32' style='color:#333333'>{{orderInfo.orderTotalAmountToday || '0'}}</view>
+              <navigator url="/pages/distributionPromotionOrder/promotionOrder" style='margin-top:30rpx;background:#FDE5E7;color:#f10216;font-size:24rpx;width:148rpx;height:48rpx;position:relative;top:10rpx;display:flex;align-items:center;justify-content:center;'>订单列表</navigator>
+            </view>
+            <view class='flex-item ta-center forecast-earnings-item' style='display:flex;align-items:center;flex-direction:column;'>
+              <view class='fs-28' style='color:#999999;position:relative;bottom:10rpx;'>累计收益</view>
+              <view class='fs-32' style='color:#333333'>¥ {{filters.toFix(priceInfo.incomeTotalAmount)}}</view>
+              <navigator url='/subExtractMain/pages/incomeDetails/incomeDetails' style='margin-top:30rpx;background:#FDE5E7;color:#f10216;font-size:24rpx;width:148rpx;height:48rpx;position:relative;top:10rpx;display:flex;align-items:center;justify-content:center;'>收益详情</navigator>
+            </view>
+          </view>
+        </view>
+        <!-- <view class='link-btn' >
+            <navigator catchtap='onLockPoint' data-point-key='memberhome_moreorder' url="/pages/distributionPromotionOrder/promotionOrder" >
+              历史订单
+              <i class='iconfont icon-youcejiantou' style="margin-left:14rpx;font-size:20rpx;" />
+            </navigator>
+          </view> -->
+        <!-- 轮播 -->
+        <swiper vertical='{{true}}' autoplay="{{true}}" duration='500' circular="true" indicator-dots='{{false}}' bindchange='swiperChange' style="height:78rpx;margin:0rpx 30rpx 0rpx 30rpx;border-top:1rpx solid #e5e5e5;">
+          <block wx:for='{{names}}'>
+            <swiper-item style="color:#333333;display:flex;align-items:center;" catchtouchmove='swiperTouchMove' catchtap='onLockPoint' data-point-key='memberhome_swiper'>
+              <i class='iconfont icon-fensishouyi' style="color:#FC7149;font-size:28rpx;" />
+              <text style='font-size:24rpx;'>用户{{item}}**** 刚收获{{randomNum}}元推广收益</text>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+    <!-- tab时间筛选切换 -->
+    <view class='earnings-tab-wrap line-20 ta-center flex'>
+      <view class='item fs-28 flex-item {{tab==6&&"active-item"}}' id='6' bindtap='tabChange'>近7天</view>
+      <view class='item fs-28 flex-item {{tab==29&&"active-item"}}' id='29' bindtap='tabChange'>30天</view>
+      <view class='item date-picker fs-24 flex-item {{tab=="dataPick"&&"active-item"}}' id='dataPick' bindtap='tabChange'>
+        <date-picker wx:if='{{hasInitChart}}' bindtap='hideCanvas' bind:selectDate='selectDate' bind:cencelDate='cencelDate' defaultLimit='{{defaultLimit}}' limit='90000' pos='middle' mode='radius' showTrangle='{{true}}' />
+        <!-- <i class='iconfont icon-xiaosanjiao-xiangxia m-l-10' /> -->
+      </view>
+    </view>
+
+    <!-- 收益图表 -->
+    <view class='earnings-chart-wrap line-20'>
+      <view class='flex chart-data'>
+        <view class='flex-item ta-center'>
+          <view class='fs-28 fc-666'>预估收益</view>
+          <view class='fs-32 fw-bold fc-333'>¥ {{filters.toFix(totalIncome)}}</view>
+        </view>
+        <view class='flex-item ta-center'>
+          <view class='fs-28 fc-666'>订单量</view>
+          <view class='fs-32 fw-bold fc-333'>{{orderCount}}</view>
+        </view>
+      </view>
+      <view class='chart'>
+        <canvas class="canvas" canvas-id="lineCanvas" style='width:{{canvasWidth}}px;height:{{canvasHeight}}px;display:{{canvasDisabled?"none":"block"}}' bindtouchstart='canvasHandle'></canvas>
+        <image wx:if='{{canvasDisabled}}' src='{{canvasToImage}}' style='width:{{canvasWidth}}px;height:{{canvasHeight}}px' bindtap="chartsImgClick" />
+      </view>
+    </view>
+  </view>
+  <!-- // 预估收益 -->
+
+
+  <!-- 可提现金额 -->
+  <view wx:if="{{isVip==true}}" style="margin-top:50rpx;display:flex;align-items:center">
+    <view style='width:48rpx;height:48rpx;background:rgba(241,2,22,.05);border-radius:24rpx;display:flex;justify-content:center;align-items:center'>
+      <i class='iconfont icon-ketixianjine' style="color:#F10216;font-size:32rpx;" />
+    </view>
+    <view style="margin-left:10rpx;font-size:32rpx;color:#333333;line-height:32rpx;font-weight:bold;">可提金额</view>
+  </view>
+  <view wx:if="{{isVip==true}}" class="money-area">
+    <view class="money-num">￥{{useYS == '01' ? filters.toFix(yiShiAmount) : filters.toFix(statistic.cashAmount)}}</view>
+    <view class="zhan-wei">
+      <view class="money-v" hidden="{{hadAuth}}">
+        <text class="iconfont icon-tanhao money-icon"></text>
+        <text class="money-tip">未完成提现认证</text>
+      </view>
+    </view>
+    <navigator class="money-btn" catchtap='onLockPoint' data-point-key='memberhome_deposit' open-type='reLaunch' url='/subExtractMain/pages/extractMoney/extractMoneyView/extractMoneyView'>
+      提现
+    </navigator>
+  </view>
+
+  <!-- 我的粉丝 会员-->
+  <view wx:if="{{isVip==true}}" style="display:flex;margin-top:50rpx;align-items:center">
+    <view style='width:48rpx;height:48rpx;background:rgba(241,2,22,.05);border-radius:24rpx;display:flex;justify-content:center;align-items:center'>
+      <i class='iconfont icon-wodefensi' style="color:#F10216;font-size:32rpx;" />
+    </view>
+    <view style="margin-left:10rpx;font-size:32rpx;color:#333333;line-height:32rpx;font-weight:bold;">我的粉丝</view>
+    <navigator catchtap='onLockPoint' data-point-key='memberhome_morefans' url='/pages/fanManagement/fanManagement?id=0' style="margin-left:400rpx;font-size:26rpx;color:#999999;line-height:26rpx;display:flex;justify-content:center;align-items:center">
+      更多
+      <i class='iconfont icon-youcejiantou' style="margin-left:14rpx;font-size:20rpx;" />
+    </navigator>
+  </view>
+  <view wx:if="{{isVip==true}}" style="margin-top:20rpx;width:690rpx;box-shadow: 0 0 20px 0 rgba(221,221,221,0.50);border-radius: 12px;">
+    <view style="display:flex;height:74rpx;padding:40rpx 0;">
+      <view style="width:230rpx;" catchtap='onLockPoint' data-point-key='memberhome_incrfanssumtoday'>
+        <view style="display:flex;align-items:center;justify-content:center;font-size:24rpx;color:#999999;line-height:24rpx;">
+          今日新增粉丝
+        </view>
+        <view style="margin-top:20rpx;display:flex;align-items:center;justify-content:center;font-size:32rpx;color:#333333;line-height:32rpx;font-weight:bold">
+          {{fansInfo.incrFansSumToday || '0'}}
+        </view>
+      </view>
+      <view style="width:2rpx;background:#e5e5e5;height:60rpx;margin-top:7rpx;">
+      </view>
+      <view style="width:230rpx;" catchtap='onLockPoint' data-point-key='memberhome_fanstotalamount'>
+        <view style="display:flex;align-items:center;justify-content:center;font-size:24rpx;color:#999999;line-height:24rpx;">
+          粉丝总数
+        </view>
+        <view style="margin-top:20rpx;display:flex;align-items:center;justify-content:center;font-size:32rpx;color:#333333;line-height:32rpx;font-weight:bold">
+          {{fansInfo.fansTotalAmount || '0'}}
+        </view>
+      </view>
+      <view style="width:2rpx;background:#e5e5e5;height:60rpx;margin-top:7rpx;">
+      </view>
+      <view style="width:230rpx;" catchtap='onLockPoint' data-point-key='memberhome_membertotalamount'>
+        <view style="display:flex;align-items:center;justify-content:center;font-size:24rpx;color:#999999;line-height:24rpx;">
+          会员总数
+        </view>
+        <view style="margin-top:20rpx;display:flex;align-items:center;justify-content:center;font-size:32rpx;color:#333333;line-height:32rpx;font-weight:bold">
+          {{fansInfo.memberTotalAmount || '0'}}
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <!-- 我的粉丝 非会员-->
+  <view wx:if="{{isVip==false}}" class='fans'>
+    <view class='fans-title-wrap fc-333 fs-32'>
+      <view class='fans-title-icon-bg'>
+        <i class='iconfont icon-wodefensi' />
+      </view>
+      <text class='fw-bold'>我的粉丝</text>
+      <navigator url='/pages/fanManagement/fanManagement?id=1' class='more-link fs-26 fc-999'>查看更多
+        <i class='iconfont icon-youcejiantou' />
+      </navigator>
+    </view>
+    <view class='fans-item-wrap'>
+      <view class='flex'>
+        <view class='fans-item flex-item'>
+          <view class='fs-24 fc-999'>今日新增粉丝</view>
+          <view class='fs-32 fc-333 fw-bold'>{{fansInfo.incrFansSumToday || '0'}}</view>
+        </view>
+        <view class='fans-item flex-item'>
+          <view class='fs-24 fc-999'>粉丝总数</view>
+          <view class='fs-32 fc-333 fw-bold'>{{fansInfo.fansTotalAmount || '0'}}</view>
+        </view>
+        <view class='fans-item flex-item'>
+          <view class='fs-24 fc-999'>会员总数</view>
+          <view class='fs-32 fc-333 fw-bold'>{{fansInfo.memberTotalAmount || '0'}}</view>
+        </view>
+      </view>
+      <!-- <view class='fans-upgrade-vip fs-24 fc-red'>
+        <block wx:if='{{invitedShort > 0}}'>
+          您已邀请{{invitedUserCout}}位好友加入，再邀请{{invitedShort}}人成为会员！
+        </block>
+        <block wx:else>
+          您现在可升级成为会员！
+          <view class='fans-upgrade-vip-btn'>
+            <navigator url='{{buyer.pathRoot}}/pages/membersetting/membersetting?sourceType=1'>立即升级</navigator>
+          </view>
+        </block>
+      </view> -->
+    </view>
+  </view>
+  <!-- 我的订单 -->
+  <view wx:if="{{isVip==true}}" style="display:flex;margin-top:50rpx;align-items:center">
+    <view style='width:48rpx;height:48rpx;background:rgba(241,2,22,.05);border-radius:24rpx;display:flex;justify-content:center;align-items:center'>
+      <i class='iconfont icon-wodedingdan' style="color:#F10216;font-size:32rpx;" />
+    </view>
+    <view style="margin-left:10rpx;font-size:32rpx;color:#333333;line-height:32rpx;font-weight:bold;">我的订单</view>
+    <navigator catchtap='onLockPoint' data-point-key='memberhome_moreorder' url="/pages/distributionPromotionOrder/promotionOrder" style="margin-left:400rpx;font-size:26rpx;color:#999999;line-height:26rpx;display:flex;justify-content:center;align-items:center">
+      更多
+      <i class='iconfont icon-youcejiantou' style="margin-left:14rpx;font-size:20rpx;" />
+    </navigator>
+  </view>
+
+  <view wx:if="{{isVip==true}}" style="margin-top:20rpx;width:690rpx;box-shadow: 0 0 20px 0 rgba(221,221,221,0.50);border-radius: 12px;">
+    <view style="display:flex;height:74rpx;padding:40rpx 0;">
+      <view style="width:345rpx;" catchtap='onLockPoint' data-point-key='memberhome_ordertotalamounttoday'>
+        <view style="display:flex;align-items:center;justify-content:center;font-size:24rpx;color:#999999;line-height:24rpx;">
+          今日订单总量
+        </view>
+        <view style="margin-top:20rpx;display:flex;align-items:center;justify-content:center;font-size:32rpx;color:#333333;line-height:32rpx;font-weight:bold">
+          {{orderInfo.orderTotalAmountToday || '0'}}
+        </view>
+      </view>
+      <view style="width:2rpx;background:#e5e5e5;height:60rpx;margin-top:7rpx;">
+      </view>
+      <view style="width:345rpx;" catchtap='onLockPoint' data-point-key='memberhome_promotionordernumtoday'>
+        <view style="display:flex;align-items:center;justify-content:center;font-size:24rpx;color:#999999;line-height:24rpx;">
+          今日推广订单
+        </view>
+        <view style="margin-top:20rpx;display:flex;align-items:center;justify-content:center;font-size:32rpx;color:#333333;line-height:32rpx;font-weight:bold">
+          <!-- 10/11/20 将推广订单购买订单合并 -->
+          <!-- {{orderInfo.promotionOrderNumToday || '0'}} -->
+          {{(orderInfo.promotionOrderNumToday||0)+(orderInfo.buyOrderNumToday || 0)}}
+        </view>
+      </view>
+      <!-- 今日购买订单 10/11/20注释 -->
+      <!-- <view style="width:2rpx;background:#e5e5e5;height:60rpx;margin-top:7rpx;">
+      </view>
+      <view style="width:230rpx;" catchtap='onLockPoint' data-point-key='memberhome_buyordernumtoday'>
+        <view style="display:flex;align-items:center;justify-content:center;font-size:24rpx;color:#999999;line-height:24rpx;">
+          今日购买订单
+        </view>
+        <view style="margin-top:20rpx;display:flex;align-items:center;justify-content:center;font-size:32rpx;color:#333333;line-height:32rpx;font-weight:bold">
+          {{orderInfo.buyOrderNumToday || '0'}}
+        </view>
+      </view> -->
+    </view>
+  </view>
+
+  <!-- 会员礼包 -->
+  <view wx:if="{{vipDataSource.length>0 && isVip==false}}" class='vip-gift'>
+    <view class='vip-gift-title-wrap fc-brown fs-32 fw-bold'>
+      <i class='vip-gift-title-icon' /> 选购任意一款礼包，即可成为会员
+      <i class='vip-gift-title-icon' />
+    </view>
+    <view class='vip-gift-item flex' wx:for='{{vipDataSource}}'>
+      <view class='vip-gift-item-img'>
+        <navigator bindtap='saveDetailInfoToGlobal' data-item='{{item}}' url='/pages/productsdetails/productsdetails?itemId={{item.itemId}}&sellerId={{item.sellerId}}&promotionId={{item.promotionId}}'>
+          <image src='https:{{item.itemMainPicUrl}}' />
+        </navigator>
+      </view>
+      <view class='vip-gift-item-info flex-item'>
+        <view class='vip-gift-item-info-title fs-26 fc-333 fw-bold'>
+          <navigator bindtap='saveDetailInfoToGlobal' data-item='{{item}}' url='/pages/productsdetails/productsdetails?itemId={{item.itemId}}&sellerId={{item.sellerId}}&promotionId={{item.promotionId}}'>
+            {{item.itemName}}
+          </navigator>
+        </view>
+        <view class='vip-gift-item-info-price fc-red'>
+          <text class='fs-24'>新人专享价:</text>
+          <text class='fs-26 ph-10 fw-bold'>¥</text>
+          <text class='fs32 fw-bold'>{{filters.toFix(item.salePrice)}}</text>
+        </view>
+        <view class='vip-gift-item-info-btn'>
+          <navigator url='/pages/membersetting/membersetting?sourceType=2&itemSkuRequestVo={{item.itemSkuRequestVo}}'>
+            立即购
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style="height:158rpx;">
+  </view>
+</view>
+
+
+
+
+<!-- 预估收益弹层 -->
+<view class='mask' wx:if='{{isShow}}' catchtouchmove="return"></view>
+<view class='pop-explain' wx:if='{{isShow}}' catchtouchmove="return">
+  <view class='explain-top'>
+    <view class='decorateLt'></view>
+    <text class='fw-bold'>名词解释</text>
+    <icon class='iconfont icon-guanbi1 close-btn' bindtap='showModal'></icon>
+  </view>
+  <view class='explain-main'>
+    <view class="context-box">
+      <view class='explain-title fw-bold'>
+        <text>1</text>本月预估收益</view>
+      <view class='explain-cont'>交易发生在本月的订单预估收益；</view>
+      <view class='explain-title fw-bold'>
+        <text>2</text>上月预估收益</view>
+      <view class='explain-cont'>交易发生在上月的订单预估收益；</view>
+      <view class='explain-title fw-bold'>
+        <text>3</text>上月已结算金额</view>
+      <view class='explain-cont'>交易时间在上月，且订单已经完成可结算。系统会在本月计算这佣金。</view>
+      <view class='explain-title fw-bold'>
+        <text>4</text>上月未结算金额</view>
+      <view class='explain-cont'>交易时间在上月，但订单在上月仍不可结算。系统会在订单完成后，计算佣金，计入完成当月结算单；</view>
+    </view>
+    <view class='decorateRb'></view>
+  </view>
+</view>
+
+<tabbar-coverview tabbar="{{tabbar}}" />
+
+<!-- 邀请弹层+魔盒弹层组件 -->
+<!-- <index-layer></index-layer> -->
+<!-- 专属老师弹层 -->
+<view class="mask-box" wx:if='{{showMask}}'>
+  <view class="tanceng-box">
+    <!-- <view class="fc-333 fs-32 fw-bold"></view> -->
+    <view wx:if='{{myTeacherWx}}' style="margin:20rpx 0;">
+      <view class="fc-666 fs-28">您的专属导师微信号</view>
+      <view class="fc-333 fs-32 fw-bold">{{myTeacherWx}}</view>
+    </view>
+    <view wx:if='{{myDefaultTeacherWx}}' style="margin:20rpx 0;">
+      <view class="fc-666 fs-28">您的专属导师暂时没有留下讯息</view>
+      <view class="fc-666 fs-28">您可以加{{brandTxt.mine1}}助手微信号</view>
+      <view class="fc-333 fs-32 fw-bold">{{myDefaultTeacherWx}}</view>
+    </view>
+    <view wx:if='{{noSettingWx}}' style="margin:20rpx 0;">
+      <view class="fc-666 fs-28">您的专属微信导师:</view>
+      <view class="fc-333 fs-32 fw-bold">{{noSettingWx}}</view>
+    </view>
+    <view class="fc-666 fs-24 warning-note">
+      <view>想获得快速省钱赚钱的指导,</view>
+      <view>快复制微信号去微信添加好友咨询吧！</view>
+      <view>添加时请备注：平台成员</view>
+    </view>
+    <view class="fs-32 tanceng-btn">
+      <text class="fc-333" catchtap="cancelMask">取消</text>
+      <text wx:if='{{!noSettingWx}}' class="fc-red" catchtap="copyWX">复制微信</text>
+      <text wx:else class="fc-999">复制微信</text>
+    </view>
+  </view>
+  <!-- <view wx:else class="no-teacher">
+    <view class="fc-333 fs-32 fw-bold">提示</view>
+    <view class="fc-666 fs-28" style="margin:50rpx 0;">您的专属导师没留下联系方式</view>
+    <view class="fs-32 tanceng-btn">
+      <text class="fc-red" catchtap="cancelMask" style="border:none">我知道了</text>
+    </view>
+  </view> -->
+</view>

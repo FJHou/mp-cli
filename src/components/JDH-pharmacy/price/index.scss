@@ -1,0 +1,41 @@
+@import "../../../css/JDfont.wxss";
+.h-price {
+    padding-top: 10rpx;
+    color: #f14747;
+    text-align: center;
+
+    .symbol {
+        font-size: 28rpx;
+        margin-right: 5rpx;
+    }
+    .number {
+        font-size: 50rpx;
+    }
+    .symbol, .number {
+        display: inline-block;
+        font-family: JDZhengHei-01-Bold;
+    }
+
+    &.regular {
+        .symbol,
+        .number {
+            font-family: JDZhengHei-01-Regular;
+        }
+    }
+    &.bold {
+        .symbol,
+        .number {
+            font-family: JDZhengHei-01-Bold;
+        }
+    }
+    &.light {
+        .symbol,
+        .number {
+            font-family: JDZhengHei-01-Light;
+        }
+    }
+}
+
+
+
+

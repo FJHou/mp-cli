@@ -1,0 +1,130 @@
+/* pages/logisticsInfo/logisticsInfo.wxss */
+page{
+  background: rgb(245, 245, 245);
+  position: relative;
+}
+.logistics-info-wrapper{
+  background: #fff;
+  margin-top: 16rpx;
+  box-sizing: border-box;
+  /* height: 147rpx; */
+  padding: 24rpx 31rpx;
+  font: 24rpx/33rpx PingFangSC-Regular;
+  color: #2E2D2D;
+}
+.logistics-schedule-wrapper{
+  background: #fff;
+  margin-top: 16rpx;
+  padding: 76rpx 30rpx;
+}
+.status-item{
+  color: #DADADA;
+  display: flex;
+  align-items: stretch;
+}
+.status-mark-tl{
+  width: 2rpx;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  /* transform: translateX(-50%); */
+  background: #DADADA;
+  z-index: 1;
+}
+.status-mark-bl{
+  width: 2rpx;
+  height: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  /* transform: translateX(-50%); */
+  background: #DADADA;
+  z-index: 1;
+}
+.status-item .status-mark {
+  flex:0 0 29rpx;
+  position:relative;
+  margin-right:16rpx;
+}
+.status-mark .status-mark-cir{
+    box-sizing: border-box;
+    width: 30rpx;
+    height: 30rpx;
+    background: #DADADA;
+    flex: 0 0 30rpx;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 2;
+}
+.status-item.small .status-mark .status-mark-cir{
+  width: 15rpx;
+  height: 15rpx;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.status-word{
+  flex: 1;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  text-align: justify;
+  line-height: 33rpx;
+  min-height: 75rpx;
+  padding-bottom: 12rpx;
+}
+.small .status-word{
+  padding: 12rpx 0rpx;
+}
+.status-desc-title{
+  font-family: PingFangSC-Medium;
+  font-size: 28rpx;
+  margin-bottom: 16rpx;
+}
+
+.status-item:last-child .status-mark-bl{
+  display: none;
+}
+.status-item:last-child .status-mark-tl{
+  display: none;
+}
+/* .status-item:first-child .status-mark-tl{
+  display: none;
+} */
+.status-item:first-child{
+  color: #2E2D2D;
+}
+.status-item:first-child .status-mark-cir{
+  background: #F0250E;
+}
+.bt-blank{
+  height: 120rpx;
+}
+.bt{
+  padding: 20rpx 0 20rpx;
+  position: absolute;
+  bottom: 10rpx;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+.bt-na{
+  color: rgb(196, 196,196);
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular;
+  line-height: 28rpx;
+  margin: 0 0 6rpx;
+  text-align: center;
+}
+.logo{
+  margin: 0 auto;
+  display: block;
+  width: 43rpx;
+  height: 37rpx;
+}
+.status-item+.status-item.small{
+  /* margin-top: -20rpx; */
+}
+.status-item.small+.status-item .status-word{
+  /* padding-top: 32rpx; */
+}

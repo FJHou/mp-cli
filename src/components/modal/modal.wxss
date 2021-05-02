@@ -1,0 +1,46 @@
+/* components/modal.wxss */
+
+
+.modal{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.modalPanel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(0,0) scale(1);
+  opacity: 1;
+  transition: all .6s;
+}
+.mP-hide{
+  opacity: 0;
+  transform: translate3d(300rpx,300rpx,0) scale(.4);
+  transition: all .6s;
+}
+.modalPanel .colseImg{
+  width: 64rpx;
+  height: 64rpx;
+}
+
+/***必须自适应高度***/
+.modal .panel{
+  min-height: 200rpx;
+  margin-bottom: 10rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,53 @@
+<view class="edit-wrap">
+  <view class="banner">
+
+  </view>
+  <view class="form-container">
+    <view class="form flex">
+      <view class="form-label">邀请码</view>
+      <view class="flex-item form-input">
+        <input placeholder="请输入邀请码" disabled="{{fromFansDisableInputInviteCode}}" placeholder-class="place-holder" bindinput="inviteCode" maxlength="6" value="{{form.inviteCode}}" />
+      </view>
+    </view>
+    <view class="form flex">
+      <view class="form-label">手机号</view>
+      <view class="flex-item form-input">
+        <input placeholder="请输入手机号码" placeholder-class="place-holder" bindfocus="phoneFocus" bindinput="phoneNum" type="number" maxlength="11" value="{{form.phone}}" />
+      </view>
+      <view class="form-code" wx:if="{{!isVerifiedUser}}">
+        <block wx:if="{{!codeFlag}}">
+          <button class="code-button text-red" bindtap="getCode">获取验证码</button>
+        </block>
+        <block wx:else>
+          <button class="code-button text-gray">{{countDownTime}} 秒后获取验证码</button>
+        </block>
+      </view>
+    </view>
+    <view class="form flex" wx:if="{{!isVerifiedUser}}">
+      <view class="form-label">验证码</view>
+      <view class="flex-item form-input">
+        <input placeholder="输入验证码" placeholder-class="place-holder" maxlength="6" bindinput="verifyCode" />
+      </view>
+    </view>
+    <view class="form flex">
+      <view class="form-label">称呼</view>
+      <view class="flex-item form-input">
+        <input placeholder="请输入您的称呼" placeholder-class="place-holder" maxlength="15" bindinput="nickName" value="{{form.nickName}}" />
+      </view>
+    </view>
+    <view class="form flex">
+      <view class="form-label">性别</view>
+      <view class="flex-item form-input">
+        <picker class="gender-picker" bindchange="bindPickerChange" value="{{index}}" range="{{genderPicker}}">
+          <text wx:if="{{form.gender !== ''}}">{{genderPicker[form.gender]}}</text>
+          <input wx:else placeholder="请选择您的性别" placeholder-class="place-holder" disabled="{{true}}" />
+        </picker>
+      </view>
+    </view>
+    <view class="button-group">
+      <button class="form-button jd-button {{disableSubmit ? 'jd-button-disabled' : ''}}" bindtap="submit">
+        确认
+      </button>
+    </view>
+  </view>
+</view>

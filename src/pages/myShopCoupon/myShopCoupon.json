@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "门店优惠券",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "disableScroll":true,
+  "usingComponents": {
+    "fsubmit": "../../components/fsubmit/fsubmit"
+  }
+}

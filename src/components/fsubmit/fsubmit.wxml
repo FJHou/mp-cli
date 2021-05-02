@@ -1,0 +1,9 @@
+<!--pages/components/fsubmit.wxml-->
+<form bindsubmit="submit" report-submit='true' class="fid-form">
+  <button wx:if="{{!isbtn}}" form-type="submit" hover-stop-propagation="true" class="fid-btn">
+    <slot></slot>
+  </button>
+  <view wx:if="{{isbtn}}" hover-stop-propagation="true">
+    <slot></slot>
+  </view>
+</form>

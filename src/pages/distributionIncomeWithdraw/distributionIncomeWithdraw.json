@@ -1,0 +1,9 @@
+{
+	"navigationBarTitleText": "收益提现",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+	"disableScroll":true,
+  "usingComponents": { 
+  }
+}

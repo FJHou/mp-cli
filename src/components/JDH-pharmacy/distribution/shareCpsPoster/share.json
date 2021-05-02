@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-overlay": "../../../../base/overlay/index"
+  }
+}

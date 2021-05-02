@@ -1,0 +1,14 @@
+.h-banner {
+    width: 100%;
+    .swiper {
+        height: calc((100vw - 60rpx) * (288/1053));
+    }
+    .swiper-item {
+        text-align: center;
+    }
+    .image {
+        width: 100%;
+        height: 100%;
+        border-radius: 10rpx;
+    }
+}

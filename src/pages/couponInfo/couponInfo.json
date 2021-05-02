@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "fsubmit": "../../components/fsubmit/fsubmit"
+  },
+  "navigationBarTitleText": "优惠券详情"
+}

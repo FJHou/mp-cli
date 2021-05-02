@@ -1,0 +1,35 @@
+<!--pages/couponRetailStore/couponRetailStore.wxml-->
+<view class='page-con'>
+  <view wx:if="{{list.length>0}}">
+    <view class='brand-shop-li' wx:for="{{list}}" bindtap='openMap' data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}" data-store-name="{{item.storeName}}" data-store-address="{{item.storeAddress}}" wx:key="{{index}}">
+          <view class='bsl-address'>
+            <view class='bsl-shopname'>{{item.storeName}}</view>
+            <view class='bsl-addr-de'>
+              <view class='bsl-addrname'>{{item.storeAddress}}</view>
+              <view class='bsl-addr-dis'>
+                <image mode='widthFix' src='https://thunder.jd.com/jpass/img/icon_lacation2.png'></image>
+                <view>{{item.distance}}km</view>
+              </view>
+            </view>
+          </view>
+        <view class='bsl-phone' catchtap="callPhone" data-call-phone="{{item.phone}}">
+          <image mode='widthFix' src='https://thunder.jd.com/jpass/img/icon_tel.png'></image>
+        </view>
+      </view>
+  </view>
+<!-- 没有门店 -->
+  <view wx:if="{{!isExist || list.length == 0}}" class="noImg">
+    <image class='no-brandshop' src='https://thunder.jd.com/jpass/img/no_brandshop.png' mode='widthFix'></image>
+    <view class='no-brandshop-word'>抱歉暂无可用门店哦~</view>
+  </view>
+  <return-top show-flag="{{showReturnTop}}" isReturnTop="{{true}}" isReturnHome="{{true}}"></return-top>
+<!-- 底部logo -->
+  <view class='loadmore-blank'></view>
+  <view class='loadmore'>
+    <view wx:if="{{loadstate==0}}" class='load-ing'>加载中…</view>
+    <view wx:if="{{loadstate==1}}" class='load-nomore'>
+      <text>没有更多了~</text>
+      <!-- <image class='bot_logo' src='https://thunder.jd.com/jpass/img/logo_buttom.png' bindtap="gotoMemberCode"></image> -->
+    </view>
+  </view>
+</view>

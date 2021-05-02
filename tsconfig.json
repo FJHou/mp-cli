@@ -1,12 +1,29 @@
 {
     "compilerOptions": {
-        "baseUrl": "./",
         "outDir": "./",
+        "strictNullChecks": false,
+        "noImplicitAny": false,
+        "moduleResolution": "node",
         "module": "ES2015",
         "target": "ES5",
         "allowJs": true,
+        "experimentalDecorators": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "alwaysStrict": true,
+        "inlineSourceMap": true,
+        "inlineSources": true,
+        "noFallthroughCasesInSwitch": true,
+        "allowSyntheticDefaultImports": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strict": true,
+        "removeComments": true,
+        "pretty": true,
+        "lib": ["ES2017", "ES2018.Promise"],
+        "baseUrl": ".",
         "paths": {
-            "@/src": ["src/*"]
+            "@/*": ["src/*"]
         }
     },
     "include": ["src/**/*.ts"],

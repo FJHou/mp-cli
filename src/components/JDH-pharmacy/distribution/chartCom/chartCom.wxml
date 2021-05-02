@@ -1,0 +1,4 @@
+<!-- !hasShop && isVip -->
+<navigator wx:if="{{showChart}}" url='/subExtractMain/pages/rankingList/rankingList' hover-class='none' style='position:fixed; width:136rpx;height:134rpx;bottom:400rpx;right:50rpx;z-index:1000' class='create-shop'>
+      <image src='https://b2b-v2-pre.oss.cn-north-1.jcloudcs.com/68ab7c2f-ada2-4646-aeb5-bc65411e78dd.png' style='width:136rpx;height:134rpx;'/>
+</navigator>

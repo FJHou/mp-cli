@@ -1,0 +1,18 @@
+{
+	"navigationBarTitleText": "京东优惠购", 
+  "backgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": { 
+    "my-cps-share": "../../components/JDH-pharmacy/distribution/shareCpsPoster/share",
+    "back-top": "../../components/JDH-pharmacy/distribution/backTop/backTop",
+    "goods-item-unmember": "../../components/JDH-pharmacy/distribution/unmember/goodsItem",
+    "clipboard": "../../components/JDH-pharmacy/distribution/clipboard/clipboard",
+    "my-loading": "../../components/JDH-pharmacy/distribution/listLoading/loading",
+    "no-data": "../../components/JDH-pharmacy/distribution/noData/noData",
+    "createShopBtn": "../../components/JDH-pharmacy/distribution/createShopBtn/createShopBtn",
+    "maskTip": "../../components/JDH-pharmacy/distribution/maskTip/maskTip",
+    "chartCom": "../../components/JDH-pharmacy/distribution/chartCom/chartCom",
+    "list-view": "../../components/JDH-pharmacy/list-view/list"
+  },
+  "onReachBottomDistance": 200
+}

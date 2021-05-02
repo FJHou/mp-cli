@@ -1,0 +1,68 @@
+<!-- 返回顶部 -->
+<back-top backShow="{{backShow}}" />
+  <!-- 搜索框高度48px -->
+  <view class='search-view'>
+    <view class='search-content' bindtap='goToSearchPage'>
+      <image class='search-Img' src="https://img11.360buyimg.com/imagetools/jfs/t1/151332/17/11673/1265/5fe08902E8a35e0ec/8d6cf87ab1aff8a3.png" alt="" />
+      <text class='search-input'>搜索您要的商品</text>
+    </view>
+    <view class='s-isPromotion' wx:if="{{referenceUserInfo}}"  bindtap='goToPromotionPage'>推广中心</view>
+	</view>
+	 <view class='hot-word'>
+      <!-- <scroll-view class="bottom_scroll scroll-view" scroll-x="true"  scroll-left="{{scrollLeft}}"  scroll-with-animation="{{true}}"> -->
+			<scroll-view class="bottom_scroll scroll-view" scroll-x="true"  scroll-into-view="{{scrollIndexView}}"  scroll-with-animation="{{true}}">
+      	<view class='nav {{index == curTabIndex?"cur":""}}'  wx:for="{{hotArr}}" id="{{'tab'+index}}" wx:key="id" bindtap='switchTab' data-index="{{index}}">
+         	<view class='nav-item'>
+            {{item.name}}
+            <view class='nav-line'></view>
+          </view>
+        </view>
+      </scroll-view>
+      <view class='more-hotWord' catchtap='switchTabContent'>
+        <image class='more-hotWordImg' src="https://img10.360buyimg.com/imagetools/jfs/t1/141421/37/19629/309/5fe088c9E0509e209/c85f341ec8682e98.png" alt="" />
+      </view>
+      <view class='more-tabContent' wx:if='{{showTabContent}}' catchtap='switchTabContent' catchtouchmove="true">
+        <view class='more-tab'>
+          <view class="tab-title">全部类目</view>
+            <scroll-view scroll-y class="tab-view">
+              <view class='tab-model'>
+                <view wx:for="{{hotArr}}" wx:key="id" catchtap='switchTab' data-index="{{index}}" class="tab-list {{index == curTabIndex?'cur':''}}">
+                  <view class='tab-item'>{{item.name}}</view>
+                </view>
+              </view>
+            </scroll-view>
+        </view>
+      </view>
+    </view>
+
+  <list-view class="list-view"
+    bindscrolltolower="onReachBottom" 
+    bindrefresherrefresh="onPullDownRefresh" 
+    refresherTriggered="{{triggered}}"
+    loading="{{loading}}"
+    total="{{1}}"
+    loadOver="{{!hasMoreData}}"
+  >
+    <view> 
+    <view class='icon-main' wx-if="{{showIconContent}}">
+      <view wx:for='{{iconData}}' bindtap='goInIconDetail' data-item="{{item}}" wx:key="item" hover-class="none" class='icon-item'>
+        <image src='{{item.pictureUrl}}' class="{{!zhanweiPic?'':'pic-hide'}}"  data-index='{{idxIcon}}'></image>
+        <view class="icon-pic-size {{zhanweiPic?'':'pic-hide'}}">
+          <image src='{{productDefaultImg}}' mode="aspectFit" style="width:50rpx;"></image>
+        </view>
+        <view>{{item.name}}</view>
+      </view>
+    </view>
+    </view>
+    <!-- 商品列表 -->
+    <goods-item-unmember  wx:for="{{productionList}}" wx:key='itemId' bind:event_share="listenShare" itemObj="{{item}}" referenceUserInfo="{{referenceUserInfo}}" />
+  </list-view>
+<!-- <view class="mall">
+
+
+
+</view> -->
+<!-- 分享赚 -->
+<my-cps-share productInfo="{{shareCpsItem}}" isVip="{{isVip}}" codeCall="{{codeCallCpsShare}}" isOnlyCps="{{shareCpsItem.isOnlyCps}}" />
+<!-- <tab-bar></tab-bar> -->
+ 

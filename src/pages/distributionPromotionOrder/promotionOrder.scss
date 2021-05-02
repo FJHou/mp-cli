@@ -1,0 +1,134 @@
+/* tab start */
+
+// .fixed-tab {
+//   z-index: 100;
+// }
+page {
+  background-color: #f8f8f8;
+}
+
+.order-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .fixed-tab {
+    .tab-wrap {
+      overflow: auto;
+      border-bottom: 1rpx solid #edeeef;
+    }
+
+    .tab-list {
+      height: 88rpx;
+      background: #fff;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .tab-item {
+      flex: 1;
+      text-align: center;
+      font-size: 28rpx;
+      color: #999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tab-item.active {
+      color: #f10216;
+      font-weight: bold;
+    }
+
+    .tab-item .tag {
+      display: inline-block;
+      background: #f10216;
+      border-radius: 64rpx;
+      color: #fff;
+      font-size: 24rpx;
+      text-align: center;
+      width: 52rpx;
+      height: 36rpx;
+      margin-left: 10rpx;
+      font-weight: normal;
+    }
+
+    /*下拉，筛选 start*/
+    .filter {
+      height: 88rpx;
+      background: #fff;
+      font-size: 28rpx;
+      color: #666;
+      display: flex;
+      align-items: center;
+      border-bottom: 1rpx solid #edeeef;
+    }
+    .filter-item {
+      text-align: center;
+      margin: auto;
+    }
+    .select {
+      position: relative;
+      text-align: center;
+      display: inline-block;
+      font-size: 28rpx;
+      color: #666666;
+    }
+    .select .icon-xiaosanjiao-xiangxia {
+      font-size: 16rpx;
+      color: #bbb;
+      margin-left: 14rpx;
+      vertical-align: middle;
+    }
+    .select-content-wrap {
+      position: relative;
+    }
+    .select-content {
+      position: absolute;
+      top: 15rpx;
+      text-align: left;
+      width: 200rpx;
+      background: #fff;
+      box-shadow: 0rpx 3rpx 10px 3rpx rgba(58, 58, 58, 0.1);
+      border-radius: 8rpx;
+      font-size: 28rpx;
+      color: #999999;
+      text-indent: 44rpx;
+    }
+    .select-item {
+      height: 44rpx;
+      line-height: 44rpx;
+    }
+    .select-item.active {
+      color: #f10216;
+    }
+  }
+
+  /*列表*/
+  .list-wrap {
+    // border-top: 1rpx solid #edeeef;
+    height: calc(100% - 178rpx);
+  }
+
+  .list-item {
+    margin-top: 20rpx;
+    background: #fff;
+  }
+  /*暂无数据*/
+  .empty {
+    display: flex;
+    height: 100%;
+    font-size: 28rpx;
+    color: #999;
+    .empty-text {
+      margin: 20% auto;
+      text-align: center;
+    }
+  }
+
+  .no-more-data {
+    text-align: center;
+    font-size: 28rpx;
+    padding: 30rpx 0;
+    color: #999;
+  }
+}

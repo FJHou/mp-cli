@@ -1,0 +1,46 @@
+
+<view class='date-value' bindtap='onPickerClick'>
+  <text data-date-type='startDate'>{{rangeValue[0]}}</text>
+  <text> - </text>
+  <text data-date-type='endDate'>{{rangeValue[1]}}</text>
+
+  <text wx:if='{{!rangeValue[0] && !rangeValue[1]}}'>{{ placeholder}}</text>
+  <text class='icon-trangle icon iconfont icon-xiaosanjiao-xiangxia'></text>
+</view>
+
+<view class='date-picker' wx:if='{{show}}'>
+  <view class='date-picker-content'>
+    <view class='date-tab'>
+      <view class='{{dateType == "startDate"?"active":""}}' bindtap='onChangeTab' data-date-type='startDate'>
+        <view>开始日期</view>
+        <view>{{startDate}}</view>
+      </view>
+      <view class='{{dateType == "endDate"?"active":""}}' bindtap='onChangeTab' data-date-type='endDate'>
+        <view>结束日期</view>
+        <view>{{endDate}}</view>
+      </view>
+    </view>
+    <view class='date-list'>
+      <picker-view
+        class='picker-view' 
+        indicator-class='indicator-class'
+        value="{{value || defaultValue}}"
+        bindchange="onPickerChange"
+      >
+        <picker-view-column>
+          <view wx:for="{{years}}" wx:key="item" class='picker-view-column'>{{item}}年</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{months}}" wx:key="item" class='picker-view-column'>{{item}}月</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{days}}" wx:key="item" class='picker-view-column'>{{item}}日</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+    <view class='date-btn'>
+      <view class='btn-cancel' bindtap='onCancel'>取消</view>
+      <view class='btn-ok'  bindtap='onOk'>确定</view>
+    </view>
+  </view>
+</view>

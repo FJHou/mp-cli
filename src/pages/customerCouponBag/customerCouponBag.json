@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "fsubmit": "../../components/fsubmit/fsubmit",
+    "img-share": "../../components/imgShare/imgShare"
+  }
+}

@@ -1,0 +1,29 @@
+<!--pages/couponRetailStore/couponRetailStore.wxml-->
+<view class='page-con'>
+  <view class='goods-list' wx:if="{{list.length>0}}">
+    <view class='couponInfo'>以下商品可以使用满{{rule}}减{{value}}的优惠券</view>
+    <view class='bs-comm'>
+      <view wx:for="{{list}}" wx:key="index">
+        <view class='bs-comm-item'>
+          <image src='{{item.imageUrl}}'></image>
+          <view class='bs-ci-name'>{{item.title}}</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <!-- 没有商品 -->
+  <view wx:if="{{!isExist}}" class="noImg">
+    无可用商品
+  </view>
+  <!-- 底部logo -->
+  <view class='loadmore'>
+    <view wx:if="{{loadstate==0}}" class='load-ing'>加载中…</view>
+    <view wx:if="{{loadstate==1}}" class='load-nomore'>没有更多了~
+      <!-- <image class='bot_logo' src='https://thunder.jd.com/jpass/img/logo_buttom.png'></image> -->
+    </view>
+  </view>
+
+  <return-top show-flag="{{false}}" isReturnTop="{{false}}" isReturnHome="{{true}}"></return-top>
+
+</view>

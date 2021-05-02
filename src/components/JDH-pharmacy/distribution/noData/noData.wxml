@@ -1,0 +1,13 @@
+<!--components/noData/noData.wxml-->
+<!-- 
+   该组件用于: 列表底部的"没有更多数据了"、列表为空时的"暂无数据" 两种情况的维护
+   参数 [tipMsg] 指定要提示的文字信息 默认：'没有数据了'
+   参数 [marginTop] 指定组件与上部元素的距离，默认：10rpx
+   维护者：jingxl
+ -->
+<view style="margin-top: {{marginTop}}rpx">
+  <view class="nodata"> 
+		<text class='no-lbl'>{{tipMsg || '我们是有底线的'}}</text> 
+  </view>
+</view>
+

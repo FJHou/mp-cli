@@ -1,0 +1,19 @@
+<view class="hotsale">
+    <title title="本店热销" is-link bind:click="gotoDSWareH5"></title>
+    <card card-class="card">
+        <swiper class="hot-swiper" indicator-dots="true" autoplay circular indicator-color="#FCDDDD" indicator-active-color="#FBBCBC">
+            <swiper-item class="swiper-item" wx:for="{{productList}}" wx:key="idx" wx:for-item="itemList">
+                <view class='goods analysis-product' wx:for="{{itemList}}" wx:for-item="item" wx:for-index="index" wx:key="index" bindtap="gotoDSWareH5" data-analysisfloor='1' data-venderId="{{item.venderId}}" data-wareid="{{item.wareid}}">
+                    <view class="imgPanle">
+                        <image class="goods-image" src="{{item.imageUrl}}"></image>
+                    </view>
+                    <view class="name">{{item.wareName}}</view>
+                    <view class="pice">
+                        <text class="icon">¥</text>
+                        <text>{{item.dredisprice}}</text>
+                    </view>
+                </view>
+            </swiper-item>
+        </swiper>
+    </card>
+</view>

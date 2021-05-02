@@ -1,0 +1,12 @@
+{
+  "enablePullDownRefresh": false,
+	"backgroundColor": "#fff",
+	"backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "粉丝管理",
+	"navigationBarTextStyle":"black",
+	"usingComponents": {
+		"no-data": "../../components/JDH-pharmacy/distribution/noData/noData",
+		"no-data-page": "../../components/JDH-pharmacy/noDataPage/noDataPage"
+  }
+}

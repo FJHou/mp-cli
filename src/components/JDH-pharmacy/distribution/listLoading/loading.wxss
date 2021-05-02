@@ -1,0 +1,12 @@
+/* components/listLoading/loading.wxss */
+.btn-load {
+  font-size: 24rpx;
+  background:transparent;
+  color: #999;
+  height:80rpx;
+  line-height:80rpx;
+}
+
+.btn-load::after {
+  border: none;
+}

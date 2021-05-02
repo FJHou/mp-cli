@@ -1,0 +1,81 @@
+<view class="address-wrapper">
+  <form report-submit="true" bindsubmit="formSubmit" bindreset="formReset">
+    <view class="input-section">
+      <view class="line flex-container">
+        <text class="sub-flex-ave">收货人：</text>
+        <view class="rt sub-flex-ave flex-align">
+          <input type="text" bindinput="saveName" placeholder=" " data-type="receiver" maxlength='25' name='username' value='{{address.name}}' />
+        </view>
+      </view>
+      <view class="line flex-container">
+        <text class="sub-flex-ave">手机号码：</text>
+        <view class="rt sub-flex-ave  flex-align">
+          <input bindinput="saveMobile" bindfocus="telephoneFocus" type="number" data-type="telephone" maxlength='11' name='userphone' value='{{userTel}}' />
+        </view>
+      </view>
+
+      <picker bindchange="changeAddress" data-type="1" value="{{provinceIndex}}" range="{{arrProvince}}" range-key="name" disabled="{{arrDisable[0]}}">
+        <view class="line flex-container">
+          <text class="sub-flex-ave">省</text>
+          <view wx:if="{{wxAddressFlag}}" class="rt sub-flex-ave  flex-align">
+            <block wx:for="{{arrProvince}}" wx:for-index="i">
+            <!-- address.idProvince -->
+            <text wx:if="{{arrProvince[i].id == address.idProvince}}">{{arrProvince[i].name}}</text>
+            </block>
+          </view>
+          <view wx:else class="rt sub-flex-ave  flex-align">
+            <text>{{arrProvince[provinceIndex].name}}</text>
+          </view>
+        </view>
+      </picker>
+      <picker bindchange="changeAddress" data-type="2" value="{{cityIndex}}" range="{{arrCity}}" range-key="name" disabled="{{arrDisable[1]}}">
+        <view class="line flex-container">
+          <text class="sub-flex-ave">市</text>
+          <view class="rt sub-flex-ave  flex-align">
+            <text>{{arrCity[cityIndex].name||wxAddress.wxCityName}}</text>
+          </view>
+        </view>
+      </picker>
+      <picker bindchange="changeAddress" data-type="3" value="{{areaIndex}}" range="{{arrArea}}" range-key="name" disabled="{{arrDisable[2]}}">
+        <view class="line flex-container {{wxAddressFlag && !wxAddress.wxAreaName && !areaIndex?'wx-address-line':''}}">
+          <text class="sub-flex-ave">区/县</text>
+          <view class="rt sub-flex-ave  flex-align">
+            <text>{{arrArea[areaIndex].name||wxAddress.wxAreaName}}</text>
+          </view>
+        </view>
+        <view class="wx-address-hint" wx:if="{{wxAddressFlag && !wxAddress.wxAreaName && !areaIndex && !wxAreaNameHint}}">为了方便您更快收货，请选择区/县</view>
+      </picker>
+      <picker bindchange="changeAddress" data-type="4" value="{{townIndex}}" range="{{arrTown}}" range-key="name" disabled="{{arrDisable[3]}}" style="display:{{isHasTown?'block':'none'}}">
+        <view class="line flex-container {{wxAddressFlag && isHasTown && !townIndex ? 'wx-address-line' : ''}}">
+          <text class="sub-flex-ave">乡镇/街道</text>
+          <view class="rt sub-flex-ave  flex-align">
+            <text>{{arrTown[townIndex].name}}</text>
+          </view>
+        </view>
+        <view wx:if="{{wxAddressFlag && isHasTown && !wxTownNameHint}}" class="wx-address-hint">为了方便您更快收货，请选择乡镇/街道</view>
+      </picker>
+
+      <view class="line flex-container last">
+        <text class="sub-flex-ave">详细地址：</text>
+        <!--<view class="rt sub-flex-ave">-->
+        <!--<textarea type="text" bindfocus='ccc' auto-height='true' maxlength='40' class="limit-line" name='useraddress' value=''></textarea>-->
+        <view class="rt sub-flex-ave  flex-align">
+          <textarea type="text" bindinput="saveWhere" placeholder="请输入街道、楼牌号等" data-type="text" maxlength='40' name='useraddress' value='{{address.where}}' style='line-height: 40rpx; height: 100rpx' auto-height/>
+        </view>
+      </view>
+    </view>
+    <view class="option-section">
+      <block wx:if="{{defaultFlag == 1||addressType == 'add'||addressType == 'addEdit'}}">
+        <button class="okBtn" formType="submit" bindtap="saveBuriedFunc">保存并使用</button>
+      </block>
+      <block wx:else>
+        <button class="cancel" bindtap="delete">删除</button>
+        <button class="ok jd-red jd-red-bd" formType="submit">保存并使用</button>
+      </block>
+    </view>
+  </form>
+
+</view>
+
+<import src='../../components/toast/toast.wxml' />
+<template is="toast" data="{{...toastData}}"></template>

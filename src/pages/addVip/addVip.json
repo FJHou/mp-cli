@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "加入会员",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "giftbag": "../../components/giftbag/giftbag",
+    "img-share": "../../components/imgShare/imgShare"
+  }
+}

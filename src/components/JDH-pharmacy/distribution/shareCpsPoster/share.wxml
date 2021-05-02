@@ -1,0 +1,118 @@
+<!-- 
+  该组件是，CPS商品分享海报生成、下载
+  注意：
+    有两种调用方式 1: 通过wxml中元素触发调用  2.通过变量codeCall('00'关闭海报   '01': 开启海报)；
+    循环列表中，不要循环中调用，会导致页面卡顿，要通过改变codeCall的值来控制；
+    
+  维护者：ChenYanHua
+ -->
+
+<!-- 页面小方法 -->
+<wxs module="filters">
+  var filters = {
+    toFix: function(value) {
+      var val = parseFloat(value);
+      val = isNaN(val) ? 0 : val;
+      return val.toFixed(2);
+    },
+    convertNum: function(num) {
+      if (num > 9999) {
+        return parseInt(num / 10000) + '万+';
+      }
+      return num;
+    },
+    imgUrl: function(url) {
+      if (url && url.indexOf('//') == 0) {
+        url = 'https:'+url;
+      }
+      if(url && url.indexOf('360buyimg.com') >= 0){
+        url += '!q50';
+      }
+      return url;
+    }
+  }
+  module.exports = {
+    toFix: filters.toFix,
+    convertNum: filters.convertNum,
+    imgUrl: filters.imgUrl
+  }
+</wxs>
+
+<!-- CPS-分享弹层 -->
+<van-overlay show="{{showShareModal}}" z-index="{{9999}}">
+<view class='modal'>
+    <view class='modal-content'>
+
+      <!--海报面板-->
+      <view class='poster-panel'>
+        <view class='img-wrap'>
+          <view class="close-icon" bindtap="onCloseShareModal">
+            <text class='icon iconfont icon-guanbi'></text>
+          </view>
+          <image 
+            bindload='imgOnLoad' 
+            mode="aspectFit"
+            style='display:{{imgLoaded?"block": "none"}}' 
+            src='{{filters.imgUrl(productInfo.annexUrl)}}' 
+            />
+          <image 
+            src='{{productDefaultImg}}' 
+            class='center' 
+            mode="aspectFit"
+            style='display:{{imgLoaded?"none": "block"}}'
+          />
+        </view>
+
+        <!--详细信息-->
+        <view class='details-wrap'>
+          <view class='title'>
+            <text class='tag'>{{productInfo.jdSelfSaleFlag}}</text>
+            {{productInfo.itemName}}
+          </view>
+          <view class='details-flex'>
+            <view class='flex-left'>
+              <view class='price'>
+                <text class='red-price-lo'>¥</text>
+                <text class='red-price-val'>{{filters.toFix(productInfo.salePrice)}}</text>
+                <block wx:if='{{productInfo.referPrice != productInfo.salePrice}}'>
+                  <text class='gray-price-val'>¥{{filters.toFix(productInfo.referPrice)}}</text>
+                </block>
+              </view>
+              <view class='user'>
+                <view class='user-icon'>
+                  <image src='{{referenceUserInfo.headImg}}'></image>
+                </view>
+                <view class='user-text'>
+                  <view class='user-name'>{{referenceUserInfo.nickName}}</view>
+                  <view class='user-tips'>邀请好友享受{{brandTxt.jd}}购物内购优惠</view>
+                </view>
+              </view>
+            </view>
+            <view class='flex-right'>
+              <view class='wxcode'>
+                <image src='{{wxCodeImg}}'></image>
+              </view>
+              <view class='tips'>长按识别</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!--按钮-->
+      <view class='btn-wrap'>
+        <button open-type="share" class='btn mp' hover-class="none">
+          <text>分享小程序</text>
+        </button>
+        <button class='btn poster' bindtap="toDownload">
+          <text>分享海报</text>
+        </button>
+      </view>
+    </view>
+</view>
+</van-overlay>
+
+<!--下载图文 canvas-->
+<canvas wx:if='{{codeCall == "01"}}'  canvas-id='shareCanvas' class='share-canvas'></canvas>
+
+<!--生成h5二维码的canvas-->
+<canvas style="width: 98rpx;height: 98rpx;" canvas-id="h5Canvas" class='h5-canvas' />

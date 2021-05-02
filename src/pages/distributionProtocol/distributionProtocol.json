@@ -1,0 +1,10 @@
+{
+	"navigationBarTitleText": "提现须知",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+	"disableScroll":true, 
+  "usingComponents": {
+     
+  }
+}

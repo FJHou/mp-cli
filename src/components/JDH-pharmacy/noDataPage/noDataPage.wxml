@@ -1,0 +1,5 @@
+<!-- 无数据页面--> 
+<view class='nodata-content'>
+  <image class='nodata-Img' src="https://img13.360buyimg.com/imagetools/jfs/t1/128926/18/14772/11511/5f85834bE6e1c6a8c/6a37ac6feb5df66a.png" alt="" />
+	<view class='nodata-msg'>{{tipMsg || '暂无相关商品～'}}</view> 
+</view>

@@ -1,0 +1,25 @@
+<!-- 门店热销商品 -->
+<view class="store-info-card ">
+    <view class="onePanel information" wx:if="{{jpassStoreInfo.storeName}}">
+        <view class="title" bindtap="gotoShopInfo">
+            <text>{{jpassStoreInfo.storeName}}</text>
+            <image class="arrow-icon" src="https://img13.360buyimg.com/imagetools/jfs/t1/152070/37/19266/505/602f2582E53763a92/2bdba7b67ca5cba2.png!q60"></image>
+        </view>
+        <view class="address analysis-shopAddress">
+            <view class="open-time" wx:if="{{jpassStoreInfo.businessTime}}">
+                <text>营业时间： {{jpassStoreInfo.businessTime}}</text>
+                <!-- <image bindtap="phoneCall" data-phone="{{jpassStoreInfo.phone}}" class="phone-icon" src="https://img13.360buyimg.com/imagetools/jfs/t1/171335/21/6929/1187/602f2582E700ffcf5/69d35ff65b97fe15.png!q60"></image> -->
+            </view>
+            <view class="ellipsis-text" bindtap="createMap">
+                <text>{{jpassStoreInfo.storeAddress}}</text>
+                <text class="divider" wx:if="{{jpassStoreInfo.distance}}"></text>
+                <text wx:if="{{jpassStoreInfo.distance}}" class="distance">
+                    距您{{jpassStoreInfo.distance}}
+                </text>
+                <image class="guid-icon" src="https://img13.360buyimg.com/imagetools/jfs/t1/167014/1/6955/942/602f2582E60310ed8/bf2b0d27b08f072a.png!q60"></image>
+                <!-- <view class="undelivery" wx:if="{{jpassStoreInfo.isWithinFence}}">不在配送范围内</view> -->
+            </view>
+        </view>
+    </view>
+    <image src="{{jpassStoreInfo.storePic}}" class="shop-avatar" mode="aspectFit"></image>
+</view>

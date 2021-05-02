@@ -1,0 +1,83 @@
+.canvasToImg {
+	/* position: absolute; */
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 9999;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.5);
+	overflow: hidden;
+}
+
+.canvas-outer {
+	/* position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0; */
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* .canvasBg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: auto;
+	z-index: 101;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4955);
+	overflow: hidden;
+} */
+
+.poster-save {
+	background: url(https://img14.360buyimg.com/imagetools/jfs/t1/90217/3/5951/395369/5df0a1e6E1f97a3ca/b56eb447057b9e57.png)
+		no-repeat;
+	height: 88rpx;
+	background-size: 100% 100%;
+
+	z-index: 30;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	font-size: 36rpx;
+	color: rgba(255, 255, 255, 1);
+}
+
+.poster-text {
+	width: 100%;
+	text-align: center;
+	font-family: PingFangSC-Regular;
+	font-size: 26rpx;
+	color: rgba(255, 255, 255, 1);
+	margin: 30rpx 0;
+}
+
+.canvas-close {
+	position: relative;
+	width: 100%;
+	height: 60rpx;
+	margin-bottom: 20rpx;
+}
+
+.close-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	/* z-index: 30; */
+	background: url(https://img13.360buyimg.com/imagetools/jfs/t1/100418/3/6073/3443/5df0ac91E8bf4f510/28e8b16297eb85b9.png)
+		no-repeat;
+	background-size: 100% 100%;
+	width: 60rpx;
+	height: 60rpx;
+}

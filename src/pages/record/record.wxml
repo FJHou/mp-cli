@@ -1,0 +1,84 @@
+ <view>
+  <view class='tips'>
+    <image src='https://thunder.jd.com/jpass/img/order_news.png'></image>
+    <view>
+      <text>以下为门店订单，如需退款请带商品到门店协商退款</text>
+    </view>
+  </view>
+  <view class='none-order' wx:if="{{list.length==0}}">
+    <image src='https://thunder.jd.com/jpass/img/noorder_defalt_pic.png' mode='widthFix'></image>
+    <text class='none-coupon-word'>您还没有门店订单哦~</text>
+  </view>
+  <view class='block' wx:for="{{list}}" wx:key="index" wx:if="{{list.length>0}}">
+    <view class='record-head'>
+      <view class='record-order'>
+        <view class='order-num'>
+          <text>订单号：{{item.orderId}}</text>
+        </view>
+        <view class='order-Date'>下单时间：{{item.orderCreateDate}}</view>
+        <view class='trade-no' wx:if="{{item.extTradeNo}}">商户单号：{{item.extTradeNo}}</view>
+			</view>
+			 <text wx:if='{{item.orderStatus==-1}}' class='cancel-order-stauts'>已取消</text>
+      <text wx:elif='{{item.orderStatus==-2}}' class='cancel-order-stauts'>取消中</text>
+      <text wx:if='{{item.orderStatus==0}}' class='nopay-order-stauts'>未付款</text>
+      <text wx:if='{{item.orderStatus==2}}' class='nopay-order-stauts'>已完成</text>
+      <text wx:if='{{item.orderStatus==1}}' class='nopay-order-stauts'>已付款</text>
+    </view>
+    <view class='record-shop'>
+      <view class='order-brand-name'>
+        <text class='order-brandshop' wx:if="{{item.brandName}}">{{item.brandName}}</text>{{item.storeName}}</view>
+    </view>
+    <view class='record-ware'>
+
+      <view class='record-ware-li' wx:for="{{item.orderItems}}" wx:key="index" wx:for-item="subItem" wx:if="{{index<3 || item.moreOpen}}">
+        <view class='record-ware-img'>
+          <image mode='widthFix' src='{{"https:" + subItem.skuImg}}'></image>
+        </view>
+        <view class='record-ware-bt'>
+          <view class='record-ware-name'>
+            <text>{{subItem.skuName}}</text>
+          </view>
+          <view class='record-ware-msg'>
+            <view class='record-ware-price'>¥{{subItem.price}}</view>
+            <view class='record-ware-num'>
+              <text>x{{subItem.num}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='order-more' wx:if="{{item.orderItems.length>3}}" bindtap="changeMore" data-more-open="{{item.moreOpen}}" data-key="{{index}}">
+        <view>
+          <view class='order-offon'>{{item.moreOpen?"收起":"显示其余"+(item.orderItems.length-3)+"件"}}</view>
+          <image mode='widthFix' src='{{item.moreOpen?"https://thunder.jd.com/jpass/img/more_close.png":"https://thunder.jd.com/jpass/img/more_open.png"}}'></image>
+        </view>
+
+      </view>
+    </view>
+    <view class='record-order-settlement'>
+      <view wx:if="{{item.totalShouldPay}}">应付款：
+        <text>¥{{item.totalShouldPay}}</text>
+      </view>
+      <view wx:if='{{item.orderStatus!=0}}'>优惠券：
+        <text>¥-{{item.couponAmount}}</text>
+      </view>
+      <view>共{{item.orderItems.length}}件商品 实付款：
+        <text>¥{{item.actualPay || 0}}</text>
+      </view>
+    </view>
+    <view class='record-cancel-button' wx:if="{{item.orderStatus==0}}">
+      <view class='cancel-button' bindtap='cancelOrder' data-order-id='{{item.orderId}}' data-index='{{index}}'>取消订单</view>
+    </view>
+    <view class='record-cancel-button' wx:if="{{item.orderStatus==-3}}">
+      <navigator  url='/pages/record/refundDetail/refundDetail?orderId={{item.orderId}}'>
+        <view class='cancel-button' data-index='{{index}}'>退款详情</view>
+      </navigator>
+    </view>
+  </view>
+  <view class='bt' wx:if="{{list.length>0}}">
+    <view class='bt-na'></view>
+    <view>
+      <image class='logo' mode='widthFix'></image>
+    </view>
+  </view>
+</view> 
+<return-top show-flag="{{false}}" isReturnTop="{{false}}" isReturnHome="{{true}}"></return-top>

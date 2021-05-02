@@ -1,0 +1,228 @@
+.switch-main{
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+} 
+.cur-location {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	height: 32rpx;
+	padding-bottom: 30rpx;
+}
+
+.cur-location-left {
+	width: 600rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.cur-location-flag {
+	width: 27rpx;
+	height: 30rpx;
+	margin-left: 30rpx;
+	margin-right: 10rpx;
+}
+
+.switch-modifyAddress {
+	font-size: 24rpx;
+	color: rgba(241,71,71,1);
+	margin-right: 30rpx;
+}
+
+.cur-location-text {
+	width: 520rpx;
+	font-weight: bold;
+	font-size: 30rpx;
+	line-height: 32rpx;
+	color: rgba(38,38,38,1);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+} 
+
+.switch-title{ 
+	font-size: 24rpx;
+	color: rgba(38,38,38,1);
+	padding: 30rpx 0 24rpx 30rpx;
+}
+
+.swiper-tab {
+	text-align: center;
+	display: flex;
+	height: 90rpx;
+	justify-content: center;
+	align-items: center;
+	border-top: 1px solid rgb(244, 244, 244);
+	background: white;
+	position: fixed;
+	top: 160rpx;
+	left: 0;
+	right: 0;
+	z-index: 999;
+}
+.blank {
+	height: 90rpx;
+}
+.swiper-tab-list {
+	position: relative;
+	line-height: 90rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 28rpx;
+	color: rgba(38, 38, 38, 1);
+	flex: 1;
+}
+.swiper-tab-list .btline {
+	position: absolute;
+	bottom: 0;
+	width: 50rpx;
+	left: 50%;
+	height: 10rpx;
+	display: block;
+	background: linear-gradient(90deg, rgba(250, 87, 55, 1) 0%, rgba(252, 215, 207, 0.5) 100%);
+	border-radius: 6rpx;
+}
+.btline.nods {
+	left: 47%;
+}
+.on {
+	font-family: PingFangSC-Semibold;
+	font-weight: 600;
+	font-size: 28rpx;
+	color: rgba(38, 38, 38, 1);
+}
+.swiper-tab-list.on .btline {
+	margin-left: -24rpx;
+}
+.swiper-box { 
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	height: 100%;
+	margin-top: 100rpx; 
+}
+
+
+.list-shop{  
+	padding:20rpx;
+ overflow:hidden
+}
+.list-shopImg{  
+ float:left;
+ width:148rpx;
+ height:148rpx;
+ border-radius:8rpx; 
+ margin-right:16rpx;
+}
+
+.list-shopDetail{ 
+ margin-left:162rpx; 
+}
+.list-shopInfo{
+ margin: 8rpx 0;
+ line-height: 40rpx;
+ overflow:hidden;
+}
+.list-shopName{ 
+ font-family: PingFangSC-Medium;
+ font-size: 28rpx;
+ line-height: 28rpx;
+ color: rgba(34,34,34,1);
+ margin-right:100rpx;
+}
+.list-selected{
+	display: inline-block;
+	width: 64rpx;
+	height: 36rpx;
+	margin-left: 10rpx;
+	line-height: 36rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 22rpx;
+	color: rgba(255,255,255,1);
+	background: linear-gradient(135deg, rgba(242,20,12,1) 0%,rgba(242,39,12,1) 70%,rgba(242,77,12,1) 100%);
+	border-radius: 6rpx;
+	text-align: center;
+}
+.list-shopDistance{
+ float:right;
+ text-align: right;
+ width:120rpx;
+ font-family: JDZhengHei-01-Light;
+ font-size: 22rpx;
+ color: rgba(130,130,130,1);
+}
+.list-shopName{ 
+ line-height: 40rpx;
+ font-family: PingFangSC-Medium;
+ font-size: 28rpx;
+ color: rgba(34,34,34,1);
+} 
+.list-shopAddress{ 
+ font-family: PingFangSC-Regular;
+ font-size: 24rpx;
+ line-height: 24rpx;
+ color: rgba(175,175,176,1);
+ overflow: hidden;white-space: nowrap;text-overflow: ellipsis;	
+}
+.list-no{
+ text-align: center;
+ padding-top: 160rpx;
+}
+.list-noImg{
+ width: 240rpx; 
+ height: 150rpx;
+}
+.list-noText{
+ font-size: 30rpx; 
+ color: #BFBFBF;
+}
+.list-bg{
+ width: 100%;
+ height: 20rpx;
+ background: rgba(240,241,245,1);
+}
+.nomore-wrap {
+ color: #9e9e9e;
+ font-size: 20rpx;
+ text-align: center;
+}
+.nomore-wrap .icon-nomore {
+ height: 92rpx;
+ width: 325rpx;
+ display: block;
+ margin: 50rpx auto 5rpx;
+ background-size: 100%; 
+ background-repeat: no-repeat;  
+ background-image: url('http://newbuz.360buyimg.com/jingshop/coupon/icon_more.png');
+}
+.list-toHome{
+	width: 108rpx;
+	height: 36rpx;
+	border: 1px solid rgba(254,59,0,1);
+	border-radius: 6rpx;
+	line-height: 36rpx; 
+	font-size: 22rpx;
+	color: rgba(241,71,71,1);
+	text-align: center;
+	margin-top: 24rpx;
+}
+.noShop{
+	background-color: #fff;
+	padding-top: 100rpx;
+}
+.empty-image{ 
+	width: 206rpx;
+	height: 190rpx; 
+	display: flex;
+ 	margin: 0 auto 20rpx;
+}
+.noShop-title{
+	line-height: 22rpx; 
+	font-size: 22rpx;
+	color: rgba(38,38,38,1);
+	text-align: center;
+} 

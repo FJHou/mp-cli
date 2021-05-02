@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "van-overlay": "../../../base/overlay/index",
+        "coupon": "../shopCoupon/shopCoupon",
+        "price": "../price/index"
+    }
+}

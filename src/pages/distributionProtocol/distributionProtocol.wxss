@@ -1,0 +1,99 @@
+/* subExtractMain/pages/extractMoney/protocol/protocol.wxss */
+.container{
+	box-sizing: border-box;
+  border-top:2rpx solid #edeeef;
+	padding: 30rpx;
+	height: 100%;
+}
+.scroll-view{
+	height: 100%;
+}
+.ipone-x-view {
+  position: fixed;
+  width: 100%;
+	z-index: 9999; 
+	bottom: calc(30rpx + env(safe-area-inset-bottom));
+	left:0
+}
+/* .ipone-x-view.phoneType01{
+	bottom:30rpx;
+}
+.ipone-x-view.phoneType07{
+	bottom:30rpx;
+} */
+
+.xuzhi-contain{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.common-text{
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #666666;
+  margin: 20rpx 0 120rpx 0;
+}
+
+.pro-title{
+  color: #F10216;
+}
+
+.duan{
+  margin: 20rpx 0 0 0;
+  line-height: 46rpx;
+}
+
+.title2{
+  margin: 10rpx 0 0 0;
+}
+
+.mar-xuzhi{
+  line-height: 46rpx;
+}
+
+.bold-txt{
+  font-weight: bold;
+}
+
+.btn-bot{
+  border: solid 2rpx #EDEEEF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  /* position: fixed;
+  bottom: 0;
+  left: 0; */
+}
+
+.exit{
+ background: #FFFFFF;
+ color: #333333;
+ height: 98rpx;
+ width: 375rpx;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.yes{
+  background: #F10216;
+  color: #FFFFFF;
+  height: 98rpx;
+  width: 375rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back{
+  background: #F10216;
+  color: #FFFFFF;
+  height: 98rpx;
+  width: 750rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

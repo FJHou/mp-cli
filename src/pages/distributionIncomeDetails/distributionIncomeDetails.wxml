@@ -1,0 +1,92 @@
+<wxs module='m1'>
+  module.exports = {
+    toFix: function(value) {
+      var val = parseFloat(value);
+      val = isNaN(val) ? 0 : val;
+      return val.toFixed(2);
+    }
+  }
+</wxs>
+
+<!-- 今天预估总收益 -->
+<view class="income-wrap">
+  <view class="income-wrap-title flex">
+    <text class="flex-item">今天预估总收益</text>
+    <text class="flex-item fcred tar">￥{{m1.toFix(todayEstimateCommission.totalFee)}}</text>
+  </view>
+  <view class="income-wrap-cont flex">
+    <text class="flex-item">推广收益</text>
+    <text class="flex-item tar">￥{{m1.toFix(todayEstimateCommission.spreadFee)}}</text>
+  </view> 
+  <view class="income-wrap-sub flex">
+    <text class="flex-item">会员升级奖励</text>
+    <text class="flex-item tar ">￥{{m1.toFix(todayEstimateCommission.upgradeReward)}}</text>
+  </view>
+  <view class="income-wrap-sub flex">
+    <text class="flex-item">团队奖励</text>
+    <text class="flex-item tar">￥{{m1.toFix(todayEstimateCommission.teamReward)}}</text>
+  </view>
+  <view class="income-wrap-sub flex">
+    <text class="flex-item">平台活动奖励</text>
+    <text class="flex-item tar">￥{{m1.toFix(todayEstimateCommission.activityReward)}}</text>
+  </view>
+  <view class="income-wrap-sub flex">
+    <text class="flex-item">拉新奖励</text>
+    <text class="flex-item tar">￥{{m1.toFix(todayEstimateCommission.newUserReward)}}</text>
+  </view> 
+</view>
+<!-- 本月预估总收益 -->
+<view class="income-wrap">
+  <view class="income-wrap-title flex">
+    <text class="flex-item">本月预估总收益</text>
+    <text class="flex-item fcred tar">￥{{m1.toFix(currentMonthEstimateCommission.totalFee)}}</text>
+  </view>
+  <view class="income-wrap-cont flex">
+    <text class="flex-item">推广收益</text>
+    <text class="flex-item tar ">￥{{m1.toFix(currentMonthEstimateCommission.spreadFee)}}</text>
+  </view> 
+  <view class="income-wrap-sub flex">
+    <text class="flex-item">会员升级奖励</text>
+    <text class="flex-item tar ">￥{{m1.toFix(currentMonthEstimateCommission.upgradeReward)}}</text>
+  </view>
+  <view class="income-wrap-sub flex">
+    <text class="flex-item">团队奖励</text>
+    <text class="flex-item tar">￥{{m1.toFix(currentMonthEstimateCommission.teamReward)}}</text>
+  </view>
+  <view class="income-wrap-sub flex">
+    <text class="flex-item">平台活动奖励</text>
+    <text class="flex-item tar">￥{{m1.toFix(currentMonthEstimateCommission.activityReward)}}</text>
+  </view>
+  <view class="income-wrap-sub flex">
+    <text class="flex-item">拉新奖励</text>
+    <text class="flex-item tar">￥{{m1.toFix(currentMonthEstimateCommission.newUserReward)}}</text>
+  </view> 
+</view>
+<!-- 上月预估总收益 -->
+<view class="income-wrap mb30">
+  <view class="income-wrap-title flex">
+    <text class="flex-item">上月预估总收益</text>
+    <text class="flex-item fcred tar">￥{{m1.toFix(preMonthEstimateCommission.totalFee)}}</text>
+  </view>
+ <view class="income-wrap-cont flex">
+    <text class="flex-item">推广收益</text>
+    <text class="flex-item tar ">￥{{m1.toFix(preMonthEstimateCommission.spreadFee)}}</text>
+  </view> 
+  <view class="income-wrap-sub flex">
+    <text class="flex-item">会员升级奖励</text>
+    <text class="flex-item tar ">￥{{m1.toFix(preMonthEstimateCommission.upgradeReward)}}</text>
+  </view>
+  <view class="income-wrap-sub flex">
+    <text class="flex-item">团队奖励</text>
+    <text class="flex-item tar">￥{{m1.toFix(preMonthEstimateCommission.teamReward)}}</text>
+  </view>
+  <view class="income-wrap-sub flex">
+    <text class="flex-item">平台活动奖励</text>
+    <text class="flex-item tar">￥{{m1.toFix(preMonthEstimateCommission.activityReward)}}</text>
+  </view>
+  <view class="income-wrap-sub flex">
+    <text class="flex-item">拉新奖励</text>
+    <text class="flex-item tar">￥{{m1.toFix(preMonthEstimateCommission.newUserReward)}}</text>
+  </view> 
+</view>
+  

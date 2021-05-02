@@ -1,0 +1,88 @@
+.giftbag-cover{
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 998;
+}
+.giftbag{
+  z-index: 999;
+  position: fixed;
+  top: 62rpx;
+   left: 35rpx; 
+  /* left: -200rpx;  */
+  width: 677rpx;
+  height: 956rpx;
+  padding: 250rpx 0 0 95rpx;
+  box-sizing: border-box;
+  
+}
+.gf-li{
+  width: 490rpx;
+  height: 145rpx;
+  margin-bottom: 10rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.gf-name{
+  font-size: 32rpx;
+  color: rgb(227, 61, 38);
+  margin-bottom: 16rpx;
+  line-height: 32rpx;
+}
+.gf-amount{
+  font-size: 18rpx;
+  color: rgb(46, 45, 45);
+  line-height: 16rpx;
+  margin-bottom: 8rpx;
+}
+.gf-time{
+  font-size: 18rpx;
+  color: rgb(46, 45, 45);
+  line-height: 18rpx;
+}
+.gf-li-money{
+  color: rgb(227, 61, 38);
+  font-weight: bold;
+}
+.gf-mark{
+  font-size: 36rpx;
+
+}
+.gf-mon{
+  font-size: 90rpx;
+}
+.closegift{
+  width: 50rpx;
+  height: 50rpx;
+  position: fixed;
+  top: 966rpx;
+  left: 50%;
+  margin-left: -25rpx;
+  z-index: 1000;
+}
+.giftaddress{
+  position: fixed;
+  top: 885rpx;
+  text-align: center;
+  font-size: 18rpx;
+  color: rgba(255, 255, 255, 0.5);
+  z-index: 1000;
+  width: 100%;
+}
+.drawgift{
+  width: 490rpx;
+  height: 70rpx;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 800rpx;
+  margin: 0 auto;
+  z-index: 1000;
+}

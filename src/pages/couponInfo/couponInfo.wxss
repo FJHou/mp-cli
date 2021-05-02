@@ -1,0 +1,241 @@
+/* pages/couponInfo/couponInfo.wxss */
+@import '../../css/JDfont.wxss';
+/* 页面背景  */
+
+page {
+	background: rgb(245, 245, 245);
+	font-family: PingFangSC-Regular;
+	position: relative;
+	min-height: 100%;
+	padding-bottom: 91rpx;
+}
+.page-content {
+	background: rgb(245, 245, 245);
+}
+.not-scroll {
+	overflow: hidden;
+	height: 100vh;
+	box-sizing: border-box;
+}
+/* 券信息描述 */
+
+.describe {
+	background-color: rgb(245, 245, 245);
+	padding: 21rpx 0 0;
+}
+.coupon-tbg {
+	width: 100%;
+	top: -128rpx;
+	left: 0;
+	height: 340rpx;
+	position: absolute;
+}
+.coupon-view {
+	position: relative;
+	z-index: 2;
+	margin-bottom: 6rpx;
+}
+.coupon-bg {
+	width: 716rpx;
+	margin: 0 auto;
+}
+.coupon-bg image {
+	width: 716rpx;
+	height: 295rpx;
+	display: block;
+}
+
+.coupon-tp {
+	position: absolute;
+	top: 49rpx;
+	height: 72rpx;
+	width: 632rpx;
+	display: flex;
+	left: 70rpx;
+	align-items: center;
+}
+.coupon-logo {
+	flex: 0 0 72rpx;
+	height: 72rpx;
+	margin-right: 20rpx;
+}
+.coupon-logo image {
+	width: 72rpx;
+	height: 72rpx;
+	border-radius: 36rpx;
+}
+.coupon-brand {
+	flex: 1;
+	font-family: PingFang-SC-Medium;
+	font-size: 30rpx;
+	color: white;
+}
+.coupon-amount {
+	font-family: JDZhengHei-01-Regular;
+	font-size: 60rpx;
+	color: white;
+	text-align: center;
+	margin-top: 89rpx;
+}
+.coupon-amount text {
+	font-size: 36rpx;
+}
+.coupon-bot {
+	position: absolute;
+	top: 143rpx;
+	width: 632rpx;
+	display: flex;
+	left: 70rpx;
+	align-items: center;
+	justify-content: space-between;
+}
+.coupon-btn {
+	width: 600rpx;
+	height: 80rpx;
+	box-sizing: border-box;
+	border-radius: 40rpx;
+	font-size: 36rpx;
+	text-align: center;
+	line-height: 80rpx;
+}
+.coupon-touse {
+	color: white;
+	background: linear-gradient(to right, rgb(241, 0, 0), rgb(255, 79, 24));
+}
+.coupon-toget {
+	background: white;
+	border: 2rpx solid rgb(240, 37, 15);
+	color: rgb(240, 37, 15);
+}
+.coupon-shadow {
+	box-shadow: 0 6rpx 12rpx 0 rgba(255, 62, 62, 0.2);
+	background: -webkit-linear-gradient(left, rgb(241, 0, 0) 0%, rgb(255, 79, 24) 100%);
+	border-radius: 30rpx;
+}
+.coupon-rut {
+	font-size: 22rpx;
+	line-height: 26rpx;
+	color: white;
+}
+.coupon-rule {
+	margin-bottom: 18rpx;
+}
+.message {
+	/* padding: 0 30rpx; */
+	background: rgb(255, 255, 255);
+	margin-bottom: 20rpx;
+}
+.message-item {
+	padding: 0 30rpx;
+	border-bottom: 1px solid #e8e8e8;
+	height: 100rpx;
+	display: flex;
+	align-items: center;
+	font-size: 26rpx;
+	font-family: PingFangSC-Light;
+	color: #2e2d2d;
+}
+.message:last-of-type {
+	margin-bottom: 0;
+}
+.message-item .store-icon {
+	flex: 0 0 36rpx;
+	height: 34rpx;
+	margin-right: 10rpx;
+}
+.message-item .product-icon {
+	flex: 0 0 37rpx;
+	height: 40rpx;
+	margin-right: 10rpx;
+}
+.message-head {
+	padding: 16rpx 30rpx 7rpx;
+	display: flex;
+	align-items: center;
+}
+.message-head .message-tit {
+	font-size: 30rpx;
+	font-family: PingFangSC-Medium;
+	color: #2e2d2d;
+}
+.message .use-noice {
+	width: 30rpx;
+	height: 30rpx;
+	margin-right: 8rpx;
+}
+.message-tit {
+	font-size: 36rpx;
+	flex: 1 1 auto;
+}
+.message-item .icon-more {
+	height: 26rpx;
+	flex: 0 0 30rpx;
+}
+/* .message-tit image{
+  width: 13rpx;
+  height: 25rpx;
+  margin-right: 12rpx;
+} */
+/* .message-tit view{
+  font-family: PingFangSC-Medium;
+  font-size: 30rpx;
+  color: rgb(46, 45, 45);
+  line-height: 45rpx;
+} */
+.mess-brandshop {
+	font-size: 24rpx;
+	color: rgb(132, 132, 132);
+	line-height: 45rpx;
+	padding-left: 68rpx;
+	padding-right: 68rpx;
+}
+.mess-brandshop text {
+	color: rgb(2, 91, 206);
+}
+.mess-brandshop .mess-use {
+	color: rgb(132, 132, 132);
+}
+.bt {
+	background: rgb(245, 245, 245);
+	padding: 0 0 20rpx;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.bt-na {
+	color: rgb(196, 196, 196);
+	font-size: 20rpx;
+	font-family: PingFangSC-Regular;
+	line-height: 28rpx;
+	margin: 0 0 6rpx;
+	text-align: center;
+}
+.logo {
+	margin: 0 auto;
+	display: block;
+	width: 43rpx;
+	height: 37rpx;
+}
+
+.coupon-amount .money-flag {
+	font-size: 40rpx;
+}
+.coupon-value {
+	font-size: 22rpx;
+	line-height: 26rpx;
+	font-family: PingFangSC-Regular;
+	margin-top: 6rpx;
+}
+.coupon-button {
+	position: absolute;
+	top: 275rpx;
+	left: 75rpx;
+}
+
+.unvalidCoupon {
+	float: right;
+	width: 191rpx;
+	margin-top: -184rpx;
+	margin-right: 68rpx;
+}

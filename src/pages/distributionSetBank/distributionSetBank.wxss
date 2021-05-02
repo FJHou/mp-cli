@@ -1,0 +1,162 @@
+page {
+  background: rgb(248, 248, 248);
+}
+
+.one-text-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tip-txt {
+  font-family: PingFangSC-Regular;
+  color: #666;
+  font-size: 28rpx;
+  display: flex;
+  background: #FEF7E5;
+  flex-direction: column;
+  padding: 20rpx 20rpx;
+}
+.icon-tip{
+  font-size: 28rpx;
+}
+
+.rg-wrap{
+  background: #fff;
+}
+
+.m-icon {
+  color: #BBB;
+  font-size: 22rpx;
+}
+
+.m-r-30 {
+  margin-right: 30rpx;
+}
+
+.dis-color{
+  color: #999!important
+}
+
+.form-item {
+  font-family: PingFangSC-Regular;
+  color: #999;
+  font-size: 28rpx;
+  background: #fff;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  flex-wrap: wrap;
+  align-items: center;
+  border-bottom: 2rpx solid #EDEEEF;
+  margin-left: 10px;
+}
+
+.form-item-title {
+  font-family: PingFangSC-Regular;
+  width: 156rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.form-item-value {
+  position: relative;
+  flex: 1;
+  font-family: PingFangSC-Regular;
+  color: #666666;
+}
+
+.lbl {
+  font-size: 28rpx;
+  color: #333;
+  width: 168rpx;
+}
+
+.val {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.txt-full {
+  flex: 1;
+}
+
+.color-can {
+  color: #f10126;
+  border: 1rpx solid #f10126;
+}
+
+.color-not {
+  color: #999;
+  border: 1rpx solid #999;
+}
+
+.color-not2 {
+  color: #999;
+}
+
+.sms-view {
+  background: #FFF;
+  border-radius: 27rpx;
+  width: 220rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10rpx;
+  line-height: 56rpx;
+  margin-top: -1rpx;
+}
+
+.txt-yanZhengMa {
+  font-size: 26rpx;
+}
+
+.input {
+  font-size: 28rpx;
+  /* color: #666; */
+  padding: 3px 0px;
+}
+
+.ph-color{
+  color: #BBB
+}
+
+.rg-btn {
+  width: 100%;
+  height: 98rpx;
+  background: #f10216;
+  font-size: 34rpx;
+  color: #fff;
+  line-height: 98rpx;
+  text-align: center;
+  border-radius: 0;
+}
+
+.ipone-x-view {
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
+
+.find-btn{
+  border-radius: 10rpx;
+  width: 120rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  background: #f10216;
+  color: #fff;
+  margin: 0 10rpx 0 0;
+}
+
+.khh-name{
+  width: 200rpx;
+}
+.khh-no{
+  width: 220rpx;
+}

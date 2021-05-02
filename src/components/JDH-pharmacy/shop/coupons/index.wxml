@@ -1,0 +1,10 @@
+<view class="coupons" wx:if="{{storeCouponlist.length && showFloorMap.storeCoupons}}">
+    <title title="门店优惠券" is-link bind:click="gotoShopCoupon"></title>
+    <card card-class="card">
+            <view class="couponList">
+                <view wx:for="{{storeCouponlist}}" wx:for-item="coupon" wx:key="index" wx:for-item='list' class="shop-coupon-wrapper">
+                    <shop-coupon fromType='3' YJSStoreId="{{yjsStoreInfo.storeId}}" couponLists="{{list}}"></shop-coupon>
+                </view>
+            </view>
+    </card>
+</view>

@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "积分商城",
+    "component": true,
+    "disableScroll": true,
+    "usingComponents": {
+        "title": "../../components/JDH-pharmacy/title/index",
+        "list-view": "../../components/JDH-pharmacy/list-view/list",
+        "points-coupon": "../../components/JDH-pharmacy/shop/pointsCoupon/index"
+    }
+}

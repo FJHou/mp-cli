@@ -1,0 +1,33 @@
+<van-overlay show="{{visible}}">
+    <view class="h-coupon-dialog coupon-dialog-class">
+        <view class="wrapper">
+            <view class="coin-bg"></view>
+            <view class="content">
+                <view class="title">{{title}}</view>
+                <view class="description">
+                    <text class="dot"></text>
+                    <text class="text">可在门店优惠券中查看并使用</text>
+                    <text class="dot"></text>
+                </view>
+                <scroll-view scroll-y="{{true}}" class="coupon-container">
+                    <view class="coupon" wx:for="{{coupons}}" wx:key="index">
+                        <view class="coupon-head">
+                            <price price="{{item.couponAmount}}"></price>
+                            <view class="condition">{{item.quota}}</view>
+                        </view>
+                        <view class="coupon-body">
+                            <view class="coupon-name">{{item.couponName}}</view>
+                            <view class="coupon-tag" wx:if="{{item.tag}}">
+                                <view class="tag">{{item.tag}}</view>
+                            </view>
+                            <view class="coupon-date">{{item.date}}</view>
+                        </view>
+                    </view>
+                    <!-- <coupon class="coupon" fromType='4'  wx:for="{{coupons}}" wx:key="index" YJSStoreId="{{yjsStoreInfo.storeId}}" couponLists="{{item}}"></coupon> -->
+                </scroll-view> 
+                <view class="button" bindtap="handleOk" wx:if="{{dialogType === 'normal'}}">领取并使用</view>
+            </view>
+            <view class="close-icon" bindtap="handleClose"></view>
+        </view>
+    </view>
+</van-overlay>

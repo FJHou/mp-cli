@@ -1,0 +1,127 @@
+ 
+.fl{
+  float: left;
+}
+.rl{
+  float: right;
+}
+/* 单行文字溢出...样式 */
+.one-text-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} 
+.font_weight{
+  font-weight: bold;
+} 
+.fan-main{
+	border-bottom: 1px solid #f1f1f1;
+	padding: 30rpx;
+}  
+.goods_item {
+  overflow: hidden;
+}
+.goods_name{ 
+  padding: 8rpx 20rpx 0 20rpx;
+}
+.fans-num {
+  font-size: 26rpx;
+  color: #999999;
+  margin-top: 18rpx;
+  clear: left;
+}
+.vip_icon {
+  width: 36rpx;
+  height: 36rpx;
+  position: relative;
+  z-index: 90;
+}
+.membership_level{
+  position: relative;
+  z-index: 80;
+  height: 32rpx;
+  line-height: 32rpx;
+  margin-top: 2rpx;
+  margin-left: -23rpx;
+  border-radius: 50rpx;
+  padding: 0 15rpx 0 35rpx;
+  color: #fff;
+  font-size: 20rpx;
+}
+.goods_name .name-txt {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #333333;
+  letter-spacing: 0;
+  max-width: 300rpx; 
+}
+.fans_transaction{
+  font-size: 26rpx;
+  color: #333;
+  position: absolute;
+  right: 30rpx;
+  padding-top: 61rpx;
+}
+.fans-top{
+  margin-top: 10rpx;
+}
+.arrows-right-s10 {
+  width: 10rpx;
+  height:10rpx;
+  border-width:3rpx 3rpx 0 0;
+  border-color:#BBB;
+  border-style:solid;
+  display:inline-block;
+  transform:rotate(45deg);
+  margin:0 5rpx 4rpx 14rpx;
+}
+.goods_img image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius:50%;
+}
+.goods_info{
+  clear: both;
+  margin-top: 20rpx;
+}
+.goods_con{
+  background: #f9f9f9;
+  padding: 30rpx 30rpx 0 0;
+  overflow: hidden;
+}
+.goods_number{
+  border-right: 1rpx solid #eee;
+  width: 50%;
+  padding-left: 30rpx;
+  margin-bottom:30rpx;
+  font-size: 26rpx;
+  box-sizing: border-box;
+}
+.goods_line {
+  border-top: 1rpx solid #eee;
+  margin: 0 0 30rpx 30rpx;
+  clear: both;
+}
+.goods_tit {
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #999999;
+  line-height: 26rpx;
+  margin-bottom: 15rpx;
+}
+.goods_txt {
+  font-family: PingFangSC-Semibold;
+  color: #666666;
+  line-height: 28rpx;
+  font-weight: bold;
+  display: inline-block;
+}
+.copy-phone {
+  font-size: 24rpx;
+  color: #F10216;
+  margin-left: 16rpx;
+}
+.no_border {
+  border: none;
+}
+ 

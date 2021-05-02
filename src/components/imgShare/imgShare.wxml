@@ -1,0 +1,22 @@
+<!--pages/components/imgShare/imgShare.wxml-->
+<view class='av-share'>
+  <view class='jpass-share'>
+    <button bindtap='drawImg'>
+      <image mode='widthFix' src='https://thunder.jd.com/jpass/img/share_friend.png'></image>
+      <view>分享海报到朋友圈</view>
+    </button>
+    <button open-type='share'>
+      <image mode='widthFix' src='https://thunder.jd.com/jpass/img/share_wx.png'></image>
+      <view>分享小程序给好友</view>
+    </button>
+  </view>
+</view>
+<view class='av-share-modal'></view>
+<!-- <canvas class='canvas' canvas-id='shareImg'></canvas>
+<view class='playbill-modal' catchtouchmove='banScroll' wx:if="{{showPlaybill}}">
+  <image src='{{playbill}}' class="playbill"></image>
+  <view class='playbill-save' bindtap='savePlaybill'>保存图片</view>
+  <view class='playbill-close' bindtap='closePlaybill'></view>
+</view> -->
+<poster id="poster"></poster>
+

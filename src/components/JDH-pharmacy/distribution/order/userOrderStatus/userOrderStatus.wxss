@@ -1,0 +1,78 @@
+
+/*用户 start*/
+
+.user-block {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 30rpx;
+  background: #fdfdfd;
+  position: relative;
+  z-index: 0;
+}
+
+.user-block::after {
+  position: absolute;
+  display: block;
+  content: "";
+  clear: both;
+  height: 1rpx;
+  background: #eee;
+  bottom: 0rpx;
+  left: 30rpx;
+  right: 0rpx;
+}
+
+.user-icon {
+  border-radius: 100%;
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+  margin-top: 10rpx;
+}
+
+.user-name {
+  float: left;
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  color: #666;
+  max-width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.status {
+  float: right;
+  font-size: 24rpx;
+  margin-right: 47rpx;
+}
+
+.color-666 {
+  color: #666;
+}
+
+.color-green {
+  color: #71be4c;
+}
+
+.color-orange {
+  color: #f77515;
+}
+
+.color-bbb {
+  color: #bbb;
+}
+
+.color_ju {
+  color: #fc7d20;
+}
+
+.color_lv {
+  color: #77d14c;
+}
+
+.color_wq {
+  color: #f10216;
+}
+
+/*用户 end*/

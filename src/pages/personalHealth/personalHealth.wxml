@@ -1,0 +1,126 @@
+<!-- <import src='../../components/JDH-pharmacy/memberCard/memberCard.wxml' /> -->
+<!-- <import src='../../components/searchBar/searchBar.wxml' /> -->
+<!-- pages/personalHealth/personalHealth.wxml -->
+<view class="personalHealth">
+  <view class="ph-header">
+    <!-- 用户信息 -->
+    <view class="header-info" bindtap="login">
+      <view class="info-img">
+        <image src="{{user.imgUrl || 'https://img11.360buyimg.com/imagetools/jfs/t1/51795/38/9894/41122/5d720254E16e71f44/c62cac645032e247.png'}}" />
+      </view>
+      <view class="info-cont" wx:if="{{isLogined}}">
+        <view class="info-cont-name">{{user.petName}}</view>
+        <view class="info-invite-code fs-26">
+          <view class="invite-code">用户名：{{pinCode || ''}}</view>
+          <view class="copy-code" bindtap='copyInviteCode'>复制</view>
+        </view>
+      </view>
+      <view wx:else class="info-cont">
+        <view class="info-cont-name">登录/注册</view>
+        <view class="info-tips">享受更多服务</view>
+      </view>
+    </view>
+    <!-- <view class="background"></view> -->
+    <view class="member-card-wrapper" wx:if="{{showFloorMap.member && isLogined && isVip}}">
+      <member-card fresherCoupnVisible="{{false}}"></member-card>
+    </view>
+  </view>
+  <view class="personal-content">
+    <!-- 会员卡 -->
+    <!-- 我的订单 -->
+    <view class="ph-order">
+      <view class="order-title text-weight">线上订单</view>
+      <view class="order-list">
+        <view class="order-line"></view>
+        <!-- 待付款 -->
+        <button class="order-item" bindtap="navigateTo" data-url="/pages/order/order?id=2">
+          <view class="order-item-icon oti1"></view>
+          <view class="order-item-text">待付款</view>
+        </button>
+        <!-- 待收货 -->
+        <button class="order-item" bindtap="navigateTo" data-url="/pages/order/order?id=3">
+          <view class="order-item-icon oti3"></view>
+          <view class="order-item-text">待收货</view>
+        </button>
+        <!-- 已完成 -->
+        <button class="order-item order-item-mg" bindtap="navigateTo" data-url="/pages/order/order?id=4">
+          <view class="order-item-icon oti2"></view>
+          <view class="order-item-text">已完成</view>
+        </button>
+        <!-- 我的订单 -->
+        <button class="order-item" bindtap="navigateTo" data-url="/pages/order/order?id=1">
+          <view class="order-item-icon oti4"></view>
+          <view class="order-item-text text-weight">我的订单</view>
+        </button>
+      </view>
+    </view>
+    <!-- 我的服务 -->
+    <view class="ph-service">
+      <view class="order-title text-weight">我的服务</view>
+      <view class="service-list">
+        <!-- <view class="service-item">
+        <form>
+          <button form-type='submit' catchtap="myCoupon">
+            <view class="order-item-icon sii1"></view>
+            <view class="order-item-text">线上优惠券</view>
+          </button>
+        </form>
+      </view> -->
+        <view class="service-item">
+          <button bindtap="navigateTo" data-url="/pages/myShopCoupon/myShopCoupon">
+            <view class="order-item-icon sii2"></view>
+            <view class="order-item-text">到店优惠券</view>
+          </button>
+        </view>
+        <view class="service-item">
+          <button bindtap="navigateTo" data-url="/pages/record/record">
+            <view class="order-item-icon sii6"></view>
+            <view class="order-item-text">到店券订单</view>
+          </button>
+        </view>
+        <view class="service-item">
+          <button form-type='submit' catchtap="healthFiles">
+            <view class="order-item-icon sii7"></view>
+            <view class="order-item-text">健康档案</view>
+          </button>
+        </view>
+        <!-- 由于第三方没有解决跳转参数shopId的问题，暂时隐藏 -->
+        <!-- <view class="service-item">
+        <form>
+          <button form-type='submit' catchtap="toPointMall">
+            <view class="order-item-icon sii3"></view>
+            <view class="order-item-text">积分商城</view>
+          </button>
+        </form>
+      </view> -->
+        <view class="service-item">
+          <button bindtap="navigateTo" data-url="/pages/addressul/addressul?source=grzx">
+            <view class="order-item-icon sii4"></view>
+            <view class="order-item-text">收货地址</view>
+          </button>
+        </view>
+        <view class="service-item">
+          <button bindtap="navigateTo" data-url="/pages/myFeedback/myFeedback">
+            <view class="order-item-icon sii5"></view>
+            <view class="order-item-text">意见反馈</view>
+          </button>
+        </view>
+        <view class="service-item" wx:if="{{!isReferenceUser && distributionEnable}}">
+          <button bindtap="navigateTo" data-url="/pages/distributionBePromoter/bePromoter">
+            <view class="order-item-icon sii8"></view>
+            <view class="order-item-text">成为推广者</view>
+          </button>
+        </view>
+        <view class="service-item" wx:elif="{{distributionEnable}}">
+          <button bindtap="navigateTo" data-url="/pages/distributionPromotionCenter/promotionCenter">
+            <view class="order-item-icon sii9"></view>
+            <view class="order-item-text">推广中心</view>
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="logout-block">
+    <view wx:if="{{isLogined}}" class="ph-logout" catchtap="outLogin">退出当前账号</view>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+module.exports = {
+    // 处理 京东商品标识 
+    getTypeLabel: function(itemObj) {  
+			//如果商品信息里面有 拼购信息，就是展示京东拼团，如果没有拼购信息 判断 是 自营还是 pop商品
+      if (itemObj.pinGouInfo!= null && itemObj.pinGouInfo.pingouPrice != null) { 
+        return '京东拼购'
+      }
+      if (itemObj.owner == 'g') { 
+        return '京东自营'
+      } 
+      return '京东';
+    }, 
+    // 处理评论数显示
+    getCommentNo: function(val) {
+      if (val > 99999999) {
+        val = '9999万+';
+      } else {
+        val = val > 9999 ? parseInt(val / 10000) + '万+' : val;
+      }
+      return val;
+    }
+  }

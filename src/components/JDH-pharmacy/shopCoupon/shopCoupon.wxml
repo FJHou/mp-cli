@@ -1,0 +1,36 @@
+<!-- 门店列表 -->
+<view class='coupon-view-li  fromType-{{fromType}} couponStatus-{{newCouponLists.couponStatus}}' > 
+  <view class='coupon-price' wx:if="{{newCouponLists.style!=3}}">
+      <view>
+        <image  class='coupon-moneyImg' src='https://img10.360buyimg.com/imagetools/jfs/t1/127010/15/14890/498/5f86a941E63b2e3a9/73d37962ab84ba37.png'></image>
+        <text wx:if="{{isInt}}" class='price-big'>{{newCouponLists.couponAmount}}</text> 
+        <text wx:if="{{!isInt}}" class='price-med'>{{sepNumFront}}</text>
+        <text  wx:if="{{!isInt}}" class='coupon-price-small'>.{{sepNumBack}}</text> 
+      </view>
+      <view class='coupon-price-use'>满{{newCouponLists.quota}}元可用</view> 
+  </view>
+  <view class='coupon-price' wx:if="{{newCouponLists.style==3}}">
+      <view> 
+        <text class='price-big'>{{discountNum}}</text> 
+        <text class='coupon-price-small'>折</text>
+      </view>
+      <view class='coupon-price-use'>满{{discountQuotaNum}}元可用</view> 
+  </view>
+  <view class='coupon-msg'>
+    <view class='coupon-msg-name' wx:if="{{fromType==2}}">{{newCouponLists.couponName}}</view> 
+    <view class='coupon-msg-name' wx:if="{{fromType!=2}}">{{newCouponLists.couponTitle}}</view> 
+    <view class='coupon-msg-oth' wx:if="{{fromType!=3&&!newCouponLists.allProduct}}">部分商品可用</view>
+    <view class='coupon-msg-oth' wx:if="{{fromType!=3&&newCouponLists.allProduct}}">全部商品可用</view>
+    <view class='coupon-msg-oth' wx:if="{{fromType==3&&newCouponLists.storeType==2}}">到店使用</view>
+    <view class='coupon-msg-oth' wx:if="{{fromType==3&&newCouponLists.storeType==1}}">京东药急送使用</view>
+    <view class='coupon-msg-oth' wx:if="{{fromType==3&&newCouponLists.storeType==2&&newCouponLists.activityType==17}}">京东新人</view> 
+    <view class='coupon-msg-date'>{{startDate}}-{{endDate}}</view>
+  </view> 
+   
+  <view class='coupon-btn analysis-getCoupon' bindtap="goGetBtn" wx:if="{{newCouponLists.couponStatus==0}}" data-fromtype="{{fromType}}" data-couponlists="{{newCouponLists}}">立即领取</view> 
+  <view class='coupon-btn' bindtap="goScanBtn" wx:if="{{newCouponLists.couponStatus==1}}" data-fromtype="{{fromType}}" data-couponlists="{{newCouponLists}}">去看看</view>  
+  <view class='coupon-btn toUse analysis-useCoupon' bindtap="goUseBtn" wx:if="{{newCouponLists.couponStatus==2}}"  data-fromtype="{{fromType}}" data-yjsstoreid="{{YJSStoreId}}"   data-couponlists="{{newCouponLists}}">去使用</view> 
+  <view class='coupon-btn no-Coupon' wx:if="{{newCouponLists.couponStatus==3}}">已领完</view> 
+</view>  
+   
+         

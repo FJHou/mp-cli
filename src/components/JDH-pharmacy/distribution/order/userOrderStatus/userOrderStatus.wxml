@@ -1,0 +1,12 @@
+<!--用户的订单状态组件，包含用户头像，昵称，订单状态信息-->
+<view class='user-block'>
+  <image class='user-icon' src='{{jcbHeader || defaultPic}}'></image>
+  <view class='user-name'>{{buyerName || '匿名用户'}}</view>
+
+  <!--10待付款，15已付款，18待成团，20待发货，30处理中(等待被揽收)，40待收货，，50已完成80已取消， 90已退款， 95已拒绝，85待处理，87退款中， 100已结算-->
+
+  <view wx:if='{{orderStatus >= 10 && orderStatus <= 40}}' class='status color_ju'>{{orderStatusView}}</view>
+  <view wx:if="{{orderStatus == 50}}" class='status color_lv'>{{orderStatusView}}</view>
+  <view wx:if="{{orderStatus >= 80}}" class='status color_wq'>{{orderStatusView}}</view>
+  
+</view>

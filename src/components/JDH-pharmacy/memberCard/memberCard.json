@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "fresher-coupons": "../shop/fresherCoupons/index"
+    }
+}

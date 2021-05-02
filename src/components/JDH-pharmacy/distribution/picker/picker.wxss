@@ -1,0 +1,159 @@
+/* pages/picker/picker.wxss */
+/* @import '../../resource/iconfont/iconfont'; */
+.pick-view {
+  display:inline-block;
+  line-height:normal!important;
+}
+
+.pick-wrap {
+  display: flex;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.animate {
+  transition: all 0.3s;
+}
+
+.pick-wrap .pick-show {
+  height: 400rpx;
+}
+
+.pick-wrap .pick-hide {
+  height: 0;
+}
+
+.pick-wrap .picker-view {
+  height: 400rpx;
+}
+
+.pick-wrap .picker-view .picker-view-column {
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.pick-wrap .indicator-class {
+  height: 80rpx;
+}
+.icon-trangle{
+  color: #999;
+  font-size: 24rpx;
+}
+/* 居中圆角 */
+
+.pick-mode-middle-radius {
+  border-radius: 20rpx;
+  border: 1rpx solid #666;
+  width: 80%;
+  margin: 0 auto;
+  position: fixed;
+  background: #fff;
+  top: 50%;
+  left: 50%;
+  margin-top: -40%;
+  margin-left: -40%;
+  box-shadow: 0 0 20rpx #666;
+  overflow: hidden;
+}
+
+/* 居中矩形 */
+
+.pick-mode-middle-rect {
+  border: 1rpx solid #666;
+  width: 80%;
+  margin: 0 auto;
+  position: fixed;
+  background: #fff;
+  top: 50%;
+  left: 50%;
+  margin-top: -50%;
+  margin-left: -40%;
+  box-shadow: 0 0 20rpx #666;
+  overflow: hidden;
+}
+
+/* 居底矩形 */
+
+.pick-mode-bottom-rect {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+}
+
+.pick-wrap .pick-bg {
+  height: 100%;
+  width: 100%;
+}
+
+.pick-wrap .swiper-tab {
+  display: flex;
+  text-align: center;
+  height: 110rpx;
+}
+
+.pick-wrap .swiper-tab .swiper-tab-item {
+  flex: 1;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #ddd;
+  background: #f8f8f8;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.pick-wrap .swiper-tab .swiper-tab-item:last-child {
+  border-left: 1rpx solid #ddd;
+}
+
+/* 当前选中tab */
+
+.pick-wrap .swiper-tab .swiper-tab-active {
+  background: linear-gradient(#f8f8f8, #fff);
+  border-color: #fff;
+  color: #333;
+  font-size: 26rpx;
+}
+
+.pick-wrap .swiper-btn-group {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border-top: 1px solid #ddd;
+}
+
+.pick-wrap .swiper-btn-group .swiper-btn-group-item {
+  flex: 1;
+  line-height: 90rpx;
+  height: 90rpx;
+}
+
+.pick-wrap .swiper-btn-group .swiper-btn-group-item:last-child {
+  border-left: 1px solid #ddd;
+  color: #00ab2e;
+}
+
+/* 日期框居底时tab选项卡样式 */
+
+.pick-mode-bottom-radius .swiper-tab, .pick-mode-bottom-rect .swiper-tab {
+  position: absolute;
+  top: -108rpx;
+  width: 100%;
+  z-index: 9;
+}
+
+/* 日期框居底时按钮组样式 */
+
+.pick-mode-bottom-rect .swiper-btn-group {
+  position: absolute;
+  top: -90rpx;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1rpx solid #ddd;
+  z-index: 9;
+  display: none;
+}

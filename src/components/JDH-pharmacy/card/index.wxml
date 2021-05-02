@@ -1,0 +1,3 @@
+<view class="h-card card-class">
+    <slot></slot>
+</view>

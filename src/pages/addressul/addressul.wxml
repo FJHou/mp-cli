@@ -1,0 +1,32 @@
+<scroll-view class="my-order-viewport" scroll-x="false" scroll-y="true" style="height:{{screenHeight}}px;">
+    <block wx:key=""  wx:for="{{addressList}}" wx:for-index="i" wx:for-item="addressListData">
+        <block wx:if="{{addressListData.id!=-1}}">
+        <view class="address-li {{i==addressList.length?'bd-b':''}}" id="{{addressListData.id}}">
+            <view class="middle" bindtap='chooseAddress' id="{{addressListData.id}}" data-where="{{addressListData.where}}"><!--点击选择地址区域-->
+                <view class="user-info">
+                    <view class="user-name">{{addressListData.name}}</view>
+                    <view class="user-phone">{{addressListData.mobile}}</view>
+                </view>
+                <view class="address">
+                    <view wx:if="{{addressListData.addressDefault}}" class="default">默认</view>{{addressListData.addressDetail}}
+                </view>
+            </view>
+            <navigator hover-class="none" url="/pages/address/address?addressId={{addressListData.id}}&isGlobalPayment={{isGlobalPayment}}"  class="right"><!--点击编辑地址区域-->
+                <view>
+                    <image src="{{staticUrl}}/imagetools/jfs/t1/95854/28/646/2151/5db166d9Ea33cca6e/63fee687939dc9d1.png"></image>
+                </view>
+            </navigator>
+        </view>
+        </block>
+    </block>
+    <form report-submit="true" bindsubmit="newAddress">
+        <button class="new-btn" form-type="submit"><!--点击编辑地址区域-->
+            <image src="{{staticUrl}}/imagetools/jfs/t1/46644/39/14252/623/5db166dfEa9642733/cd4d48e24be1a5b7.png"></image>新建地址
+        </button>
+    </form>
+    <!-- <form report-submit="true" bindsubmit="getWxAddress" class="wx-address-surface">
+        <button class="new-btn wx-address message-push-btn" form-type="submit">从微信导入</button>
+    </form> -->
+
+    <view class="phoneXFillingStyleSec" wx:if="{{isIphoneX}}"></view>
+</scroll-view>

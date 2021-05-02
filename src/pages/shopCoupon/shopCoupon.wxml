@@ -1,0 +1,59 @@
+<import src='../../components/JDH-pharmacy/shopCoupon/shopCoupon.wxml' />
+<component-topnav isShowBack="{{'true'}}" navStyle="{{navStyle}}"></component-topnav>
+<view class="coupon-title">
+  <image class="shop-Img" src="{{storeInfo.storePic}}"></image>
+  <view class='coupon-shop'>
+    <view class='shop-name'>{{storeInfo.storeName}}</view>
+    <view class='shop-address'>{{storeInfo.storeAddress}}</view>
+  </view>
+  <view class='coupon-goToShop' bindtap="goStoreBtn">
+    <text>进店逛逛</text>
+  </view>
+</view>
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentLabTab==0 ? 'on' : ''}}" data-current-lab="0" bindtap="swichNav" data-eid="Mine_coupon_HaveUsed">
+    <text>到店券</text>
+    <view wx:if="{{(currentLabTab==0||!supportDs) ? 'on' : ''}}" class="btline {{supportDs ? '':'nods'}}"></view>
+  </view>
+  <view wx:if="{{supportDs}}" class="swiper-tab-list {{currentLabTab==1 ? 'on' : ''}}" data-current-lab="1" bindtap="swichNav" data-eid="Mine_coupon_NoUse">
+    <text>京东药急送券</text>
+    <view wx:if="{{currentLabTab==1 ? 'on' : ''}}" class='btline'></view>
+  </view>
+</view>
+<view class='blank'></view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">
+  <!-- 到店券 -->
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px;' class='coupon-view coupon-view-aluse' bindscrolltolower="scrollCheck">
+      <view style='min-height:{{swiperHeight}}px;' class='bt-bottom'>
+        <view class='none-coupon' wx:if="{{JpassCouponLists.length == 0}}">
+          <image src='https://thunder.jd.com/jpass/img/nodiscount_defalt_pic.png'></image>
+          <text class='none-coupon-word'>暂无优惠券</text>
+        </view>
+        <view>
+          <view wx:for="{{JpassCouponLists}}" wx:key="couponId" wx:for-item='list' class="shop-coupon-wrapper">
+            <shop-coupon fromType='2' couponLists="{{list}}"></shop-coupon>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <!-- 药急送券 -->
+  <swiper-item wx:if="{{supportDs}}">
+    <scroll-view scroll-y style='height:{{swiperHeight}}px;' class='coupon-view' bindscrolltolower="scrollCheck">
+      <view style='min-height:{{swiperHeight}}px;' class='bt-bottom'>
+        <view class='none-coupon' wx:if="{{YjsCouponLists.length == 0}}">
+          <image src='https://thunder.jd.com/jpass/img/nodiscount_defalt_pic.png'></image>
+          <text class='none-coupon-word'>暂无优惠券</text>
+        </view>
+        <view>
+          <view wx:for="{{YjsCouponLists}}" wx:key="couponId" wx:for-item='list' class="shop-coupon-wrapper">
+            <shop-coupon YJSStoreId="{{YJSStoreId}}" couponId="{{couponId}}" fromType='1' couponLists="{{list}}"></shop-coupon>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+<return-top show-flag="{{false}}" isReturnTop="{{false}}" isReturnHome="{{true}}"></return-top>
+<canvas class="f8be360ead1f4a3d9afb5e312b845ebb" canvas-id='fbfd3ec3c4ab4213b9a09b5c5e769ceb'></canvas>

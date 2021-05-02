@@ -1,0 +1,33 @@
+<view style="overflow-x: hidden;">
+    <view class="list-location" bindtap="goLocation"> 
+	<view class="list-address">
+	   <image class="list-addressImg" src="{{images.addImage}}"></image>{{choiceLocation || "未能获取您的位置"}}
+	</view>  
+	<image class="list-MoreImage" src="{{images.moreImage}}"></image>
+    </view>
+    <view class='list-bg'></view>
+    <scroll-view  style ="height:{{warpHeight}};" scroll-y ="true" bindscrolltolower="loadMore" class='deviceScroll' >
+        <view wx:if="{{ storeLists.length>0 }}"> 
+            <block  wx:for="{{storeLists}}" wx:key="index" wx:for-index="index">
+            <view class="list-shop" bindtap="redirectShopFront" data-storeid="{{item.storeId}}" data-venderid="{{item.venderId}}">
+                <image class="list-shopImg" src="{{item.storePic}}"></image>
+                <view class="list-shopDetail">
+                    <view class="list-shoInfo">
+                        <view class="list-shopDistance">{{item.distance}}</view> 
+                        <view class="list-shopName">{{item.storeName}}</view> 
+                    </view>
+                    <view class="list-shopAddress">{{item.storeAddress}}</view>
+                </view>  
+            </view> 
+            </block> 
+        </view>
+        <view wx:if="{{hasNoData}}" class='list-no'>
+            <image src="{{images.logImage}}" class='list-noImg'></image>
+            <view class='list-noText'>该地址暂无门店信息</view> 
+        </view>
+        <view wx:if="{{ !pullNoData }}" class="nomore-wrap">
+            <view class="icon-nomore"></view>
+            <view>没有更多了~</view>
+        </view>
+    </scroll-view> 
+</view>

@@ -1,0 +1,18 @@
+/* @import "../../resource/iconfont/iconfont.wxss"; */
+.com-textarea{
+  width:96%;
+  font-size:28rpx;
+  height:500rpx;
+  padding:2%;
+  background:#f8f8f8;
+}
+.com-button{
+  width:80%;
+}
+.com-button-red{
+  background:#f00;
+  color:#fff;
+}
+.com-mt-40{
+  margin-top:40rpx;
+}

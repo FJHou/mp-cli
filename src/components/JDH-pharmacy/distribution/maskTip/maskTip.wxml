@@ -1,0 +1,18 @@
+<!--components/shopUpdateModal.wxml-->
+<view class='mask1' wx:if="{{showOpenShopMsg}}">
+  <view class="tan-v">
+    <view class="msg">【系统升级通知】</view>
+    <view class="msg-txt">为更好的保障会员的提现时效性与合规性，平台对提现功能进行系统升级，升级后：
+    <view class="msg-txt">1. 未认证用户请前往提现页面，完成“提现认证”并完善“银行信息”；</view>
+    <view class="msg-txt">2. 已认证用户请前往银行信息页面，完善银行支行联行号信息；</view>
+    </view>
+    <view catchtap="goAuth" class='toShopBtn'>
+      立即前往
+    </view>
+  </view>
+  <view class='toShopBorder'>
+  </view>
+  <view class='markClose' bindtap='closeShopMsg'>
+    <icon class='iconfont icon-guanbi1 markCloseIcon'></icon>
+  </view>
+</view>

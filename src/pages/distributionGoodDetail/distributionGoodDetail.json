@@ -1,0 +1,15 @@
+{
+	"enablePullDownRefresh": false,
+	"backgroundColor": "#fff",
+	"backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "商品详情",
+  "navigationBarTextStyle":"black", 
+  "usingComponents": { 
+    "vertical-goodsItem": "../../components/JDH-pharmacy/distribution/vertical-goodsItem/vertical-goodsItem",
+    "my-cps-share": "../../components/JDH-pharmacy/distribution/shareCpsPoster/share",
+    "add-to-shop": "../../components/JDH-pharmacy/distribution/fixedAddToShop/fixedAddToShop",
+    "createShopBtn": "../../components/JDH-pharmacy/distribution/createShopBtn/createShopBtn",
+    "copy-sku-id": "../../components/JDH-pharmacy/distribution/copySkuId/copySkuId"
+  }
+}

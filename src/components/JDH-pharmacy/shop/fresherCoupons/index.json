@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "title": "../../title/index",
+		"card": "../../card/index",
+        "price": "../../price/index"
+    }
+}

@@ -1,0 +1,52 @@
+<!--components/indexLayer/indexLayer.wxml-->
+<!-- 弹层遮罩 -->
+<view class='mask2' hidden='{{showMask2}}'></view>
+<!-- 邀请弹层动画 -->
+<view class='layerAni' hidden='{{showAni}}' bind:touchmove='preventTouchMove'>
+  <view class='dialogOne'>
+    <block wx:for='{{layerData}}' wx:for-index='index'>
+      <view class='dislogBox' hidden='{{index==0?randomOne:!randomOne}}' style='margin-left: {{item.marginLeft}};margin-bottom:{{item.marginBottom}};'>
+        <image src='{{inviderInfo.inviteUserHeader|| initConfig.buyerLogo}}'></image>
+        <view class='dialogTxt'>
+          <view class='dialogTitle'>{{inviderInfo.inviteUserNickName || initConfig.buyerAppName}}</view>
+          <text class='dialogContent'>{{item.text}}</text>
+        </view>
+      </view>
+    </block>
+    <view class='upgradeBox' hidden='{{showUpgrade}}'>
+      <view class='close' catchtap='closeLayer'>
+        <text class='iconfont icon-guanbi'></text>
+      </view>
+      <view class='noteImg'>
+        <!-- <view class='upgradePicBox'>
+          <image class='upgradePic' src='https://b2b-v2.oss.cn-north-1.jcloudcs.com/1fca1ece-98bd-442f-a1ea-3fb874831e8d.png'></image>
+          <navigator class='inviteBtn' url='/pages/share/share'>
+            <view class='redBtn'>立即邀请</view>
+          </navigator>
+        </view>
+        <image class='userHead' src='{{userInfo.avatarUrl}}'></image> -->
+
+        <view class='upgradePicBox'>
+          <image class='upgradePic1' src='https://b2b-v2.oss.cn-north-1.jcloudcs.com/27382070-4800-4b9d-a808-a7de6df58ce6.png'></image>
+          <navigator class='inviteBtn1' url='/pages/productsdetails/productsdetails?itemId=44356&sellerId=15&promotionId=35251'>
+            <image class='redBtn1' src='https://b2b-v2.oss.cn-north-1.jcloudcs.com/e2e46367-efa2-4503-97f8-0ccbb98cc6d6.png'></image>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 虚拟按钮 透明 与底部导航头像重叠 -->
+<!-- <view class='xuniBtn' catchtap='inviteLayer' hidden='{{showBtn}}'></view> -->
+
+
+<!-- 魔盒动画 -->
+<!-- <view class='layerAni' hidden='{{showMoHe}}'>
+  <block wx:for='{{moheData}}' wx:for-index='index'>
+    <view class='{{item.class}}' hidden='{{item.isShow}}'>
+      <image src='{{item.picUrl}}' data-url='{{item.picUrl}}' class='position-box' style='{{moheAni}}{{moheScaleStatus}}margin-left:{{item.width/-2}}rpx;' bindtap='copyCode' bindlongtap='saveImage'></image>
+      <view class='mohe-btn' catchtap='moHeEv' data-class-name='{{item.class}}'></view>
+      <view class='mohe-close position-box' catchtap='closeMoHe' data-class-name='{{item.class}}'></view>
+    </view>
+  </block>
+</view> -->

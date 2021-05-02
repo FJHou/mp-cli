@@ -1,0 +1,45 @@
+<!--components/ys-camera/ys-camera.wxml-->
+<view class='ys-camera-list'>
+  <!-- 上传列表 -->
+  <view class='ys-camera-list-item' wx:for='{{imgArr}}' wx:key='{{index}}'>
+    <view class='ys-camera-item-img' data-n='{{index}}' bindtap='imgShow'>
+      <i class='iconfont ys-camera-close icon-shangchuantupian-guanbi' catchtap='delUploadItem' data-n='{{index}}' />
+      <view class='video-play' wx:if='{{item.type=="video"}}'>
+        <i class='iconfont icon-shipin-bofang ' />
+      </view>
+      <view class='image'>
+        <i wx:if='{{!item.src}}' class='icon-jiazai iconfont uploading' />
+        <image class='imgage' src='http:{{item.src}}' bindload='calcImg' data-n='{{index}}' style='width:{{imgObj[index].width}}rpx;height:{{imgObj[index].height}}rpx;' />
+      </view>
+    </view>
+  </view>
+</view>
+<view class='ys-camera-list' wx:if='{{!chooseBtnDisabled}}'>
+  <!-- 上传图标 -->
+  <view class='ys-camera-list-item' wx:if='{{photo}}'>
+    <view class='ys-camera-item-img b-2' bindtap='chooseImage'>
+      <view class='ys-camera-action-btn'>
+        <i class='iconfont icon-shangchuantupian' />
+      </view>
+      上传图片
+    </view>
+  </view>
+  <view class='ys-camera-list-item' wx:if='{{video}}'>
+    <view class='ys-camera-item-img b-2' bindtap='chooseVideo'>
+      <view class='ys-camera-action-btn'>
+        <i class='iconfont icon-shipin1' />
+      </view>
+      上传视频
+    </view>
+  </view>
+</view>
+<view class='show-modal' wx:if='{{imgShow}}'>
+  <view class='show-space' style='color:#fff'>
+    <image wx:if='{{showItem.type=="pictures"}}' src='http:{{showItem.src}}' bindload='calc' style='width:{{width}}rpx;height:{{height}}rpx;margin-left:{{ml}}rpx;margin-top:{{mt}}rpx;'/>
+    <video wx:if='{{showItem.type=="video"}}' src='http:{{showItem.src}}' style='width:750rpx;height:750rpx;' />
+  </view>
+  <view class='btn-group'>
+    <view class='btn success m-r-60' bindtap='imgShow'>完成</view>
+    <view class='btn cancel' bindtap='imgShow'>取消</view>
+  </view>
+</view>

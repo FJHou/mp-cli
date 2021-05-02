@@ -1,0 +1,46 @@
+<!-- pages/shop/shopFront.wxml -->
+<import src="./shopFront.skeleton.wxml" />
+<!-- 顶部导航 -->
+<image class="top-bg" src="https://img13.360buyimg.com/imagetools/jfs/t1/134012/28/12245/90238/5f85834dE4bf62333/d6d05ce4454873f5.png"></image>
+<!-- 骨架屏 -->
+<template is="skeleton" wx:if="{{skeletonShow}}" />
+<view class="shop-view">
+    <component-topnav></component-topnav>
+    <view class="top-search {{jpassStoreInfo.supportDs ? '' : 'un-support-yjs'}}">
+        <view class="location-wrapper">
+            <location></location>
+            <view wx:if="{{showFewTime}}" class='switchAddress-tip'>点此切换地址或门店</view>
+        </view>
+        <view class="input-box" bindtap="gotoDSSearch" wx:if="{{jpassStoreInfo.supportDs}}">
+            <image class="search-icon" src="https://img13.360buyimg.com/imagetools/jfs/t1/155895/9/10142/833/602f2582Ed96eeafd/ceb0c62a047d50a2.png!q60"></image>
+            <text class="search-text">搜索门店药品</text>
+        </view>
+    </view>
+    <scroll-view scroll-y class="scroll-view" bindscrolltolower="onReachBottom">
+        <!-- 门店详情 -->
+        <detail wx:if="{{isHasShopInfo}}" jpassStoreInfo="{{jpassStoreInfo}}" yjsStoreInfo="{{yjsStoreInfo}}"></detail>
+        <view class="center" wx:if="{{isHasShopInfo}}">
+            <!-- 会员卡, 新人券ui在会员卡内部 -->
+            <member-card storeId="{{storeId}}" coupons="{{fresherCoupons}}" wx:if="{{showFloorMap.member}}"></member-card>
+            <!-- 主要入口 -->
+            <entries jpassStoreInfo="{{jpassStoreInfo}}" yjsStoreInfo="{{yjsStoreInfo}}"></entries>
+            <!-- 开通了药急送的门店，且运营在药急送后台设置了活动，门店首页会展示海报楼层 -->
+            <banner yjsStoreInfo="{{yjsStoreInfo}}"></banner>
+            <!-- 门店优惠券 -->
+            <coupons jpassStoreInfo="{{jpassStoreInfo}}" yjsStoreInfo="{{yjsStoreInfo}}"></coupons>
+            <!-- 积分商城 -->
+            <points-mall jpassStoreInfo="{{jpassStoreInfo}}"></points-mall>
+            <!-- 本店热销 v3.3移除此楼层 -->
+            <!-- <hot-sale yjsStoreInfo="{{yjsStoreInfo}}"></hot-sale> -->
+            <!-- top3 -->
+            <top3 yjsStoreInfo="{{yjsStoreInfo}}" wx:if="{{showFloorMap.storeHotGoods}}"></top3>
+        </view>
+        <view class='noAddress' wx:if="{{!isHasShopInfo&&!longitude&&!latitude}}"></view>
+        <shop-noRecommended wx:if="{{!isHasShopInfo&&longitude&&latitude}}"></shop-noRecommended>
+    </scroll-view>
+</view>
+<component-shareModal bind:toShare="toShare" wx:if="{{!skeletonShow&&isHasShopInfo}}"></component-shareModal>
+<poster id="poster"></poster>
+<coupon-dialog bindclose="onCouponDialogClose" jpassStoreInfo="{{jpassStoreInfo}}" yjsStoreInfo="{{yjsStoreInfo}}" activityId="{{activityId}}" activityType="{{activityType}}" fresherCoupons="{{fresherCoupons}}"></coupon-dialog>
+<!-- canvas获取设备指纹信息，勿删 -->
+<canvas class="f8be360ead1f4a3d9afb5e312b845ebb" canvas-id='fbfd3ec3c4ab4213b9a09b5c5e769ceb'></canvas>

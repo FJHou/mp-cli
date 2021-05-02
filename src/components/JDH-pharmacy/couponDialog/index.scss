@@ -1,0 +1,171 @@
+@import "../../../css/JDfont.wxss";
+
+.h-coupon-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    .wrapper {
+        position: relative;
+        width: 80%;
+    }
+    .coin-bg {
+        width: 80%;
+        margin: auto;
+        position: absolute;
+        height: 200rpx;
+        top: -120rpx;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        background: url("https://img13.360buyimg.com/imagetools/jfs/t1/163747/11/8017/155791/6038b9d5E9bf9693c/d33e1966b746ba93.png!q60")
+            no-repeat center/100%;
+    }
+    .content {
+        padding: 32rpx 25rpx 115rpx;
+        min-height: 500rpx;
+        background: linear-gradient(225deg, rgba(251,39,32,1) 0%,rgba(255,173,145,1) 100%);
+        color: #fff;
+        text-align: center;
+        border-radius: 20rpx;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100rpx;
+            width: 90%;
+            margin: auto;
+            background: url("https://img10.360buyimg.com/imagetools/jfs/t1/162398/20/8124/1316/6038b9d5Ef3cafe3e/81603b675274c048.png") center/100% no-repeat;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            height: 150rpx;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            border-radius: 20rpx;
+            background: url("https://img12.360buyimg.com/imagetools/jfs/t1/153509/26/19641/49229/6038b9d5E61737757/00da80b8661d4971.png!q60")
+                no-repeat center/cover;
+        }
+        .title {
+            margin-top: 10rpx;
+            font-size: 40rpx;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .description {
+            
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 20rpx;
+            font-size: 28rpx;
+            color: rgba(255, 255, 255, 0.8);
+            .text {
+                margin: 0 15rpx;
+            }
+            .dot {
+                display: inline-block;
+                width: 12rpx;
+                height: 12rpx;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+
+        }
+        .coupon-container {
+            max-height: 550rpx;
+            margin-top: 30rpx;
+            border-radius: 15rpx;
+            padding: 20rpx;
+            box-sizing: border-box;
+            background: linear-gradient(
+                180deg,
+                rgba(182, 0, 16, 0.27) 0%,
+                rgba(119, 0, 0, 0.13) 100%
+            );
+        }
+        .button {
+            position: absolute;
+            z-index: 1;
+            bottom: 20rpx;
+            left: 0;
+            right: 0;
+            width: 300rpx;
+            height: 114rpx;
+            margin: auto;
+            font-size: 34rpx;
+            line-height: 114rpx;
+            color: #f14747;
+            font-weight: bold;
+            background: url("https://img10.360buyimg.com/imagetools/jfs/t1/169263/13/8118/16848/6038a125E6b0eb3d3/83f62c07d3b84f07.png!q60")
+                no-repeat center/100%;
+        }
+    }
+
+    .close-icon {
+        position: absolute;
+        bottom: -100rpx;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 50rpx;
+        height: 50rpx;
+        border-radius: 50%;
+        background: url("https://img14.360buyimg.com/imagetools/jfs/t1/153349/14/12291/2014/5fea8fe6E6edd64b4/51cbf4c1bf78e3e0.png") center/100% no-repeat;
+    }
+}
+
+.coupon {
+    display: flex;
+    height:124rpx;
+    margin-bottom: 10rpx;
+    font-size: 18rpx;
+    background: url("https://img12.360buyimg.com/imagetools/jfs/t1/171544/37/8017/3805/6038b9d5Ecfb55bcd/017e6aa64ae8742a.png") no-repeat center/100%;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    .coupon-head {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 15rpx 10rpx;
+        width: 32%;
+        color: #f14747;
+    }
+    .coupon-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        padding: 15rpx;
+        text-align: left;
+    }
+    .coupon-name {
+        font-size: 20rpx;
+        color: #2E2D2D;
+    }
+    .coupon-tag {
+        .tag {
+            min-width: 84rpx;
+            box-sizing: border-box;
+            padding: 0 4rpx;
+            box-sizing: border-box;
+            text-align: center;
+            border-radius: 5rpx;
+            display: inline-block;
+            // padding: 6rpx 8rxp;
+            border: 1px solid #FE3B00;
+            color: #FE3B00;
+        }
+    }
+    .coupon-date {
+        padding-top: 10rpx;
+        color: #8C8C8C;
+        font-size: 18rpx;
+        font-family: JDZhengHei-01-Regular;
+    }
+}

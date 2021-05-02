@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "my-loading": "../../components/JDH-pharmacy/distribution/listLoading/loading"
+  }
+}

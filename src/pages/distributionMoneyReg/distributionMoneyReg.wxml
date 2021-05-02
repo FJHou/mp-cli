@@ -1,0 +1,219 @@
+<!-- subExtractMain/pages/extractMoney/extractMoneyReg/extractMoneyReg.wxml-->
+
+<wxs module='m1'>
+  module.exports = {
+    setVal:function(val){
+      if(!val || val == 'null' || val == 'NULL'){
+        return ''
+      } else {
+        return val
+      }
+    }
+  }
+</wxs>
+
+<!-- ***********已认证、审核中的信息只能预览 *********** -->
+<view class="rg-wrap wpb" wx:if='{{type == 1 ||type == 3}}'>
+   <view class='form-item'>
+      <view class='form-item-title'>
+        真实姓名
+      </view>
+      <view class='form-item-value'>
+        <input disabled="{{true}}" class='input' name='realName' value="{{m1.setVal(extractInfo.realName)}}"/>
+      </view>
+    </view> 
+    <view class='form-item'>
+      <view class='form-item-title'>
+        身份证号
+      </view>
+      <view class='form-item-value'>
+        <input disabled="{{true}}" class='input' name="userCardNo" value="{{m1.setVal(extractInfo.userCardNo)}}"/>
+      </view>
+    </view>
+    <view class='form-item' >
+      <view class='form-item-title'>
+        地址
+      </view>
+      <view class='form-item-value'>
+        <input disabled="{{true}}" class='input' name="address" value="{{m1.setVal(extractInfo.address)}}" />
+      </view>
+    </view>
+    <view class='form-item'>
+      <view class='form-item-title'>
+        出生日期
+      </view>
+      <view class='form-item-value'>
+        <input disabled="{{true}}" class='input' name='birthday' value="{{birthMsg}}" />
+      </view>
+    </view>
+    <view class='form-item'>
+      <view class='form-item-title'>
+        性别
+      </view>
+      <view class='form-item-value'>
+        <view class='item'>
+          <view class="rdo" bindtap='' data-key="0">
+            <view class="icon iconfont m-nan {{ extractInfo.sex == '0' ? 'icon-xuanzhong' : 'icon-weixuanze'}}"></view>
+            <text>男</text>
+          </view>
+          <view class="rdo" bindtap='' data-key="1">
+            <view class="icon iconfont m-nv {{ extractInfo.sex == '1' ? 'icon-xuanzhong' : 'icon-weixuanze'}}"></view>
+            <text>女</text>
+          </view>
+        </view>
+      </view>
+    </view> 
+    <view class='form-item'>
+      <view class='form-item-title'>
+        手机号
+      </view>
+      <input disabled="{{true}}" name="mobile" class='val txt-full' value="{{extractInfo.mobile}}" />
+    </view>
+    <view class='form-item no-b'>
+      <view class='form-item-title-long'>有效证件照片</view>
+    </view>
+    <view class='row-image'>
+      <view class='upload-image-wrap'>
+        <view hidden="{{!extractInfo.certFrontUrl}}" class='upload-image-item-big'> 
+					<image class='upload-image-item-pic-big' src="{{defaultIdCardA}}"></image>
+        </view>
+        <view hidden="{{extractInfo.certFrontUrl}}" bindtap='' class='upload-image-item-big upload-image-btn'>
+          <text class='upload-image-icon-big icon iconfont icon-shangchuantupian'></text>
+          <view class='upload-image-text'>正面证件照</view>
+        </view>
+      </view>
+      <view class='upload-image-wrap'>
+        <view hidden="{{!extractInfo.certBackUrl}}" class='upload-image-item-big'> 
+					<image class='upload-image-item-pic-big' src="{{defaultIdCardB}}"></image>
+        </view>
+        <view hidden="{{extractInfo.certBackUrl}}" bindtap='' class='upload-image-item-big upload-image-btn'>
+          <text class='upload-image-icon-big icon iconfont icon-shangchuantupian'></text>
+          <view class='upload-image-text'>反面证件照</view>
+        </view>
+      </view>
+    </view>
+</view>
+<!-- *********** END 信息预览 *********** -->
+
+
+
+
+<!-- 认证、修改认证部分 -->
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="rg-wrap wpb" wx:if='{{type == 0 || type == 2}}'>
+    <view class='form-item'>
+      <view class='form-item-title'>
+        真实姓名
+      </view>
+      <view class="form-item-value">
+        <input  class="input" name='realName' maxlength='20' value="{{m1.setVal(extractInfo.realName)}}" placeholder-class="ph-color" placeholder='与提现银行卡一致的银行账户名' type="text" />
+      </view>
+    </view> 
+    <view class='form-item'>
+      <view class='form-item-title'>
+        身份证号
+      </view>
+      <view class="form-item-value">
+        <input  class='input' name="userCardNo" maxlength='30' value="{{m1.setVal(extractInfo.userCardNo)}}" placeholder-class="ph-color" placeholder='请填写有效证件号码' bindinput='onChangeInput' data-key="setUserCard" bindfocus="onFocusCardNo"/>
+      </view>
+    </view>
+    <view class='form-item'>
+      <view class='form-item-title'>
+        地址
+      </view>
+      <view class="form-item-value">
+        <input  class='input' name="address" maxlength='50' value="{{m1.setVal(extractInfo.address)}}" placeholder-class="ph-color" placeholder='请填写地址' />
+      </view>
+    </view>
+    <view class='form-item'>
+      <view class='form-item-title'>
+        出生日期
+      </view>
+      <view class="form-item-value">
+        <picker mode="date" value="{{extractInfo.birthday || ''}}" start="1900-01-01" bindchange="bindDateChange">
+          <view class="picker">
+            <input disabled="{{true}}" class='input' name='birthday' value="{{birthMsg}}" placeholder-class="ph-color" placeholder='请选择出生日期' />
+          </view>
+        </picker>
+      </view>
+      <block>
+       <text class='m-r-30 m-icon iconfont icon-youcejiantou' />
+      </block>
+    </view>
+    <view class='form-item'>
+      <view class='form-item-title'>
+        性别
+      </view>
+      <view class="form-item-value">
+        <view class='item'>
+          <view class="rdo" bindtap="onChangeCheck" data-key="0">
+            <view class="icon iconfont m-nan {{ extractInfo.sex == '0' ? 'icon-xuanzhong' : 'icon-weixuanze'}}"></view>
+            <text>男</text>
+          </view>
+          <view class="rdo" bindtap="onChangeCheck" data-key="1">
+            <view class="icon iconfont m-nv {{ extractInfo.sex == '1' ? 'icon-xuanzhong' : 'icon-weixuanze'}}"></view>
+            <text>女</text>
+          </view>
+        </view>
+      </view>
+    </view> 
+    <view class='form-item'>
+      <view class='form-item-title'>
+        手机号
+      </view>
+      <input name="mobile" type='number' maxlength='11' class='val txt-full' bindinput='onChangeInput'
+             placeholder='联系手机号' placeholder-class="ph-color"  data-key="setMobile"
+             value="{{m1.setVal(extractInfo.mobile)}}" bindfocus="onFocusMobile"/> 
+    </view> 
+    <view class='form-item no-b'>
+      <view class='form-item-title-long'>有效证件照片</view>
+      <view class='form-item-value'>
+        <text class="val-long">请上传清晰有效证件正反面照片</text>
+      </view>
+    </view>
+    <view class='row-image'>
+      <view class='upload-image-wrap'>
+        <view hidden="{{!extractInfo.certFrontUrl}}" class='upload-image-item-big'>
+          <block wx:if="{{extractInfo.certFrontUrl  && extractInfo.certFrontUrl != '-1'}}">
+            <image class='upload-image-item-pic-big' src="{{extractInfo.certFrontUrl}}"></image>
+          </block>
+          <block wx:else>
+            <image class='upload-image-item-pic-big' src="{{defaultIdCardA}}"></image>
+          </block>
+          <block>
+            <text data-pic-type='certFrontUrl' bindtap='onDeleteImage' data-id='certFrontUrl'
+                  class='upload-image-remove-btn icon iconfont icon-shangchuantupian-guanbi'></text>
+          </block>
+        </view>
+        <view hidden="{{extractInfo.certFrontUrl}}" data-pic-type='certFrontUrl' bindtap="tapPhoto" class='upload-image-item-big upload-image-btn'>
+          <text class='upload-image-icon-big icon iconfont icon-shangchuantupian'></text>
+          <view class='upload-image-text'>上传证件照正面</view>
+        </view>
+      </view>
+      <view class='upload-image-wrap'>
+        <view hidden="{{!extractInfo.certBackUrl}}" class='upload-image-item-big'>
+          <block wx:if="{{extractInfo.certBackUrl  && extractInfo.certBackUrl != '-1'}}">
+            <image class='upload-image-item-pic-big' src="{{extractInfo.certBackUrl}}"></image>
+          </block>
+          <block wx:else>
+            <image class='upload-image-item-pic-big' src="{{defaultIdCardB}}"></image>
+          </block>
+          <block>
+            <text data-pic-type='certBackUrl' bindtap='onDeleteImage' data-id='certBackUrl'
+                class='upload-image-remove-btn icon iconfont icon-shangchuantupian-guanbi'></text>
+          </block>
+        </view>
+        <view hidden="{{extractInfo.certBackUrl}}" data-pic-type='certBackUrl' bindtap="tapPhoto" class='upload-image-item-big upload-image-btn'>
+          <text class='upload-image-icon-big icon iconfont icon-shangchuantupian'></text>
+          <view class='upload-image-text'>上传证件照反面</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 按钮控制区域 -->
+  <view class='ipone-x-view' style="bottom:{{phoneType=='01' ? '60rpx' : 0}}">
+    <button class='rg-btn' wx:if='{{type == 0 || type == 2}}' form-type="submit"
+            disabled="{{disabled}}" loading='{{loading}}'>认 证</button> 
+  </view> 
+</form>

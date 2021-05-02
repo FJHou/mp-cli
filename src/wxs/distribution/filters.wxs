@@ -1,0 +1,27 @@
+function toFix(value) {
+  var val = parseFloat(value);
+  val = isNaN(val) ? 0 : val;
+  return val.toFixed(2);
+}
+
+function imgUrl(url) {
+  if (url && url.indexOf("//") == 0) {
+    url = "https:" + url;
+  }
+  if (url && url.indexOf("360buyimg.com") >= 0) {
+    url += "!q50";
+  }
+  return url;
+}
+
+function convertNum(num) {
+  if (num > 9999) {
+    return parseInt(num / 10000) + "万+";
+  }
+  return num;
+}
+
+module.exports.toFix = toFix
+module.exports.imgUrl = imgUrl
+module.exports.convertNum = convertNum
+

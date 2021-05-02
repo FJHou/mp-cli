@@ -1,0 +1,24 @@
+<view class="fresher"  wx:if="{{shouldShowFresherCoupon}}">
+    <fresher-coupons coupons="{{coupons}}" bind:joinMember="fresherCouponjoinMember"></fresher-coupons>
+</view>
+
+<!-- 会员卡 -->
+<view class="member-card {{cardCls}}" bindtap="joinMember" wx:else>
+    <view class="card-info">
+        <view class="name-group">
+            <view wx:if="{{customerLevel}}" class="logined-score">
+                <text class="icon-crown"></text>
+                <text class="icon-level"></text>
+            </view>
+            <view class="name" wx:if="{{customerLevel}}">{{levelName}}</view>
+            <view class="name" wx:else>会员卡 [星级会员]</view>
+            <view class="divider"></view>
+            <view class="score">专享惊喜礼券等福利</view>
+        </view>
+    </view>
+    <view>
+        <text class="score-desc" wx:if="{{customerLevel}}"></text>
+        <button class="card-button" wx:else></button>
+    </view>
+    <!-- <image wx:if="{{!customerLevel}}" class="memeber-card-tips" src="https://img13.360buyimg.com/imagetools/jfs/t1/122361/29/14749/5627/5f858b14E256f461d/6208f5bab0cac047.png"></image> -->
+</view>

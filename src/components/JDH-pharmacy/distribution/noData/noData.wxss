@@ -1,0 +1,24 @@
+/* components/noData/noData.wxss */
+.nodata {
+  width: 100%;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #999; 
+  padding-top: 20rpx;
+} 
+.no-lbl { 
+	color: #999;
+	padding: 0 16rpx; 
+}
+.no-lbl:after,.no-lbl:before{
+	content: "";
+	display: inline-block; 
+	width: 30%; 
+	height:1px;
+	background-color: #d8dce0; 
+	position: relative;
+	top: -6rpx;
+	/* z-index: -99; */
+} 

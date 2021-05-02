@@ -1,0 +1,111 @@
+ 
+<view class='search-page {{(isBeforeSearch||productionList.length<1)?"":"hasData"}}'>
+  <!-- 搜索框 -->
+  <view class='search-area search-area-shengdan' bindtap='orginHidden' style='z-index:1000'> 
+    <view class='search-form'>
+      <image class='search-Img' src="https://img11.360buyimg.com/imagetools/jfs/t1/151332/17/11673/1265/5fe08902E8a35e0ec/8d6cf87ab1aff8a3.png" alt="" />
+      <input type='text' value='{{keyword}}' type='text' placeholder-class='inp-flg' maxlength="20" placeholder='搜索您要的商品' bindinput='bindTextAreaBlur' bindconfirm='bindTextSearchBtn' bindtap='bindButtonTap' />
+      <view wx:if='{{keyword && isSearching}}' bindtap='searchProKeyWordClear' class='iconfont icon-shangchuantupian-guanbi'></view>
+    </view>
+    <view class='search-cancle' bindtap='searchBtn'>
+      <text>搜索</text>
+    </view>
+  </view>
+  <view style="height:86rpx;width:750rpx;">
+  </view>
+   
+  <view wx:if='{{isBeforeSearch}}' class='s-hotAndHistory'>
+		<view wx:if="{{hotSearchList.length>0}}">
+			<view class='s-hotTitle'>热门搜索<image class='s-hotImg' src='https://img13.360buyimg.com/imagetools/jfs/t1/155845/33/1598/1590/5fe2c045E89fea318/d1eee67d17ffec16.png' /></view>
+			<view wx:for="{{hotSearchList}}" wx:key="id" bindtap='searchKeyWord' data-keyword="{{item.name}}" class='s-hotList'>{{item.name}}</view>
+		</view>
+    <view>
+    <view wx:if="{{historySearchArr.length>0}}" class='s-hotTitle'>历史搜索<image bindtap='delHistorySearch' class='s-delHistory' src="https://img10.360buyimg.com/imagetools/jfs/t1/160114/11/617/987/5febf6b5E65479aa7/6466e0635b30e8fa.png" alt="" /></view>
+		</view>
+    <view>
+      <view wx:for="{{historySearchArr}}" wx:key='item' class='s-hotList' data-keyword="{{item}}"  bindtap="searchKeyWord">
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <block wx:if='{{!isBeforeSearch}}'>
+    <!-- filter筛选项 -->
+    <view class='rank' style=''>
+      <view class='category-order-wrap' style="height:88rpx;display:flex;align-items:center;position:relative;z-index:200;background:#fff"> 
+        <view class='category-order-item {{sortMethod1=="comSort"&&"fc-red"}}' data-sort-method1='comSort' bindtap='changeOrder'>
+          综合排序
+        </view>
+        <view class='category-order-item {{sortMethod1=="inOrderCount30Days"&&"fc-red"}}' data-sort-method1='inOrderCount30Days' bindtap='changeOrder'>
+          销量
+          <i class='iconfont icon-xiaosanjiao {{sortMethod1=="inOrderCount30Days"&&orderByType=="asc"&&"fc-red"}}' />
+          <i class='iconfont icon-xiaosanjiao-xiangxia {{sortMethod1=="inOrderCount30Days"&&orderByType=="desc"&&"fc-red"}}' />
+        </view>
+        <view class='category-order-item {{sortMethod1=="price"&&"fc-red"}}' data-sort-method1='price' bindtap='changeOrder'>
+          价格
+          <i class='iconfont icon-xiaosanjiao {{sortMethod1=="price"&&orderByType=="asc"&&"fc-red"}}' />
+          <i class='iconfont icon-xiaosanjiao-xiangxia {{sortMethod1=="price"&&orderByType=="desc"&&"fc-red"}}' />
+        </view> 
+        <view wx:if="{{referenceUserInfo}}" class='category-order-item {{sortMethod1=="commission"&&"fc-red"}}' data-sort-method1='commission' bindtap='changeOrder'>
+          高佣金
+          <i class='jianTou iconfont icon-jiantou {{sortMethod1=="commission"&&"fc-red"}}' />
+        </view>
+        <view class='category-order-item {{secondSearch!=100&&"fc-red"}}' style='color:#333333' catchtap='showSecondFilter'>
+          筛选
+          <i class='jianTou iconfont icon-shaixuan {{secondSearch!=100&&"fc-red"}}' style='color:#333333;font-size:26rpx;margin-top:6rpx;'/>
+        </view>
+      </view> 
+      <view style='display:flex;height:88rpx;align-items:center;padding:0 30rpx;justify-content:space-between;z-index:100' >
+        <view style='font-size:26rpx;color:#333333'>
+          仅展示优惠券商品
+        </view>
+        <switch checked="{{isCoupon==1}}" color='#F10216' bindchange="switchChange"/>
+      </view>
+      <!-- 筛选 -->
+      <view style='background:#ffffff;' wx:if='{{secondFilterShow}}' animation="{{slide_up1}}" class='secondFilter' style='background:#ffffff;width:750rpx;top:90px;position:fixed;z-index:150'>
+        <block wx:for="{{secondSearchJDItems}}" wx:key="item">
+          <view style='height:88rpx;display:flex;margin-left:30rpx;align-items:center;justify-content:space-between;border-bottom:1rpx solid #eeeeee' catchtap='onSelectSecondSearch' class="{{secondSearch==item.id?'activeType':''}}" data-search-id='{{item.id}}'>
+            <view style='font-size:26rpx;'>
+              {{item.name}}
+            </view>
+            <view style='font-size:26rpx;padding-right:30rpx' wx:if="{{secondSearch==item.id}}">
+              <i class='iconfont icon-xuanzhong1' style='color:#F10216;font-size:32rpx;padding-left:10rpx'/>
+            </view>
+          </view>
+        </block> 
+      </view>
+    </view> 
+    <view wx:if="{{headLoading}}" style='margin-top:176rpx;'>
+        <listloading />
+    </view>
+    <!-- 商品列表 -->
+    <view wx:if="{{productionList.length>0}}" bindtap='orginHidden' style='margin-top:{{headLoading?0:176}}rpx;'>
+      <scroll-view bindscrolltolower="onScrollPage" lower-threshold='200' scroll-y='true' scroll-top="{{scrollTop}}" bindscroll="bindscroll">
+        <block wx:if="{{productionList.length > 0}}"> 
+          <block wx:for="{{productionList}}" wx:key='itemId'>
+            <goods-item-unmember bind:event_share="listenShare" bind:event_buy="unmemberListenBuy" referenceUserInfo="{{referenceUserInfo}}" itemObj="{{item}}" />
+          </block> 
+        </block>
+        <!---------------------->
+        <block wx:if="{{!hasMoreData}}">
+          <no-data tipMsg="我们是有底线的" marginTop='20' />
+        </block>
+        <block wx:if="{{loading&&productionList.length>0}}">
+          <listloading />
+        </block>
+      </scroll-view>  
+    </view>
+    <!-- 蒙层 -->
+    <view class='modal' style='height:{{mainHeight}}px' wx:if="{{secondFilterShow}}" catchtap='showSecondFilter'>
+    </view>
+
+    <view wx:if='{{!loading && productionList.length<=0 && !isBeforeSearch }}' class='s-noContent'>
+       <image class='s-noDataImg' src="https://img13.360buyimg.com/imagetools/jfs/t1/128926/18/14772/11511/5f85834bE6e1c6a8c/6a37ac6feb5df66a.png" alt="" />
+			 <view class='s-noData'>暂无相关商品～</view>
+    </view>
+  </block>
+</view> 
+
+<!-- 分享赚 -->
+<my-cps-share productInfo='{{productInfo}}' codeCall="{{codeCallCpsShare}}"/>
+ 

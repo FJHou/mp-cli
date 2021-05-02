@@ -1,0 +1,84 @@
+@import '../../../../iconfont/iconfont.wxss';
+.date-value{
+  font-size:28rpx;
+  color:#666666;
+}
+.icon-trangle{
+  font-size:16rpx;
+  color:#bbb;
+  margin-left:14rpx;
+  vertical-align:middle;
+
+}
+.date-picker{
+  position: fixed;
+  background: rgba(0, 0, 0, .5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+}
+.date-picker-content{
+  background: #fff;
+  width: 500rpx;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 0rpx 10rpx 4rpx rgba(0, 0, 0, .08);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.date-tab{
+  display: flex;
+  flex: 1;
+  height: 100rpx;
+  line-height: 40rpx;
+  background: #f8f8f8;
+  border-radius: 10rpx;
+}
+.date-tab > view{
+  width: 50%;
+  box-sizing: border-box;
+  padding-top: 10rpx;
+  height: 100rpx;
+  line-height: 40rpx;
+  color: #666;
+  font-size: 28rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+.date-tab > view.active{
+  background: #fff;
+}
+.picker-view {
+  height: 400rpx;
+}
+.picker-view  .indicator-class {
+  height: 80rpx;
+}
+.picker-view  .picker-view-column {
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.date-btn{
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex: 1;
+  border-radius: 10rpx;
+  /* background: #f8f8f8; */
+}
+.date-btn>view{
+  width: 50%;
+}
+.btn-cancel{
+  color: #999;
+  border-top: 1rpx solid #ddd;
+  border-right: 1rpx solid #ddd;
+}
+.btn-ok{
+  color:#00ab2e;
+  border-top: 1rpx solid #ddd;
+}

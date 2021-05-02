@@ -1,0 +1,11 @@
+{ 
+  "backgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {   
+		"goods-item-unmember": "../../components/JDH-pharmacy/distribution/unmember/goodsItem",
+		"no-data": "../../components/JDH-pharmacy/distribution/noData/noData",
+		"my-cps-share": "../../components/JDH-pharmacy/distribution/shareCpsPoster/share",
+		"no-data-page": "../../components/JDH-pharmacy/noDataPage/noDataPage"
+  },
+  "onReachBottomDistance": 200
+}

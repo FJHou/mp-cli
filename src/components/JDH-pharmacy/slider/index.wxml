@@ -1,0 +1,9 @@
+<view class="h-slider-view slider-class">
+    <scroll-view id="slider" enhanced show-scrollbar="{{false}}" scroll-left="{{scrollLeft}}" scroll-with-animation enable-flex="{{true}}" class="slider" scroll-x="{{true}}" style="width: 100%" bindscroll="onScroll">
+        <slot></slot>
+    </scroll-view>
+
+    <view class="progress" wx:if="{{scrollProgress}}">
+        <view class="bar" style="width: {{barWidth}}rpx; left: {{moved}}%"></view>
+    </view>
+</view>

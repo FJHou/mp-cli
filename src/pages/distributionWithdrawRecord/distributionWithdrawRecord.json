@@ -1,0 +1,12 @@
+{
+	"backgroundColor": "#fff",
+	"backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "提现记录",
+  "navigationBarTextStyle":"black", 
+  "enablePullDownRefresh":true,
+  "usingComponents": {
+		"no-data": "../../components/JDH-pharmacy/distribution/noData/noData",
+		"no-data-page": "../../components/JDH-pharmacy/noDataPage/noDataPage"
+  }
+}

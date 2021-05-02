@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "member-card": "../../components/JDH-pharmacy/memberCard/memberCard"
+  },
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTitleText": "",
+  "navigationBarTextStyle": "black"
+}

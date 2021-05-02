@@ -1,0 +1,79 @@
+
+/*订单编号信息 start*/
+
+.order-details {
+  padding-left: 30rpx;
+  background: #fdfdfd;
+  line-height: 40rpx;
+}
+.order-title{
+  font-size: 24rpx;
+  color: #999;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 20px 10px 0;
+  border-bottom: 1rpx solid #edeeef;
+  .good-name {
+
+  }
+  .status {
+    color: #FF4454;
+  }
+}
+.order-content {
+  padding:10px 20px 10px 0;
+
+}
+.order-desc {
+  font-size: 24rpx;
+  color: #999;
+  height: 40rpx;
+  line-height: 40rpx;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  .copy-btn {
+    position: relative;
+    /* display: inline-block; */
+    /* padding: 10rpx 20rpx 0rpx 20rpx; */
+    font-size: 24rpx;
+    color: #f10216;
+    margin-left: 20rpx;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      padding: 10px 20px
+    }
+  }
+}
+
+
+
+
+// .sep-line {
+  
+//   margin:20rpx 0;
+// }
+
+/*订单编号信息 end*/
+
+.color_ju {
+  color: #fc7d20;
+}
+
+.color_lv {
+  color: #77d14c;
+}
+
+.color_wq {
+  color: #f10216;
+}
+

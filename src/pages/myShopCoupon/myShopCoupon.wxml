@@ -1,0 +1,124 @@
+<!--pages/myCoupon/myCoupon.wxml-->
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentLabTab==0 ? 'on' : ''}}" data-current-lab="0" bindtap="swichNav" data-eid="Mine_coupon_NoUse">
+    <text>未使用
+    </text>
+    <view wx:if="{{currentLabTab==0 ? 'on' : ''}}" class='btline'></view>
+  </view>
+  <view class="swiper-tab-list {{currentLabTab==1 ? 'on' : ''}}" data-current-lab="1" bindtap="swichNav" data-eid="Mine_coupon_HaveUsed">
+    <text>已使用
+    </text>
+    <view wx:if="{{currentLabTab==1 ? 'on' : ''}}" class='btline'></view>
+  </view>
+  <view class="swiper-tab-list {{currentLabTab==2 ? 'on' : ''}}" data-current-lab="2" bindtap="swichNav" data-eid="Mine_coupon_Overdue">
+    <text>已过期
+    </text>
+    <view wx:if="{{currentLabTab==2 ? 'on' : ''}}" class='btline'></view>
+  </view>
+</view>
+<view class='blank'></view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">
+  <!-- 未使用 -->
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px;' class='coupon-view' bindscrolltolower="scrollCheck">
+      <view class='none-coupon' wx:if="{{notUseCouponList.length == 0}}">
+        <image src='https://thunder.jd.com/jpass/img/nodiscount_defalt_pic.png'></image>
+        <text class='none-coupon-word'>暂无优惠券</text> 
+      </view>
+      <view style='min-height:{{swiperHeight}}px;' class='bt-bottom' wx:if="{{notUseCouponList.length != 0}}">
+        <view>
+          <view class='coupon-view-li' wx:for="{{notUseCouponList}}" wx:key="index" bindtap='lookCoupon' data-coupon-put-num="{{1}}" data-coupon-id="{{item.couponId}}">
+            <image  src='{{item.brandsLogo}}' class='coupon-brandlogo'></image>
+            <view class='coupon-msg'>
+              <view class='coupon-msg-name'>{{item.brandsName}}</view>
+              <view class='coupon-msg-oth'>部分门店可用
+                <text wx:if="{{item.couponType==1 || item.couponType==2}}"> | 部分商品可用</text>
+              </view>
+              <view class='coupon-msg-oth'>使用期限：{{item.startTime}}至{{item.endTime}}</view>
+            </view>
+            <view class='coupon-money'>
+              <view class='coupon-amount'>¥{{item.couponAmount}}
+              </view>
+              <view class='coupon-msg-oth'>满{{item.quota/100}}元可用</view>
+              <view class='coupon-btn coupon-touse' catchtap='stopprop'>
+                <fsubmit bind:fsubmit="lookCoupon" wx:if="{{item.viewStatus == 1}}" data-coupon-id="{{item.couponId}}">
+                  <view class='white'>立即使用</view>
+                </fsubmit>
+                <fsubmit bind:fsubmit="lookCoupon" wx:if="{{item.viewStatus == 0}}" data-coupon-id="{{item.couponId}}" data-coupon-put-num="{{1}}" >
+                  <view class='white'>去看看</view>
+                </fsubmit>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='bt-blank'></view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px;' class='coupon-view coupon-view-aluse' bindscrolltolower="scrollCheck">
+      <view style='min-height:{{swiperHeight}}px;' class='bt-bottom' wx:if="{{alUseCouponList.length != 0}}">
+        <view>
+          <view class='coupon-view-li' wx:for="{{alUseCouponList}}" wx:key="index" data-coupon-put-num="{{1}}" data-coupon-id="{{item.couponId}}" >
+            <image  src='{{item.brandsLogo}}' class='coupon-brandlogo'></image>
+            <view class='coupon-msg'>
+              <view class='coupon-msg-name'>{{item.brandsName}}</view>
+              <view class='coupon-msg-oth'>部分门店可用
+                <text wx:if="{{item.couponType==1 || item.couponType==2}}"> | 部分商品可用</text>
+              </view>
+              <view class='coupon-msg-oth'>使用期限：{{item.startTime}}至{{item.endTime}}</view>
+            </view>
+            <view class='coupon-money'>
+              <view class='coupon-amount coupon-used'>¥{{item.couponAmount}}
+              </view>
+              <view class='coupon-msg-oth'>满{{item.quota/100}}元可用</view>
+            </view>
+            <image class='coupon-usedimg' src='https://thunder.jd.com/jpass/img/al_used_coupon.png' mode='widthFix'></image>
+          </view>
+        </view>
+        <view class='bt-blank'></view>
+      </view>
+      <view class='none-coupon' wx:if="{{alUseCouponList.length == 0}}">
+        <image src='https://thunder.jd.com/jpass/img/nodiscount_defalt_pic.png'></image>
+        <text class='none-coupon-word'>暂无优惠券</text>
+      </view>
+    </scroll-view>
+  </swiper-item>
+
+  <!-- 已过期 -->
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px;' class='coupon-view coupon-view-aluse' bindscrolltolower="scrollCheck">
+      <view style='min-height:{{swiperHeight}}px;' class='bt-bottom' wx:if="{{expCouponList.length != 0}}">
+        <view>
+          <view class='coupon-view-li' wx:for="{{expCouponList}}" wx:key="index" data-coupon-put-num="{{1}}" data-coupon-id="{{item.couponId}}" data-eid="Mine_coupon_CouponClick">
+            <image catchtap='toBrand' data-brand-id="{{item.brandsId}}" data-b-id="{{item.bid}}" src='{{item.brandsLogo}}' mode='widthFix' class='coupon-brandlogo'></image>
+            <view class='coupon-msg'>
+              <view class='coupon-msg-name'>{{item.brandsName}}</view>
+              <view class='coupon-msg-oth'>部分门店可用
+                <text wx:if="{{item.couponType==1 || item.couponType==2}}"> | 部分商品可用</text>
+              </view>
+              <view class='coupon-msg-oth'>使用期限：{{item.startTime}}至{{item.endTime}}</view>
+            </view>
+            <view class='coupon-money'>
+              <view class='coupon-amount coupon-used'>¥{{item.couponAmount}}
+              </view>
+              <view class='coupon-msg-oth'>满{{item.quota/100}}元可用</view>
+            </view>
+            <image class='coupon-usedimg' src='https://thunder.jd.com/jpass/img/past_coupon.png' mode='widthFix'></image>
+          </view>
+        </view>
+        <view class='bt-blank'></view>
+      </view>
+      <view class='none-coupon' wx:if="{{expCouponList.length == 0}}">
+        <image src='https://thunder.jd.com/jpass/img/nodiscount_defalt_pic.png'></image>
+        <text class='none-coupon-word'>暂无优惠券</text>
+      </view>
+
+
+
+    </scroll-view>
+  </swiper-item>
+</swiper>
+
+<return-top show-flag="{{false}}" isReturnTop="{{false}}" isReturnHome="{{true}}"></return-top>

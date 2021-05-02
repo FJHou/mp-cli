@@ -1,0 +1,49 @@
+<!-- 订单编号、下单时间、订单类型基础信息 -->
+<wxs module="m1">
+module.exports = {
+  orderStatusEnum: function(status) {
+    return {
+      '-1':'未知',
+      '2':'无效',
+      '3':'无效', // 已取消
+      '4':'无效', // 京东帮帮主订单
+      '5':'无效', // 账号异常
+      '6':'无效', // 赠品类目不返佣
+      '7':'无效', // 校园订单
+      '8':'无效', // 企业订单
+      '9':'无效', // 团购订单
+      '10':'无效', // 开增值税专用发票订单
+      '11':'无效', // 乡村推广员下单
+      '12':'无效', // 自己推广自己下单
+      '13':'无效', // 违规订单
+      '14':'无效', // 来源与备案网址不符
+      '15':'待付款',
+      '16':'已付款',
+      '17':'已完成',
+      '18':'已结算',
+      '20':'无效', // 此复购订单对应的首购订单无效
+      '21':'无效' // 云店订单
+    }[status]
+  }	
+}
+</wxs>
+<view class='order-details'>
+  <view class="order-title order-status {{hasStatus ? 'status' : ''}}">
+    <view class='order-desc'>
+      订单编号：{{orderNo || '暂无数据'}}
+      <text class='copy-btn' bindtap='onCopy'>复制</text>
+    </view>
+    <text class="status">{{m1.orderStatusEnum(orderStatus)}}</text>
+  </view>
+  <view class="order-content">
+    <!-- <view class='order-desc'>
+      订单编号：{{orderNo || '暂无数据'}} <text class='copy-btn' bindtap='onCopy'>复制</text>
+    </view> -->
+    <view class='order-desc'>下单时间：{{orderTime || '暂无数据'}}</view>
+    <!-- <view class='order-desc'>商品类型：{{orderSourceView || '暂无类型'}}</view>
+    <view class='order-desc'>订单类型：{{orderSourceView || '暂无类型'}}</view> -->
+    <view class='order-desc tooltip-wrap' wx:if='{{cpsOrderStatusView}}'>
+      订单备注：{{cpsOrderStatusView}}
+    </view>
+  </view>
+</view>

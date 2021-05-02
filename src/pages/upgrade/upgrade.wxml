@@ -1,0 +1,2 @@
+<import src="../../components/noData/noData.wxml" />
+<template is="noMoreData" data="{{...updateItem}}" />

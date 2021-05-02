@@ -1,0 +1,14 @@
+<view class="entries">
+    <slide slider-class="slider" scroll-progress="{{hasProgress}}">
+        <view wx:for="{{entry2D}}" wx:key="index" class="grid-section">
+            <view class="grid {{layout}}">
+                <view class="grid-item" wx:for="{{item}}" wx:key="index" bindtap="handleClick" data-item="{{item}}">
+                    <image mode="aspectFit" class="icon" src="{{item.pictureUrl}}"></image>
+                    <view class="text">{{item.name}}</view>
+
+                    <view class="tips" wx:if="{{item.name === '药急送' && !isWithinFence}}">超出配送范围</view>
+                </view>
+            </view>
+        </view>
+    </slide>
+</view>

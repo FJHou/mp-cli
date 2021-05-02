@@ -1,0 +1,8 @@
+{ 
+	"backgroundColor": "#fff",
+	"backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "收益详情",
+  "navigationBarTextStyle":"black", 
+  "enablePullDownRefresh":true
+}

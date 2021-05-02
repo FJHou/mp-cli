@@ -1,0 +1,83 @@
+<wxs module="filters">
+  var filters = {
+    toFix: function(value) {
+      var val = parseFloat(value);
+      val = isNaN(val) ? 0 : val;
+      return val.toFixed(2);
+    },
+    morePuls: function(value) {
+      var num = parseInt(value);
+      num = num > 99 ? '99+' : num;
+      return num;
+    }
+    
+  }
+  module.exports = {
+    toFix: filters.toFix,
+    morePuls: filters.morePuls
+  }
+</wxs>
+<!-- 返回顶部 -->
+<!-- <back-top backShow="{{backShow}}" /> -->
+<view class="order-view">
+  <view class='fixed-tab'>
+    <view class='tab-wrap'>
+      <view class='tab-list'>
+        <view wx:for='{{tabDS}}' wx:key='item.title' class='tab-item {{item.orderStatus == params.state?"active":""}}' data-order-status='{{item.orderStatus}}' bindtap='onClickTab' >
+          <text>{{item.title}}</text>
+          <!-- orderStatus == 20 已付款 -->
+          <!-- <text wx:if='{{item.orderStatus == "20"}}' class='tag'>{{filters.morePuls(stayDeliveryNum)}}</text> -->
+          <!-- orderStatus == 50 已完成 -->
+          <!-- <text wx:if='{{item.orderStatus == "50"}}' class='tag'>{{filters.morePuls(allFinishNum)}}</text> -->
+        </view>
+      </view>
+    </view>
+    <view class='filter'>
+      <view class='filter-item'>
+        <view class='select'>
+          <date-picker bind:selectDate='selectDate' placeholder='下单时间' rangeValue='{{[params.startDate, params.endDate]}}' />
+        </view>
+      </view>
+      <!-- <view class='filter-item'>
+      <select 
+        dataSource='{{select.list}}'
+        value='{{select.value}}' 
+        placeholder='{{select.placeholder}}' 
+        bind:select='onSelectOrderType'
+      />
+    </view> -->
+    </view>
+  </view>
+  <list-view
+    class='list-wrap'
+    bindscrolltolower="onReachBottom" 
+    bindrefresherrefresh="onRefresh" 
+    refresherTriggered="{{triggered}}"
+    loading="{{loading}}"
+    refresherEnabled="{{true}}"
+    autoLoadOver="{{true}}"
+    total="{{totalCount}}"
+    dataSource="{{dataSource}}"
+  >
+    <view class='list-item' wx:for='{{dataSource}}' wx:key='index'>
+      <!-- 订单编号信息 -->
+      <order-base-info orderNo='{{item.orderNo}}' orderTime='{{item.orderTime}}' orderSourceView='{{item.orderSourceView}}' orderStatusView='{{item.orderStatusView}}' orderStatus='{{item.validCode}}' hasStatus="{{true}}" orderSource='{{item.orderSource}}' cpsOrderStatusView='{{item.cpsOrderStatusView}}' />
+      <!-- 商品信息 -->
+      <promotion-order-sku-info url='{{item.skuImg}}' buyerId='{{item.buyerId}}' itemName='{{item.skuName}}' commissionPrice='{{filters.toFix(item.commissionPrice)}}' paymentPrice='{{filters.toFix(item.amount)}}' num='{{item.orderItemSkuVo.num}}' orderSource='{{item.orderSource}}' jdSkuId='{{item.orderItemSkuVo && item.orderItemSkuVo.jdSkuId || ""}}' />
+    </view>
+  </list-view>
+  
+  <!-- <scroll-view class='list-wrap' 
+    scroll-y 
+    bindscrolltolower="onReachBottom">
+
+    <view wx:if='{{!loading && dataSource.length == 0}}' class='empty'>
+      <text class="empty-text">暂无数据~</text>
+    </view>
+    <block wx:if='{{loading || noMoreDataSource}}'>
+      <my-loading wx:if="{{loading}}" />
+      <view wx:if="{{!loading && noMoreDataSource}}" class="no-more-data">没有更多了~</view>
+    </block>
+    <no-data wx:if='{{dataSource && dataSource.length > 0 && lastPage}}' marginTop='20' />
+  </scroll-view> -->
+</view>

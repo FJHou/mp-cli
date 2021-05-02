@@ -1,0 +1,135 @@
+/* pages/couponRetailStore/couponRetailStore.wxss */
+@import '../../css/index.wxss';
+/* 页面设置 */
+page {
+	background: #f3f3f7;
+	height: 100%;
+}
+.page-con {
+	min-height: 100%;
+	position: relative;
+	border-top: 1px solid rgb(232, 232, 232);
+}
+.img {
+	width: 15px;
+	height: 15px;
+}
+
+.noImg {
+	/* width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  position: absolute;
+  top: 50%; */
+	padding: 252rpx 0 0;
+}
+.no-brandshop {
+	/* margin: 0 auto 60rpx; */
+	position: relative;
+	left: 50%;
+	margin: 0 0 60rpx -100rpx;
+	width: 238rpx;
+	height: 246rpx;
+	display: block;
+}
+.no-brandshop-word {
+	font-family: PingFangSC-Regular;
+	font-size: 26rpx;
+	color: rgb(132, 132, 132);
+	text-align: center;
+}
+.brand-shop-list {
+	padding-top: 20rpx;
+}
+.brand-shop-li {
+	padding: 30rpx 0 30rpx 30rpx;
+	display: flex;
+	align-items: stretch;
+	background: white;
+	border-bottom: 1px solid rgb(232, 232, 232);
+}
+.brand-shop-li:last-child {
+	border: 0;
+}
+.bsl-address {
+	flex: 1;
+	color: rgb(46, 45, 45);
+}
+.bsl-shopname {
+	font-family: PingFangSC-Regular;
+	font-size: 32rpx;
+	line-height: 45rpx;
+	margin-bottom: 4rpx;
+}
+.bsl-addr-de {
+	display: flex;
+	width: 618rpx;
+	height: 24rpx;
+}
+.bsl-addrname {
+	flex: 0 0 450rpx;
+	margin-right: 30rpx;
+	font-size: 24rpx;
+	line-height: 24rpx;
+	opacity: 0.84;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.bsl-addr-dis {
+	flex: 0 0 62rpx;
+	display: flex;
+}
+.bsl-addr-dis image {
+	width: 20rpx;
+	height: 25rpx;
+	display: block;
+	margin-right: 6rpx;
+}
+.bsl-addr-dis view {
+	font-size: 24rpx;
+	line-height: 24rpx;
+	opacity: 0.84;
+	color: rgb(46, 45, 45);
+}
+.bsl-phone {
+	flex: 0 0 100rpx;
+	border-left: 1px solid rgb(232, 232, 232);
+	height: 70rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.bsl-phone image {
+	width: 34rpx;
+	height: 34rpx;
+}
+
+/*底部logo  */
+.loadmore-blank {
+	height: 104rpx;
+}
+.loadmore {
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: absolute;
+}
+.load-nomore,
+.load-ing {
+	color: #808080;
+	font-size: 20rpx;
+	padding: 20rpx 0 20rpx;
+	text-align: center;
+}
+.load-nomore .bot_logo {
+	width: 43rpx;
+	height: 37rpx;
+	display: block;
+	margin: 10rpx auto 0;
+}
+/* .loadmore-blank{height: 104rpx;}
+.loadmore{position: absolute;left: 0;right: 0;bottom: 0;}
+.load-nomore{ color: #808080; font-size: 20rpx; padding: 20rpx 0 20rpx; text-align: center;}
+.load-nomore .bot_logo{ width: 43rpx; height: 37rpx; display: block; margin: 10rpx auto 0;} */

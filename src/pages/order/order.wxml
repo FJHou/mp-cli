@@ -1,0 +1,77 @@
+<import src="../../components/noData/noData.wxml" />
+<import src='../../components/toast/toast.wxml' /> 
+<page class="page-wrap">
+  <form report-submit="true" class="order-tab" bindsubmit="switchOrder">
+    <view class="order-tab">
+      <block wx:key="index" wx:for="{{tab.list}}">
+        <button class="tab-item {{tab.selectedId == item.id ? 'checked' : ''}} message-push-btn" data-type="{{item.statusId}}" form-type="submit"
+          data-item-id="{{item.id}}">{{item.title}}</button>
+      </block>
+    </view>
+  </form>
+  <block wx:if="{{firstHasData}}">
+    <scroll-view class="my-order-viewport" scroll-x="false" scroll-y="true" style="height:{{screenHeight-51}}px;" scroll-top="{{scrollTop}}"
+      bindscroll="scroll" bindscrolltolower="ForReachBottom">
+      <block wx:key="orderId" wx:for="{{orderList}}" wx:for-index="idx" wx:for-item="order">
+        <block wx:if="{{order}}">
+          <view class="order-ul bd-tb">
+            <view class="order-top bd-b"> 
+							<icon class="icn-pop-shop"></icon>
+              <view class="shop-name">{{order.shopName}}</view>
+              <view class="order-state jd-red">{{order.orderStatus}}</view>
+            </view> 
+            <view  bindtap="jump2orderDetail" class="order-commodities" data-orderId="{{order.orderId}}">
+              <block  wx:key="wareId" wx:for="{{order.orderMsg.wareInfoList}}" wx:for-index="wareId" wx:for-item="ware">
+                  <view class="order-li bd-b">
+                    <view class="product-img">
+                      <image src="{{ware.imageurl}}" mode="aspectFit"></image>
+                    </view>
+                    <view class="product-info">{{ware.wname}}</view>
+                  </view>
+              </block> 
+            </view>
+            <view class="order-bottom">
+              <view class="text-left">
+                <view class="text3">实付款：</view>
+                <view class="text4">¥{{order.price}}</view>
+              </view>
+              <view wx:if="{{order.buttons.length>0}}" class="pay-btn">
+                <block wx:key="idz" wx:for="{{order.buttons}}" wx:for-index="idz" wx:for-item="buttons">
+									<block wx:if="{{buttons.showLabelId==5||buttons.showLabelId == 4000 }}">
+                    <form bindsubmit="confirmGoods" report-submit="true" data-orderId="{{order.orderId}}">
+                      <button form-type="submit" class="message-push-btn button jd-red jd-red-bd">确认收货</button>
+                    </form>
+                  </block>
+                  <block wx:if="{{(buttons.showLabelId==1||buttons.showLabelId==2000)}}">
+                    <form bindsubmit="goPay" report-submit="true" data-orderId="{{order.orderId}}" data-orderType="{{order.orderType}}" data-orderTypeCode="{{order.payTypeCode}}"
+                      data-factPrice="{{order.price}}">
+                      <button form-type="submit" class="message-push-btn button jd-red jd-red-bd">去支付</button>
+                    </form>
+                  </block> 
+									<block wx:if="{{buttons.showLabelId==2 }}">
+                    <form bindsubmit="orderAgain" data-url="{{buttons.url}}" report-submit="true" >
+                      <button form-type="submit" class="message-push-btn button jd-red jd-red-bd">再次预约</button>
+                    </form>
+                  </block> 
+                </block>
+              </view>  
+            </view>
+          </view>
+        </block>
+      </block>
+      <image class="bottom-to-top" src="http://commonst.360buyimg.com/common/wx-images/scroll-to-top-icon-new.png" style="display:{{toTopDisplay}}"
+        bindtap="toTopTap"></image>
+      <view class='no-more' style="display:{{noMore?'flex':none}}">没有更多了</view>
+      <button class="load" loading='true' style="display:{{loadnone?none:'flex'}}">加载中</button>
+
+      <!--<modal confirm-text="立即前往" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="loginModalConfirm" bindcancel="loginModalCancel">你还未登录，是否跳转到登录页面</modal>-->
+    </scroll-view>
+  </block>
+
+  <block wx:else>
+    <template is="noMoreData" data="{{...noOrderItem}}" />
+  </block>
+
+  <template is="toast" data="{{...toastData}}"></template>
+
+</page>

@@ -1,0 +1,17 @@
+<view class='select'>
+  <view class='select-btn' bindtap='onClick'>
+    <text>{{value?value:placeholder}}</text>
+    <text class='icon iconfont icon-xiaosanjiao-xiangxia'></text>
+  </view>
+  <view class='select-content-wrap' hidden='{{!show}}'>
+    <view class='select-content'>
+      <view 
+        wx:for='{{dataSource}}'
+        wx:key='select-{{title}}' 
+        class='select-item {{item.value == value?"active":""}} {{!value && index=="0"?"active":""}}'
+        bindtap='onSelect' 
+        data-index='{{index}}'
+      >{{item.value}}</view>
+    </view>
+  </view>
+</view>

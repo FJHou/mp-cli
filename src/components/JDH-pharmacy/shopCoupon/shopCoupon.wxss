@@ -1,0 +1,198 @@
+@import '../../../css/JDfont.wxss';
+.coupon-view-li {
+	height: 242rpx;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	border-radius: 10rpx;
+	background-size: 100%;
+	position: relative;
+	background-color: #fff;
+	background-repeat: no-repeat;
+}
+
+
+.fromType-3.coupon-view-li {
+	margin-bottom: 20rpx;
+}
+/* 药急送未领取优惠券 */
+.fromType-1.couponStatus-0 {
+	background-image: url("https://img14.360buyimg.com/imagetools/jfs/t1/125782/20/14959/19322/5f86a093E7e53fd8c/9466f4820d7bddcf.png");
+}
+/* 药急送已领取优惠券 */
+.fromType-1.couponStatus-2 {
+	background-image: url("https://img13.360buyimg.com/imagetools/jfs/t1/149017/7/10669/23306/5f86a05eE8594ade2/1b185c3e86e4c042.png");
+}
+/* 到店couponStatus-0未领取优惠券  couponStatus-3已领完*/
+.fromType-2.couponStatus-0,
+.fromType-2.couponStatus-3 {
+	background-image: url("https://img11.360buyimg.com/imagetools/jfs/t1/134248/31/12410/16774/5f86a02dE228bcbf3/1be032347a3ba7a6.png");
+}
+/* 到店已领取优惠券 */
+.fromType-2.couponStatus-2 {
+	background-image: url("https://img11.360buyimg.com/imagetools/jfs/t1/120166/22/14789/20801/5f86a07aEed76602b/403256968938f5d4.png");
+}
+.fromType-3 {
+	background-image: url("https://img10.360buyimg.com/imagetools/jfs/t1/142620/4/10909/2876/5f87be84E60977b38/ab7edf5492fe084b.png");
+}
+.fromType-3.coupon-view-li {
+	height: 152rpx;
+}
+.coupon-view-li:last-child {
+	margin-bottom: 0;
+}
+.coupon-brandlogo {
+	flex: 0 0 72rpx;
+	height: 72rpx;
+	margin-right: 20rpx;
+	border-radius: 36rpx;
+	display: block;
+}
+.coupon-price {
+	flex: 0 0 32%;
+	padding: 0 15rpx;
+	text-align: center;
+	font-size: 80rpx;
+	color: rgba(255, 255, 255, 1);
+}
+.fromType-2,.fromType-3 .coupon-price {
+	padding: 0 28rpx 10rpx;
+}
+.price-med, .coupon-price-small {
+	font-family: JDZhengHei-01-Bold;
+}
+.coupon-price-medium {
+	font-size: 66rpx;
+}
+.coupon-price-small {
+	font-size: 50rpx;
+}
+.fromType-3 .coupon-price {
+	font-size: 50rpx;
+}
+.fromType-3 .coupon-price-medium {
+	font-size: 32rpx;
+}
+.fromType-3 .coupon-price-small {
+	font-size: 26rpx;
+}
+.coupon-price-use {
+	line-height: 24rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 24rpx;
+	color: rgba(255, 255, 255, 1);
+	margin-top: 10rpx;
+}
+.coupon-moneyImg {
+	width: 24rpx;
+	height: 30rpx;
+	margin-right: 4rpx;
+}
+.coupon-msg {
+	margin-left: 30rpx;
+}
+
+.coupon-msg-name {
+	width: 400rpx;
+	font-size: 26rpx;
+	font-family: PingFang-SC-Medium;
+	color: rgba(38, 38, 38, 1);
+	line-height: 26rpx;
+	margin-bottom: 16rpx;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.coupon-msg-oth {
+	font-size: 22rpx;
+	font-family: PingFangSC-Regular;
+	color: rgba(186, 186, 186, 1);
+	line-height: 22rpx;
+	margin-bottom: 50rpx;
+	margin-right: 6rpx;
+}
+.coupon-msg-date {
+	font-size: 24rpx;
+	color: rgba(38, 38, 38, 1);
+	line-height: 24rpx;
+	font-family: JDZhengHei-01-Light;
+}
+.coupon-msg-oth:last-of-type {
+	margin-bottom: 0;
+}
+.coupon-money {
+	display: flex;
+	flex: 0 0 190rpx;
+	justify-content: space-around;
+	flex-flow: wrap;
+	z-index: 2;
+}
+.coupon-amount {
+	font-family: JDZhengHei-01-Regular;
+	font-size: 36rpx;
+	color: rgb(243, 9, 3);
+	line-height: 36rpx;
+	margin-bottom: 6rpx;
+	width: 190rpx;
+	text-align: center;
+}
+/* .coupon-amount text{
+  font-size: 24rpx;
+} */
+.coupon-btn {
+	position: absolute;
+	right: 50rpx;
+	bottom: 66rpx;
+	width: 120rpx;
+	height: 46rpx;
+	background: rgba(255, 255, 255, 1);
+	border: 1px solid rgba(77, 136, 255, 1);
+	border-radius: 30rpx;
+	color: #4d88ff;
+	font-size: 22rpx;
+	text-align: center;
+	line-height: 46rpx;
+}
+.coupon-btn.no-Coupon {
+	color: #aaa;
+	border: 1px solid #aaa;
+}
+
+.fromType-3 .coupon-btn {
+	position: absolute;
+	right: 24rpx;
+	top: 52rpx;
+	color: #fff;
+	background: rgba(255, 218, 218, 0.4);
+	border: 1px solid rgba(227, 70, 70, 1);
+	border-radius: 36px;
+	font-size: 24rpx;
+	color: rgba(241, 71, 71, 1);
+}
+.fromType-3 .coupon-btn.toUse {
+	position: absolute;
+	right: 24rpx;
+	bottom: 92rpx;
+	color: #fff;
+	background: linear-gradient(135deg, rgba(242, 20, 12, 1) 0%, rgba(242, 39, 12, 1) 70%, rgba(242, 77, 12, 1) 100%);
+	border-radius: 36px;
+	font-size: 24rpx;
+	border: none;
+}
+.fromType-3 .coupon-msg-date {
+	font-family: JDZhengHei-01-Regular;
+	font-size: 20rpx;
+	color: rgba(38, 38, 38, 1);
+}
+.fromType-3 .coupon-msg-oth {
+	display: inline-block;
+	margin-bottom: 20rpx;
+	padding: 4rpx;
+	text-align: center;
+	border: 1px solid rgba(254, 59, 0, 1);
+	border-radius: 6rpx;
+	line-height: 20rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 20rpx;
+	color: rgba(254, 59, 0, 1);
+}

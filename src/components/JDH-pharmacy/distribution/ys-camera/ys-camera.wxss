@@ -1,0 +1,161 @@
+/* components/ys-camera/ys-camera.wxss */
+
+/* 引入字体图标 */
+/* @import '../../resource/iconfont/iconfont.wxss'; */
+
+/* 拍照、视频列表 */
+
+.ys-camera-list {
+}
+
+.ys-camera-list:after {
+  content: ' ';
+  clear: both;
+  display: block;
+  width: 1rpx;
+  height: 1rpx;
+}
+
+.ys-camera-list-item {
+  margin: 10rpx 0;
+  width: 25%;
+  float: left;
+  text-align: center;
+}
+
+.ys-camera-item-img {
+  width: 158rpx;
+  height: 158rpx;
+  border-radius: 4rpx;
+  display: inline-block;
+  position: relative;
+  color: #d8dce0;
+  font-size: 24rpx;
+}
+
+.ys-camera-item-img .iconfont {
+  font-size: 38rpx;
+}
+
+.ys-camera-item-img .ys-camera-close {
+  border-radius: 50%;
+  background: #fff;
+}
+
+.ys-camera-item-img .image {
+  width: 158rpx;
+  height: 158rpx;
+  overflow: hidden;
+  border-radius: 4rpx;
+  background:#ddd;
+}
+
+.ys-camera-item-img .video-play {
+  position: absolute;
+  padding: 10rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+  left: 50rpx;
+  top: 50rpx;
+  text-align: center;
+  line-height: 40rpx;
+}
+
+.ys-camera-item-img .video-play .iconfont {
+  font-size: 30rpx;
+  color: #999;
+}
+
+.ys-camera-close {
+  font-size: 40rpx;
+  line-height: 40rpx;
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: -15rpx;
+  top: -15rpx;
+  color: #bbb;
+}
+
+.ys-camera-action-btn {
+  margin: 40rpx 0 10rpx 0;
+}
+
+.uploading {
+  font-size: 50rpx !important;
+  animation: roll 1s infinite;
+  position:absolute;
+  left:55rpx;
+  top:50rpx;
+  color:#999;
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.show-modal{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#000;
+  z-index:9999999999;
+}
+.show-modal .show-space{
+  width:750rpx;
+  height:750rpx;
+  background:#fff;
+  position:absolute;
+  bottom:400rpx;
+}
+.show-modal .btn-group{
+  position: absolute;
+  bottom:200rpx;
+  width:100%;
+  text-align: center;
+  height:64rpx;
+}
+.show-modal .btn-group .btn{
+  width:180rpx;
+  height:64rpx;
+  text-align: center;
+  line-height:64rpx;
+  font-size:32rpx;
+  display:inline-block;
+  border-radius: 4rpx;
+}
+.show-modal .btn-group .success{
+  background:#fff;
+  color:#333;
+  border:1rpx solid #fff;
+}
+.show-modal .btn-group .cancel{
+  background:#666;
+  color:#fff;
+  border:1rpx solid #bbb;
+}
+/* 通用样式 */
+
+.b-t-1-s-light {
+  border-top: 1rpx solid #edeeef;
+}
+
+.b-t-20-s-light {
+  border-top: 20rpx solid #f7f7f7;
+}
+.m-r-60{
+  margin-right:60rpx;
+}
+.b-2{
+  border: 2rpx solid #eee;
+}

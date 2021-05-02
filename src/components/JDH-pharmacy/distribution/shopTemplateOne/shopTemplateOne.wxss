@@ -1,0 +1,99 @@
+/* pages/testTemplate/testTemplate.wxss */
+/* @import '../../resource/iconfont/iconfont'; */
+/* 标题 */
+.com-item-info-title{
+  font-size:26rpx;
+  color:#333;
+  word-break: break-all;
+  -webkit-line-clamp: 2; /* 限制在一个块元素显示的文本的行数 */
+  line-clamp: 2;
+  display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+  -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height:40rpx;
+}
+.com-item-info-title-jd-flag{
+  display:inline-block;
+  background:#F10216;
+  color:#fff;
+  width:130rpx;
+  text-align:center;
+  border-radius: 34rpx;
+  margin-right:10rpx;
+  font-size:22rpx;
+  line-height:34rpx;
+}
+.modals-cancel {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 750rpx;
+}
+.modals-cancel2 {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 750rpx;
+}
+.move_area {
+  width: 100%;
+  height: 100%;
+  margin-left: 10rpx;
+}
+.item_img {
+  display: inline-block;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 15rpx;
+}
+.item-move {
+  display: inline-block;
+  width: 150rpx;
+  height: 150rpx;
+  border: 5rpx solid #09bb07;
+  border-radius: 15rpx; 
+}
+/* 优惠券 */
+.com-item-info-ticket{
+  background-image: linear-gradient(90deg, #FF6900 50%, #F10216 100%);
+  width:150rpx;
+  height:30rpx;
+  font-size:20rpx;
+  color:#fff;
+  text-align: center;
+  line-height:30rpx;
+  letter-spacing: 2rpx;
+  position:relative;
+  overflow:hidden;
+  border:none;
+}
+.com-item-info-ticket .decorate{
+  width:8rpx;
+  height:8rpx;
+  position:absolute;
+  background:#fff;
+  border-radius: 50%;
+}
+.com-item-info-ticket .decorate-left{
+  left:-4rpx;
+}
+.com-item-info-ticket .decorate-right{
+  right:-4rpx;
+}
+.com-item-info-ticket .decorate-pos-1{
+  top:5%;
+}
+.com-item-info-ticket .decorate-pos-2{
+  top:35%;
+}
+.com-item-info-ticket .decorate-pos-3{
+  top:65%;
+}

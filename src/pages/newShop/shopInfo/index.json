@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "门店信息",
+    "usingComponents": {
+        "title": "../../../components/JDH-pharmacy/title/index",
+		"card": "../../../components/JDH-pharmacy/card/index",
+        "slide": "../../../components/JDH-pharmacy/slider/index"
+    }
+}

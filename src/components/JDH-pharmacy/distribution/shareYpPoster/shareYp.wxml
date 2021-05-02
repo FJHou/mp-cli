@@ -1,0 +1,140 @@
+<!-- 
+  该组件是，商品分享海报生成、下载
+  注意：
+    有两种调用方式 1: 通过wxml中元素触发调用  2.通过变量codeCall('00'关闭海报   '01': 开启海报)；
+    循环列表中，不要循环中调用，会导致页面卡顿，要通过改变codeCall的值来控制；
+    
+  维护者：ChenYanHua
+ -->
+ 
+<!-- 页面小方法 -->
+<wxs module="filters">
+  var filters = {
+    toFix: function(value) {
+      var val = parseFloat(value);
+      val = isNaN(val) ? 0 : val;
+      return val.toFixed(2);
+    }
+  }
+  module.exports = {
+    toFix: filters.toFix
+  }
+</wxs>
+
+<view bindtap='{{onSale?"tapToshare":""}}'>
+  <slot></slot>
+</view>
+
+<!-- CPS-分享弹层 -->
+<view class='modal' hidden='{{!showShareModal}}'  catchtouchmove='{{true}}' style='top:{{navHeight+44}}px;'>
+  <view class='modal-content'>
+    <view class='img-wrap'>
+      <view class="close-icon" bindtap="onCloseShareModal" catchtouchmove='{{true}}'>
+        <text class='icon iconfont icon-guanbi'></text>
+      </view>
+      <image 
+        bindload='imgOnLoad' 
+        style='display:{{imgLoaded?"block": "none"}}' 
+        src='{{newProductInfo.annexUrl ? "https:"+newProductInfo.annexUrl+"?img/s/750/750" : productDefaultImg}}' 
+      />
+      <image 
+        src='{{productDefaultImg}}' 
+        class='center' 
+        style='display:{{imgLoaded?"none": "block"}}' 
+      />
+    </view>
+
+    <!--详细信息-->
+    <view class='details-wrap'>
+      <view class='title'>
+        <text wx:if='{{saleTypeDesc == "bargain"}}' class='tag'>{{brandTxt.mine1}}{{brandTxt.kj}}</text>
+        <text wx:elif='{{saleTypeDesc == "group"}}' class='tag'>{{brandTxt.mine1}}{{brandTxt.pt}}</text>
+        <text wx:elif='{{saleTypeDesc == "fanyong" && brandTxt.mine1}}' class='tag'>{{brandTxt.mine1}}</text>
+        {{newProductInfo.itemName}}
+      </view>
+      <view class='details-flex'>
+        <view class='flex-left'>
+          <!--返佣/分销 优惠价 != 京享价 -->
+          <block wx:if='{{saleTypeDesc == "fanyong"}}'>
+            <view wx:if='{{newProductInfo.referPrice != newProductInfo.salePrice}}' class='price'>
+              <text class='red-price-label'>{{brandTxt.p_mine_sale}}</text>
+              <text class='red-price-lo'>¥</text>
+              <text class='red-price-val'>{{newProductInfo.salePrice}}</text>
+              <text class='gray-price-label'>{{brandTxt.p_mine}}: </text>
+              <text class='gray-price-val'>¥{{newProductInfo.referPrice}}</text>
+            </view>
+            <!--返佣/分销 优惠价 == 京享价 -->
+            <view wx:else class='price'>
+              <text class='red-price-label'>{{brandTxt.p_mine}}</text>
+              <text class='red-price-lo'>¥</text>
+              <text class='red-price-val'>{{newProductInfo.salePrice}}</text>
+            </view>
+          </block>
+
+          <!--砍价-->
+          <block wx:if='{{saleTypeDesc == "bargain"}}'>
+            <view class='price'>
+              <text class='red-price-label'>{{brandTxt.p_kj}}</text>
+              <text class='red-price-lo'>¥</text>
+              <text class='red-price-val'>{{newProductInfo.reducePrice}}</text>
+              <block wx:if='{{newProductInfo.reducePrice != newProductInfo.salePrice}}'>
+              <text class='gray-price-label'>{{brandTxt.p_mine}}: </text>
+              <text class='gray-price-val'>¥{{newProductInfo.salePrice}}</text>
+              </block>
+            </view>
+          </block>
+
+          <!--拼团-->
+          <block wx:if='{{saleTypeDesc == "group"}}'>
+            <view class='price'>
+              <text class='red-price-label'>{{brandTxt.p_pt}}</text>
+              <text class='red-price-lo'>¥</text>
+              <text class='red-price-val'>{{newProductInfo.groupBuyPrice}}</text>
+              <block wx:if='{{newProductInfo.groupBuyPrice != newProductInfo.salePrice}}'>
+              <text class='gray-price-label'>{{brandTxt.p_mine}}: </text>
+              <text class='gray-price-val'>¥{{newProductInfo.salePrice}}</text>
+              </block>
+            </view>
+          </block>
+
+          <view class='user'>
+            <view class='user-icon'>
+              <image src='{{userInfo.userHeaderUrl || userInfo.avatarUrl || defaultPic}}'></image>
+            </view>
+            <view class='user-text'>
+              <view class='user-name'>{{userInfo.nickName}}</view>
+              <view class='user-tips'>邀请好友享受{{brandTxt.mine1}}购物内购优惠</view>
+            </view>
+          </view>
+        </view>
+        <view class='flex-right'>
+          <view class='wxcode'>
+            <image src='{{wxCodeImg}}'></image>
+          </view>
+          <view class='tips'>长按识别</view>
+        </view>
+      </view>
+    </view>
+
+    <!--按钮-->
+    <button open-type="share"  class='btn red-btn' hover-class="none">
+      <text>分享给好友</text>
+    </button>
+    <view class='btn-wrap'>
+      <view class='btn orange-btn {{disabledDownLoadBtn?"disabled":""}}' bindtap='{{h5_details_url?"saveText":""}}'>复制链接</view>
+      <view class='btn orange-btn {{disabledDownLoadBtn?"disabled":""}}' bindtap='{{!disabledDownLoadBtn?"toDownload":""}}'>下载图文</view>
+    </view>
+
+  </view>
+</view>
+
+<view wx:if='{{showToast}}' class='toast' catchtouchmove='{{true}}' style='top:{{navHeight+44}}px;'>
+  <view  class='toast-content'>
+    <view class='toast-text'>图片已保存相册，赶紧晒一下吧～</view>
+    <view class='toast-btn' bindtap='onOK'>好的</view>
+  </view>
+</view>
+
+
+<!--下载图文 canvas, wx:if 解决安卓下由于canvas高度问题导致商详页面滑动卡顿问题-->
+<canvas wx:if='{{codeCall == "01"}}' canvas-id='shareCanvas' class='share-canvas'></canvas>

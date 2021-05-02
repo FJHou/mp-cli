@@ -1,0 +1,35 @@
+/* pages/payment/payment.js.wxss */
+page {
+  height: 100%;
+}
+.payment_body {
+  height: 100%;
+  background-color: white;
+  overflow: hidden;
+}
+.payment_body_text {
+  margin-top: 224rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.payment_body_text text{
+  font-size: 36rpx;
+  color: rgb(9, 187, 7);
+  font-weight: 550;
+  margin: 0 40rpx;
+}
+.payment_body_text view{
+  background-color: rgba(46, 45, 45, 0.15);
+  height: 1rpx;
+  width: 60rpx;
+}
+.payment_body_amount{
+  text-align: center;
+  margin-top: 25rpx;
+}
+.payment_body_amount text{
+  font-size: 86rpx;
+  color: rgb(46, 45, 45);
+  font-weight: 600;
+}

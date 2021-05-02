@@ -1,0 +1,51 @@
+.entries {
+    .slider {
+        padding: 25rpx 0;
+    }
+
+    .grid-section {
+        width: 100%;
+        display: inline-block;
+    }
+
+    .grid {
+        display: flex;
+        &.wrap {
+            flex-wrap: wrap;
+        }
+    }
+
+    .grid-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 25%;
+        width: 25%;
+        padding: 10rpx;
+        .icon {
+            width: 78rpx;
+            height: 78rpx;
+        }
+        .text {
+            margin-top: 16rpx;
+            font-size: 24rpx;
+            color: #262626;
+            text-align: center;
+        }
+        .tips {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            font-size: 16rpx;
+            width: 116rpx;
+            height: 36rpx;
+            line-height:36rpx;
+            border-radius: 20rpx 20rpx 20rpx 0;
+            background: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            color: #fff;
+        }
+    }
+}

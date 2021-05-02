@@ -1,0 +1,11 @@
+var filters = {
+  cpsImgUrl: function (url, width, rate) {
+    if(url.indexOf('360buyimg')>-1){
+      url +='!q'+(rate||50)
+    }
+    return url.replace('/ads/jfs', '/ads/s' + width + 'x' + width + '_jfs');
+  }
+}
+module.exports = {
+  cpsImgUrl: filters.cpsImgUrl
+}

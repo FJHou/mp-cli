@@ -1,0 +1,16 @@
+/* 开店按钮 */
+/* @import "../../resource/iconfont/iconfont.wxss"; */
+
+.create-shop{
+
+  animation: d3 2s linear infinite; animation-fill-mode: both;
+}
+@keyframes d3{
+        0%,100%{
+            transform:rotate(0deg);
+        }
+        50%{  
+            bottom: 430rpx;
+            transform:rotate(0deg);
+        }
+    }

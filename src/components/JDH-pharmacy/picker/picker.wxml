@@ -1,0 +1,46 @@
+<!--pages/picker/picker.wxml-->
+<view class='pick-view'>
+  <view bindtap='pickShow'>
+    <block wx:if='{{defaultTitle}}'>
+      {{defaultTitle}}
+    </block>
+    <block wx:else>
+      {{startDate}}{{mark}}{{endDate}}
+    </block>
+    <i wx:if='{{showTrangle}}' class='icon-trangle iconfont icon-xiaosanjiao-xiangxia m-l-10' />
+  </view>
+  <view class='pick-wrap' wx:if='{{pickStatus}}'>
+    <!-- class为日期选择框状态（） -->
+    <view class='pick-mode-{{pos}}-{{mode}} pick-view-wrap {{animate&&"animate"}} {{pos=="bottom" ? animateShow?"pick-show":"pick-hide":""}}'>
+      <!-- 日期tab -->
+      <view class='swiper-tab'>
+        <view id='start' class='swiper-tab-item {{tab=="start"&&"swiper-tab-active"}}' catchtap='catchtap'>
+          <view>开始时间</view>
+          <view>{{startDate}}</view>
+        </view>
+        <view id='end' class='swiper-tab-item {{tab=="end"&&"swiper-tab-active"}}' catchtap='catchtap'>
+          <view>结束时间</view>
+          <view>{{endDate}}</view>
+        </view>
+      </view>
+      <!-- 日期主体 -->
+      <picker-view class='picker-view' indicator-class='indicator-class' value="{{value}}" catchchange="swiperPick" catchtouchmove='preventTouchMove'>
+        <picker-view-column class='picker-view-column'>
+          <view wx:for="{{yearArr}}" wx:key='index'>{{item}}年</view>
+        </picker-view-column>
+        <picker-view-column class='picker-view-column'>
+          <view wx:for="{{monthArr}}" wx:key='index'>{{item}}月</view>
+        </picker-view-column>
+        <picker-view-column class='picker-view-column'>
+          <view wx:for="{{dayArr}}" wx:key='index'>{{item}}日</view>
+        </picker-view-column>
+      </picker-view>
+      <!-- 按钮组 -->
+      <view class='swiper-btn-group'>
+        <view class='swiper-btn-group-item' catchtap='cencel'>取消</view>
+        <view class='swiper-btn-group-item' catchtap='confirm'>确定</view>
+      </view>
+    </view>
+    <view class='pick-bg' catchtap='cencel'></view>
+  </view>
+</view>

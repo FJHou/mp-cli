@@ -1,0 +1,53 @@
+<!-- <component-topnav inner-title="切换地址" is-show-back="true"></component-topnav> -->
+<view>
+    <component-topnav isShowBack="{{'true'}}" navStyle="{{navStyle}}"></component-topnav>
+    <view class="chice-location">
+        <view class="send-to choice-text">送至:</view>
+        <view class="send-location choice-text">{{choiceLocation || "定位中..."}}</view>
+    </view>
+    <view class="cur-location">
+        <view class="cur-location-left">
+            <image src="{{images.position}}" class="cur-location-flag" />
+            <view class="cur-location-text" bindtap="useCurLocation">
+                {{curLocation || "定位中..."}}
+            </view>
+        </view>
+        <view class="re-location" bindtap="reAuthLocation">重新定位</view>
+    </view>
+    <view class="block">我的收货地址</view>
+    <view wx:if="{{ !isLogined }}" style="text-align: center; padding-top: 160rpx;">
+        <image src="{{ images.logImage }}" style="width: 240rpx; height: 150rpx;"></image>
+        <view style="font-size: 30rpx; color: #BFBFBF;">登录后查看更多收货地址</view>
+        <view class="login-button" catchtap="toLogin">登 录</view>
+    </view>
+    <view wx:elif="{{ queryDone }}">
+        <view class="adress-list" wx:if="{{addressList.length > 0}}">
+            <block wx:for="{{addressList}}" wx:key="index" wx:for-index="index">
+                <!-- <view wx:if="{{ index }}" class="line"></view> -->
+                <view class="adress-info">
+                    <view class="left" catchtap="resetAdress" data-item="{{item}}">
+                        <view class="adress-location">{{item.addressDetail}}</view>
+                        <view class="adress-person">
+                            <view class="adress-name adress-list-text ">{{item.name}}</view>
+                            <view class="adress-list-text">{{item.mobile}}</view>
+                        </view>
+                    </view>
+                    <view class="right">
+                        <navigator hover-class="none" url="/pages/address/address?addressId={{item.id}}&provinceId={{item.provinceId}}&isGlobalPayment=true" >
+                            <image class="adress-edit-icon" src="{{images.edit}}"></image>
+                        </navigator>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view wx:else style="text-align:center; padding-top: 66rpx;">
+            <image src="{{ images.emptyImage }}" style="width:308rpx; height: 308rpx; margin-bottom: 20rpx;"></image>
+            <view class="no-adress-text">暂无收货地址</view>
+            <view class="no-adress-text">请点击下方新增地址</view>
+        </view>
+    </view>
+    <view class="add-location {{isIpx?'ipx_pos':'normal_pos'}}" catchtap="addAdress" wx:if="{{ isLogined }}">
+        <image src="{{images.add}}" class="add-flag" />
+        <view class="add-text">新增收货地址</view>
+    </view>
+</view>

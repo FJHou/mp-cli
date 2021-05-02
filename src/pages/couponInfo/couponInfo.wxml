@@ -1,0 +1,69 @@
+<!--pages/couponInfo/couponInfo.wxml-->
+<view class="page-content {{couponDialogShow == 1? 'not-scroll': ''}}">
+  <view class="describe">
+    <view class='coupon-view'>
+      <view class='coupon-bg'>
+        <image src='https://thunder.jd.com/jpass/img/coupon_detail_bg.png' mode='widthFix'></image>
+      </view>
+      <view class='coupon-msg'>
+        <view class='coupon-tp'>
+          <view class='coupon-logo'><image mode='widthFix' src="{{imgUrl}}" bindtap='toBrand'></image></view>
+          <view class='coupon-brand'>{{name}}</view>
+          <view class='coupon-amount'>
+          <view><text class='money-flag'>¥</text>{{value}}
+          </view>
+            <view class='coupon-value'>满{{rule}}元可用</view>
+          </view>          
+        </view>
+        <view class='coupon-bot'>
+          <view class='coupon-rut'>
+            <view class='coupon-usetime'>使用期限：{{endExtDate}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='coupon-button'>          
+         <fsubmit bind:fsubmit="receive" wx:if="{{couponPutNum == 0 && !needJoinBrand}}">
+          <view class="coupon-btn coupon-toget">{{perCoupon == 1 ? '立即领取' : '领取' + perCoupon + '张'}}</view>
+        </fsubmit> 
+        <fsubmit bind:fsubmit="receive" wx:if="{{couponPutNum == 0 && needJoinBrand == 1}}">
+          <view class="coupon-btn coupon-toget">入会领取</view>
+        </fsubmit> 
+        <fsubmit bind:fsubmit="use" wx:if="{{couponPutNum > 0 && viewStatus == 1}}">
+          <view class="coupon-btn coupon-touse">去使用</view>
+        </fsubmit> 
+      </view>
+         <image class='unvalidCoupon' src='https://thunder.jd.com/jpass/img/unvalidCoupon.png' mode='widthFix' wx:if="{{couponPutNum > 0 && viewStatus == 0}}"></image> 
+    </view>
+  </view>
+
+  <view class='message'>
+    <view class="message-item">
+      <image class="store-icon" src="https://thunder.jd.com/jpass/img/coupon_store.png" ></image>
+      <text class="message-tit">适用门店</text>
+      <text bindtap="goRetail">查看适用门店</text>
+      <image bindtap="goRetail" class="icon-more" src='https://thunder.jd.com/jpass/img/icon_more.png'></image>
+    </view>
+    <view class="message-item" wx:if="{{couponType==1 || couponType==2}}">
+      <image class="product-icon" src="https://thunder.jd.com/jpass/img/coupon_product.png"></image>
+      <text class="message-tit">适用商品</text>
+      <text bindtap="goSKU" data-conpon-id="{{couponId}}">查看适用商品</text>
+      <image bindtap="goSKU" class="icon-more" src='https://thunder.jd.com/jpass/img/icon_more.png'></image>
+    </view>
+  </view>
+
+  <view class='message'>
+    <view class="message-head">
+      <image class="use-noice" src="https://thunder.jd.com/jpass/img/refund-tips-icon.png"></image>
+      <text class="message-tit">使用须知</text>
+    </view>
+    <view class='mess-brandshop'>
+      <text class='mess-use' decode>{{notice}}</text>
+    </view>
+  </view>
+  <return-top show-flag="{{false}}" isReturnTop="{{false}}" isReturnHome="{{true}}"></return-top>
+</view>
+<!-- <coupon-dialog showFlag="{{couponDialogShow}}" couponList="{{dialogCouponList}}" dialogTitle="领取成功" dialogContent="另送您一张京东商城全品类券" bindclose="closeDialog"></coupon-dialog> -->
+<!-- <view class='bt'>
+  <view class='bt-na'>京东会员码</view>
+  <view><image class='logo' mode='widthFix' src='https://thunder.jd.com/jpass/img/logo_buttom.png'></image></view>
+</view> -->

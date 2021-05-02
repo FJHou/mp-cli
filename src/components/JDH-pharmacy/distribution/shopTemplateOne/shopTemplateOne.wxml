@@ -1,0 +1,176 @@
+<!--pages/testTemplate/testTemplate.wxml-->
+<!-- 蒙层 -->
+<wxs module='filter'>
+  module.exports = {
+      // 是否 '自营商品'
+    isSelfRun: function(val) {
+      if (val == 80) {
+        // CPS商品
+        return false;
+      } else {
+        // 自营的商品
+        return true;
+      }
+    },
+  // 处理 京东商品标识
+    // 京东自营:sourceChannel=(80) && jdSelfSaleFlag = 1
+    // 京东:sourceChannel=(80) && jdSelfSaleFlag = 0
+    getTypeLabel: function(brandTxt, channel, jdFlag, activityFlag) {
+      // 70:VOP  80:CPS 66:导入 
+      // [京东]活动标识:0无活动、1拼购、2秒杀、3砍价(京东不支持)
+
+      if (channel != '80') {
+        // 未知的商品
+        return 'X';
+      }
+
+      if (activityFlag == 1) {
+        //'京东拼团'
+        return brandTxt.jd + brandTxt.pt
+      }
+      if (activityFlag == 2) {
+        // '京东秒杀'
+        return brandTxt.jd + brandTxt.ms
+      }
+      if (jdFlag == 1) {
+        // '京东自营'
+        return brandTxt.jd + brandTxt.zy
+      }
+
+      return brandTxt.jd;
+    },
+    // 处理 有品商品标识
+    getYpTypeLabel: function(brandTxt, saleType) {
+      // [有品]砍价活动标识: 10返佣、20拼团、30分销、40砍价、50vip商品
+      if (saleType == 20) {
+        //'京享拼团'
+        return brandTxt.mine1 + brandTxt.pt
+      }
+      if (saleType == 40) {
+        // '京享砍价'
+        return brandTxt.mine1 + brandTxt.kj
+      }
+      return brandTxt.mine1;
+    },
+    comment:function(n){
+      var str = '';
+      str = n>10000?Math.floor(n/10000)+'万+评论':n+'评论';
+      return str;
+    },
+    fixed:function(val){
+      return val.toFixed(2);
+    },
+    toFix: function(value) {
+      var val = parseFloat(value);
+      val = isNaN(val) ? 0 : val;
+      return val.toFixed(2);
+    }
+  }
+</wxs>
+<!-- 返回顶部 -->
+<back-top backShow="{{backShow}}"/>
+<!-- 引导 -->
+<view wx:if="{{helpModal && isEdit}}" style="height:{{screenHeight}}px;position:fixed;z-index:1000" catchtouchmove='true' catchtap='hideHelpModal'>
+  <view class="modals-cancel"  style="height:488rpx" ></view>
+  <view class="modals-cancel2" style="top:488rpx;" >
+    <image src='https://b2b-v2-pre.oss.cn-north-1.jcloudcs.com/7170e36f-45a3-45ca-b625-b0288afed06b.png' style='height:474rpx;width:750rpx;position:fixed;left:0' />
+  </view><view class="modals-cancel" style="height:1000rpx;top:{{android?'960.5':'962'}}rpx;"></view>
+</view>
+<movable-area style='display:flex;flex-wrap:wrap;width:100%;height:100%;position:relative;' class='itemList' catchtouchmove='{{flag?"true":""}}'>
+  <!-- 移动块 -->
+  <movable-view x="{{x}}" y="{{y}}" direction="all" damping="{{5000}}" friction="{{1}}" disabled="{{disabled}}" hidden='{{hidden}}' style="background:#ffffff;z-index:10;width:auto;height:auto;border:1rpx solid #DDDDDD" scale-value='{{10}}' out-of-bounds="{{true}}">
+    <view style='font-size:0'>
+      <image src='https:{{currentItem.itemSearchSimpleResultVo.itemMainPicUrl}}' style='width:330rpx;height:330rpx;background:#f7f7f7'>
+      </image>
+      <view style="margin-top:20rpx;">
+        <!-- 商品名称 -->
+        <view class='com-item-info-title' style="height:78rpx;width:320rpx;font-size:28rpx;color:#333333;">
+        <block wx:if="{{filter.isSelfRun(currentItem.itemSearchSimpleResultVo.sourceChannel) == false }}">
+        <view class='com-item-info-title-jd-flag'>{{filter.getTypeLabel(brandTxt,currentItem.itemSearchSimpleResultVo.sourceChannel,currentItem.itemSearchSimpleResultVo.jdSelfSaleFlag,currentItem.itemSearchSimpleResultVo.itemActivityFlag)}}</view>{{currentItem.itemSearchSimpleResultVo.itemName}}
+        </block>
+        <block wx:else>
+        <view class='com-item-info-title-jd-flag'>{{filter.getYpTypeLabel(brandTxt,currentItem.itemSearchSimpleResultVo.saleType)}}</view>{{currentItem.itemSearchSimpleResultVo.itemName}}
+        </block>
+      </view>
+        <!-- 商品价格 -->
+        <view style="display:flex;margin-top:10rpx;height:28rpx;">
+          <view style="font-size:28rpx;color:#F10216;line-height:28rpx;font-weight:bold">￥{{currentItem.itemSearchSimpleResultVo.salePrice}}</view>
+          <view wx:if='{{currentItem.itemSearchSimpleResultVo.referPrice-currentItem.itemSearchSimpleResultVo.salePrice>0}}' style="margin-left:10rpx;font-size:22rpx;line-height:22rpx;color:#BBBBBB;text-decoration: line-through;display:flex;align-items:center;">￥{{currentItem.itemSearchSimpleResultVo.referPrice}}</view>
+        </view>
+        <!-- 好评率与券 -->
+        <view wx:if='{{currentItem.itemSearchSimpleResultVo.commentNum>0 && currentItem.itemSearchSimpleResultVo.favorableRate>0 && filter.isSelfRun(currentItem.itemSearchSimpleResultVo.sourceChannel) == false}}' style="display:flex;margin-top:10rpx;justify-content:space-between">
+          <view style="color:#999999;font-size:20rpx;line-height:20rpx;">
+            <view>{{filter.comment(currentItem.itemSearchSimpleResultVo.commentNum)}}</view>
+            <view style='margin-top:10rpx;'>好评率{{currentItem.itemSearchSimpleResultVo.favorableRate}}%</view>
+          </view>
+          <view class='com-item-info-ticket' wx:if='{{(currentItem.itemSearchSimpleResultVo.sourceChannel==80 || currentItem.itemSearchSimpleResultVo.sourceChannel==70) && currentItem.itemSearchSimpleResultVo.coupon}}'>
+            券¥{{filter.fixed(currentItem.itemSearchSimpleResultVo.coupon)}}
+            <i class='decorate decorate-left decorate-pos-1' />
+            <i class='decorate decorate-left decorate-pos-2' />
+            <i class='decorate decorate-left decorate-pos-3' />
+            <i class='decorate decorate-right decorate-pos-1' />
+            <i class='decorate decorate-right decorate-pos-2' />
+            <i class='decorate decorate-right decorate-pos-3' />
+          </view>
+        </view>
+      </view>
+    </view>
+  </movable-view>
+  <!-- 列表 -->
+  <view wx:for="{{dataSource}}" style='margin-bottom:30rpx'>
+    <view style='margin-left:30rpx;margin-top:30rpx;opacity:{{beginIndex==index?opacity:1}};font-size:0' data-index="{{index}}" class='itemBlock' bindlongpress='longtap' bindtouchstart='touchs' bindtouchend='touchend' bindtouchmove='touchm' catchtap="navigateToDetail" data-item-info="{{item}}">
+      <image src='https:{{item.itemSearchSimpleResultVo.itemMainPicUrl}}' style='width:330rpx;height:330rpx;background:#f7f7f7;position:relative'>
+      <view wx:if="{{isEdit}}" style='width:70rpx;height:70rpx;position:absolute;top:0rpx;right:0rpx;display:flex;justify-content:center;align-items:center;' data-index="{{index}}" data-item-id="{{item.itemSearchSimpleResultVo.itemId}}" data-id="{{item.id}}" catchtap='deleteItem'>
+      <view style='border-radius:50%;height:36rpx;width:36rpx;opacity:0.4;background:#000000;color:#ffffff;display:flex;align-items:center;justify-content:center;'>
+          <text class='iconfont icon-guanbi' style='font-size:14rpx;color:#ffffff'></text>
+        </view>
+      </view>
+      </image><view style="margin-top:20rpx;">
+        <!-- 商品名称 -->
+        <view class='com-item-info-title' style="height:78rpx;width:320rpx;font-size:28rpx;color:#333333;">
+        <block wx:if="{{filter.isSelfRun(item.itemSearchSimpleResultVo.sourceChannel) == false }}">
+        <view class='com-item-info-title-jd-flag'>{{filter.getTypeLabel(brandTxt,item.itemSearchSimpleResultVo.sourceChannel,item.itemSearchSimpleResultVo.jdSelfSaleFlag,item.itemSearchSimpleResultVo.itemActivityFlag)}}</view>{{item.itemSearchSimpleResultVo.itemName}}
+        </block>
+        <block wx:else>
+        <view class='com-item-info-title-jd-flag'>{{filter.getYpTypeLabel(brandTxt,item.itemSearchSimpleResultVo.saleType)}}</view>{{item.itemSearchSimpleResultVo.itemName}}
+        </block>
+        </view>
+        <!-- 商品价格 -->
+        <view style="display:flex;margin-top:10rpx;height:28rpx;">
+          <view style="font-size:28rpx;color:#F10216;line-height:28rpx;font-weight:bold">￥{{item.itemSearchSimpleResultVo.salePrice}}</view>
+          <view wx:if='{{item.itemSearchSimpleResultVo.referPrice-item.itemSearchSimpleResultVo.salePrice>0}}' style="margin-left:10rpx;font-size:22rpx;line-height:22rpx;color:#BBBBBB;text-decoration: line-through;display:flex;align-items:center;">￥{{item.itemSearchSimpleResultVo.referPrice}}</view>
+        </view>
+        <!-- 好评率与券 -->
+        <view style="display:flex;margin-top:10rpx;justify-content:space-between">
+          <view wx:if='{{item.itemSearchSimpleResultVo.commentNum>0 && item.itemSearchSimpleResultVo.favorableRate>0 && filter.isSelfRun(item.itemSearchSimpleResultVo.sourceChannel) == false}}' style="color:#999999;font-size:20rpx;line-height:20rpx;">
+            <view>{{filter.comment(item.itemSearchSimpleResultVo.commentNum)}}</view>
+            <view style='margin-top:10rpx;'>好评率{{item.itemSearchSimpleResultVo.favorableRate}}%</view>
+          </view>
+          <view class='com-item-info-ticket' wx:if='{{(item.itemSearchSimpleResultVo.sourceChannel==80 || item.itemSearchSimpleResultVo.sourceChannel==70)&&item.itemSearchSimpleResultVo.coupon}}'>
+            券¥{{filter.fixed(item.itemSearchSimpleResultVo.coupon)}}
+            <i class='decorate decorate-left decorate-pos-1' />
+            <i class='decorate decorate-left decorate-pos-2' />
+            <i class='decorate decorate-left decorate-pos-3' />
+            <i class='decorate decorate-right decorate-pos-1' />
+            <i class='decorate decorate-right decorate-pos-2' />
+            <i class='decorate decorate-right decorate-pos-3' />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</movable-area>
+  <view wx:if="{{isLoading}}" style='margin-top:20rpx;'>
+    <my-loading />
+  </view>
+<!-- wx:if="{{dataSource.length==0 && !isLoading}}" -->
+<view wx:if="{{dataSource.length==0 && !isLoading}}" style='display:flex;padding-left:79rpx;padding-top:100rpx;height:{{noDataBackHeight}}rpx;background:#f8f8f8'>
+  <view style='width:180rpx;height:0;border-bottom:1rpx solid #DDDDDD;padding-top:20rpx;'>
+  </view>
+  <view style='width:192rpx;margin:0 20rpx 0 20rpx;font-size:24rpx;color:#999999'>商品列表空空如也快去挑选商品吧！</view>
+  <view style='width:180rpx;height:0;border-bottom:1rpx solid #DDDDDD;padding-top:20rpx;'>
+  </view>
+</view>
+  <block wx:if="{{noMoreData && isShopOwner && dataSource.length!=0}}">
+    <no-data marginTop='20' tipMsg="已经没有商品了" />
+  </block>

@@ -1,0 +1,36 @@
+ 
+<view class='bg-color'>
+  <block wx:if="{{dataList.length > 0}}">
+    <block wx:for="{{dataList}}" wx:key='item'>
+      <view class='row'>
+        <view class='sub-row-1'>
+          <view class='sub-icon'>
+            <view class='icon-bg'>
+              <text class='iconfont icon-jiesuan m-icon'></text>
+            </view> 
+					</view> 
+				 <view class="sub-content">
+					 	<view class='settle-main settle-total'> 
+							<text class='total-txt yg-mgr'>{{item.formateYear}}年{{item.formatMonth}}月结算单</text> 
+							<text class='total-txt yg-mgr'>￥{{item.totalIncome}}</text> 
+						</view>
+						<view class='settle-main'> 
+							<text class='yg-txt yg-mgr'>本月已结算收益</text> 
+							<text class='yg-txt yg-mgr'>￥{{item.settleIncome}}</text> 
+						</view>
+						<view class='settle-main'> 
+							<text class='yg-txt yg-mgr'>本月未结算收益</text> 
+							<text class='yg-txt yg-mgr'>￥{{item.unSettleIncome}}</text> 
+            </view>
+				 </view>
+        </view>
+      </view> 
+    </block> 
+    <block wx:if="{{!hasMoreData}}">  
+			<no-data tipMsg="没有更多结算单信息了" marginTop='20' /> 
+    </block>
+  </block> 
+  <block wx:else>
+		<no-data-page tipMsg="您还没有结算单～"/> 
+  </block>
+</view>

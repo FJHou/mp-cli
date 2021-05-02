@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "no-data": "../noData/noData",
+    "back-top": "../backTop/backTop",
+    "my-loading": "../listLoading/loading"
+  }
+}

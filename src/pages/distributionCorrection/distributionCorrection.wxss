@@ -1,0 +1,128 @@
+page {
+    background: #f8f8f8;
+}
+
+.container {
+    overflow: hidden;
+}
+
+.clearfix::after, .basic-block::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.header{
+  margin: 32rpx 30rpx;
+  font-size: 0rpx;
+}
+.header-redicon{
+  width: 4rpx;
+  height: 32rpx;
+  display: inline-block;
+  background: #F10216;
+  vertical-align: bottom;
+  margin-right: 20rpx;
+}
+.header-value{
+  font-size: 32rpx;
+  color: #333333;
+  line-height: 32rpx;
+}
+/*纠错列表*/
+.select-list{
+  background: #fff;
+}
+.select-item{
+  display: flex;
+  justify-content: space-between;
+  height: 96rpx;
+  line-height: 96rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  font-size: 32rpx;
+  color: #333;
+  border-bottom: 1rpx solid #EEEEEE;
+}
+.select-item:last-child{
+  border-bottom: none;
+}
+.active-icon .iconfont{
+  color: #F10216;
+  font-size: 40rpx;
+}
+.textarea{
+  height:200rpx;
+  font-size:28rpx;
+  color:#333;
+  background: #fff;
+  padding: 30rpx;
+  border: none;
+  width: auto;
+}
+.placeholder{
+  color: #999999;
+}
+.btn-red{
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background: #F10216;
+  text-align: center;
+  border-radius: 10rpx;
+  margin: 61rpx;
+}
+
+/*提交成功弹窗*/
+.modal-wrap{
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  bottom: 0rpx;
+  background: rgba(0, 0, 0, .6);
+}
+.modal{
+  padding-top: 40rpx;
+  background: #fff;
+  width: 550rpx;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 20rpx;
+  font-size: 34rpx;
+}
+.modal-title{
+  color: #333;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.modal-content{
+  font-size: 28rpx;
+  padding-top: 30rpx;
+  padding-bottom: 40rpx;
+  padding-left: 110rpx;
+  padding-right: 110rpx;
+  color: #666;
+  text-align: center;
+  line-height: 40rpx;
+}
+.modal-btn{
+  text-align: center;
+  border-top: 1rpx solid #EDEEEF;
+  color: #F10216;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+}

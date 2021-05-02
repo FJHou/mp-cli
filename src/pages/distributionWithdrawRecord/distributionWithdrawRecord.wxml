@@ -1,0 +1,67 @@
+ 
+<view class='txje'>
+  <view class='txje-lf'>
+    <view class='icon-back'>
+      <text class='iconfont icon-tixian tx-icon '></text>
+    </view>
+    <text class='tx-dex'>累计提现金额</text>
+  </view>
+  <view class='txje-rg'>
+    <text class='iconfont icon-renminbifuhao kt-icon'></text>
+    <text class='kt-dex '>{{totalAmount||0}}</text>
+  </view>
+</view>
+<view class="txerr-content">
+      <view class="txerr-txt">常见失败原因及帮助</view>
+      <navigator class="tx-goErrPage" url='/pages/distributionMoneyHelp/distributionMoneyHelp'>点击查看</navigator> 
+</view>
+<view  wx:if='{{dataList.length > 0}}'>
+  <view class='record' wx:for ='{{dataList}}' wx:key='item'>
+    <view class='record-item'>
+      <view class='top'>
+        <view class='top-view tlf'>
+          {{item.applyTime}}
+        </view>
+        <view class='top-rg trg'>
+          <text class='m-icon-record iconfont icon-renminbifuhao'></text>
+          {{item.amount}}
+        </view>
+      </view>
+      <view class='top-two' catchtap="{{(item.status == 40 ||item.status == 50) ? 'doShowErr' : ''}}" data-idx="{{index}}">
+        <view class='top-view blf'>
+          <block> 
+            <block wx:if='{{item.status == 40 ||item.status == 50 }}'> 
+              <view class="brg">查看失败原因</view>
+              <view class="get-money" catchtap="jumpToView" data-amount="{{item.amount}}" data-requestId="{{item.id}}">重新提现</view>
+            </block>
+            <block wx:else>
+              <!-- 展示为空 -->
+            </block>
+          </block> 
+        </view>
+        <!-- 10新建、 20提现中 、30结算成功 、40结算失败-->
+        <view class='top-rg over' wx:if='{{item.status == 30}}'>
+          提现成功
+        </view>
+        <view class='top-rg brg ' wx:if='{{item.status == 40 ||item.status == 50 }}'>
+          提现失败
+          <!-- <text class="m-icon iconfont {{errIndex != index ? 'icon-youcejiantou' : 'icon-xiala'}}" /> -->
+        </view>
+        <view class='top-rg conti' wx:if='{{item.status == 10 || item.status == 20}}'>
+          提现中
+        </view>
+
+      </view>
+      <view class="err-detail multi-text-overflow" hidden="{{errIndex != index}}">
+        {{item.remark || '未描述'}}
+        <view class="go-edit-card" catchtap="jumpToCard" data-key='card'>请前往修改银行卡信息>></view>
+      </view>
+    </view>
+  </view>
+  <block wx:if="{{!hasNextPage}}"> 
+    <no-data tipMsg="没有更多提现记录了~" marginTop='20' />
+  </block>
+</view> 
+<block wx:if="{{!showLoadingView && dataList.length == 0}}" >
+		<no-data tipMsg="您还没有提现记录哦~" marginTop='20' /> 
+</block>

@@ -1,0 +1,11 @@
+{
+	"backgroundTextStyle": "light",
+	"enablePullDownRefresh": false,
+	"navigationBarTextStyle": "white",
+	"navigationStyle": "custom",
+	"navigationBarBackgroundColor": "#ff413f",
+	"navigationBarTitleText": "京东大药房",
+	"usingComponents": {
+		"component-topnav": "../../components/topNav/topNav"
+	}
+}

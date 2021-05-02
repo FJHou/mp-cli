@@ -1,0 +1,12 @@
+<!-- // TODO: -->
+<view class="points-mall" wx:if="{{coupons.length && isVip}}">
+    <title title="积分商城" desc="{{points === 0 ? '': '我的积分'+points}}" link-text="更多" is-link bind:click="getMore"></title>
+    <card card-class="card">
+        <slide>
+            <view class="scroller">
+                <points-coupon bindtap="onCouponClick" data-coupon="{{item}}" wx:for="{{coupons}}" wx:key="index" price="{{item.wareExtMap.discount}}" condition="{{'满'+item.wareExtMap.quota+'元可用'}}" description="{{item.wareExtMap.couponTypeDesc}}" points="{{item.exchangeScore}}" button-status="{{item.buttonText}}" coupon-button-class="{{item.buttonClass}}" points-coupon-class="points-coupon"></points-coupon>
+                <view class="more" bindtap="getMore" wx:if="{{total > 6}}">查看更多</view>
+            </view>
+        </slide>
+    </card>
+</view>

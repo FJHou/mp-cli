@@ -1,0 +1,27 @@
+.add-to-shop {
+  position: fixed;
+  width: 70rpx;
+  height: 70rpx;
+  right: 30rpx;
+  bottom: 230rpx;
+  opacity: 0.8;
+  background-image: linear-gradient(90deg, #fa75f1 0%, #f12ed3 100%);
+  z-index: 3;
+  border-radius: 100%;
+  text-align: center;
+}
+.add-to-shop.disabled{
+  background: #ddd;
+}
+.add-to-shop text{
+  display: block;
+  font-family: PingFangSC-Semibold;
+  font-size: 20rpx;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 0rpx;
+  line-height: 24rpx;
+}
+.add-to-shop text:first-child{
+  margin-top: 10rpx;
+}

@@ -1,0 +1,283 @@
+
+.container{
+  border-top:2rpx solid #edeeef;
+}
+
+.txt-bold{
+  font-weight: bold;
+}
+
+.hid{
+  opacity: 0;
+}
+
+.bold-day{
+  font-weight: bold;
+  color: red;
+}
+
+.m-wrap{
+  margin: 30rpx;
+  height: 210rpx;
+  background: #fff;
+  position: relative;
+
+  box-shadow: 0 0 30px 0 rgba(0,0,0,0.10);
+  border-radius: 12px;
+}
+.m-wrap .m-txt{
+  font-size: 32rpx;
+  color: #333;
+  line-height: 28px;
+  position: absolute;
+  top:40rpx;
+  left:40rpx;
+}
+.m-wrap  .m-num{
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #F10216;
+  line-height: 40rpx;
+  position: absolute;
+  top:130rpx;
+  left:40rpx;
+}
+.m-wrap .m-btn{
+  width: 170rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  background: #FFFFFF;
+  border-radius: 32rpx;
+  font-size: 28rpx;
+  text-align: center;
+  position: absolute;
+  top: 90rpx;
+  right: 30rpx;
+  font-weight:bold;
+  font-family:PingFangSC-Medium;
+}
+.get-red{
+  color: #F10216;
+  border:2rpx solid #F10216;
+}
+.no-get{
+  color: #666;
+  border:2rpx solid #edeeef;
+}
+.m-acount{
+  margin: 0 30rpx;
+  border-bottom: 1rpx solid #edeeef;
+  overflow: hidden;
+  height: 96rpx;
+  display:flex;
+}
+.m-ti{
+  float: left;
+  font-size: 32rpx;
+  color: #333333;
+  line-height: 96rpx;
+}
+.m-xian{
+  font-size: 28rpx;
+  color: #999;
+  text-align: right;
+  line-height: 96rpx;
+  /* background: #fff; */
+  flex: 1;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+}
+.m-icon{
+  color: #BBB;
+  font-size: 22rpx;
+  margin-left:10rpx;
+}
+.color-00{
+  color: #999999;
+}
+.color-01{
+  color: #71BE4C;
+}
+.color-02{
+  color: #FF5D12;
+}
+.color-03{
+  color: #F10216;
+}
+
+.rg-ts-refuse {
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  width: 100%;
+}
+
+.refuse-t{
+  text-align: left;
+}
+
+.refuse-c{
+  width: 100%;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.rg-content-refuse{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width:76%;
+  height: 30%;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  background-color: #fff;
+  z-index: 11;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+
+.rg-ts{
+  width: 448rpx;
+  height: 80rpx;
+  text-align: center;
+  font-size:28rpx;
+  margin: 40rpx auto;
+  color: #666;
+}
+.rg-btn{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 85rpx;
+  border-top: 1rpx solid #E5E6E8 ;
+  overflow: hidden;
+}
+.rgbtn-sy{
+  float: left;
+  width: 49%;
+  text-align: center;
+  height: 100%;
+  font-size: 32rpx;
+  color: #333333;
+  line-height: 85rpx;
+}
+.rgbtn-rg{
+  border-left: 1rpx solid #E5E6E8 ;
+  color: #F10216;
+}
+.r-icon{
+  font-size: 48rpx;
+}
+
+/* 割线(用在view上) */
+.seprate-view-line {
+  border-top:20rpx solid #f8f8f8;
+}
+
+.lbl-view {
+  display:flex;
+  flex-direction:column;
+  padding:20rpx 30rpx 0 30rpx;
+  height:420rpx;
+  justify-content:space-around;
+}
+
+.lbl-txt {
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.lbl-title{
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #666666;
+  margin-bottom:10rpx;
+}
+
+.lbl-long {
+  display: flex;
+}
+
+.long-txt{
+  margin-left:4rpx;
+  line-height:40rpx;
+}
+
+.account-lbl{
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #F67703;
+  background: rgba(255,160,35, .1);
+  border-radius: 20rpx;
+  padding:0 20rpx;
+  height:50rpx;
+  line-height:50rpx;
+}
+
+
+/* 原 提现页面逻辑 */
+
+.rg-modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+.rg-content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width:550rpx;
+  height: 252rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  background-color: #fff;
+  z-index: 11;
+}
+
+.rg-ts-2{ 
+  width: 448rpx; 
+  height: 80rpx; 
+  text-align: center; 
+  font-size:28rpx; 
+  margin: 70rpx auto; 
+  color: #666; 
+} 
+.rgbtn-sy-2{ 
+  float: left; 
+  width: 100%; 
+  text-align: center; 
+  height: 100%; 
+  font-size: 32rpx; 
+  color: #F10216; 
+  line-height: 85rpx; 
+}
+.rg-btn{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 85rpx;
+  border-top: 1rpx solid #E5E6E8 ;
+  overflow: hidden;
+}

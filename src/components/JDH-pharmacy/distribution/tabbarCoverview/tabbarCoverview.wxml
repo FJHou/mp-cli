@@ -1,0 +1,35 @@
+<cover-view class="tabbar_box" style="background-color:{{tabbar.backgroundColor}}; border-top-color:{{tabbar.borderStyle}}; {{tabbar.position == 'top' ? 'top:0' : 'bottom:0'}};height:{{tabbar.height+98}}rpx">
+	<block wx:for="{{tabbar.list}}" wx:for-item="item" wx:key="index">
+		<block wx:if='{{item.text}}'>
+			<cover-view
+			 bindtap='onClick'
+			 data-title="{{item.text}}" 
+			 data-open-type="{{item.openType}}"
+			 data-url="{{tabbar.isVip?item.pagePath:item.pagePath1}}"
+			 class="tabbar_nav"
+			 style="width:{{1/tabbar.list.length*100}}%; color:{{item.selected ? tabbar.selectedColor : tabbar.color}}"
+			>
+				<cover-view>
+					<cover-image class='cv-img' style='width:{{item.fontSize}}rpx' src="{{item.selected ?item.imgSelectedPath:item.imgPath}}" />
+				</cover-view>
+				<cover-view class="{{item.selected ? 'red'  : ''}} cv-text">{{height}}{{item.text}}{{item.home}}</cover-view>
+			</cover-view>
+		</block>
+		<block wx:else>
+			<cover-view class="tabbar_nav" style="width:{{1/tabbar.list.length*100}}%;">
+				<cover-view class='roundBg' />
+				<cover-view class='roundPic'>
+					<cover-view class='roundColorFul1' style='margin-top:-30rpx;'>
+						<cover-view class='roundColorFul2'>
+							<cover-view class='roundColorFul3'>
+								<cover-image src='{{tabbar.userHead}}' />
+							</cover-view>
+						</cover-view>
+					</cover-view>
+				</cover-view>
+			</cover-view>
+		</block>
+	</block>
+</cover-view>
+<cover-view class='tabbar-bottom' />
+

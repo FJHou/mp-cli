@@ -1,4 +1,4 @@
-const EntryPlugin = require('webpack/libs/EntryPlugin')
+const EntryPlugin = require('webpack/lib/EntryPlugin')
 
 class MPWebpackPlugin {
     constructor() {
@@ -6,6 +6,8 @@ class MPWebpackPlugin {
     }
 
     apply() {
-        new EntryPlugin()
+        // new EntryPlugin()
     }
 }
+
+module.exports = MPWebpackPlugin

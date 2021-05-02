@@ -1,0 +1,84 @@
+@import "../../css/JDfont.wxss";
+Page {
+    background-color: #F0F1F5;
+}
+
+.points-mall {
+    height: 100%;
+}
+.tips {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25rpx 24rpx;
+    font-size: 26rpx;
+    background: rgba(255,245,236,1);
+    color: #FB8A34;
+    .icon-close {
+        display: inline-block;
+        vertical-align: middle;
+        width: 32rpx;
+        height: 32rpx;
+        background: url('https://img11.360buyimg.com/imagetools/jfs/t1/157111/37/13245/1058/604ef71cE34108416/cce00d240cbfeab3.png') no-repeat center/100%;
+    }
+}
+.exchange-recorder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30rpx 24rpx;
+    background-color: #fff;
+    .left, .right{
+        display: flex;
+        align-items: center;
+    }
+    .icon-coin {
+        display: inline-block;
+        width: 30rpx;
+        height: 40rpx;
+        background: url('https://img10.360buyimg.com/imagetools/jfs/t1/155506/36/18323/1034/602f2582E6a363111/1939699720df7770.png') no-repeat center/100%;
+    }
+    .text {
+        font-size: 30rpx;
+        color: #2E2D2D;
+        margin-left: 12rpx;
+        margin-right: 12rpx;
+    }
+    .points {
+        padding-top: 5rpx;
+        font-size: 32rpx;
+        color: #F14747;
+        font-family: JDZhengHei-01-Regular;
+    }
+
+    .value {
+        font-size: 28rpx;
+        margin-right: 10rpx;
+    }
+    .icon-arrow-right {
+        display: inline-block;
+        width: 10rpx;
+        height: 18rpx;
+        background: url('https://img10.360buyimg.com/imagetools/jfs/t1/152070/37/19266/505/602f2582E53763a92/2bdba7b67ca5cba2.png') no-repeat center/100%;
+    }
+}
+.content {
+    padding: 15rpx 24rpx 5rpx;
+    background-color: #F0F1F5;
+}
+.points-mall-coupons-wrapper {
+    display: inline-block;
+    margin-top: 18rpx;
+    margin-right: 18rpx;
+    &:nth-child(even) {
+        margin-right: 0;
+    }
+}
+
+.coupon-button-class {
+    background: #fff;
+}
+
+.unactive {
+    background: linear-gradient(135deg, rgba(242,20,12,0.5) 0%,rgba(242,39,12,0.5) 70%,rgba(242,77,12,0.5) 100%) !important;
+}

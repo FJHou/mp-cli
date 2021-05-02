@@ -1,0 +1,265 @@
+/* pages/share/share.wxss */
+.fans-container {
+  height:100%;
+  overflow: hidden;
+}
+.fans-swiper {
+  height: 100%;
+}
+.copy-txt {
+  width: 83rpx;
+  height: 56rpx;
+  border: 2rpx solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color: #fff;
+  border-radius: 4rpx;
+  margin-left: 20rpx;
+}
+
+.qr-code {
+  font-size: 32rpx;
+  color: #fff;
+  line-height: 32rpx;
+  padding-left: 309rpx;
+}
+
+.lbl-code {
+  font-size: 32rpx;
+  color: #fff;
+  padding-left: 30rpx;
+}
+
+.share-v {
+  z-index: 999;
+  position: fixed;
+  width: 750rpx;
+  height: 88rpx;
+  background: rgba(149, 28, 194, 0.5);
+  display: flex;
+  align-items: center;
+}
+
+.share1-1 {
+  /* position: relative; */
+  z-index: 2;
+  margin-top: 88rpx;
+  position: absolute;
+  width: 750rpx;
+  height: 690rpx;
+}
+
+.share1-2 {
+  position: relative;
+  z-index: 1;
+  width: 750rpx;
+}
+
+.share2-1 {
+  /* position: relative; */
+  z-index: 2;
+  margin-top: 88rpx;
+  position: absolute;
+  width: 750rpx;
+  height: 515rpx;
+}
+
+.share2-2 {
+  position: relative;
+  z-index: 1;
+  width: 750rpx;
+}
+
+.qr-v {
+  
+  position: fixed;
+  top: 686rpx;
+  bottom: 160rpx;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.qr-img-v {
+  /* background: url("https://b2b-v2-pre.oss.cn-north-1.jcloudcs.com/c3249060-bd83-4ed2-8b2e-25b55eb4ef8d.png") no-repeat; */
+  width: 180rpx;
+  height: 180rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.qr-img {
+  width: 160rpx;
+  height: 160rpx;
+	padding: 10rpx;
+	position:absolute;
+	top:120rpx;
+	left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.code-v-p {
+  color: #fff;
+  width: 200rpx;
+  margin-top: 14rpx;
+}
+
+.code-v {
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.save-ok-p {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 48%;
+  height: 100rpx;
+  background: rgba(1, 1, 1, 0.7);
+  width: 500rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20rpx;
+}
+
+.save-v {
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.tab-v {
+  position: absolute;
+  bottom: 140rpx;
+  display: flex;
+  width: 60rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.tab-0{
+  transition:width 0.2s;height:12rpx;border-radius:12rpx;
+}
+
+.tab-1{
+  transition:width 0.2s;margin-left:12rpx;height:12rpx;border-radius:12rpx;
+}
+
+
+
+
+
+.active_point {
+  background: #fff;
+  width: 30rpx;
+  border-radius: 8rpx;
+}
+
+.point {
+  width: 12rpx;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.popup-activety {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  background: #fff;
+  height: 98rpx;
+  padding: 10rpx 20rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  box-shadow: 0 0 10rpx 0 #ddd;
+}
+
+.popup-activety .item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border: 0;
+  padding-left:0rpx;
+  padding-right:0rpx;
+}
+
+.popup-activety .item::after {
+  border: none;
+}
+
+.popup-activety .item text {
+  font-size: 30rpx;
+  line-height: 32rpx;
+  margin-left: 20rpx;
+  color: #333;
+}
+
+.popup-activety .item image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.text-overflow {
+  line-height: 28rpx;
+  word-break: break-all;
+  -webkit-line-clamp: 1; /* 限制在一个块元素显示的文本的行数 */
+  line-clamp: 1;
+  display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+  -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.invite-content{
+	display:flex;
+	justify-content:center;
+}
+.invite-img{
+	width:266rpx;
+	height:295rpx;
+	position:relative
+}
+.invite-info{
+	position:absolute;
+	top:6rpx;
+	width:266rpx;
+	height:90rpx;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+}
+.invite-person{
+	font-size:24rpx;
+	line-height:24rpx;
+	color:#666
+}
+.invite-name{
+	font-size:28rpx;
+	line-height:28rpx;
+	color:#333;
+	font-weight:bold;
+	margin-top:12rpx;
+	height:28rpx;
+}
+.share-canvas{
+	top:10000rpx;
+	width:750px;
+	height:1088px;
+}

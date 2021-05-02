@@ -1,0 +1,5 @@
+
+<view> 
+	<view class="textStyle">1、银行卡号填写错误或漏填</view>
+	<view class="textStyle">2、认证用户信息与银行卡信息不一致</view> 
+</view>

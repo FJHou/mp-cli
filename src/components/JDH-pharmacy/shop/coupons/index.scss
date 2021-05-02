@@ -1,0 +1,191 @@
+.coupons {
+    margin-top: 30rpx;
+}
+.card {
+    margin-top: 20rpx;
+}
+
+.title {
+	height: 40rpx;
+	padding: 16rpx 0;
+	padding-bottom: 40rpx;
+	display: flex;
+	justify-content: space-between;
+	align-items: bottom;
+	box-sizing: content-box;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.title-text {
+	font-size: 40rpx;
+	color: #2e2d2d;
+	letter-spacing: 0;
+	line-height: 40rpx;
+}
+
+.tip {
+	font-size: 26rpx;
+	color: #b3b3b3;
+	padding-left: 16rpx;
+	padding-top: 6rpx;
+	font-weight: 300;
+}
+
+.tap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24rpx;
+}
+
+.tap image {
+	width: 10rpx;
+	height: 18rpx;
+	margin-left: 8rpx;
+}
+
+.one {
+	background-color: #fff;
+	margin-bottom: 30rpx;
+}
+
+.tap text {
+	color: #8c8c8c;
+}
+
+
+.one .couponList .couponItem {
+	width: 204rpx;
+	height: 122rpx;
+	background-image: linear-gradient(0deg, #ffc06d 3%, #ffe3bf 97%);
+	box-shadow: 0 8px 10px 0 rgba(218, 202, 202, 0.40);
+	border-radius: 8rpx;
+	position: relative;
+	padding: 10rpx 7rpx;
+	margin: 0 30rpx 0 0;
+}
+
+.shop-coupon-wrapper {
+	margin-bottom: 10rpx;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.couponItem .bg {
+	width: 190rpx;
+	height: 102rpx;
+	text-align: center;
+}
+
+.one .couponList .couponItem.on {
+	background-image: linear-gradient(-179deg, #ffd1e5 5%, #ffb5b5 95%);
+	opacity: 0.5;
+}
+
+.couponItem .select {
+	visibility: hidden;
+}
+
+.couponItem .onSelect {
+	visibility: visible;
+}
+
+.couponList .couponItem.on .onSelect {
+	visibility: hidden;
+	display: none;
+}
+
+.couponItem.on .select {
+	visibility: visible;
+}
+
+.couponItem .icon {
+	width: 81rpx;
+	height: 75rpx;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 99;
+}
+
+.couponItem .textPanel {
+	position: absolute;
+	top: 20rpx;
+	right: 30rpx;
+	display: flex;
+	flex-direction: column;
+	font-family: JDZhengHei-01-Regular;
+	font-size: 54rpx;
+	color: #ffffff;
+}
+
+.couponItem .textPanel .textIcon {
+	width: 25rpx;
+	height: 25rpx;
+	background: #ffd268;
+	border-radius: 12rpx;
+	text-align: center;
+	line-height: 25rpx;
+	font-size: 22rpx;
+	margin-top: 18rpx;
+	font-family: JDZhengHei-01-Regular;
+}
+
+.couponItem .textPanel .info {
+	font-size: 20rpx;
+	font-family: PingFangSC-Regular;
+	color: #ffffff;
+	letter-spacing: 0;
+	margin-top: 4rpx;
+	line-height: 28rpx;
+}
+
+.couponItem .textPanel .text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50rpx;
+	padding-right: 8rpx;
+	text-align: center;
+}
+
+.couponItem .textPanel .text text {
+	font-family: JDZhengHei-01-Regular;
+	font-size: 54rpx;
+	color: #ffffff;
+	letter-spacing: 0;
+}
+
+.delta {
+	position: relative;
+	width: 0;
+	height: 0;
+	border-width: 25rpx 25rpx 30rpx 25rpx;
+	border-style: solid;
+	border-top-left-radius: 12rpx;
+	opacity: 1;
+	border-color: #ff2b22 transparent transparent #ff2b22;
+}
+
+.couponItem .delta {
+	position: absolute;
+	left: -2rpx;
+	top: 0rpx;
+}
+
+.couponItem .delta .deltaText {
+	position: absolute;
+	left: -27rpx;
+	top: -15rpx;
+
+	transform: rotate(-45deg);
+	font-family: PingFangSC-Regular;
+	font-size: 12rpx;
+	color: #ffffff;
+	letter-spacing: 0;
+	white-space: nowrap;
+}

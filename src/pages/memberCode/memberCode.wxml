@@ -1,0 +1,43 @@
+<view class="mem-bg {{couponDialogShow == 1? 'not-scroll': ''}}" wx:if="{{!check}}">
+  <view class='memcode-head'>
+    <view class='memcode-avatar-border'></view>
+    <view class='memcode-usermsg'>
+      <image class='memcode-avatar' src='{{userImgUrl || "https://thunder.jd.com/jpass/img/memberCodeAvatar.png"}}'></image>
+      <view class='memcode-username'>{{userName}}</view>
+      <view class='memcode-score'>
+        <view class='memcode-score-align'>
+          <image mode='widthFix' src='https://thunder.jd.com/jpass/img/score.png'></image> 京享值{{score}}
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{status}}" bindtap='tapSetting' class='mem-setting'>
+      <image mode='widthFix' src='https://thunder.jd.com/jpass/img/memset.png'></image>
+    </view>
+  </view>
+  <view class='kt-member' wx:if="{{!status}}">
+    <view class='kt-tips'>
+      <image mode='widthFix' src='https://thunder.jd.com/jpass/img/ID_defalt_pic.png'></image>
+      <view>您还未开启会员码功能，开启后向商</view>
+      <view>家出示即可完成快速支付。</view>
+    </view>
+    <view class='kt-line'>
+      <view class='kt-line-le'></view>
+      <view class='kt-line-ri'></view>
+    </view>
+    <view class='kt-agree'>
+      <view bindtap='changeAgree'>
+        <image mode='widthFix' src='{{isAgree?"https://thunder.jd.com/jpass/img/icon_checkbox_s.png":"https://thunder.jd.com/jpass/img/icon_checkbox_n.png"}}'></image>
+        <view class='kt-agree-or'>确认授权表示同意
+          <text catchtap='lookAgree' class='agree'>《京东会员码用户须知》</text>
+        </view>
+      </view>
+    </view>
+    <view class='kt-bt {{isAgree?"kt-agr-bt":""}}'>
+      <view bindtap='kt'>开通会员码服务</view>
+    </view>
+  </view>
+  <view class='member-box'>
+    <memberCode wx:if="{{status}}" setting="{{ifSet}}" user-capture="{{userCaptureScreen}}"></memberCode>
+  </view>
+</view>
+<!-- <coupon-dialog showFlag="{{couponDialogShow}}" couponList="{{dialogCouponList}}" dialogContent="送您一张京东商城全品类券" bindclose="closeDialog"></coupon-dialog> -->

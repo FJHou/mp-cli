@@ -1,0 +1,7 @@
+<view class="h-banner" wx:if="{{banners.length}}">
+    <swiper autoplay interval="{{3000}}" class="swiper" >
+         <swiper-item wx:for="{{banners}}" wx:key="index" class="swiper-item" bindtap="onClick" data-item="{{item}}">
+            <image src="{{item.imageUrl}}" mode="widthFix" class="image" bindload="onImageLoad"></image>
+          </swiper-item>
+    </swiper>
+</view>

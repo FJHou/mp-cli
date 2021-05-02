@@ -1,0 +1,32 @@
+.address {
+	width: 100%;
+	height: 48rpx;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.address .text {
+	font-size: 32rpx;
+	/* 减去left right 和margin的值 */
+	/* width: calc(100% - 104px); */
+	color: #ffffff;
+	line-height: 32rpx;
+	margin: 0 6rpx;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.address .left {
+	flex: 0 0 24rpx;
+	width: 24rpx;
+	height: 28rpx;
+}
+
+.address .right {
+	flex: 0 0 16rpx;
+	width: 16rpx;
+	height: 8rpx;
+}

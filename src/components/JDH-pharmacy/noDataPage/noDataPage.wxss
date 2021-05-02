@@ -1,0 +1,16 @@
+.nodata-content{
+	text-align: center;
+	padding-top: 160rpx;
+ } 
+.nodata-Img{ 
+	width: 206rpx;
+	height: 190rpx; 
+	display: flex;
+	margin: 0 auto;
+	padding: 186rpx 0 20rpx;
+}
+.nodata-msg{
+	text-align: center;
+	font-size: 22rpx;
+	color: rgba(38,38,38,1);
+}

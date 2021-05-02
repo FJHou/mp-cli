@@ -1,0 +1,9 @@
+<!--components/backTop/backTop.wxml-->
+<!--
+   该组件用于: 列表右下角 '返回顶部' 情景的维护
+   参数 [backShow] 调用者页面中，onPageScroll声明周期内，控制上滑到多少高度是 显示/隐藏 该组件
+   维护者：chenJing
+ -->
+<view  hidden='{{backShow}}' bindtap='backToTop'> 
+	<image class='backTop' src="https://img10.360buyimg.com/imagetools/jfs/t1/142937/8/19469/2345/5fe1bd15Ebd12e40e/32119ce52a863797.png" />
+</view>

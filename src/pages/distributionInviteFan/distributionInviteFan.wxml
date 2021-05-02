@@ -1,0 +1,82 @@
+ 
+<view class="fans-container">
+  <!-- 头部操作 -->
+  <view class='share-v'>
+    <view class='lbl-code'>
+      您的邀请码
+    </view>
+    <view class='qr-code'>
+      {{inviteCode}}
+    </view>
+    <view class='copy-txt' catchtap='saveText'>复制</view>
+  </view>
+
+  <swiper class="fans-swiper" bindchange="swiperTab">
+    <swiper-item class="fans-swiper">
+      <view class="invite-content" >
+        <image src='{{contextImg[0]}}' class='share1-1'></image>
+        <image src='{{bgImg[0]}}' class='share1-2' style='height:{{mainHeight}}px;min-height:570px;'></image>
+        <view class='qr-v'>
+          <image src='https://b2b-v2-pre.oss.cn-north-1.jcloudcs.com/c3249060-bd83-4ed2-8b2e-25b55eb4ef8d.png' class="invite-img">
+            <image src='{{qr}}' class='qr-img' />
+            <view class="invite-info">
+              <view class="invite-person">邀请人</view>
+              <view class='text-overflow invite-name'>{{name}}</view>
+            </view>
+          </image>
+          <view class='code-v-p'>
+            <view class='code-v'>
+              长按识别二维码
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+
+    <swiper-item>
+      <view class="invite-content">
+        <image src='{{contextImg[1]}}' class='share2-1'></image>
+        <image src='{{bgImg[1]}}' class='share2-2' style='height:{{mainHeight}}px;min-height:570px;'></image>
+        <view class='qr-v'>
+          <image src='https://b2b-v2-pre.oss.cn-north-1.jcloudcs.com/c3249060-bd83-4ed2-8b2e-25b55eb4ef8d.png' class="invite-img">
+            <image src='{{qr}}' class='qr-img'/>
+            <view class="invite-info">
+              <view class="invite-person">邀请人</view>
+              <view class='text-overflow invite-name'>{{name}}</view>
+            </view>
+          </image>
+          <view class='code-v-p'>
+            <view class='code-v'>
+              长按识别二维码
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+
+  </swiper>
+  <!-- 不知道原有功能别乱改代码，功能都被改没了不知道看看么-->
+  <view class='tab-v'>
+    <view class="{{currentTab==0?'active_point':'point'}} tab-0" >
+    </view>
+    <view class="{{currentTab==1?'active_point':'point'}} tab-1" >
+    </view>
+  </view>
+
+  <view class='popup-activety'>
+    <button open-type="share" class="item" hover-class="none">
+      <image src='{{weixinPic}}'></image>
+      <text>分享给好友</text>
+    </button>
+    <view class='item' bindtap='onDrawCanvas'>
+      <image src="{{friendPic}}"></image>
+      <text>分享图片长按分享</text>
+    </view>
+  </view>
+  <view wx:if="{{imgSuccess}}" class='save-ok-p'>
+    <view class='save-v'>
+      保存成功，快去分享给好友吧
+    </view>
+  </view>
+  <canvas canvas-id="shareCanvas" class="share-canvas"></canvas>
+</view>

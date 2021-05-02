@@ -1,0 +1,79 @@
+@import "../../../../css/JDfont.wxss";
+.h-points-coupon {
+    display: inline-block;
+    width: 230rpx;
+    // height: 265rpx;
+    padding: 20rpx;
+    // background: rgba(255,255,255,1);
+    background: url("https://img13.360buyimg.com/imagetools/jfs/t1/157206/19/13297/3985/604ef71cE9fcd8173/199e327062814f3c.png") center/100% no-repeat;
+    // box-shadow:  0px 6px 10px 0px rgba(219,29,29,0.17);
+    border-radius: 10rpx;
+    color: #262626;
+    font-size: 22rpx;
+    text-align: center;
+    .condition {
+        margin-top: 5rpx;
+    }
+    .description {
+        margin-top: 5rpx;
+        color: #B2B2B2;
+        padding-bottom: 8rpx;
+        // border-bottom: 1rpx dashed #B2B2B2;
+    }
+    .points {
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        margin-top: 8rpx;
+        .icon {
+            display: inline-block;
+            margin-right: 10rpx;
+            width: 23rpx;
+            height: 25rpx;
+            background: url('https://img10.360buyimg.com/imagetools/jfs/t1/155506/36/18323/1034/602f2582E6a363111/1939699720df7770.png!q60') no-repeat center/100%;
+        }
+        .num {
+            display: inline-block;
+            font-family: JDZhengHei-01-Regular;
+        }
+    }
+
+    .button {
+        width: 145rpx;
+        height: 45rpx;
+        line-height:45rpx;
+        margin: 12rpx auto 0;
+        font-size: 24rpx;
+        background: linear-gradient(135deg, rgba(242,20,12,1) 0%,rgba(242,39,12,1) 70%,rgba(242,77,12,1) 100%);
+        border-radius: 36rpx;
+        color: #fff;
+    }
+    &.size-large {
+        width: 342rpx;
+        padding: 35rpx;
+        font-size: 30rpx;
+        .condition {
+            margin-top: 15rpx;
+        }
+        .description {
+            margin-top: 15rpx;
+            padding-bottom: 15rpx;
+        }
+        .points {
+            margin-top: 30rpx;
+            .icon {
+                margin-right: 10rpx;
+                width: 36rpx;
+                height: 38rpx;
+            }
+        }
+        .button {
+            width: 218rpx;
+            height: 56rpx;
+            line-height: 56rpx;
+            margin: 20rpx auto 0;
+            font-size: 26rpx;
+            border-radius: 56rpx;
+        }
+    }
+}

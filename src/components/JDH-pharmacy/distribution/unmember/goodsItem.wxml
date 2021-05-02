@@ -1,0 +1,52 @@
+<wxs src="../../../../wxs/distribution/goods.wxs" module="m1"></wxs>
+
+<view class='row-container' bindtap="goDetail" data-item="{{itemObj}}"> 
+  <view class="row-content">
+    <view class="row-left">
+      <image bindload="imageLoad" class="{{!finishPicLoad?'before-load':'row-img'}}" src="{{ itemObj.imageInfo.imageList[0].url ||defaultPic}}"></image>
+      <block wx:if="{{!finishPicLoad}}">
+        <image class='row-img-default' mode='aspectFit' src="{{ defaultPic}}"></image>
+      </block>
+    </view>
+    <view class="row-right">
+      <view class='row-name p-name multi-text-overflow'>
+				<text class='jd-flag'>{{m1.getTypeLabel(itemObj)}}</text>
+				{{itemObj.skuName}} 
+      </view>
+      <view class='row-comment'> 
+			<block wx:if="{{itemObj.tenantPriceInfo.couponDiscount }}">
+          <view class='com-item-info-ticket'>
+            券￥{{itemObj.tenantPriceInfo.couponDiscount}}
+            <i class='decorate decorate-left' /> 
+            <i class='decorate decorate-right' />
+          </view>
+        </block> 
+      </view> 
+			<text class='price'><text class='price-logo'>￥</text>{{itemObj.tenantPriceInfo.jdPrice || 0}}<text hidden="{{itemObj.tenantPriceInfo.jdPrice == itemObj.tenantPriceInfo.referPrice }}" class='line-through color-gray size-gray m-l-10'>￥{{itemObj.tenantPriceInfo.referPrice}}</text></text>
+			<view class='row-btn'>
+        <view class='row-coupon-v'>
+          <block wx:if="{{itemObj.comments && itemObj.goodCommentsShare}}">
+            <text class='lbl-comment'>{{m1.getCommentNo(itemObj.comments)}}评论</text><text class='lbl-line'></text>
+            <text class='lbl-comment'>好评率{{itemObj.goodCommentsShare}}%</text>
+          </block> 
+				</view>  
+			</view> 
+			<view class='row-buy-now' wx:if="{{!referenceUserInfo}}" catchtap="selfBuying" data-item="{{itemObj}}">
+        <view class='common-btn'>立即购</view>
+      </view>
+			<view class='row-price-vip' wx:if="{{referenceUserInfo}}"> 
+          <view class='btn-now' catchtap='selfBuying' data-item='{{itemObj}}'>
+            <view class='buyBtn-top'>自购省</view>
+            <view class='buyBtn-bottom'><text class='buyBtn-flag'>¥</text>{{itemObj.tenantPriceInfo.savePrice || 0}}</view>
+          </view>
+        
+          <view class='btn-share' catchtap='onShare' data-item='{{itemObj}}'>
+            <my-cps-share itemInfo="{{itemObj}}">
+              <view class='shareBtn-top'>分享赚</view>
+              <view class='shareBtn-bottom'><text class='buyBtn-flag'>¥</text>{{itemObj.tenantPriceInfo.rebatePrice || 0}}</view>
+            </my-cps-share>
+          </view>
+        </view>
+		</view>
+  </view>
+</view> 

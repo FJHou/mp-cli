@@ -1,0 +1,16 @@
+/* components/backTop/backTop.wxss */
+
+/* @import '../../resource/iconfont/iconfont'; */
+
+
+
+/* 返回顶部 */
+.backTop {
+ width: 88rpx;
+ height: 88rpx;
+ position: absolute;
+ right: 35rpx;
+ bottom: calc(150rpx + env(safe-area-inset-bottom));
+ z-index: 10;
+}
+ 

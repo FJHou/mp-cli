@@ -1,0 +1,35 @@
+.points-mall {
+    margin-top: 30rpx;
+}
+.card {
+    margin-top: 20rpx;
+    padding: 0 24rpx !important;
+    background: linear-gradient(100deg, rgba(248,102,115,1) 0%,rgba(255,171,171,1) 100%);
+}
+
+.points-coupon {
+    margin-right: 20rpx !important;
+    &:last-child {
+        margin-right: 0;
+    }
+
+}
+.unactive {
+    background: linear-gradient(135deg, rgba(242,20,12,0.5) 0%,rgba(242,39,12,0.5) 70%,rgba(242,77,12,0.5) 100%) !important;
+}
+.scroller {
+    padding: 30rpx 0;
+}
+.more {
+    font-size: 26rpx;
+    display: inline-block;
+    text-align: center;
+    width: 36rpx;
+    padding: 0 5rpx;
+    font-weight: bold;
+    height: 200rpx;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    letter-spacing: 5rpx;
+    color: #F14747;
+}

@@ -1,0 +1,49 @@
+<view class="choose-address-page" id="chooseAddressPage">
+
+  <view class="head-fix border-tb">
+    <view class="head-address-ul" id="headAddressUl">
+      <block wx:key="" wx:for="{{arrHeader}}">
+        <view wx:if="{{index == 0}}" class="head-address-li {{item.isCurrent}}" bindtap="resetChoice" data-regiontype="{{index+1}}">
+          <text>{{item.title}}</text>
+        </view>
+        <view wx:elif="{{index == 3}}" class="head-address-li {{item.isCurrent}} last-header" bindtap="getSpecificList" data-regiontype="{{index+1}}">
+          <text>{{item.title}}</text>
+        </view>
+        <view wx:else class="head-address-li {{item.isCurrent}}" bindtap="getSpecificList" data-regiontype="{{index+1}}">
+          <text>{{item.title}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <scroll-view scroll-y="true" class="address-container" style="height:{{windowHeight}}px ;width:{{windowWidth}}px" id="addressContainer" scroll-top="{{scrollTop}}">
+    <!--<view class="address-content" id="addressContentview" style="transform: translate({{multiOffset*windowWidth}}px, 0px) translateZ(0px);height:{{contentHeight}};">-->
+    <!--<view class="address-content" id="addressContentview">-->
+    <view class="address-ul" data-type="1" bindtap="dealWithList" style="display:{{arrDisplay[0]}};">
+      <block wx:key="" wx:for="{{arrProvince}}">
+        <view data-id="{{item.id}}" class="{{item.seled}}" data-index="{{index}}" data-val="{{item.name}}">{{item.name}}</view>
+      </block>
+    </view>
+
+    <view class="address-ul" data-type="2" bindtap="dealWithList" style="display:{{arrDisplay[1]}};">
+      <block wx:key="" wx:for="{{arrCity}}">
+        <view data-id="{{item.id}}" class="{{item.seled}}" data-index="{{index}}" data-val="{{item.name}}">{{item.name}}</view>
+      </block>
+    </view>
+
+    <view class="address-ul" data-type="3" bindtap="dealWithList" style="display:{{arrDisplay[2]}};">
+      <block wx:key="" wx:for="{{arrArea}}">
+        <view data-id="{{item.id}}" class="{{item.seled}}" data-index="{{index}}" data-val="{{item.name}}">{{item.name}}</view>
+      </block>
+    </view>
+
+    <view class="address-ul" data-type="4" bindtap="dealWithList" style="display:{{arrDisplay[3]}};">
+      <block wx:key="" wx:for="{{arrTown}}">
+        <view data-id="{{item.id}}" class="{{item.seled}}" data-index="{{index}}" data-val="{{item.name}}">{{item.name}}</view>
+      </block>
+    </view>
+    <view class="phoneXFillingStyle" wx:if='{{isIphoneX}}'></view>
+    <!--</view>-->
+    <!--</view>-->
+  </scroll-view>
+</view>

@@ -1,0 +1,20 @@
+<view 
+  class='create-shop pad-r-20 {{direction=="right"?"right":"left"}}' 
+  style='position:{{position}};{{value}}'
+  bindtap='createShop'
+  wx:if='{{!hasShop && isVip}}'
+  >
+    <i class='iconfont icon-dianpu1'/>
+    <text>我要开店</text>
+</view>
+<view
+  class='create-shop circle-v' 
+  style='position:{{position}};bottom:304rpx;right:44rpx'
+  bindtap='inToShop'
+  wx:elif='{{isVip && showGoToShopBtn}}'
+>
+  <view class='add-to-shop'>
+    <text>我的</text>
+    <text>小店</text>
+  </view>
+</view>

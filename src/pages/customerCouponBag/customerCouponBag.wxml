@@ -1,0 +1,73 @@
+<!-- pages/customerCouponBag/customerCouponBag.wxml -->
+<view class='page-content'>
+  <view class='cuscoupon'>
+    <view class='cuscoupon-title'>
+      <view class='cuscoupon-center'>
+        <view>{{options.employeeName || options.fromName || userName}}</view>
+        <text>分享给您一个专属券包</text>
+      </view>
+    </view>
+    <view class='cuscoupon-brand'>{{brandsName}}</view>
+    <view class='cuscoupon-addr'>
+      <view class='cuscoupon-word'>
+        <image mode='widthFix' src='https://thunder.jd.com/jpass/img/share_cus_addr.png'></image>
+        <view>{{storeName}}可用</view>
+      </view>
+    </view>
+    <view class='cuscoupon-wrap' style='min-height:{{minHeight}}px'>
+      <view class='salecoupon-item' wx:for="{{couponList}}" wx:key="index" data-i="{{index}}">
+        <view class='salecoupon-left'>
+          <view class='salecoupon-logo'>
+            <image src='https:{{item.brandsLogo}}' mode='widthFix'></image>
+          </view>
+          <view class='salecoupon-msg'>
+            <view class='salecoupon-msg-name'>{{item.brandsName}}</view>
+            <view class='salecoupon-msg-oth'>
+              {{!item.allStore ? '品牌所有门店' : '部分门店可用'}}
+              <text wx:if="{{item.couponType==1 || item.couponType==2}}">| 部分商品可用</text>
+            </view>
+            <view class='salecoupon-msg-oth'>使用期限：{{item.endExtDate}}</view>
+          </view>
+        </view>
+        <view class='salecoupon-right'>
+          <view class='salecoupon-right-cen'>
+            <view class='coupon-amount'>¥{{item.couponAmount/100}}</view>
+            <view class='coupon-value'>满{{item.quota/100}}元可用</view>
+            <view class='{{item.status == 1 || item.status == 2 || item.status == 0? "coupon-shadow":"coupon-none"}}' wx:if="{{options.plant == 1 && !hasPlaybillShare}}">
+              <fsubmit wx:if="{{item.status == 0 && platformCouponId != item.couponId}}" bind:fsubmit="toDraw" data-coupon-id="{{item.couponId}}">
+                <view class='coupon-btn'>立即领取</view>
+              </fsubmit>
+              <fsubmit wx:if="{{item.status == 2 || platformCouponId == item.couponId}}" bind:fsubmit="toUse" data-coupon-id="{{item.couponId}}">
+                <view class='coupon-btn'>去使用</view>
+              </fsubmit>
+              <fsubmit wx:if="{{item.status == 1}}" bind:fsubmit="toLook" data-coupon-id="{{item.couponId}}">
+                <view class='coupon-btn'>去看看</view>
+              </fsubmit>
+              <view wx:if="{{item.status == 3}}" class='coupon-btn'>已领完</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='cuscoupon-foot'>
+        <view>没有别的啦~</view>
+        <view class='cuscoupon-fl'></view>
+        <view class='cuscoupon-fr'></view>
+        <!-- <text style="word-break: break-word">{{optionsString}}</text> -->
+
+      </view>
+    </view>
+    <view wx:if="{{!canGetCoupon}}" class='cuscoupon-alget'>您已成功领取优惠券包，可在“我的优惠券”中查看</view>
+  </view>
+  <view class='cuscoupon-blank'></view>
+  <view class='cuscoupon-opera' wx:if="{{options.plant != 1}}">
+    <view wx:if="{{canGetCoupon}}" class='cuscoupon-btn' bindtap='drawAllCoupon'>一键领取</view>
+    <button wx:else class='cuscoupon-btn' open-type='share'>分享券礼包给好友</button>
+  </view>
+  <image class='cuscoupon-bg' mode="widthFix" src='https://thunder.jd.com/jpass/img/share_cus_coupon.png'></image>
+  <return-top show-flag="{{false}}" isReturnTop="{{false}}" isReturnHome="{{true}}"></return-top>
+</view>
+<view wx:if="{{hasPlaybillShare}}">
+  <view class='av-share-blank'></view>
+  <img-share type="1" brand-id="{{brandId}}" b-id="{{bId}}" share-chain-id="{{options.shareChainId}}" object-id="{{options.couponBagId}}" brand-logo="{{'https:' +couponList[0].brandsLogo}}" brand-name="{{couponList[0].brandsName}}" user-name="{{options.employeeName || userName}}" store-id="{{options.storeId}}" plant="{{options.plant}}"></img-share>
+</view>
+<canvas class="f8be360ead1f4a3d9afb5e312b845ebb" canvas-id='fbfd3ec3c4ab4213b9a09b5c5e769ceb'></canvas>

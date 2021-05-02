@@ -1,0 +1,9 @@
+<!--components/modal.wxml-->
+<view class="modal" wx:if="{{show}}">
+  <view class="modalPanel {{hideAnimation ? 'mP-hide' : ''}}">
+    <view class="panel">
+        <slot></slot>
+    </view> 
+   <image bindtap="hideModal" class="colseImg"  src="{{colseSrc}}" wx:if="{{ showClose }}"></image>
+ </view>
+</view>

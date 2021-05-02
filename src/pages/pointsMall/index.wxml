@@ -1,0 +1,25 @@
+<list-view class="points-mall" refresherTriggered="{{triggered}}" bindscrolltolower="onReachBottom" bindrefresherrefresh="onPullDownRefresh" loading="{{loading}}" total="{{total}}" loadOver="{{loadOver}}" data-source="{{coupons}}" auto-load-over="{{true}}">
+    <view class="tips" wx:if="{{tipShow}}">
+        <text>以下优惠券为当前门店优惠券，如需切换门店请返回首页</text>
+        <text class="icon-close" bindtap="closeTip"></text>
+    </view>
+    <view class="exchange-recorder" bindtap="toExchangeRecord">
+        <view class="left">
+            <text class="icon-coin"></text>
+            <text class="text">我的积分</text>
+            <text class="points">{{points}}</text>
+        </view>
+        <view class="right">
+            <text class="value">兑换记录</text>
+            <text class="icon-arrow-right"></text>
+        </view>
+    </view>
+    <view class="content">
+        <title title="超值优惠券" class="title"></title>
+        <view class="list">
+            <view class="points-mall-coupons-wrapper" wx:for="{{coupons}}" wx:key="index">
+                <points-coupon bindtap="onCouponClick" data-coupon="{{item}}" size="large" price="{{item.wareExtMap.discount}}" condition="{{'满'+item.wareExtMap.quota+'元可用'}}" description="{{item.wareExtMap.couponTypeDesc}}" points="{{item.exchangeScore}}" button-status="{{item.buttonText}}" points-coupon-class="points-mall-coupon" coupon-button-class="{{item.buttonClass}}"></points-coupon>
+            </view>
+        </view>
+    </view>
+</list-view>

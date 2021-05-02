@@ -1,0 +1,45 @@
+.phoneXStyle {
+  height: 168rpx!important;
+  border-bottom: 68rpx solid white;
+}
+.phoneXstyleBottom {
+  height: 168rpx;
+}
+.phoneXFillingStyle {
+  height: 68rpx;
+  float: left;
+  width:100%;
+}
+.phoneXFillingStyleSec{
+  height: 68rpx;
+}
+.phoneXStyleOrderDetail{
+  border-bottom: 68rpx solid #f8f8f8;
+}
+.phoneXStylePiecelist{
+  border-bottom: 68rpx solid white;
+}
+.phoneXStyleAddressList{
+  padding-bottom: 220rpx;
+}
+.phoneXStyleChooseAddressBtn{
+  padding-bottom: 68rpx;
+}
+.phoneXGoToTop {
+  bottom: 180rpx;
+}
+.phoneXB{
+  bottom: 68rpx!important;
+}
+.phoneXBBackG {
+  height: 898rpx!important;
+}
+.no-buy-info-iphonex {
+  bottom : 168rpx!important;
+}
+.bottom-to-top-iphonex {
+  bottom : 240rpx;
+}
+.bottom-to-index-iphonex {
+  bottom : 340rpx;
+}

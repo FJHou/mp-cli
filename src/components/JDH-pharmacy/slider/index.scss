@@ -1,0 +1,22 @@
+.h-slider-view {
+    .slider {
+        white-space: nowrap;
+    }
+    
+    .progress {
+        position: relative;
+        width: 48rpx;
+        height: 8rpx;
+        border-radius: 8rpx;
+        margin: 15rpx auto 0;
+        background-color: #F2F2F2;
+    }
+    .bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background-color: #F2140C;
+        border-radius: 8rpx;
+    }
+}

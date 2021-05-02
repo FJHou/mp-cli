@@ -1,0 +1,43 @@
+<!--pages/storeRecord/storeRecord.wxml-->
+<view class='page-content'>
+  <view class='topline'></view>
+  <view class='refund'>
+    <view class='refund-num'>
+      <view>订单编号：{{orderId}}</view>
+      <view>取消/退款进度：
+        <text>{{progress}}</text>
+      </view>
+    </view>
+    <view class='refund-t'>退款明细</view>
+    <view class='refund-money' wx:for="{{refundDetails}}" wx:key="index">{{item.payWay}}：¥{{item.refundAmount}}（1-3个工作日到账）</view>
+    <view class='refund-tips'>
+      <image src='https://thunder.jd.com/jpass/img/refund-tips-icon.png'></image>
+      <view>退款将返还您实际支付的金额，京东支付和白条支付优惠概不退回，微信搜一搜订单返现金额会从退款中扣除，白条、微信支付、京东E卡等资产将原路返回，时效可在“客户服务”查询。</view>
+    </view>
+  </view>
+
+  <view class='refund-detail'>
+    <view class='refund-item' wx:for="{{flows}}" wx:key="index">
+      <view class='refund-mark'>
+        <view class='refund-mark-tl'></view>
+        <view class='refund-mark-cir'></view>
+        <view class='refund-mark-bl'></view>
+      </view>
+      <view class='refund-word'>
+        <view>{{item.operatorRemark}}</view>
+        <view>{{item.operatorTime}}</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='bt-blank'></view>
+  <view class='bt'>
+    <view class='bt-na'>京东会员码</view>
+    <view>
+      <image class='logo' mode='widthFix' src='https://thunder.jd.com/jpass/img/logo_buttom.png'></image>
+    </view>
+  </view>
+
+  <return-top show-flag="{{false}}" isReturnTop="{{false}}" isReturnHome="{{true}}"></return-top>
+</view>

@@ -1,0 +1,9 @@
+{
+	"usingComponents": {
+		"index": "plugin://loginPlugin/index",
+		"instruction": "plugin://loginPlugin/instruction"
+	},
+	"navigationBarTitleText": "登录",
+	"navigationBarBackgroundColor": "#ff413f",
+	"navigationBarTextStyle": "white"
+}

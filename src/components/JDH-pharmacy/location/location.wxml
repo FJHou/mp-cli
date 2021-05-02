@@ -1,0 +1,5 @@
+<view class="address analysis-SwitchAddress" catchtap="goLocation">
+    <image class="left" src="{{staticUrl}}/devfe/jfs/t1/69669/14/11229/568/5d899200E94e2af5b/80d42393ae8ef454.png"></image>
+    <view class="text">{{ address || '定位中' }}</view>
+    <image class="right" src="{{staticUrl}}/devfe/jfs/t1/68354/6/11144/261/5d899200E3e18d2d7/e888656f81474f4e.png"></image>
+</view>

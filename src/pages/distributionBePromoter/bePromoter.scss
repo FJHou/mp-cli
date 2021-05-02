@@ -1,0 +1,91 @@
+.edit-wrap {
+  position: relative;
+  height: 100%;
+  .banner {
+    height: 320rpx;
+    width: 100%;
+    background: url('https://img12.360buyimg.com/imagetools/jfs/t1/149251/1/19677/216020/5fe1aeacE257966cc/2eca6288a1637855.png!q50') no-repeat;
+    background-size: contain;
+    .banner-image {
+      width: 100%;
+    }
+  }
+  .form-container {
+    margin: 0 30rpx;
+    .form {
+      color: #333;
+      height: 100rpx;
+      align-items: center;
+      border-bottom: 2rpx solid #edeeef;
+      font-size: 32rpx;
+    }
+    .place-holder {
+      color: #bfbfbf;
+    }
+    .flex {
+      display: flex;
+    }
+    .flex-item {
+      flex: 1;
+    }
+    
+    .form-label {
+      width: 160rpx;
+      color: #262626;
+    }
+    .form-code {
+      width: 220rpx;
+    }
+    .code-button {
+      height: 50rpx;
+      text-align: center;
+      line-height: 50rpx;
+      font-size: 32rpx;
+    }
+    .text-red {
+      color: #f10216;
+    }
+    .text-gray {
+      color: #ddd;
+    }
+    
+    .button-red {
+      background-color: #f10216;
+    }
+    .button-gray {
+      background-color: #ddd;
+    }
+    form input {
+      width: 100%;
+    }
+    .button-group {
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+      bottom: 108rpx;
+    }
+    .form-button {
+      width: 630rpx;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .jd-button {
+      font-size: 26rpx;
+      border-radius: 42rpx;
+      height: 76rpx;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(242,20,12,1) 0%,rgba(242,39,12,1) 70%,rgba(242,77,12,1) 100%);
+    }
+    .jd-button.jd-button-disabled{
+      background: #c1c1c1;
+      pointer-events: none;
+    
+    }
+    .gender-picker {
+      height: 100%;
+    }
+  }
+}

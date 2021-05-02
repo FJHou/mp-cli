@@ -1,0 +1,43 @@
+<!-- 提现银行卡维护页面 -->
+<wxs module='m1'>
+  module.exports = {
+    setVal: function(val) {
+      if (!val || val == 'null' || val == 'NULL') {
+        return ''
+      } else {
+        return val
+      }
+    }
+  }
+</wxs> 
+<view class="rg-wrap"> 
+  <view class='form-item'>
+    <view class='form-item-title'>
+      账户姓名
+    </view>
+    <view class='form-item-value'>
+      <input disabled="{{true}}" class='input one-text-overflow' name='bankAccount' value="{{realName}}" />
+    </view>
+  </view> 
+</view> 
+<!-- 认证、修改认证部分 -->
+<form  wx:if='{{type == 1}}' bindsubmit="formSubmit" bindreset="formReset">
+  <view class="rg-wrap"> 
+    <view class='form-item'>
+      <view class='form-item-title'>
+        银行账户
+      </view>
+      <view class='form-item-value'>
+        <input class='input' name='bankAccount' type='number' maxlength='30' placeholder-class="ph-color" value="{{bankCardNo}}" placeholder='请填写提现银行卡账户号'  data-key="setAccount" bindinput='onChangeInput' bindfocus="onFocus"/>
+      </view>
+    </view>  
+		<view class="tip-txt">
+      <text class='icon-tip iconfont icon-tanhao'>注意：</text>
+      <text>所维护的银行卡所有人需要与提现认证提交的自然人为同一人，避免影响提现</text>
+    </view>
+  </view> 
+  <!-- 按钮控制区域 -->
+  <view class='ipone-x-view' style="bottom:{{phoneType=='01' ? '60rpx' : 0}}">
+    <button class='rg-btn' wx:if='{{type == 1}}' form-type="submit" disabled="{{disabled}}" loading='{{loading}}'>提 交</button>
+  </view>
+</form>

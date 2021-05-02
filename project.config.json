@@ -1,0 +1,267 @@
+{
+    "description": "项目配置文件",
+    "packOptions": {
+        "ignore": []
+    },
+    "miniprogramRoot": "dist/",
+    "setting": {
+        "urlCheck": true,
+        "es6": true,
+        "enhance": true,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": true,
+        "coverView": true,
+        "nodeModules": true,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "useMultiFrameRuntime": true,
+        "useApiHook": true,
+        "useApiHostProcess": false,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "enableEngineNative": false,
+        "bundle": false,
+        "useIsolateContext": true,
+        "useCompilerModule": true,
+        "userConfirmedUseCompilerModuleSwitch": false,
+        "userConfirmedBundleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true
+    },
+    "compileType": "miniprogram",
+    "libVersion": "2.16.0",
+    "appid": "wx7b23be392066bc60",
+    "projectname": "%E4%BA%AC%E4%B8%9C%E5%A4%A7%E8%8D%AF%E6%88%BF",
+    "debugOptions": {
+        "hidedInDevtools": []
+    },
+    "isGameTourist": false,
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "id": 1,
+                    "name": "个人中心",
+                    "pathName": "pages/personalHealth/personalHealth",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 9,
+                    "name": "会员卡详情",
+                    "pathName": "pages/cardInfo/cardInfo",
+                    "query": "brandId=3386&bId=300000001270370",
+                    "scene": null
+                },
+                {
+                    "id": 6,
+                    "name": "优惠券详情",
+                    "pathName": "pages/couponInfo/couponInfo",
+                    "query": "couponId=120509&couponPutNum=0&storeId=24365939&brandId=317&bId=100000000000221",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "京东会员码",
+                    "pathName": "pages/memberCode/memberCode",
+                    "query": "couponId=120509&couponPutNum=0&storeId=24365939&brandId=317&bId=100000000000221",
+                    "scene": null
+                },
+                {
+                    "id": 10,
+                    "name": "pages/shopCoupon/shopCoupon",
+                    "pathName": "pages/shopCoupon/shopCoupon",
+                    "query": "storeId=23374441&YJSStoreId=23749319&pin=jd_7615f9382d674&yjsVenderId=10227282&hasYJSCoupon=true",
+                    "scene": null
+                },
+                {
+                    "id": 11,
+                    "name": "pages/shopList/shopList",
+                    "pathName": "pages/shopList/shopList",
+                    "query": "storeId=23374441&brandId=3386&bizId=300000001270370&longitude=117.026703&latitude=39.144100",
+                    "scene": null
+                },
+                {
+                    "name": "门店主页2",
+                    "pathName": "pages/newShop/shopFront",
+                    "query": "storeId=24615584",
+                    "scene": null
+                },
+                {
+                    "id": 8,
+                    "name": "门店主页",
+                    "pathName": "pages/newShop/shopFront",
+                    "query": "storeId=24464015&venderId=10270846",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "门店主页-天津都会店",
+                    "pathName": "pages/newShop/shopFront",
+                    "query": "storeId=24286829",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "导购-优惠券包-skz",
+                    "pathName": "pages/customerCouponBag/customerCouponBag",
+                    "query": "pt_key=AAJfkkOwADCA9lwA3hYa7buc8JKYLp11nny28d0Z08nDjtzMRHRTsoS9GyGlNXEYZj1HCHJC2CI&brandId=3386&bId=300000001270370&shareChainId=291601&employeeName=shikunzi&employeeId=232127&storeId=24504577&qrCodeType=1&channel=215&couponBagId=31702&route=2",
+                    "scene": 1037,
+                    "referrerInfo": {
+                        "appId": "wxc85ec682818d85d7",
+                        "extraData": "{\"fromPin\": \"SpongeK\"}"
+                    }
+                },
+                {
+                    "id": -1,
+                    "name": "导购-加入会员-skz",
+                    "pathName": "pages/addVip/addVip",
+                    "query": "pt_key=AAJfkkOwADCA9lwA3hYa7buc8JKYLp11nny28d0Z08nDjtzMRHRTsoS9GyGlNXEYZj1HCHJC2CI&brandId=3386&bId=300000001270370&shareChainId=291601&employeeName=shikunzi&employeeId=232127&storeId=24355305&qrCodeType=1&channel=215&route=2",
+                    "scene": 1037,
+                    "referrerInfo": {
+                        "appId": "wxc85ec682818d85d7",
+                        "extraData": "{\"fromPin\": \"SpongeK\"}"
+                    }
+                },
+                {
+                    "id": -1,
+                    "name": "我的订单-待付款",
+                    "pathName": "pages/order/order",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "扫小程序二维码进入门店主页-逸夫",
+                    "pathName": "pages/newShop/shopFront",
+                    "query": "scene=vs%2C10270846%2C24370848",
+                    "scene": 1047
+                },
+                {
+                    "id": -1,
+                    "name": "扫描小程序二维码-滑翔",
+                    "pathName": "pages/newShop/shopFront",
+                    "query": "scene=vs,5",
+                    "scene": null
+                },
+                {
+                    "id": 15,
+                    "name": "地址列表",
+                    "pathName": "pages/location/location",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "收货地址",
+                    "pathName": "pages/addressul/addressul",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "门店优惠券-无参数",
+                    "pathName": "pages/myShopCoupon/myShopCoupon",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "京东会员码-无参数",
+                    "pathName": "pages/memberCode/memberCode",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "导购-加入会员",
+                    "pathName": "pages/addVip/addVip",
+                    "query": "q=https%3A%2F%2Fydgj.jd.com%2Fminiprogram%2Fqrcode%3FbizId%3D300000001270370%26brandId%3D3387%26employeeId%3D154847%26employeePin%3D592388817_m%26storeId%3D24355305",
+                    "scene": 1011
+                },
+                {
+                    "name": "会员卡->加入会员",
+                    "pathName": "pages/addVip/addVip",
+                    "query": "brandId=9571&bId=100000000005518",
+                    "scene": null
+                },
+                {
+                    "id": 20,
+                    "name": "推广中心",
+                    "pathName": "pages/distributionPromotionCenter/promotionCenter",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "提现认证",
+                    "pathName": "pages/distributionMoneyReg/distributionMoneyReg",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "结算单记录",
+                    "pathName": "pages/distributionSettleRecord/distributionSettleRecord",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "收益提现",
+                    "pathName": "pages/distributionIncomeWithdraw/distributionIncomeWithdraw",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "提现记录",
+                    "pathName": "pages/distributionWithdrawRecord/distributionWithdrawRecord",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "我的粉丝",
+                    "pathName": "pages/distributionFanManagement/distributionFanManagement",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "收益提现",
+                    "pathName": "pages/distributionIncomeWithdraw/distributionIncomeWithdraw",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "积分商城",
+                    "pathName": "pages/pointsMall/index",
+                    "query": "storeId=24370848",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

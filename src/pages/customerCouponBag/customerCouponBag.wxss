@@ -1,0 +1,259 @@
+/* pages/customerCouponBag/customerCouponBag.wxss */
+@import '../../css/JDfont.wxss';
+
+.page-content {
+	height: 100vh;
+	font-family: PingFang-SC-Regular;
+	/* background: -webkit-linear-gradient(top,rgb(0,0,0) 0%, rgb(255,255,255) 100%); */
+	background: -webkit-linear-gradient(top, rgb(247, 56, 80) 0%, rgb(255, 39, 123) 100%);
+}
+.cuscoupon-bg {
+	width: 100%;
+	height: 502rpx;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+.cuscoupon {
+	box-sizing: border-box;
+	position: relative;
+	z-index: 2;
+	padding: 60rpx 0 0rpx;
+}
+.cuscoupon-title {
+	display: flex;
+	justify-content: space-around;
+	font-size: 28rpx;
+	color: white;
+	margin-bottom: 33rpx;
+}
+.cuscoupon-center {
+	display: flex;
+	align-items: center;
+}
+.cuscoupon-center view {
+	height: 42rpx;
+	font-family: PingFangSC-Medium;
+	font-size: 30rpx;
+	color: rgb(255, 246, 0);
+	padding-right: 3rpx;
+}
+.cuscoupon-center text {
+	height: 40rpx;
+}
+.cuscoupon-brand {
+	font-family: PingFangSC-Medium;
+	font-size: 30rpx;
+	text-align: center;
+	color: white;
+	line-height: 42rpx;
+	margin-bottom: 20rpx;
+}
+.cuscoupon-addr {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 58rpx;
+}
+.cuscoupon-word {
+	background: rgba(0, 0, 0, 0.3);
+	height: 58rpx;
+	border-radius: 29rpx;
+	display: flex;
+	align-items: center;
+	font-size: 30rpx;
+	color: white;
+	padding: 0 20rpx 0 18rpx;
+}
+.cuscoupon-word image {
+	width: 22rpx;
+	height: 30rpx;
+	margin-right: 9rpx;
+}
+.cuscoupon-wrap {
+	/* overflow: scroll; */
+	box-sizing: border-box;
+	margin: 0 10rpx 20rpx;
+	background: rgba(143, 0, 0, 0.32);
+	border-radius: 10rpx;
+	padding: 20rpx 20rpx 30rpx;
+}
+.salecoupon-item {
+	position: relative;
+	background: white;
+	margin: 0 0 20rpx;
+	padding: 30rpx 0;
+	border-radius: 10rpx;
+	box-shadow: 0 4rpx 10rpx 0 rgba(0, 0, 0, 0.05);
+	display: flex;
+	align-items: center;
+}
+
+.salecoupon-left {
+	flex: 1;
+	height: 120rpx;
+	display: flex;
+	align-items: center;
+}
+.salecoupon-logo {
+	flex: 0 0 72rpx;
+	margin: 0 20rpx 0 30rpx;
+}
+.salecoupon-logo image {
+	width: 72rpx;
+	height: 72rpx;
+	border-radius: 50%;
+	background: #ccc;
+	display: block;
+}
+
+.salecoupon-msg {
+	height: 120rpx;
+	box-sizing: border-box;
+	padding: 7rpx 0 7rpx;
+}
+.salecoupon-msg-name {
+	font-size: 26rpx;
+	font-family: PingFang-SC-Medium;
+	color: rgb(46, 45, 45);
+	line-height: 36rpx;
+	margin-bottom: 20rpx;
+}
+.salecoupon-msg-oth {
+	font-size: 22rpx;
+	font-family: PingFangSC-Light;
+	color: rgb(46, 45, 45);
+	opacity: 0.84;
+	line-height: 20rpx;
+	margin-bottom: 10rpx;
+}
+.salecoupon-msg-oth:last-of-type {
+	margin-bottom: 0rpx;
+}
+
+.salecoupon-right {
+	position: relative;
+	z-index: 2;
+	flex: 0 0 200rpx;
+	height: 120rpx;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	border-left: 2rpx dashed rgb(213, 213, 213);
+}
+.salecoupon-right-cen {
+	text-align: center;
+}
+.coupon-amount {
+	font-family: JDZhengHei-01-Regular;
+	font-size: 36rpx;
+	line-height: 36rpx;
+	color: rgb(243, 9, 3);
+	margin-bottom: 6rpx;
+}
+.coupon-value {
+	font-size: 20rpx;
+	font-family: PingFangSC-Medium;
+	color: rgb(46, 45, 45);
+	line-height: 20rpx;
+}
+
+.cuscoupon-foot {
+	position: relative;
+	text-align: center;
+	font-size: 24rpx;
+	color: rgb(255, 130, 155);
+}
+.cuscoupon-fl {
+	position: absolute;
+	height: 2rpx;
+	width: 308rpx;
+	left: 0;
+	top: 17rpx;
+	opacity: 0.4;
+	background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+.cuscoupon-fr {
+	position: absolute;
+	height: 2rpx;
+	width: 308rpx;
+	right: 0;
+	top: 17rpx;
+	opacity: 0.4;
+	background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+.coupon-shadow {
+	width: 120rpx;
+	height: 48rpx;
+	border-radius: 30rpx;
+	margin: 10rpx auto 0;
+	box-shadow: 0 6rpx 12rpx 0 rgba(255, 62, 62, 0.2);
+	background: -webkit-linear-gradient(left, rgb(241, 0, 0) 0%, rgb(255, 79, 24) 100%);
+}
+.coupon-none {
+	width: 120rpx;
+	height: 48rpx;
+	border-radius: 30rpx;
+	margin: 10rpx auto 0;
+	background: rgb(213, 213, 213);
+}
+.coupon-btn {
+	width: 120rpx;
+	height: 48rpx;
+	box-sizing: border-box;
+	border-radius: 30rpx;
+	font-size: 22rpx;
+	text-align: center;
+	color: white;
+	line-height: 48rpx;
+}
+.cuscoupon-opera {
+	position: fixed;
+	z-index: 999;
+	bottom: 0;
+	left: 0;
+	padding: 20rpx 0 0;
+	box-sizing: border-box;
+	width: 100%;
+	height: 120rpx;
+	background: white;
+}
+.cuscoupon-btn {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin: 0 auto;
+	width: 480rpx;
+	height: 80rpx;
+	border-radius: 50rpx;
+	box-shadow: 0 6rpx 12rpx 0 rgba(255, 62, 62, 0.2);
+	background: -webkit-linear-gradient(left, rgb(241, 0, 0) 0%, rgb(255, 79, 24) 100%);
+	color: white;
+	font-family: PingFangSC-Regular;
+	font-size: 30rpx;
+}
+.cuscoupon-alget {
+	line-height: 32rpx;
+	padding: 10rpx 0 30rpx;
+	font-size: 24rpx;
+	color: white;
+	text-align: center;
+	background: rgb(255, 39, 123);
+}
+.cuscoupon-blank {
+	height: 120rpx;
+}
+.av-share-blank {
+	height: 110rpx;
+}
+.f8be360ead1f4a3d9afb5e312b845ebb {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: solid 1px #cdcdcd;
+	opacity: 0;
+	left: -100%;
+	top: -100%;
+	z-index: -2147483648;
+}

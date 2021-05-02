@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "收益订单",
+  "usingComponents": {
+    "back-top": "../../components/JDH-pharmacy/distribution/backTop/backTop",
+    "my-loading": "../../components/JDH-pharmacy/distribution/listLoading/loading",
+    "no-data": "../../components/JDH-pharmacy/distribution/noData/noData",
+    "date-picker": "../../components/JDH-pharmacy/distribution/datePicker/datePicker",
+    "select": "../../components/JDH-pharmacy/distribution/select/select",
+    "list-view": "../../components/JDH-pharmacy/list-view/list",
+    "user-order-status": "../../components/JDH-pharmacy/distribution/order/userOrderStatus/userOrderStatus",
+    "order-base-info": "../../components/JDH-pharmacy/distribution/order/orderBaseInfo/orderBaseInfo",
+    "promotion-order-sku-info": "../../components/JDH-pharmacy/distribution/order/promotionOrderSkuInfo/promotionOrderSkuInfo"
+  },
+  "backgroundColor": "#f8f8f8",
+  "disableScroll": true,
+  "enablePullDownRefresh": false
+}

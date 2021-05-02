@@ -1,0 +1,174 @@
+/* pages/refundDetail/refundDetail.wxss */
+@import '../../../css/JDfont.wxss';
+page {
+	background: rgb(245, 245, 245);
+	height: 100%;
+}
+.page-content {
+	min-height: 100%;
+	position: relative;
+}
+.tips {
+	background: rgb(254, 250, 231);
+	height: 64rpx;
+	line-height: 64rpx;
+	font-size: 24rpx;
+	padding: 14rpx 30rpx;
+	color: rgba(237, 116, 10, 0.84);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid rgb(230, 228, 228);
+	box-sizing: border-box;
+	font-family: PingFang-SC-Medium;
+}
+.tips-brand {
+	display: flex;
+	align-items: center;
+	font-family: PingFang-SC-Regular;
+}
+.tips-brand text {
+	display: inline-block;
+	max-width: 460rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.tips image {
+	height: 30rpx;
+	flex: 0 1 30rpx;
+	margin-right: 16rpx;
+	display: block;
+}
+.tips view {
+	flex: 1;
+}
+.refund {
+	background: white;
+	margin-top: 20rpx;
+}
+.record-head {
+	height: 70rpx;
+	padding: 0 30rpx;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid rgb(232, 232, 232);
+}
+.record-order {
+	color: rgb(51, 51, 51);
+	font-family: PingFangSC-Light;
+	font-size: 24rpx;
+	display: flex;
+}
+.order-num {
+	margin-right: 20rpx;
+}
+.refund-detail {
+	padding: 17rpx 30rpx 34rpx;
+	font-family: PingFang-SC-Regular;
+	font-size: 24rpx;
+	color: rgb(51, 51, 51);
+}
+.refund-tit {
+	margin-bottom: 27rpx;
+}
+.refund-process {
+	display: flex;
+	padding: 0 26rpx;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 28rpx;
+}
+.refund-process image {
+	width: 40rpx;
+	height: 40rpx;
+	display: block;
+}
+.refund-proword {
+	display: flex;
+	justify-content: space-between;
+	color: rgb(80, 198, 95);
+	line-height: 33rpx;
+	margin-bottom: 29rpx;
+}
+.refund-fail {
+	color: rgb(240, 37, 15);
+}
+.refund-ing {
+	color: rgb(218, 218, 218);
+}
+.rp-line {
+	width: 516rpx;
+	height: 4rpx;
+	background: rgb(80, 198, 95);
+}
+.rp-dottline {
+	width: 516rpx;
+	height: 4rpx;
+	display: flex;
+	justify-content: space-between;
+}
+.rp-dottline view {
+	width: 4rpx;
+	height: 4rpx;
+	background: rgb(218, 218, 218);
+	border-radius: 2rpx;
+}
+.refund-pro {
+	margin-bottom: 12rpx;
+	line-height: 33rpx;
+	display: flex;
+	align-items: center;
+}
+.refund-pro text {
+	opacity: 0.84;
+	line-height: 33rpx;
+	font-family: PingFangSC-Light;
+	display: inline-block;
+	width: 460rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.refund-price {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.refund-price text.rp-prinum {
+	font-family: JDZhengHei-01-Regular;
+	font-size: 32rpx;
+}
+.bt-blank {
+	height: 104rpx;
+}
+.bt {
+	padding: 20rpx 0 20rpx;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+}
+.bt-na {
+	color: rgb(196, 196, 196);
+	font-size: 20rpx;
+	font-family: PingFangSC-Regular;
+	line-height: 28rpx;
+	margin: 0 0 6rpx;
+	text-align: center;
+}
+.logo {
+	margin: 0 auto;
+	display: block;
+	width: 43rpx;
+	height: 37rpx;
+}
+.refund-tips {
+	margin-top: 27rpx;
+	font-size: 22rpx;
+	color: rgb(132, 132, 132);
+	font-family: PingFang-SC-Regular;
+	padding: 0 30rpx;
+}

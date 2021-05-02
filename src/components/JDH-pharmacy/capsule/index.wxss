@@ -1,0 +1,29 @@
+.capsule {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 87px;
+	height: 32px;
+	border-radius: 32rpx;
+	background: rgba(0, 0, 0, 0.1);
+	/* border: 1px solid rgba(234, 234, 234, 1); */
+	box-sizing: border-box;
+	/* position: fixed; */
+}
+
+.capsule-divider {
+	width: 1rpx;
+	height: 60%;
+	margin: 0 22rpx;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.capsule-navigator {
+	width: 40rpx;
+	height: 40rpx;
+}
+
+.capsule-navigator .icon {
+	width: 40rpx;
+	height: 40rpx;
+}

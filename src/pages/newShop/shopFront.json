@@ -1,0 +1,25 @@
+{
+	"navigationBarTitleText": "",
+	"navigationBarTextStyle": "white",
+	"navigationStyle": "custom",
+	"disableScroll": true,
+	"usingComponents": {
+		"coupon-dialog": "../../components/JDH-pharmacy/couponDialog/index",
+		"component-topnav": "../../components/topNav/topNav",
+		"component-modal": "../../components/modal/modal",
+		"component-tips": "../../components/tips/tips",
+		"component-shareModal": "../../components/shareModal/shareModal",
+		"poster": "../../components/JDH-pharmacy/poster/index",
+		"location": "../../components/JDH-pharmacy/location/location",
+		"shop-coupon": "../../components/JDH-pharmacy/shopCoupon/shopCoupon",
+		"member-card": "../../components/JDH-pharmacy/memberCard/memberCard",
+		"shop-noRecommended": "../../components/JDH-pharmacy/shopNoRecommended/shopNoRecommended",
+		"points-mall": "../../components/JDH-pharmacy/shop/pointsMall/index",
+		"top3": "../../components/JDH-pharmacy/shop/top3/index",
+		"detail": "../../components/JDH-pharmacy/shop/detail/index",
+		"entries": "../../components/JDH-pharmacy/shop/entries/index",
+		"banner": "../../components/JDH-pharmacy/shop/banner/index",
+		"coupons": "../../components/JDH-pharmacy/shop/coupons/index",
+		"fresher-coupons": "../../components/JDH-pharmacy/shop/fresherCoupons/index"
+	}
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "推广中心",
+  "usingComponents": {
+		"date-picker": "../../components/JDH-pharmacy/picker/picker"
+	}
+}

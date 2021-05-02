@@ -1,0 +1,62 @@
+.noShop{
+	background-color: #fff;
+	padding-top: 100rpx;
+	height: calc(100% - 108rpx);
+}
+.empty-image{ 
+	width: 206rpx;
+	height: 190rpx; 
+	display: flex;
+ 	margin: 0 auto 20rpx;
+}
+.noShop-title{
+	line-height: 22rpx; 
+	font-size: 22rpx;
+	color: rgba(38,38,38,1);
+	text-align: center;
+}
+.noShop-note{
+	width: 476rpx;
+	margin: 0 auto;
+	margin-top: 40rpx;
+	line-height: 32rpx; 
+	font-size: 22rpx;
+	color: rgba(175,175,176,1);
+	text-align: center;
+}
+.modify-address{
+	display: inline-block;
+	margin: 60rpx 18rpx 0 36rpx;
+	width: 320rpx;
+	height: 72rpx;
+	line-height: 72rpx;
+	border: 1px solid rgba(254,59,0,1);
+	border-radius: 42rpx;
+	font-size: 28rpx;
+	color: rgba(241,71,71,1);
+	text-align: center;
+}
+.modify-address-only{
+	width: 678rpx;
+	height: 72rpx;
+	margin: 60rpx auto 0;
+	border: 1px solid rgba(254,59,0,1);
+	border-radius: 42rpx;
+	line-height: 72rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 28rpx;
+	color: rgba(241,71,71,1);
+	text-align: center;
+}
+.redirect-toJDH{
+	display: inline-block;
+	width: 320rpx;
+	height: 72rpx;
+	margin-top: 60rpx;
+	line-height: 72rpx;
+	background: linear-gradient(135deg, rgba(242,20,12,1) 0%,rgba(242,39,12,1) 70%,rgba(242,77,12,1) 100%);
+	border-radius: 36rpx;
+	font-size: 28rpx;
+	color: rgba(255,255,255,1);
+	text-align: center;
+}

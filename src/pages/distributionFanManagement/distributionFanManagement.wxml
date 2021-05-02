@@ -1,0 +1,48 @@
+<!--pages/fanManagement/fanManagement.wxml-->
+<wxs module="filters">
+  var filters = {
+    toFix: function(value) {
+      var val = parseFloat(value);
+      val = isNaN(val) ? 0 : val;
+      return val.toFixed(2);
+    } 
+  }
+  module.exports = {
+    toFix: filters.toFix 
+  }
+</wxs> 
+<block wx:if="{{fansDataList.length}}">
+	<view class='fan-main' wx:for="{{fansDataList}}" wx:key="item">
+    <view class="goods_item">
+      <view class="goods_img fl">
+        <image src ="{{item.headImg? item.headImg:defaultPic}}"></image>
+      </view>
+      <view class='goods_name fl'>
+        <view class='name-txt one-text-overflow fl'>{{item.nickname== null ? '匿名用户' : item.nickname}}</view>
+        <view style='overflow:hidden;margin:3rpx 0 0 20rpx;' class='fl'>
+          <image class='vip_icon fl' src='{{vipCssStyle[item.level].src}}'></image>
+          <i class='membership_level fl' style='background:{{vipCssStyle[item.level].background}}'>{{vipCssStyle[item.level].name}}</i>
+        </view>
+        <view class='fans-num fl'>粉丝</view>
+      </view>
+      <view class='fans_transaction font_weight'> 
+      </view>
+    </view> 
+    <view class="goods_info">
+      <view class='goods_con'>
+        <view class='goods_number fl'>
+          <view class='goods_tit'>累计贡献返利</view>
+          <view class='goods_txt'>¥ {{item.commission == null ?filters.toFix(0) :filters.toFix(item.commission)}}</view>
+        </view>
+        <view class='goods_number fl no_border'> 
+           <view class='goods_tit'>推荐绑定时间</view>
+          <view class='goods_txt'>{{item.registerTime == null ?0 :item.registerTime}}</view>
+        </view> 
+      </view>
+    </view> 
+	</view>
+	<no-data wx:if="{{!hasMoreData}}" tipMsg="没有更多粉丝了～"/> 
+</block> 
+<block wx:else>
+	<no-data-page tipMsg="您还没有粉丝哦～"/> 
+</block>

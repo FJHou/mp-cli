@@ -1,0 +1,156 @@
+<!--components/deliveryList/member/goodsItem.wxml-->
+
+<wxs module="m1">
+  module.exports = {
+    // 处理 京东商品标识
+    // 京东自营:sourceChannel=(80) && jdSelfSaleFlag = 1
+    // 京东:sourceChannel=(80) && jdSelfSaleFlag = 0
+    getTypeLabel: function(brandTxt, channel, jdFlag, activityFlag) {
+      // 70:VOP  80:CPS 66:导入 
+      // [京东]活动标识:0无活动、1拼购、2秒杀、3砍价(京东不支持)
+
+      if (channel != '80') {
+        // 未知的商品
+        return 'X';
+      }
+
+      if (activityFlag == 1) {
+        //'京东拼团'
+        return brandTxt.jd + brandTxt.pt
+      }
+      if (activityFlag == 2) {
+        // '京东秒杀'
+        return brandTxt.jd + brandTxt.ms
+      }
+      if (jdFlag == 1) {
+        // '京东自营'
+        return brandTxt.jd + brandTxt.zy
+      }
+
+      return brandTxt.jd;
+    },
+    // 处理 有品商品标识
+    getYpTypeLabel: function(brandTxt, saleType) {
+      // [有品]砍价活动标识: 10返佣、20拼团、30分销、40砍价、50vip商品
+      if (saleType == 20) {
+        //'京享拼团'
+        return brandTxt.mine1 + brandTxt.pt
+      }
+      if (saleType == 40) {
+        // '京享砍价'
+        return brandTxt.mine1 + brandTxt.kj
+      }
+      return brandTxt.mine1;
+    },
+    // 处理评论数显示
+    getCommentNo: function(val) {
+      if (val > 99999999) {
+        val = '9999万+';
+      } else {
+        val = val > 9999 ? parseInt(val / 10000) + '万+' : val;
+      }
+      return val;
+    },
+    // 是否 '自营商品'
+    isSelfRun: function(val) {
+      if (val == 80) {
+        // CPS商品
+        return false;
+      } else {
+        // 自营的商品
+        return true;
+      }
+    },
+    // 获取划线价格
+    getYpBorderPrice: function(borderPrice, saleType, price, shareProfit) {
+      // [有品]砍价活动标识: 10返佣、20拼团、30分销、40砍价、50vip商品
+      if (!borderPrice) {
+        //京享+返佣+划线价为0时的划线价格
+        return price + shareProfit;
+      } else {
+        return borderPrice;
+      }
+    }
+  }
+</wxs>
+
+<view class='bg-row'>
+  <view class='{{needShowCheck == "01" ? "row-container-gray":"row-container"}} {{(isAllChoose =="01" || !!selectedObj[itemObj.itemId]) ? "select-row":""}}'>
+    <view class="row-content">
+    <block wx:if="{{needShowCheck == '01'}}">
+      <view class="check-left check-v" bindtap='onChangeCheck' data-item="{{itemObj}}" data-idx="{{itemObj.idx}}">
+      <block wx:if="{{isAllChoose =='00' || isAllChoose =='02' || isAllChoose =='03' || isAllChoose =='-1'}}">
+        <view class='icon iconfont my-iconfont {{!!selectedObj[itemObj.itemId] ? "icon-xuanzhong":"icon-weixuanze"}}'></view>
+      </block>
+      <block wx:if="{{isAllChoose =='01'}}">
+        <view class='icon iconfont my-iconfont icon-xuanzhong'></view>
+      </block>
+      </view>
+    </block>
+      
+      <view class="row-left" bindtap='goDetail' data-item="{{itemObj}}" data-pro-id='{{itemObj.promotionId}}' data-item-id='{{itemObj.itemId}}' data-seller-id='{{itemObj.sellerId}}' data-source-channel='{{itemObj.ptype}}'>
+        <image class="{{needShowCheck == '01' ? 'row-img-s':'row-img'}}" src="{{'https:'+itemObj.pic+'?img/s/230/230' || defaultPic}}"></image>
+      </view>
+      <view class="{{needShowCheck == '01' ? 'row-right-s':'row-right'}}">
+        <view class='row-name p-name multi-text-overflow' bindtap='goDetail' data-item="{{itemObj}}" data-pro-id='{{itemObj.promotionId}}' data-item-id='{{itemObj.itemId}}' data-seller-id='{{itemObj.sellerId}}' data-source-channel='{{itemObj.ptype}}'>
+          <block wx:if="{{m1.isSelfRun(itemObj.ptype) == false }}">
+            <!-- 京东商品名称 -->
+            <text class='jd-flag'>{{m1.getTypeLabel(brandTxt,itemObj.ptype,itemObj.jdFlag,itemObj.itemActivityFlag)}}</text>{{itemObj.pname}}
+          </block>
+          <block wx:else>
+            <!-- 有品的商品名称 -->
+            <text class='jd-flag'>{{m1.getYpTypeLabel(brandTxt,itemObj.saleType)}}</text>{{itemObj.pname}}
+          </block>
+        </view>
+
+        <block wx:if="{{m1.isSelfRun(itemObj.ptype) == false && itemObj.ticketPrice > 0}}">
+          <view class='quan'>
+            <view class='com-item-info-ticket'>
+              券 ￥{{itemObj.ticketPrice}}
+              <i class='decorate decorate-left decorate-pos-1' />
+              <i class='decorate decorate-left decorate-pos-2' />
+              <i class='decorate decorate-left decorate-pos-3' />
+              <i class='decorate decorate-right decorate-pos-1' />
+              <i class='decorate decorate-right decorate-pos-2' />
+              <i class='decorate decorate-right decorate-pos-3' />
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <!-- 自营商品，不显示券信息 -->
+        </block>
+        <view class='row-comment'>
+          <text class='price'>￥{{itemObj.price || 0}}<text hidden="{{itemObj.price == itemObj.borderPrice }}" class='line-through color-gray size-gray m-l-10'>￥{{m1.getYpBorderPrice(itemObj.borderPrice,itemObj.saleType,itemObj.price,itemObj.shareProfit)}}</text></text>{{m1.selfRunFlag}}
+        </view>
+        <view class='row-btn'>
+          <view class='row-coupon-v'>
+            <block wx:if="{{m1.isSelfRun(itemObj.ptype) == false && itemObj.commentNo > 0 && itemObj.commentPercent > 0 }}">
+              <text class='lbl-comment'>{{m1.getCommentNo(itemObj.commentNo)}}评论</text>
+              <text class='lbl-comment'>好评率{{itemObj.commentPercent}}%</text>
+            </block>
+            <block wx:else>
+              <!-- 自营商品，不显示评论信息 -->
+            </block>
+          </view>
+          <view class='row-price-vip'>
+            <view class="btn {{needShowCheck == '01' ? 'btn-now-gray m-r-14-s':'btn-now m-r-14'}}" bindtap='goDetail' data-item="{{itemObj}}" data-pro-id='{{itemObj.promotionId}}' data-item-id='{{itemObj.itemId}}' data-seller-id='{{itemObj.sellerId}}' data-source-channel='{{itemObj.ptype}}'>
+              <view class="{{needShowCheck == '01' ? 'btn-now-child-gray':'btn-now-child'}}">
+                <view class='btn-text'>自购省</view>
+                <view class='btn-text'>¥{{itemObj.buyPrice || 0}}</view>
+              </view>
+            </view>
+            <view class='btn btn-share' bindtap='onShare' data-item='{{itemObj}}'>
+              <view class="{{needShowCheck == '01' ? 'btn-share-child-gray':'btn-share-child'}}">
+                <my-cps-share itemInfo="{{itemObj}}">
+                  <view class='btn-text'>分享赚</view>
+                  <view class='btn-text'>¥{{itemObj.shareProfit || 0}}</view>
+                </my-cps-share>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view hidden='{{isLastOne}}' class='seprate-view-line'></view>
+</view>

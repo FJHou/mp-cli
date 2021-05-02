@@ -1,4 +1,5 @@
 const path = require("path");
+const MPWebpackPlugin = require('./plugins/MPWebpackPlugin')
 
 module.exports = {
     mode: "development",

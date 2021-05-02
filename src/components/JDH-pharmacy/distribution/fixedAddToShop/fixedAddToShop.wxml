@@ -1,0 +1,8 @@
+<!-- 
+   该组件用于: 商品商详，加入小店按钮
+ -->
+<view class='add-to-shop {{isNeedJoinShop == 2?"disabled":""}}' bindtap='{{isNeedJoinShop == 2?"":"addToShop"}}'>
+  <text>加入</text>
+  <text>小店</text>
+</view>
+

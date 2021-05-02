@@ -1,0 +1,155 @@
+<wxs module="filters">
+module.exports = {
+  // 处理 京东商品标识 
+    getTypeLabel: function(itemObj) {  
+			//如果商品信息里面有 拼购信息，就是展示京东拼团，如果没有拼购信息 判断 是 自营还是 pop商品
+      if (itemObj.pinGouInfo!= null && itemObj.pinGouInfo.pingouPrice != null) { 
+        return '京东拼购'
+      }
+      if (itemObj.owner == 'g') { 
+        return '京东自营'
+      } 
+      return '京东';
+    }, 
+    // 处理评论数显示
+    getCommentNo: function(val) {
+      if (val > 99999999) {
+        val = '9999万+';
+      } else {
+        val = val > 9999 ? parseInt(val / 10000) + '万+' : val;
+      }
+      return val;
+    }
+  } 
+</wxs>  
+<!--内容部分-->
+<view class='container' style='{{phoneType=="01"?"padding-bottom：180rpx":""}};'>
+  <!-- 商品图片 轮播图-->
+  <view class='product-img-container'>
+    <swiper class="swiper-imgs" indicator-active-color='#f10216' duration='200' indicator-color='#fff' indicator-dots='{{(productBaseInfo.imageInfo.imageList.length>1)?true:false}}' autoplay='{{true}}' circular='{{true}}' interval='2000'>
+      <block wx:for="{{imgArr}}" wx:key="itemAnnexVos">
+        <swiper-item>
+          <image mode='aspectFit' style='display:{{imgLoaded?"block": "none"}}' class="product-img" bindtap="mainImgClick" data-index="{{index}}" bindload='{{index==0?"imgOnLoad":""}}' src="{{item ? item: defaultPic}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <image mode='aspectFit' src='{{productDefaultImg}}' class='product-img center' style='display:{{imgLoaded?"none": "block"}}' />
+  </view>
+  <!-- // 商品图片 轮播图-->
+
+  <!-- 商品基本信息 -->
+  <view class='block-bg'>
+    <view class="product-name" bindtap='copyProductName'>
+      <text  class='jd-tap'>{{filters.getTypeLabel(productBaseInfo)}}</text>
+		 {{productBaseInfo.skuName}}
+    </view>
+
+    <!--评论-->
+    <view class='flex-h'>
+      <view>
+        <block wx:if='{{productBaseInfo.comments&& productBaseInfo.goodCommentsShare}}'>
+          {{filters.getCommentNo(productBaseInfo.comments)}}条评论
+        </block>
+      </view>
+      <view>
+        <block wx:if='{{productBaseInfo.comments && productBaseInfo.goodCommentsShare}}'>
+          好评率{{productBaseInfo.goodCommentsShare}}%
+        </block>
+      </view>
+
+      <view bindtap="gotoJDdetails" data-key='details_check_details'>
+        查看详情
+        <text wx:if='{{onSale}}' class='select-reg-opt iconfont icon-youcejiantou icon-arrow-right'></text>
+      </view>
+
+    </view>
+
+    <!-- 券: 券后价!=京东价 -->
+    <view class='font0 pb20 flex'>
+      <view class="flex-item" wx:if='{{productBaseInfo.tenantPriceInfo.couponDiscount}}'>
+        <view class='orange-tag'>
+          <view class='left-circle'></view>
+          <view class='right-circle'></view>
+          <view class='orange-tag-content'>
+            <text>券 </text>¥{{productBaseInfo.tenantPriceInfo.couponDiscount}}
+          </view>
+        </view>
+      </view> 
+    </view> 
+     
+		 <!-- 售价、划线价、推广者分享赚金额 -->
+    <view class='price-block clearfix'>
+      <view class='left'>
+        <text class="price-yangjiao">¥</text>
+        <text class="price">{{productBaseInfo.tenantPriceInfo.jdPrice}}</text>
+        <text wx:if='{{productBaseInfo.tenantPriceInfo.referPrice && (productBaseInfo.tenantPriceInfo.referPrice != productBaseInfo.tenantPriceInfo.jdPrice)}}' class="line-price">¥{{productBaseInfo.tenantPriceInfo.referPrice}}</text>
+      </view>
+      <view class='right font0'>
+        <view class='zhuan-block' wx:if='{{referenceUserInfo}}'>
+          <view class='zhuan-block-content'>
+            分享赚
+            <text> ¥ </text>{{productBaseInfo.tenantPriceInfo.rebatePrice}}
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <!-- // 商品图下面: 商品基本信息 -->
+
+  <!--拷贝skuId-->
+  <copy-sku-id skuId='{{productBaseInfo.skuId}}' wx:if='{{productBaseInfo.skuId}}' />
+
+  <view class="tips-h">
+    <view>
+      <text class='icon iconfont icon-yiwancheng'></text>{{filters.getTypeLabel(productBaseInfo)}}商品
+    </view>
+    <view>
+      <text class='icon iconfont icon-yiwancheng'></text>品质保证
+    </view>
+    <view>
+      <text class='icon iconfont icon-yiwancheng'></text>无忧售后
+    </view>
+  </view> 
+</view>
+<!-- // 内容部分-->
+
+<!-- 底部栏 操作按钮 -->
+<view class='iphone-x-view' style="height:{{isIphoneX ? '140rpx' : '98rpx'}};">
+  <view class="bottom-tabbar">  
+    <view  class="bottom-btn btn-default sm-width" bindtap="gotoHome">
+      <view>
+        <text class="icon iconfont icon-shouyeicon v-icon"></text>
+      </view>
+      <view class='mt5'>首页</view>
+    </view> 
+    <button class="bottom-btn btn-orange font-lg nm-width" bindtap="listenShare" hover-class="none">
+      <view class='flex-v'>
+        <text class="icon iconfont {{referenceUserInfo ? 'icon-fenxiangzhuan' : 'icon-fenxianghaoyou1'}}"></text>
+        <text>{{referenceUserInfo ? '分享赚': '分享好友'}}</text>
+      </view>
+    </button>
+    <!-- <button wx:else class="bottom-btn btn-orange font-lg nm-width" open-type="share" hover-class="none">
+      <view class='flex-v'>
+        <text class='icon iconfont icon-fenxianghaoyou1'></text>
+        <text></text>
+      </view>
+    </button>  -->
+    
+    <view class="bottom-btn btn-red font-lg nm-width {{onSale?'':'disabled'}}" bindtap="gotoJDdetails" data-key='details_tobuy'>
+      <view class='flex-v'>
+        <text class='icon iconfont icon-lingjuangoumaiai'></text>
+        <text>{{referenceUserInfo?"自购省":"去购买"}}</text>
+      </view>
+    </view>
+  </view>
+
+</view> 
+<!-- 分享赚 -->
+<my-cps-share isVip='{{referenceUserInfo}}' productInfo='{{productInfo}}' sellerId='{{sellerId || ""}}' onSale='{{onSale}}' codeCall="{{codeCallCpsShare}}" isOnlyCps='{{isOnlyCps}}' />
+<!--底部栏，解决iphone-x 样式bug-->
+<view class='gray-tips' wx:if='{{!onSale}}' style="bottom:{{phoneType=='01' ? '140rpx' : '98rpx'}};">
+  此商品已经下架/删除啦～
+</view>
+<!--// 底部栏，解决iphone-x 样式bug-->
+   

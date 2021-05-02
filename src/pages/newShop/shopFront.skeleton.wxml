@@ -1,0 +1,182 @@
+<!--
+此文件为开发者工具生成，生成时间: 2021/3/17 下午3:58:37
+使用方法：
+在 /Users/houfujian/Desktop/workspace/weapp-root/jdh-pharmacy/dist/pages/newShop/shopFront.wxml 引入模板
+
+```
+<import src="shopFront.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 /Users/houfujian/Desktop/workspace/weapp-root/jdh-pharmacy/dist/pages/newShop/shopFront.wxss 中引入样式
+```
+@import "./shopFront.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view is="components/topNav/topNav">
+      <view style="padding-top:62px;">
+        <view class="topNav--hh-header" style="background-color: transparent">
+          <view class="topNav--status-bar" style="height:20px"></view>
+          <view class="topNav--title-bar" style="height:42px">
+            <view class="topNav--hh-nav-placeholder"></view>
+            <view class="topNav--hh-title sk-transparent sk-text-14-2857-394 sk-text" style="background-position-x: 50%;"></view>
+            <view class="topNav--hh-nav-placeholder"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <image class="top-bg sk-image"></image>
+    <view class="shop-view">
+      <view class="top-search">
+        <view class="location-wrapper">
+          <view is="components/JDH-pharmacy/location/location">
+            <view class="location--address location--analysis-SwitchAddress">
+              <image class="location--left sk-image"></image>
+              <view class="location--text sk-transparent sk-text-0-0000-492 sk-text"></view>
+              <image class="location--right sk-image"></image>
+            </view>
+          </view>
+        </view>
+        <view class="input-box">
+          <image class="search-icon sk-image"></image>
+          <text class="search-text sk-transparent sk-text-14-2857-72 sk-text"></text>
+        </view>
+      </view>
+      <scroll-view scroll-y="true" class="scroll-view">
+        <view is="components/JDH-pharmacy/shop/detail/index">
+          <view class="detail-index--store-info-card">
+            <view class="detail-index--onePanel detail-index--information">
+              <view class="detail-index--address detail-index--analysis-shopAddress sk-image">
+                <text class="detail-index--distance sk-transparent sk-text--50-0000-47 sk-text"></text>
+              </view>
+              <view class="detail-index--address detail-index--analysis-shopAddress sk-image" style="margin-top: 27rpx">
+                <text class="detail-index--distance sk-transparent sk-text--50-0000-47 sk-text"></text>
+              </view>
+              <view class="detail-index--address detail-index--analysis-shopAddress sk-image" style="margin-top: 27rpx">
+                <text class="detail-index--distance sk-transparent sk-text--50-0000-47 sk-text"></text>
+              </view>
+            </view>
+            <image class="detail-index--shop-avatar sk-image" mode="aspectFit"></image>
+          </view>
+        </view>
+        <view class="center">
+          <view is="components/JDH-pharmacy/memberCard/memberCard">
+            <view class="memberCard--member-card memberCard--level-1 sk-image">
+              <view class="memberCard--card-info">
+                <view class="memberCard--name-group">
+                  <view class="memberCard--logined-score">
+                    <text class="memberCard--icon-crown sk-image"></text>
+                    <text class="memberCard--icon-level sk-image"></text>
+                  </view>
+                  <view class="memberCard--name sk-transparent sk-text-12-5000-117 sk-text"></view>
+                  <view class="memberCard--score sk-transparent sk-text-0-0000-994 sk-text"></view>
+                </view>
+              </view>
+              <view>
+                <text class="memberCard--score-desc"></text>
+              </view>
+            </view>
+          </view>
+          <view is="components/JDH-pharmacy/shop/entries/index">
+            <view class="entries-index--entries">
+              <view is="components/JDH-pharmacy/slider/index">
+                <view class="slider-index--h-slider-view entries-index--slider">
+                  <scroll-view scroll-with-animation="true" class="slider-index--slider" scroll-left="1" scroll-x="true" style="width: 100%" id="slider">
+                    <view class="entries-index--grid-section">
+                      <view class="entries-index--grid entries-index--wrap">
+                        <view class="entries-index--grid-item" data-item="[object Object]">
+                          <image class="entries-index--icon sk-image" mode="aspectFit"></image>
+                          <view class="entries-index--text sk-transparent sk-text-14-2857-910 sk-text" style="background-position-x: 50%;">京东药急送</view>
+                        </view>
+                        <view class="entries-index--grid-item" data-item="[object Object]">
+                          <image class="entries-index--icon sk-image" mode="aspectFit"></image>
+                          <view class="entries-index--text sk-transparent sk-text-14-2857-406 sk-text" style="background-position-x: 50%;">核酸检测</view>
+                        </view>
+                        <view class="entries-index--grid-item" data-item="[object Object]">
+                          <image class="entries-index--icon sk-image" mode="aspectFit"></image>
+                          <view class="entries-index--text sk-transparent sk-text-14-2857-284 sk-text" style="background-position-x: 50%;">疫苗服务</view>
+                        </view>
+                        <view class="entries-index--grid-item" data-item="[object Object]">
+                          <image class="entries-index--icon sk-image" mode="aspectFit"></image>
+                          <view class="entries-index--text sk-transparent sk-text-14-2857-450 sk-text" style="background-position-x: 50%;">我的到店券</view>
+                        </view>
+                        <view class="entries-index--grid-item" data-item="[object Object]">
+                          <image class="entries-index--icon sk-image" mode="aspectFit"></image>
+                          <view class="entries-index--text sk-transparent sk-text-14-2857-673 sk-text" style="background-position-x: 50%;">药品说明书</view>
+                        </view>
+                        <view class="entries-index--grid-item" data-item="[object Object]">
+                          <image class="entries-index--icon sk-image" mode="aspectFit"></image>
+                          <view class="entries-index--text sk-transparent sk-text-14-2857-381 sk-text" style="background-position-x: 50%;">测试1</view>
+                        </view>
+                        <view class="entries-index--grid-item" data-item="[object Object]">
+                          <image class="entries-index--icon sk-image" mode="aspectFit"></image>
+                          <view class="entries-index--text sk-transparent sk-text-14-2857-744 sk-text" style="background-position-x: 50%;">测试2</view>
+                        </view>
+                        <view class="entries-index--grid-item" data-item="[object Object]">
+                          <image class="entries-index--icon sk-image" mode="aspectFit"></image>
+                          <view class="entries-index--text sk-transparent sk-text-14-2857-187 sk-text" style="background-position-x: 50%;">测试3</view>
+                        </view>
+                      </view>
+                    </view>
+                    <view class="entries-index--grid-section">
+                      <view class="entries-index--grid entries-index--wrap">
+                        <view class="entries-index--grid-item" data-item="[object Object]"></view>
+                      </view>
+                    </view>
+                  </scroll-view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view is="components/JDH-pharmacy/shop/banner/index"></view>
+          <view is="components/JDH-pharmacy/shop/coupons/index">
+            <view class="coupons-index--coupons">
+              <view is="components/JDH-pharmacy/title/index">
+                <view class="title-index--h-title">
+                  <view>
+                    <text class="title-index--title sk-transparent sk-text-14-2857-708 sk-text"></text>
+                    <text class="title-index--desc "></text>
+                  </view>
+                  <view>
+                    <text class="title-index--link-text sk-transparent sk-text-14-2857-17 sk-text"></text>
+                    <image class="title-index--arrow-icon sk-image"></image>
+                  </view>
+                </view>
+              </view>
+              <view is="components/JDH-pharmacy/card/index">
+                <view class="card-index--h-card coupons-index--card">
+                  <view class="coupons-index--couponList">
+                    <view class="coupons-index--shop-coupon-wrapper">
+                      <view is="components/JDH-pharmacy/shopCoupon/shopCoupon">
+                        <view class="shopCoupon--coupon-view-li shopCoupon--fromType-3 shopCoupon--couponStatus-2 sk-image">
+                          <view class="shopCoupon--coupon-price">
+                            <view>
+                              <image class="shopCoupon--coupon-moneyImg sk-image"></image>
+                              <text class="shopCoupon--price-med sk-transparent sk-text-14-2857-392 sk-text" style="background-position-x: 50%;">4</text>
+                              <text class="shopCoupon--coupon-price-small sk-transparent sk-opacity">.9</text>
+                            </view>
+                            <view class="shopCoupon--coupon-price-use sk-transparent sk-text-0-0000-165 sk-text" style="background-position-x: 50%;">满5元可用</view>
+                          </view>
+                          <view class="shopCoupon--coupon-msg">
+                            <view class="shopCoupon--coupon-msg-name sk-transparent sk-text-0-0000-552 sk-text"></view>
+                            <view class="shopCoupon--coupon-msg-oth sk-transparent sk-text-0-0000-794 sk-text" style="border: none; background-position-x: 50%;">到店使用</view>
+                          </view>
+                          <view class="shopCoupon--coupon-btn shopCoupon--toUse shopCoupon--analysis-useCoupon sk-transparent sk-image" data-couponlists="[object Object]" data-fromtype="3" data-yjsstoreid="24341982">去使用</view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view canvas-id="fbfd3ec3c4ab4213b9a09b5c5e769ceb" class="f8be360ead1f4a3d9afb5e312b845ebb sk-image" style="border: none;"></view>
+  </view>
+</template>

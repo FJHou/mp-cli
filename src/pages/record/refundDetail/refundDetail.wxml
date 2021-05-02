@@ -1,0 +1,51 @@
+<!--pages/refundDetail/refundDetail.wxml-->
+<view class='page-content'>
+  <view>
+    <view class='tips'>
+      <image src='https://thunder.jd.com/jpass/img/order_news.png'></image>
+      <view class='tips-brand'><text>本次售后服务由{{list[0].brandName}}</text>为您提供服务</view>
+    </view>
+    <view class='refund' wx:for="{{list}}" wx:key="index">
+      <view class='record-head'>
+        <view class='record-order'>
+          <view class='order-num'><text>退款单号：{{item.refundId}}</text></view>
+          <view>申请时间：{{item.created}}</view>
+        </view>
+        
+      </view>
+      <view class='refund-detail'>
+        <view class='refund-tit'>退款详情：</view>
+        <view class='refund-process'>
+          <view class='rp-start'><image mode='widthFix' src='https://thunder.jd.com/jpass/img/order_ok.png'></image></view>
+          <view class='rp-line' wx:if="{{item.refundState != 1 && item.refundState != 3}}"></view>
+          <view class='rp-dottline' wx:if="{{item.refundState == 1 || item.refundState == 3}}">
+            <view wx:for="{{43}}" wx:key="index"></view>
+          </view>
+          <view class='rp-end' wx:if="{{item.refundState == 1 || item.refundState == 3}}"><image mode='widthFix' src="https://thunder.jd.com/jpass/img/order_ing.png"></image></view>
+          <view class='rp-end' wx:if="{{item.refundState == 0}}"><image mode='widthFix' src='https://thunder.jd.com/jpass/img/order_ok.png'></image></view>
+          <view class='rp-end' wx:if="{{item.refundState == 2}}"><image mode='widthFix' src='https://thunder.jd.com/jpass/img/order_fail.png'></image></view>
+        </view>
+        <view class='refund-proword'>
+          <view>发起退款</view>
+          <view wx:if="{{item.refundState == 0}}">退款完成</view>
+          <view wx:if="{{item.refundState == 1 || item.refundState == 3}}" class='refund-ing'>退款完成</view>
+          <view wx:if="{{item.refundState == 2}}" class='refund-fail'>退款失败</view>
+        </view>
+        <view class='refund-price'><text>退款金额：</text><text class='rp-prinum'>¥{{item.refundAmount}}</text></view>
+      </view>
+    </view>
+    
+  </view>
+
+  <view class='refund-tips'>
+    退款说明：退款到账时间为1-15个工作日，银行退款处理周期会因为支付方式和退款方式有所不同，请耐心等待，如有问题请联系门店人员解决。
+  </view>
+
+  <view class='bt-blank'></view>
+  <!-- <view class='bt'>
+    <view class='bt-na'>京东会员码</view>
+    <view><image class='logo' mode='widthFix' src='https://thunder.jd.com/jpass/img/logo_buttom.png'></image></view>
+  </view> -->
+
+  <return-top show-flag="{{false}}" isReturnTop="{{false}}" isReturnHome="{{true}}"></return-top>
+</view>

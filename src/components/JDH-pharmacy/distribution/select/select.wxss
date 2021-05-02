@@ -1,0 +1,39 @@
+
+/* @import '../../resource/iconfont/iconfont'; */
+.select {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  font-size: 28rpx;
+  color: #666666;
+  min-width: 200rpx;
+  z-index: 1;
+}
+.select .icon-xiaosanjiao-xiangxia{
+  font-size: 16rpx;
+  color: #bbb;
+  margin-left: 14rpx;
+  vertical-align: middle;
+}
+.select-content-wrap{
+  position: relative;
+}
+.select-content{
+  position: absolute;
+  top: 15rpx;
+  text-align: left;
+  width: 200rpx;
+  background: #fff;
+  box-shadow: 0rpx 3rpx 10px 3rpx rgba(58, 58, 58, 0.1);
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  color: #999999;
+  text-indent: 44rpx;
+}
+.select-item{
+  height: 44rpx;
+  line-height: 44rpx;
+}
+.select-item.active{
+  color:  #F10216;
+}

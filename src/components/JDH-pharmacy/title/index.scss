@@ -1,0 +1,29 @@
+.h-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 10rpx 0;
+}
+
+.title {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #0F1319;
+ }
+
+ .desc {
+     margin-left: 12rpx;
+     font-size: 26rpx;
+     color:#7D7D7D;
+ }
+
+ .link-text {
+     font-size: 24rpx;
+     color: #8C8C8C;
+ }
+
+ .arrow-icon {
+     display: inline-block;
+     width: 10rpx;
+     height: 18rpx;
+     margin-left: 12rpx;
+ }

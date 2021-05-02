@@ -1,0 +1,4 @@
+<view class="h-price price-class {{prefixCls}}">
+    <view class="symbol-class symbol">¥</view>
+    <view class="number-class number">{{price}}</view>
+</view>

@@ -1,0 +1,352 @@
+
+/* @import '../../resource/iconfont/iconfont'; */
+.modal,.toast{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: PingFangSC-Regular;
+}
+.close-icon{
+  position: absolute;
+  right: -50rpx;
+  top: -50rpx;
+  height: 46rpx;
+  width: 46rpx;
+  background: url('https://img14.360buyimg.com/imagetools/jfs/t1/153349/14/12291/2014/5fea8fe6E6edd64b4/51cbf4c1bf78e3e0.png') center/100% no-repeat;
+}
+.toast{
+  z-index: 10000;
+}
+.poster-panel {
+  border-radius: 12rpx;
+}
+.modal-content, .toast-content{
+  width: 550rpx;
+  position: relative;
+}
+.toast-content{
+  background: #fff;
+  border-radius: 20rpx;
+}
+.toast-text{
+  height: 163rpx;
+  line-height: 163rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666666;
+}
+.toast-btn{
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #333333;
+  font-weight: bold;
+  border-top: 1rpx solid #E5E6E8;
+}
+
+.pt40{
+  padding-top: 40rpx;
+}
+.text-area{
+  width: auto;
+  height: 500rpx;
+  background: #fff;
+  padding: 15rpx;
+  border-radius: 6rpx;
+  color: #333;
+  border: 1rpx solid #ddd;
+  font-size: 26rpx;
+  line-height: 34rpx;
+}
+.text-right {
+  text-align: right;
+}
+.copy-edit-btn{
+  display: inline-block;
+  border: 1rpx solid #FF863B;
+  text-align: center;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-top: 30rpx;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+  background: #fff;
+  color: #FF863B;
+  width: 160rpx;
+}
+/*图片 start */
+.img-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 550rpx;
+  border-top-left-radius: 12rpx;
+  border-top-right-radius: 12rpx;
+  background: url('https://b2b-v2-pre.oss.cn-north-1.jcloudcs.com/6a52d262-4269-4862-b424-a56f6beee5f7.png') center/266rpx no-repeat  #F8F8F8;
+}
+.img-wrap .poster-img{
+  display: block;
+  width: 466rpx;
+  height: 466rpx;
+  box-sizing: border-box;
+  border:none;
+}
+/*图片 end */
+
+
+/*详细信息*/
+.details-wrap{
+  background: #fff;
+  padding-bottom: 30rpx;
+  padding-top: 20rpx;
+  margin-top: -1rpx;
+  border-bottom-left-radius: 12rpx;
+  border-bottom-right-radius: 12rpx;
+}
+/*商品名称 start*/
+.title{
+  text-align: left;
+  font-size: 26rpx;
+  color: #333333;
+  font-weight: bold;
+  height: 84rpx;
+  line-height: 42rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin: 0rpx 20rpx;
+  margin-bottom: 15rpx;
+}
+.tag{
+  display: inline-block;
+  background: #F10216;
+  border-radius: 18rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  padding: 0rpx 14rpx;
+  font-size: 22rpx;
+  color: #FFFFFF;
+  font-weight: normal;
+  vertical-align: top;
+  margin-top: 3rpx;
+}
+/*商品名称 end*/
+
+.details-flex{
+  display: flex;
+  margin: 0rpx 20rpx 0rpx 20rpx;
+  align-items: center;
+}
+.flex-left{
+  flex-grow: 1;
+}
+.flex-right{
+  width: 98rpx;
+}
+
+/*评论*/
+.comment{
+  font-size: 20rpx;
+  color: #999999;
+  text-align: left;
+  margin-top: 20rpx;
+}
+.ml35{
+  margin-left: 35rpx;
+}
+
+/*价格 start*/
+.price{
+  height: 32rpx;
+  line-height: 32rpx;
+  font-size: 0;
+  text-align: left;
+}
+.red-price-label{
+  font-size: 26rpx;
+  color: #F10216;
+  font-weight: bold;
+}
+.red-price-lo{
+  font-size: 22rpx;
+  color: #F10216;
+  font-weight: bold;
+  margin-left: 10rpx;
+  margin-right: 5rpx;
+}
+.red-price-val{
+  font-size: 30rpx;
+  color: #F10216;
+  font-weight: bold;
+}
+.gray-price-label{
+  font-size: 20rpx;
+  color: #999999;
+  margin-left: 11rpx;
+}
+.gray-price-val{
+  font-size: 20rpx;
+  color: #999999;
+  margin-left: 20rpx;
+  text-decoration: line-through;
+}
+/*价格 end*/
+
+/*邀请人 start*/
+.user{
+  margin-top: 20rpx;
+  display: flex;
+}
+.user-icon{
+  width: 60rpx;
+  height: 60rpx;
+  border: 2rpx solid #FFFFFF;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.user-icon image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.user-text{
+  margin-left: 10rpx;
+}
+.user-name{
+  font-size: 24rpx;
+  color: #333333;
+  text-align: left;
+}
+.user-tips{
+  margin-top: 5rpx;
+  font-size: 20rpx;
+  color: #999999;
+  text-align: left;
+}
+/*邀请人 end*/
+
+/*二维码 start*/
+.wxcode{
+  width: 98rpx;
+  height: 98rpx;
+  background: #fff;
+  border-radius: 5rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wxcode image{
+  display: block;
+  border: none;
+  width: 80rpx;
+  height: 80rpx;
+}
+.h5-canvas{
+  position: absolute;
+  width: 98rpx;
+  height: 98rpx;
+  top: -2000rpx;
+  left: -2000rpx;
+}
+.tips{
+  font-size: 20rpx;
+  color: #999999;
+  text-align: center;
+  margin-top: 10rpx;
+}
+/*二维码 end*/
+
+/*按钮 start*/
+.btn-wrap{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+  .btn{
+    flex: 0 0 48%;
+    margin: 0;
+    border-radius: 88rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+    &.mp {
+      background: linear-gradient(135deg, rgba(242,20,12,1) 0%,rgba(242,39,12,1) 70%,rgba(242,77,12,1) 100%);
+    }
+    &.poster {
+      background: linear-gradient(136deg, rgba(255,152,36,1) 0%,rgba(255,203,85,1) 100%);
+    }
+  }
+}
+
+.t-tips{
+  display: inline-block;
+  font-size: 20rpx;
+  /* color: #fffc80; */
+  height: 20rpx;
+  line-height: 20rpx;
+  font-weight: normal;
+  color: #fff;
+  position: relative;
+  margin-left: 8rpx;
+}
+.t-tips::before{
+  display: block;
+  position: absolute;
+  content: "";
+  left: -4rpx;
+  bottom: -4rpx;
+  width: 10rpx;
+  height: 10rpx;
+  border-left: 3rpx solid #fff;
+  border-bottom: 3rpx solid #fff;
+}
+.t-tips::after{
+  display: block;
+  position: absolute;
+  content: "";
+  right: -4rpx;
+  top: -5rpx;
+  width: 10rpx;
+  height: 10rpx;
+  border-top: 3rpx solid #fff;
+  border-right: 3rpx solid #fff;
+}
+
+.orange-btn{
+  background: #FF863B;
+  width: 265rpx;
+}
+
+.red-btn1{
+  background: #F10216;
+  width: 265rpx;
+  margin:0;
+}
+.orange-btn.disabled{
+  background: rgba(255,134,59, .9);
+  color: #eee;
+}
+/*按钮 end*/
+
+/*分享图片canvas*/
+.share-canvas{
+  position: absolute;
+  width: 720px;
+  height: 1090px;
+  top: 0rpx;
+  left: -2000px;
+  top: -2000px;
+  background: #F7F7F7;
+}
+

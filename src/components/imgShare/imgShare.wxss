@@ -1,0 +1,124 @@
+/* pages/components/imgShare/imgShare.wxss */
+
+.av-share {
+	position: fixed;
+	box-sizing: border-box;
+	left: 0;
+	right: 0;
+	bottom: 130rpx;
+	z-index: 1001;
+}
+.av-share-modal {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+}
+.av-share-blank {
+	height: 110rpx;
+	background: rgb(246, 246, 246);
+}
+.jpass-share {
+	display: flex;
+	height: 80rpx;
+	padding: 0 30rpx;
+	justify-content: space-between;
+}
+.jpass-share button {
+	display: flex;
+	align-items: center;
+	width: 320rpx;
+	height: 80rpx;
+	border-radius: 40rpx;
+	box-shadow: 0 6rpx 9rpx 0 rgba(140, 140, 140, 0.15);
+	background: white;
+	font-size: 28rpx;
+	font-family: PingFangSC-Regular;
+	color: rgb(46, 45, 45);
+	padding: 0 0 0 8rpx;
+	line-height: 1;
+	margin: 0;
+}
+.jpass-share button::after {
+	content: "";
+	border: none;
+}
+.jpass-share button image {
+	display: block;
+	width: 64rpx;
+	height: 64rpx;
+	margin-right: 6rpx;
+	border-radius: 50%;
+}
+.playbill-modal {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 1002;
+	margin: 100rpx 0 0;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.playbill {
+	width: 450rpx;
+	height: 800rpx;
+	display: block;
+	margin: 0 auto 60rpx;
+}
+.playbill-save {
+	width: 240rpx;
+	height: 80rpx;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background: white;
+	color: rgb(240, 37, 15);
+	font-family: PingFangSC-Regular;
+	font-size: 30rpx;
+	border-radius: 50rpx;
+}
+.canvas {
+	width: 750px;
+	height: 1334px;
+	position: fixed;
+	left: -1000px;
+	top: 0px;
+}
+.playbill-close {
+	width: 48rpx;
+	height: 48rpx;
+	position: absolute;
+	right: 48rpx;
+	top: 60rpx;
+	border: 4rpx solid white;
+	border-radius: 50%;
+}
+.playbill-close::before {
+	content: '';
+	width: 32rpx;
+	height: 4rpx;
+	background: white;
+	transform: rotate(45deg);
+	position: absolute;
+	top: 19rpx;
+	left: 6rpx;
+}
+.playbill-close::after {
+	content: '';
+	width: 32rpx;
+	height: 4rpx;
+	background: white;
+	transform: rotate(-45deg);
+	position: absolute;
+	top: 19rpx;
+	left: 6rpx;
+}

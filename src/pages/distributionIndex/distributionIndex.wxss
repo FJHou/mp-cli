@@ -1,0 +1,585 @@
+/* pages/shopList/shopList.wxss */
+/* @import '/pages/tabbar/tabbar.wxss'; */
+page{
+  background: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+}
+.list-view {
+  /* 48 是搜索高度 58是tab高度 --safe-bottom是iphoneX的下巴的高度*/
+  height: calc(100% - 106px);
+}
+.search-Img{
+  box-sizing: content-box;
+	width: 27rpx;
+	height:28rpx;
+	padding: 0 12rpx 0 30rpx;
+}
+.s-isPromotion{
+	font-size: 28rpx;
+	color: #262626;
+	margin-left: 30rpx;
+}
+.hot-list.current{
+	font-weight: 600;
+}
+.hot-list{
+	display: flex; 
+	color: rgba(38,38,38,1); 
+}
+.hot-list-item{ 
+  flex-shrink: 0;
+  line-height: 50px;  
+  text-align: center; 
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+/* 横向滚动导航 */
+.hot-word{ 
+	position: relative;
+	padding: 10rpx 30rpx 30rpx 28rpx; 
+	/* height: 76rpx; */
+	background-color: #fff; 
+}
+.hot-word .bottom_scroll{
+	width: 94%;  
+  white-space:nowrap;
+  overflow:hidden;
+  line-height:76rpx;
+}
+.hot-word .bottom_scroll .nav{  
+	box-sizing: border-box; /*勿删*/
+	height: 76rpx;
+	padding-right:40rpx;
+	display:inline-block; 
+	text-align: left;
+}
+.nav:last-child{
+	margin-right:24rpx; 
+}
+.nav-item{ 
+	position: relative;
+	width:100%;
+	height: 76rpx;
+	display:inline-block;
+	overflow: hidden;
+	text-overflow: clip;
+  white-space:nowrap;
+  text-align:center;
+	font-size: 28rpx; 
+	font-family: PingFangSC-Regular; 
+	color: rgba(38,38,38,1);
+}
+.nav.cur{
+	font-weight: 800; 
+}
+.nav.cur .nav-line{ 
+	position: absolute;
+	bottom: 0rpx;
+	left:0; 
+	color: #fff;
+	width: 100%;
+	height: 10rpx;
+	background: linear-gradient(135deg, rgba(242,20,12,1) 0%,rgba(242,77,12,0) 100%);
+	border-radius: 5rpx;
+}  
+.more-hotWord{
+	position: absolute;
+	top: 6rpx;
+	right: 0;
+	width: 130rpx;
+	height:72rpx; 
+	background-image: url(https://img14.360buyimg.com/imagetools/jfs/t1/162067/26/646/940/5ff135b6E696ed7ea/2b4c83ad3752584f.png);
+}
+.scroll-view {
+	flex: 1;
+	height: 76rpx; 
+}
+.tab-view{
+	flex: 1;
+	max-height: 410rpx;
+}
+.more-hotWordImg{
+	position: absolute;
+	top: 30rpx;
+	right: 30rpx;
+	width: 26rpx;
+	height: 24rpx;
+}
+.more-tabContent{
+	position: absolute;
+	top: 100rpx;
+	left: 0;
+	width: 100%;
+	height: calc(100vh); 
+	background-color: rgba(0,0,0,.7); 
+	z-index: 9999;
+}
+.more-hotWord.show{
+	-webkit-transform:rotate(-90deg);
+    transform:rotate(-90deg);
+    -webkit-transition:-webkit-transform 2s linear;
+		transition:transform 2s linear;
+		transform-origin: center center;
+		-webkit-transform-origin: center center;
+} 
+.more-tab{ 
+	width: 100%;
+	max-height: 510rpx;  
+	overflow-y: scroll;
+	padding-bottom: 16rpx;
+	background-color: #fff;
+	border-bottom-left-radius: 20rpx;
+	border-bottom-right-radius: 20rpx;
+	z-index: 9999;
+}
+.tab-title{
+	padding: 30rpx;
+	line-height: 28rpx; 
+  font-size: 28rpx;
+  color: rgba(38,38,38,1);
+}
+.tab-model{
+	padding-left: 30rpx;
+	height: 100%;
+	display: flex;
+  display: -webkit-flex;
+  /* justify-content: space-between; */
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+ 
+.tab-list{ 
+	width: 148rpx;
+	height: 60rpx;  
+	margin-bottom: 20rpx;
+	margin-right:32rpx;
+  background: rgba(248,248,248,1);
+  border-radius: 30rpx; 
+	color: rgba(38,38,38,1); 
+}
+/* 如果最后一行是3个元素-解决最后一行左对齐问题 */
+/* .tab-list:last-child:nth-child(4n-1) {
+	margin-right: calc(24% + 4% / 3);
+} */
+/* 如果最后一行是2个元素-解决最后一行左对齐问题 */
+/* .tab-list:last-child:nth-child(4n-2) {
+	margin-right: calc(48% + 8% / 3);
+} */
+.tab-item{ 
+	display: inline-block;
+	width: 110rpx;
+	height: 60rpx; 
+	font-size: 22rpx;
+  line-height: 60rpx;  
+	text-align: center;
+	color: rgba(38,38,38,1);
+	margin-left:18rpx; 
+	overflow: hidden;
+}
+
+.tab-list.cur{ 
+	background: linear-gradient(135deg, rgba(242,20,12,1) 0%,rgba(242,39,12,1) 70%,rgba(242,77,12,1) 100%);
+}
+.tab-list.cur .tab-item{
+	color: #fff;
+}
+/* banner样式 */
+.banner {
+  width: 100%;
+  background: #fff;
+  height: 300rpx;
+  padding: 0 0 20rpx;
+}
+.bannerBox {
+  height:300rpx;
+  width:750rpx;
+  margin:0 auto;
+  background: #f7f7f7;
+  text-align: center;
+}
+.bannerBox image {
+  height:300rpx;
+  width:750rpx;
+}
+.banner .bannerPoint {
+  position:absolute;
+  bottom:40rpx;
+  display:flex;
+  /* width:56rpx; */
+  left:0;
+  right:0;
+  margin:0 auto;
+}
+.active_point{
+  background:#ffffff;
+  width:30rpx;
+  border-radius:8rpx;
+}
+.point{
+  width:12rpx;
+  background:rgba(255,255,255,0.5);
+}
+
+
+/* 单行文字溢出...样式 */
+
+.one-text-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+/* 业务样式处理 */
+
+.bg-color {
+  background-color: #f9f9f9;
+}
+
+.tabbar_bottom {
+  height: 120rpx;
+}
+.ying-ye-zhi-zhao {
+  height: 60rpx;
+  margin-left: 20rpx;
+}
+.ying-ye-zhi-zhao image {
+  width: 71rpx;
+  height: 46rpx;
+  margin-top: 10rpx;
+}
+.zhuan-lian {
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.link-icon {
+  width:40rpx;
+  height:40rpx;
+  text-align:center;
+  background: #F10216;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 0;
+  margin-right: 10rpx;
+  float:left;
+  margin-top:-2rpx;
+}
+.zhuan-lian-icon {
+  font-size: 24rpx;
+}
+.link-text {
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #666666;
+}
+.search-view {
+  height: 48px; 
+  background: #fff;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.search-content {
+  flex: 1;
+  background: #fff;
+	border: 1px solid #BBBBBB;
+	background: rgba(239,239,239,1); 
+  display: flex;
+  align-items: center; 
+  border-radius: 35rpx; 
+	height: 60rpx;
+	border: none;
+}
+.search-content .icon-24{
+  color: #999;
+}
+
+.icon-24 {
+  text-align: center;
+  font-size: 32rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  width: 80rpx;
+}
+
+.search-input {
+  flex: 1; 
+  border-radius: 30rpx; 
+	font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: rgba(140,140,140,1);
+} 
+
+.search-lbl {
+  height: 96rpx;
+  line-height: 96rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  /* color: #fff; */
+  color: #666;
+  margin-left: 20rpx;
+  text-align: right;
+}
+
+/* 头部滑动导航 */
+
+.top-news {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  /* position:fixed; */
+  border-bottom: 1rpx solid #EDEEEF;
+  z-index:990;
+}
+
+.scroll-view_H {
+  height: 48px;
+  line-height: 48px;
+  white-space: nowrap;
+  width: 100%;
+  overflow-x: scroll;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  display: flex;
+  -webkit-overflow-scrolling: touch;
+}
+ 
+
+.nav-name {
+  font-family: PingFangSC-Regular;
+  color: #666;
+  font-size: 28rpx;
+  /* display: inline-block; */
+  flex: 1;
+  padding: 0 20rpx;
+  height: 100%;
+  text-align: center;
+}
+.nav-hover {
+  color: #f10216;
+  font-family: PingFangSC-Semibold;
+}
+.item-text {
+  position: relative;
+  height: 100%;
+}
+.nav-line {
+  height:4rpx;
+  position:absolute;
+  display:block;
+  bottom:1rpx;
+  width:60%;
+  left:20%;
+  border-radius: 10px;
+}
+
+.no-data{
+  width: auto;
+  height: 100rpx;
+  text-align: center;
+  color: #bbb ;
+  font-size: 20rpx;
+  line-height: 100rpx;
+}
+
+
+/* 扩大关闭按钮作用域 */
+.btn-enlarge{
+  padding:30rpx;
+}
+
+/* 拼团砍价图标 */
+.icon-main{
+	margin: 20rpx 0;
+	padding-top: 22rpx;
+	border-radius: 20rpx;
+	background-color: #fff;
+	overflow: hidden;
+} 
+.icon-item {
+  /* flex: 1; */
+  text-align: center;
+  float: left;
+	width: 20%;
+	padding-top: 8rpx;
+  padding-bottom: 30rpx;
+}
+.icon-item image {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 100rpx;
+  background: #f7f7f7;
+}
+.icon-item view {
+  overflow: hidden;
+  height: 44rpx;
+  line-height: 44rpx;
+  font-size: 24rpx;
+  color: #2C3443;
+}
+
+/* 推广类目快速入口-4张图片 */
+.ad-access {
+  overflow: hidden;
+  background: #F7F7F7;
+  padding-bottom: 20rpx;
+  text-align: center;
+}
+.ad-imgs {
+  width: 375rpx;
+  height: 202rpx;
+  /* background: red; */
+  float: left;
+}
+.ad-imgs image {
+  width: 375rpx;
+  height: 202rpx;
+}
+
+/* 爆品推荐轮播 */
+.hot-product {
+  background: #F8F8F8;
+  padding-bottom: 20rpx;
+  position: relative;
+}
+.hot-title {
+  font-family: PingFangSC-Semibold;
+  font-size: 30rpx;
+  color: #2C3443;
+  letter-spacing: 0;
+  font-weight: bold;
+  padding: 20rpx;
+  background: #fff;
+}
+.hot-title .hot-icon {
+  color: #F10216;
+  margin-right: 6rpx;
+}
+.hot-banner {
+  width: 100%;
+  background: #fff;
+}
+.hot-item {
+  width: 33.3%;
+  /* flex: 1; */
+  float: left;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  letter-spacing: 0;
+  padding-bottom: 5rpx;
+}
+.hot-item-info {
+  width: 210rpx;
+  margin: 0 auto;
+}
+.hot-item image {
+  width: 210rpx;
+  height: 210rpx;
+}
+.hot-margin-bottom {
+  margin-bottom: 10rpx;
+}
+.hot-item-tit {
+  color: #2C3443;
+}
+.hot-item-tit-red {
+  color: #F10216;
+  margin-right: 10rpx;
+}
+.hot-item-tit-grey {
+  font-size: 22rpx;
+  color: #999999;
+  text-decoration: line-through;
+}
+.hot-share-btn {
+  border: 1px solid #F10216;
+  border-radius: 10rpx;
+  color: #F10216;
+  font-size: 22rpx;
+  text-align: center;
+  padding: 5rpx;
+}
+.point-box {
+  background: #fff;
+  padding: 20rpx 0;
+}
+.hot-product .hotPoint { 
+  display:flex; 
+  margin:0 auto;
+}
+.hot_active_point {
+  background:#F10216;
+  width:26rpx;
+  border-radius:28rpx;
+}
+.hot_point {
+  width:8rpx;
+  background:#ddd;
+}
+/* 返回顶部 */
+/* .backTop {
+  position: fixed;
+  bottom: 200rpx; 
+  right: 50rpx;
+  z-index: 9999;
+} */
+/* 占位图展示隐藏 */
+.pic-hide{
+  display: none;
+}
+.icon-item .icon-pic-size{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 100rpx;
+  background: #f7f7f7;
+  margin: 0 auto;
+}
+.hot-pic-size{
+  width: 210rpx;
+  height: 210rpx;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+/* 弹屏样式 */
+.tan-mask{
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.4);
+  margin: auto;
+  z-index: 990;
+}
+.tan-img{
+  width: 80%;
+  display: inline-block;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute; 
+  min-height: 70%;
+}
+.tan-close{
+  position: absolute;
+  top: 130rpx;
+  color: #fff;
+  right: 20rpx;
+  font-size: 26rpx;
+  border-radius: 40rpx;
+  border: 2rpx solid #fff;
+  padding: 10rpx;
+}

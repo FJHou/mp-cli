@@ -1,0 +1,9 @@
+<view class="capsule" slot="before" style="width: {{width }}px; height: {{ height }}px;left: {{left}}px;  bottom: {{bottom}}px; border-radius: {{height }}px">
+    <navigator class="capsule-navigator" url="/pages/newShop/shopFront" open-type="switchTab">
+        <image class="icon" src="https://img14.360buyimg.com/imagetools/jfs/t1/124335/23/15541/830/5f8d4b1bE6924720f/ab65750287d01c7f.png"></image>
+    </navigator>
+    <view class="capsule-divider"></view>
+    <navigator class="capsule-navigator" url="/pages/personalHealth/personalHealth" open-type="switchTab">
+        <image class="icon" src="https://img11.360buyimg.com/imagetools/jfs/t1/129362/14/15610/718/5f8d4b18E05356003/43ef116229d6b82f.png"></image>
+    </navigator>
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "京东会员码",
+  "usingComponents": {
+    "memberCode": "plugin://memberCode/memberCode"
+  }
+}

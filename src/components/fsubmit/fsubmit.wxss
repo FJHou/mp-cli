@@ -1,0 +1,27 @@
+/* pages/components/vipcode.wxss */
+button::after {
+  border: 0;
+} 
+.fid-form{
+  border: 0 none;
+}
+.fid-btn{
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: 0 none;
+  -webkit-tap-highlight: none;
+  line-height: 48rpx;
+  font-size: 22rpx;
+}
+.fid-btn::after{
+  border: 0;
+}
+.btn{
+  padding: 10rpx 20rpx;
+  min-height: 24rpx;
+  color: white;
+  border-radius: 30rpx;
+  background: -webkit-linear-gradient(left,rgb(241,0,0) 0%,rgb(255,79,24) 100%);
+  box-shadow: 0 6rpx 12rpx 0 rgba(255, 62, 62, 0.2)
+}

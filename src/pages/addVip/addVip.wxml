@@ -1,0 +1,260 @@
+<!--pages/addVip/addVip.wxml-->
+<view>
+  <view class='cardbg' style="background:#ccc url(https://thunder.jd.com/jpass/img/card_bg2.png);background-size:100%;">
+    <view class='card' style="background:{{liberty.cardColor ? liberty.cardColor : '#ccc'}} url({{liberty.cardUrl ? liberty.cardUrl : 'https://thunder.jd.com/jpass/img/card_deco.png'}}); background-size:100% auto;">
+      <view class='card-msg'>
+        <image src='{{logoPath}}'></image>
+        <view>{{brandsName}}</view>
+      </view>
+      <view class='card-tips'>绑定会员卡，享受更多优质服务~</view>
+      
+    </view>
+  </view>
+
+  <view class='wrap'>
+    
+    <view class='card-right'>
+      <view class='content-title'>
+        <view class='content-title-word'>
+          <image src='https://thunder.jd.com/jpass/img/content-title-left.png' class='content-title-left'></image>
+          入会权益
+          <image src='https://thunder.jd.com/jpass/img/content-title-right.png' class='content-title-right'></image>
+        </view>
+       <view style=""></view>
+
+      </view>
+      <view class='card-right-set' wx:if="{{liberty.rightsList.length <= 3}}">
+        <view class='card-right-item' wx:for="{{liberty.rightsList}}" wx:key="index">
+          <image src='{{item.icon}}'></image>
+          <view>{{item.name}}</view>
+        </view>
+      </view>
+
+      <view class='card-right-set card-right-set-tall' wx:if="{{liberty.rightsList.length > 3}}">
+        <view class='card-right-item card-right-item-tall' wx:for="{{liberty.rightsList}}" wx:key="index">
+          <image src='{{item.icon}}'></image>
+          <view>{{item.name}}</view>
+        </view>
+      </view>
+      <!-- 分割线 -->
+      <view class='dividing-line'>
+        <view class='dividing-line-left'></view>
+        <image class='dividing-line-img' src="https://thunder.jd.com/jpass/img/content-block-line.png"></image>
+        <view class='dividing-line-right'></view>
+      </view>
+    </view>
+
+    <view class='card-register'>
+      <view class='reg-tips'>若您已是
+        <text>{{brandsName}}</text>会员，请输入已绑定的手机号
+        <!-- <text style="word-break: break-word">options: {{optionsString}}</text> -->
+        <!-- <text style="word-break: break-word">referrerInfo: {{lauchOptions}}</text> -->
+      </view>
+      <view class='reg-tips-border' wx:if="{{accompanyBindRegisterDTOList.length == 0}}"></view>
+      <!-- 我的信息 -->
+      <view>
+        <view class='reg-my-msg' wx:if="{{accompanyBindRegisterDTOList.length > 0}}">我的信息</view>
+        <view class='av-fmli' wx:for="{{basicBindRegisterInfo}}" wx:key="index" wx:if="{{(item.valueType == 'code' && validate.v_phone.isChange) || item.valueType != 'code'}}">
+          <view class='av-lisub'>
+            <view class='av-lab'>{{item.labelName}}</view>
+            <view class='av-fipt av-fphone' wx:if="{{item.valueId == 'v_phone'}}">
+              <view class='av-line'>
+                <input type='text' maxlength="{{item.len?item.len:-1}}" bindfocus='isFocusToCheckChange' value='{{validate.v_phone.value}}' bindinput="checkSubmitDisabled" data-name="{{item.valueId}}"></input>
+                <block wx:if="{{validate.v_phone.isChange}}">
+                  <view hidden='{{!canGetPhoneCode}}' class='av-code' bindtap='getPhoneCode'>
+                    <text>发送验证码</text>
+                  </view>
+                  <view hidden='{{canGetPhoneCode}}' class='av-code av-code-alget'>
+                    <text>{{second}}s</text>
+                  </view>
+                </block>
+              </view>
+            </view>
+            <view class='av-fipt av-fphone' wx:if="{{item.valueType == 'code'}}">
+              <view class='av-line'>
+                <input type='text' placeholder='请输入验证码' placeholder-class="placeholder-class" bindinput="checkSubmitDisabled" maxlength='6' name="{{item.valueId}}" data-name="{{item.valueId}}"></input>
+              </view>
+            </view>
+            <view class='av-fipt av-fphone' wx:if="{{item.valueType == 'input' && item.valueId != 'v_phone'}}">
+              <view class='av-line'>
+                <input type='text' placeholder-class="placeholder-class" bindfocus='isFocusToCheckChange' bindinput="checkSubmitDisabled" maxlength='{{item.len?item.len:-1}}' name="{{item.valueId}}" data-name="{{item.valueId}}" value='{{validate[item.valueId].value}}'
+                  placeholder='{{item.validateTitle}}'></input>
+              </view>
+            </view>
+            <view class='av-fipt av-fphone' wx:if="{{item.valueType == 'date'}}">
+              <view class='av-line'>
+                <picker class="wx-time" mode="date" name="{{item.valueId}}" data-name="{{item.valueId}}" value="{{date}}" start="1900-01-01" end="{{todayDate}}" bindchange="bindDateChange">
+                  <view class="picker">
+                    <!-- 处理返回值为null的问题 -->
+                    {{validate[item.valueId].value || ''}}
+                    <view wx:if="{{!validate[item.valueId].value}}" class='placeholder'>{{item.validateTitle}}</view>
+                  </view>
+                </picker>
+              </view>
+            </view>
+
+            <view class='av-fipt av-fphone' wx:if="{{item.valueType == 'radio'}}">
+              <view class='av-line'>
+                <view class='av-radio' wx:for="{{validate[item.valueId].valueDefault}}" wx:key="subIndex" wx:for-index="subIndex" wx:for-item="subItem" wx:if="{{subItem.selected}}">
+                  <view bindtap='selectRadio' data-name="{{item.valueId}}" data-radio-data="{{validate[item.valueId].valueDefault}}">{{subItem.name}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='reg-tips-border'></view>
+        </view>
+      </view>
+
+      <!-- 宝宝信息 -->
+      <view>
+        <view class='reg-my-msg-baby' wx:if="{{accompanyBindRegisterDTOList.length > 0}}">
+          <view class='reg-my-msg'>
+            宝宝信息
+            <view class='switch-baby' bindtap='switchBaby' wx:if="{{accompanyBindRegisterDTOList.length > 1}}">
+              <image src='https://thunder.jd.com/jpass/img/addvip-other-baby.png'></image>
+              其他宝宝
+            </view>
+          </view>
+          <view class='av-fmli' wx:for="{{accompanyBindRegisterDTOList[nowBabyIndex].accompanyBindRegisterInfo}}" wx:key="index">
+            <view class='av-lisub'>
+              <view class='av-lab'>{{item.labelName}}</view>
+              <view class='av-fipt av-fphone' wx:if="{{item.valueType == 'input'}}">
+                <view class='av-line'>
+                  <input type='text' placeholder-class="placeholder-class" bindfocus='isFocusToCheckChange' data-validate-name="babyValidate" bindinput="checkSubmitDisabled" maxlength='{{item.len?item.len:-1}}' name="{{item.valueId}}" value='{{babyValidate[nowBabyIndex][item.valueId].value}}'
+                    placeholder='{{item.validateTitle}}' data-name="{{item.valueId}}"></input>
+                </view>
+              </view>
+              <view class='av-fipt av-fphone' wx:if="{{item.valueType == 'date'}}">
+                <view class='av-line'>
+                  <picker class="wx-time" mode="date" name="{{item.valueId}}" data-name="{{item.valueId}}" value="{{date}}" start="1900-01-01" end="{{todayDate}}" bindchange="bindDateChange" data-validate-name="babyValidate">
+                    <view class="picker">
+                      {{babyValidate[nowBabyIndex][item.valueId].value ? babyValidate[nowBabyIndex][item.valueId].value : ''}}
+                      <view wx:if="{{!babyValidate[nowBabyIndex][item.valueId].value}}" class='placeholder'>{{item.validateTitle}}</view>
+                    </view>
+                  </picker>
+                </view>
+              </view>
+
+              <view class='av-fipt av-fphone' wx:if="{{item.valueType == 'radio'}}">
+                <view class='av-line'>
+                  <view class='av-radio' wx:for="{{babyValidate[nowBabyIndex][item.valueId].valueDefault}}" wx:key="{{subIndex}}" wx:for-index="subIndex" wx:for-item="subItem" wx:if="{{subItem.selected}}">
+                    <view bindtap='selectRadio' data-validate-name="babyValidate" data-name="{{item.valueId}}" data-radio-data="{{babyValidate[nowBabyIndex][item.valueId].valueDefault}}">{{subItem.name}}</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class='reg-tips-border'></view>
+          </view>
+        </view>
+
+        <!-- 宝宝计划 -->
+        <view class='baby-protocol' wx:if="{{showAccompanyBindIcon}}">
+          <view class='baby-protocol-agree {{selBabyProtocol ? "" : "baby-protocol-agree-nosel"}}'>
+            <view class='baby-protocol-in'></view>
+          </view>
+          <view class='baby-protocol-name' catchtap='babyProtocol'>加入宝宝陪伴计划</view>
+        </view>
+      </view>
+
+
+
+      <!-- 协议 -->
+      <view>
+
+        <!-- 分享海报 -->
+        <view wx:if="{{hasPlaybillShare}}">
+          <view class='av-share-blank'></view>
+          <img-share b-id="{{options.bId}}" employee-id="{{options.employeeId}}" channel="{{options.channel}}" qr-code-type="{{options.qrCodeType}}" brand-id="{{options.brandId}}" type="3" share-chain-id="{{options.shareChainId}}" object-id="{{liberty.brandId}}"
+            brand-logo="{{logoPath}}" brand-name="{{brandName}}" user-name="{{options.employeeName || userName}}"></img-share>
+        </view>
+      </view>
+    </view>
+    <!-- 分割线 -->
+    <view class='dividing-line' wx:if="{{showAccompanyBindIcon && openFollowVender}}">
+      <view class='dividing-line-left'></view>
+      <image class='dividing-line-img' src="https://thunder.jd.com/jpass/img/content-block-line.png"></image>
+      <view class='dividing-line-right'></view>
+    </view>
+    <view class='dividing-blank' wx:if="{{showAccompanyBindIcon && !openFollowVender}}"></view>
+    <view class='follow-protocol' wx:if="{{openFollowVender}}" bindtap='followProtocol'>
+      <view class='follow-protocol-agree {{followFlag ? "" : "follow-protocol-agree-nosel"}}'>
+        <view class='follow-protocol-in'></view>
+      </view>
+      <view class='follow-protocol-name'>关注
+        <text>{{liberty.brandName}}</text> 的品牌店铺 获取更多服务信息</view>
+       
+    </view>
+
+    <view class='lace'>
+      <view wx:for="{{15}}" wx:key="index"></view>
+    </view>
+
+  </view>
+  <view class='addvip-blank'></view>
+  <view class="join-member">
+    <view class="join-member-protocol">
+        <label class="radio-label" bindtap="toggleProtocol">
+          <checkbox checked="{{protocolchecked}}" color="#EB0000" class="radio" /><text class="protocol-text">确认授权即表示同意</text>
+        </label>
+        <text bindtap="memberPro" data-type="1" class="protocol-link protocol-text">《{{brandsName}}会员授权协议》</text><text class="protocol-text">，并将个人信息授权给品牌</text>
+    </view>
+    <view class="join-member-btn">
+      <view class="submit analysis-addVip {{protocolchecked?'': 'disabled'}}" bindtap="joinMember" wx:if="{{!authWX}}">
+        <view>加入会员</view>
+      </view>
+      <button class="submit analysis-addVip {{protocolchecked?'': 'disabled'}}" open-type="getUserInfo" bindgetuserinfo="bindUserInfo" wx:else>
+        <view>加入会员</view>
+      </button>
+    </view>
+  </view>
+
+  <!-- 宝宝陪伴计划协议 -->
+  <view class='baby-protocol-modal' wx:if="{{showBabyProtocol}}" catchtouchmove='true'>
+    <view class='baby-protocol-content'>
+      <view class='baby-protocol-content-name'>加入宝宝陪伴计划</view>
+      <view class='baby-protocol-content-art'>
+        <view>陪伴计划助力宝宝成长，为父母提供购物、资讯、公益等专属产品和服务。创建宝宝档案后，我们为你精准推荐母婴用品、提供低价折扣、分享育儿知识。</view>
+        <view>如何找到陪伴计划：</view>
+        <view>1. 京东APP首页-特色推荐-更多-陪伴宝宝</view>
+        <view>2. 京东App“我的”-设置-我的档案-京东陪伴计划-进入宝宝主页（建档用户可见陪伴计划页面入口）</view>
+      </view>
+      <view class='baby-protocol-content-btn'>
+        <view class='baby-protocol-content-cancel' catchtap='disAgreeBabyProtocol'>取消</view>
+        <view class='baby-protocol-content-confirm' catchtap='agreeBabyProtocol'>确定</view>
+      </view>
+    </view>
+  </view>
+
+  <return-top show-flag="{{false}}" isReturnTop="{{false}}" isReturnHome="{{true}}"></return-top>
+</view>
+
+<import src="../../libs/wxParse/wxParse.wxml" />
+<view wx:if="{{agreePro}}">
+  <view class='agree-detail-cover' catchtouchmove='true'></view>
+  <view class='agree-detail' animation="{{agreeProAnimation}}">
+    <view class='ag-tit'>
+      <text>{{agreeProType == 1 ? brandsName + "会员授权协议" : agreeProType == 2 ? "京东会员码用户须知" : "京东平台授权声明"}}</text>
+      <image mode='widthFix' src='https://thunder.jd.com/jpass/img/close.png' catchtap='closeAgreePro'></image>
+    </view>
+    <view class='ag-content' wx:if="{{agreeProType == 1}}">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+    <view class='ag-content' wx:if="{{agreeProType == 2}}">
+      <view>
+        <text>京东会员码是江苏京东信息技术有限公司（以下称为"京东"）推出的消费升级工具，致力于为您提供更加便捷的消费体验。您进入手机京东会员码页面勾选确认接受本须知，视为您同意接受本须知的全部约定内容。
+在接受本须知之前，请您仔细阅读本须知的全部内容（特別是以粗体下划线标注的内容）。如果您不同意本须知内容，或无法准确理解本须知任何条款的含义，请不要逬行确认或者后续操作。会员码具备线下支付、品牌会员卡管理、品牌会员优惠权益领取及核销等功能，具体功能以您实际可使用的功能为准。您同意京东收集和使用您使用会员码进行支付或核销优惠权益的订单信息及品牌会员管理产生的信息，包括但不限于交易订单号、您所购买的商品或服务信息、您应支付的货款金额及支付方式。
+1、	品牌会员卡管理
+您可以通过会员卡包开通相关品牌会员卡，进行会员积分并享受相应的会员权益。
+在获得您授权同意后，京东将会将您填写的信息传递给制定品牌商家，用于识别、匹配、领取、绑定、同步会员卡。如您在已经绑定会员卡的品牌商家使用会员码消费，扫码时即可享受品牌会员积分等权益，具体会员权益以品牌方实际提供的为准。
+您理解，品牌会员卡积分体系、权益体系等相关服务由该品牌商家独立运营并独立承担全部责任。
+2、	优惠权益领取及核销
+您可在会员码页面领取第三方不时提供的优惠权益，如品牌商家优惠券、门店优惠券等。领取后，可在指定商家指定门店使用会员码消费时使用核销优惠券，享受相应优惠权益。
+您理解，优惠权益由第三方商家提供并独立承担全部责任。权益凭证页面可能会展示权益规则等信息，如您在使用权益时，对优惠权益或者权益规则有疑问，请联系对应商家解决。
+您在京东会员码频道内选择“停止会员码”服务后，京东将停止向您提供会员码相关服务。
+您同意京东有权对本用户须知不时逬行修改、完善，如您继续使用会员码服务，则视为您同意更新后的用户须知。</text>
+      </view>
+    </view>
+    <view class='ag-know' catchtap='closeAgreePro'>我知道了</view>
+  </view>
+</view>
+<giftbag wx:if="{{status}}" brandid="{{brandId}}" bid="{{bId}}" list="{{couponList}}" activityid="{{activityid}}" activitytype="{{activitytype}}" fromtype="{{fromtype}}"></giftbag>

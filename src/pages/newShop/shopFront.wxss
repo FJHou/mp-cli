@@ -1,0 +1,129 @@
+/* pages/shop/shopFront.wxss */
+@import "./shopFront.skeleton.wxss";
+
+page {
+    --color-theme: #f14747;
+    --color-gray: #8c8c8c;
+    background-color: #fff;
+}
+
+.shop-view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bg {
+	position: absolute;
+    top: 0;
+    left: 0;
+    height: 383rpx;
+    width: 100%;
+}
+
+.top-search {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 12rpx 30rpx 20rpx;
+    box-sizing: content-box;
+}
+
+.top-search .input-box {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    height: 68rpx;
+    border-radius: 36rpx;
+    padding: 0 20rpx;
+    font-size: 26rpx;
+    background: rgba(255, 255, 255, 0.2);
+    margin-left: 30rpx;
+}
+
+.top-search.un-support-yjs .input-box {
+    margin-left: 0rpx;
+    background: none;
+}
+
+.top-search .location-wrapper {
+    max-width: 200rpx;
+    position: relative;
+    /* text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; */
+}
+
+.top-search.un-support-yjs .location-wrapper {
+    max-width: 100%;
+}
+
+.top-search .search-icon {
+    width: 26rpx;
+    height: 26rpx;
+}
+
+.top-search .search-text {
+    color: rgba(255, 255, 255, 0.6);
+    margin-left: 11rpx;
+}
+
+/* 滚动部分 */
+.scroll-view {
+    flex: 1;
+    height: calc(100% - 174px);
+}
+
+/*************模块节点************/
+
+.center {
+    box-sizing: border-box;
+    padding: 20rpx 30rpx;
+    background-color: #fff;
+}
+
+/* 勿删.f8be360ead1f4a3d9afb5e312b845ebb */
+.f8be360ead1f4a3d9afb5e312b845ebb {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: solid 1px #cdcdcd;
+    opacity: 0;
+    left: -100%;
+    top: -100%;
+    z-index: -2147483648;
+}
+
+.switchAddress-tip {
+    position: absolute;
+    bottom: -60rpx;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 999;
+    width: 240rpx;
+    text-align: center;
+    border-radius: 6rpx;
+    background: rgba(0, 0, 0, .9);
+    opacity: 0.6009;
+    height: 48rpx;
+    line-height: 48rpx;
+    font-size: 24rpx;
+    color: rgba(255, 255, 255, 1);
+}
+.switchAddress-tip:after {
+    content: "";
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    border: 8px solid transparent;
+    position: absolute;
+    top: -14px;
+    left: 50px;
+    border-bottom-color: rgba(0, 0, 0, .9);
+}
+.noAddress {
+    background-color: #fff;
+    height: calc(100% - 108rpx);
+}

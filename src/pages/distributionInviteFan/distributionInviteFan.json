@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": false,
+	"backgroundColor": "#fff",
+	"backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "邀请好友",
+  "navigationBarTextStyle":"black" 
+}

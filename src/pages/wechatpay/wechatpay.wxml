@@ -1,0 +1,11 @@
+<!--pages/payment/payment.js.wxml-->
+<view class='payment_body'>
+  <view class='payment_body_text'>
+    <view></view>
+    <text>正在支付……</text>
+    <view></view>
+  </view>
+  <!-- <view class='payment_body_amount'>
+    <text>¥ {{factPrice}}</text>
+  </view> -->
+</view>

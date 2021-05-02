@@ -1,0 +1,20 @@
+<view class="shop-info">
+    <card card-class="card">
+        <title title="基础信息"></title>
+        <view class="info">营业时间：{{jpassStoreInfo.businessTime}}</view>
+        <view class="info" bindtap="makePhoneCall">电话：{{jpassStoreInfo.phone}}</view>
+        <view class="info">地址：{{jpassStoreInfo.storeAddress}}</view>
+    </card>
+    <card card-class="card" wx:if="{{showFloorMap.storePicture}}">
+        <title title="门店照片"></title>
+        <slide class="slide">
+            <image class="imgPanle" mode="aspectFit" src="{{item}}" wx:for="{{stroeImgList}}" wx:key="idx" bindtap="swiperTap" data-list="{{stroeImgList}}" data-src="{{item}}"></image>
+        </slide>
+    </card>
+    <!-- <card card-class="card">
+        <title title="门店资质"></title>
+        <scroll-view class="store-pic-swiper" scroll-x="{{true}}">
+            <image class="imgPanle" mode="aspectFit" src="{{item}}" wx:for="{{stroeImgList}}" wx:key="idx" bindtap="swiperTap" data-list="{{stroeImgList}}" data-src="{{item}}"></image>
+        </scroll-view>
+    </card> -->
+</view>

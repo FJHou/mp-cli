@@ -1,0 +1,39 @@
+<!--推广订单的商品信息-->
+<wxs module="filters">
+  var filters = {
+    toFix: function(value) {
+      var val = parseFloat(value);
+      val = isNaN(val) ? 0 : val;
+      return val.toFixed(2);
+    },
+    multi: function(num1, num2){
+      var m = parseFloat(num1) * parseFloat(num2);
+      return m.toFixed(2)
+    }
+  }
+  module.exports = {
+    toFix: filters.toFix,
+    multi: filters.multi
+  }
+</wxs>
+<view 
+  class='order-product-details' 
+  bindtap="{{orderSource == '80' && jdSkuId ? 'gotoJdDetails':''}}" 
+>
+  <image mode="aspectFit" catchtap="{{isDetail && orderSource != '80'  ? 'handleOrderView' : ''}}" class='pic' src='{{ url? url : defaultPic}}'></image>
+
+  <view class='product'>
+    <view class='title' catchtap="{{isDetail && orderSource != '80' ? 'handleOrderView' : ''}}">
+      {{itemName}}
+    </view>
+    <view wx:if='{{filters.toFix(commissionPrice) != 0.00}}' class='red-block'>
+      <text class='red-left'>{{ownDesc}}收入</text>
+      <text class='red-right'>¥{{filters.toFix(commissionPrice)}}</text>
+    </view>
+    <view wx:else class='height34'></view>
+    <view class='price-block'>
+      <view class='price'>实付金额：¥{{filters.toFix(paymentPrice)}}</view>
+      <!-- <view class='num' wx:if='{{num}}'>×{{num}}</view> -->
+    </view>
+  </view>
+</view>

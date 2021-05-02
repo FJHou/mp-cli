@@ -1,0 +1,300 @@
+.member-card {
+    /* 会员卡背景色 */
+    --background-normal: url(https://img12.360buyimg.com/imagetools/jfs/t1/152337/19/2140/52355/5f858befE887f1950/58006d0184229fd1.png)
+        center/100% no-repeat;
+    --background-silver: url(https://img13.360buyimg.com/imagetools/jfs/t1/152323/14/2126/44387/5f858b93Ec6532b6d/7cff9f0133dd4dca.png)
+        center/100% no-repeat;
+    --background-gold: url(https://img10.360buyimg.com/imagetools/jfs/t1/117994/31/20006/49296/5f858abaE285b2215/d14137867935cf74.png)
+        center/100% no-repeat;
+    --background-platinum: url(https://img11.360buyimg.com/imagetools/jfs/t1/153581/25/19172/38731/6034cc30E980fd3e5/ed1bd007e695a0d9.png)
+        center/100% no-repeat;
+    /* 主字体色 */
+    --color-normal: #871300;
+    --color-silver: #000f6e;
+    --color-gold: #844f00;
+    --color-platinum: #ffe4b6;
+    /* 等级的背景色 */
+    --level-normal: #871300;
+    --level-silver: #000f6e;
+    --level-gold: #844f00;
+    --level-platinum: #ffe4b6;
+    /* 按钮背景色 */
+    --button-background-normal: linear-gradient(
+        90deg,
+        rgba(255, 153, 136, 1) 0%,
+        rgba(255, 128, 107, 1) 100%
+    );
+    --button-background-silver: linear-gradient(
+        90deg,
+        rgba(144, 156, 232, 1) 0%,
+        rgba(129, 143, 232, 1) 100%
+    );
+    --button-background-gold: linear-gradient(
+        90deg,
+        rgba(255, 187, 39, 1) 0%,
+        rgba(245, 168, 0, 1) 100%
+    );
+    --button-background-platinum: url(https://img11.360buyimg.com/imagetools/jfs/t1/154943/19/2167/49855/5f866858E143ee596/3996a7deab635041.gif);
+    /* 按钮字体色 */
+    --button-color-normal: #fff;
+    --button-color-silver: #fff;
+    --button-color-gold: #fff;
+    --button-color-platinum: #5f451f;
+    /* 皇冠背景图 */
+    --crown-normal: url(https://img10.360buyimg.com/imagetools/jfs/t1/123642/18/14905/1115/5f858befE48711265/53097eff6eb9593d.png);
+    --crown-silver: url(https://img14.360buyimg.com/imagetools/jfs/t1/128489/7/14923/1253/5f858b94Ea2ef070a/5470c231ebcc76d1.png);
+    --crown-gold: url(https://img14.360buyimg.com/imagetools/jfs/t1/140264/39/10726/1125/5f858abaEd994bc50/f02477921945526a.png);
+    --crown-platinum: url(https://img13.360buyimg.com/imagetools/jfs/t1/133927/7/12301/1234/5f858c63E6bffacee/d7a5f3c34ceb4bf9.png);
+    /* level背景图 */
+    --crown-level-normal: url(https://img14.360buyimg.com/imagetools/jfs/t1/147519/27/10477/602/5f858befE54902bc8/a6a390d9c8cedd0a.png);
+    --crown-level-silver: url(https://img10.360buyimg.com/imagetools/jfs/t1/140665/17/10772/748/5f858b94Ed3a4139f/4c814bf9aa4f55a3.png);
+    --crown-level-gold: url(https://img14.360buyimg.com/imagetools/jfs/t1/126765/11/14830/740/5f858abaE3616894f/e5473feacffa8ef5.png);
+    --crown-level-platinum: url(https://img10.360buyimg.com/imagetools/jfs/t1/132419/11/12194/617/5f858c63E432ae078/04d9949b5cb7504b.png);
+    
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    height: 104rpx;
+    border-radius: 20rpx;
+    background: var(--background-platinum);
+}
+/* 
+.member-card .memeber-card-tips {
+    width: 190rpx;
+    height: 42rpx;
+    position: absolute;
+    right: -1rpx;
+    top: -10rpx;
+} */
+.name-group {
+    line-height: 40rpx;
+    display: flex;
+    align-items: center;
+}
+.name {
+    font-size: 30rpx;
+    font-weight: bold;
+    background: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.divider {
+    display: inline-block;
+    height: 14rpx;
+    width: 1rpx;
+    margin: 0 8rpx;
+}
+.number {
+    font-size: 24rpx;
+    margin-left: 14rpx;
+    background: var(--color-platinum);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.logined-score {
+    display: inline-flex;
+    align-items: flex-end;
+}
+
+.icon-crown {
+    width: 40rpx;
+    height: 34rpx;
+    background: center/100% no-repeat;
+}
+
+.icon-level {
+    width: 30rpx;
+    height: 20rpx;
+    vertical-align: middle;
+    background-image: var(--crown-level-normal);
+    border-radius: 2rpx;
+    margin-right: 20rpx;
+    background: center/100% no-repeat;
+}
+.score {
+    font-size: 22rpx;
+    line-height: 22rpx;
+    background: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.card-button {
+    width: 124rpx;
+    height: 48rpx;
+    font-size: 24rpx;
+    line-height: 48rpx;
+    border-radius: 32rpx;
+    text-align: center;
+    background-image: url(https://img10.360buyimg.com/imagetools/jfs/t1/159518/5/8187/121229/603496e4Eaccadf78/e4daf75a562a0b0a.gif);
+    background-size: 100%;
+    background-position: center;
+    color: var(--button-color-platinum);
+    background-color: linear-gradient(135deg, rgba(242,20,12,1) 0%,rgba(242,77,12,1) 100%);
+    font-weight: bold;
+}
+
+.score-desc {
+    display: flex;
+    align-items: center;
+    font-size: 22rpx;
+}
+
+/* 普通会员 */
+.member-card.level-1 {
+    background: var(--background-normal);
+}
+.member-card.level-1 .name {
+    background: var(--color-normal);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.member-card.level-1 .divider {
+    background: var(--color-normal);
+}
+.member-card.level-1 .number {
+    background: var(--color-normal);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.member-card.level-1 .icon-crown {
+    background-image: var(--crown-normal);
+}
+.member-card.level-1 .icon-level {
+    background-image: var(--crown-level-normal);
+}
+.member-card.level-1 .score {
+    color: var(--color-normal);
+}
+.member-card.level-1 .card-button {
+    background: var(--button-background-normal);
+    color: var(--button-color-normal);
+}
+.member-card.level-1 .score-desc {
+    color: var(--color-normal);
+}
+
+/* 白银会员 */
+.member-card.level-2 {
+    background: var(--background-silver);
+}
+.member-card.level-2 .name {
+    background: var(--color-silver);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.member-card.level-2 .divider {
+    background: var(--color-silver);
+}
+.member-card.level-2 .number {
+    background: var(--color-silver);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.member-card.level-2 .icon-crown {
+    background-image: var(--crown-silver);
+}
+.member-card.level-2 .icon-level {
+    background-image: var(--crown-level-silver);
+}
+.member-card.level-2 .score {
+    color: var(--color-silver);
+}
+.member-card.level-2 .card-button {
+    background: var(--button-background-silver);
+    color: var(--button-color-silver);
+}
+.member-card.level-2 .score-desc {
+    color: var(--color-silver);
+}
+/* 黄金会员 */
+.member-card.level-3 {
+    background: var(--background-gold);
+}
+.member-card.level-3 .name {
+    background: var(--color-gold);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.member-card.level-3 .divider {
+    background: var(--color-gold);
+}
+.member-card.level-3 .number {
+    background: var(--color-gold);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.member-card.level-3 .icon-crown {
+    background-image: var(--crown-gold);
+}
+.member-card.level-3 .icon-level {
+    background-image: var(--crown-level-gold);
+}
+.member-card.level-3 .score {
+    color: var(--color-gold);
+}
+.member-card.level-3 .card-button {
+    background: var(--button-background-gold);
+    color: var(--button-color-gold);
+}
+.member-card.level-3 .score-desc {
+    color: var(--color-gold);
+}
+/* 铂金会员 */
+.member-card.level-4 {
+    background: var(--background-platinum);
+}
+.member-card.level-4 .name {
+    background: var(--color-platinum);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.member-card.level-3 .divider {
+    background: var(--color-platinum);
+}
+.member-card.level-4 .number {
+    background: var(--color-platinum);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.member-card.level-4 .icon-crown {
+    background-image: var(--crown-platinum);
+}
+.member-card.level-4 .icon-level {
+    background-image: var(--crown-level-platinum);
+}
+.member-card.level-4 .score {
+    background: var(--color-platinum);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.member-card.level-4 .card-button {
+    /* background: var(--button-background-platinum); */
+    background: linear-gradient(
+        90deg,
+        rgba(252, 240, 213, 1) 0%,
+        rgba(242, 211, 164, 1) 100%
+    );
+    color: var(--button-color-platinum);
+}
+
+.member-card.level-4 .score-desc {
+    color: var(--color-platinum);
+}

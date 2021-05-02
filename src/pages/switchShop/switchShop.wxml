@@ -1,0 +1,90 @@
+<!-- <component-topnav inner-title="切换地址" is-show-back="true"></component-topnav> -->
+<view class='switch-main'>
+    <view>
+        <component-topnav isShowBack="{{'true'}}" navStyle="{{navStyle}}"></component-topnav>
+        <view class='switch-title'>当前地址</view>
+        <view class="cur-location">
+            <view class="cur-location-left">
+                <image src="{{images.addImage}}" class="cur-location-flag" />
+                <view class="cur-location-text">{{choiceLocation}}</view>
+            </view>
+            <view class="switch-modifyAddress" bindtap="modifyAddress">修改地址</view>
+        </view>
+    </view>
+    <view class='list-bg'></view>
+    <view class="swiper-tab">
+        <view class="swiper-tab-list {{currentLabTab==0 ? 'on' : ''}}" data-current-lab="0" bindtap="swichNav" data-eid="shop-near">
+            <text>附近门店</text>
+            <view wx:if="{{currentLabTab==0 ? 'on' : ''}}" class='btline'></view>
+        </view>
+        <view class="swiper-tab-list {{currentLabTab==1 ? 'on' : ''}}" data-current-lab="1" bindtap="swichNav" data-eid="shop-history">
+            <text>历史访问</text>
+            <view wx:if="{{currentLabTab==1 ? 'on' : ''}}" class="btline"></view>
+        </view>
+    </view>
+    <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">
+        <!-- 附近门店 -->
+        <swiper-item>
+            <scroll-view style="height:{{warpHeight}}px;" scroll-y="true" bindscrolltolower="loadMore" class='deviceScroll'>
+                <view wx:if="{{ storeLists.length>0 }}">
+                    <block wx:for="{{storeLists}}" wx:key="index" wx:for-index="index">
+                        <view class="list-shop" bindtap="redirectShopFront" data-storeid="{{item.storeId}}" data-venderid="{{item.venderId}}">
+                            <image class="list-shopImg" src="{{item.storePic}}"></image>
+                            <view class="list-shopDetail">
+                                <view class="list-shopInfo">
+                                    <view class="list-shopDistance">{{item.distance}}</view>
+                                    <view class="list-shopName">
+                                        {{item.storeName}}
+                                        <view wx:if="{{currentShop==item.storeId}}" class='list-selected'>
+                                            当前
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="list-shopAddress">{{item.storeAddress}}</view>
+                                <view wx:if="{{item.isWithinFence}}" class='list-toHome'>送药上门</view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+                <shop-noRecommended wx:if="{{ !hasStoreLists }}"></shop-noRecommended>
+                <view wx:if="{{ !pullNoData }}" class="nomore-wrap">
+                    <view class="icon-nomore"></view>
+                    <view>没有更多了~</view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+        <!-- 历史访问 -->
+        <swiper-item>
+            <scroll-view scroll-y style='height:{{warpHeight}}px;' class='coupon-view coupon-view-aluse' bindscrolltolower="scrollCheck">
+                <view style='min-height:{{warpHeight}}px;' class='bt-bottom'>
+                    <view wx:if="{{ historyShopLists.length>0 }}">
+                        <block wx:for="{{historyShopLists}}" wx:key="index" wx:for-index="index">
+                            <view class="list-shop" bindtap="redirectShopFront" data-storeid="{{item.storeId}}" data-venderid="{{item.venderId}}">
+                                <image class="list-shopImg" src="{{item.storePic}}"></image>
+                                <view class="list-shopDetail">
+                                    <view class="list-shopInfo">
+                                        <view class="list-shopDistance">{{item.distance}}</view>
+                                        <view class="list-shopName">
+                                            {{item.storeName}}
+                                            <view wx:if="{{currentShop==item.storeId}}" class='list-selected'>
+                                                当前
+                                            </view>
+                                        </view>
+                                    </view>
+                                    <view class="list-shopAddress">{{item.storeAddress}}</view>
+                                    <view class='list-toHome' wx:if="{{item.isWithinFence}}">
+                                        送药上门
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                    <view wx:else class='noShop'>
+                        <image class="empty-image" src="https://img13.360buyimg.com/imagetools/jfs/t1/128926/18/14772/11511/5f85834bE6e1c6a8c/6a37ac6feb5df66a.png"></image>
+                        <view class='noShop-title'>暂无相关门店</view>
+                    </view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+</view>

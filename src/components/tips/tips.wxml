@@ -1,0 +1,8 @@
+<!--components/tips.wxml-->
+<view class="tips {{isIphoneX ? 'tips-iphoneX' : ''}}" wx:if="{{tipsShow}}" style="top:{{someData.statusBarHeight + someData.titleBarHeight + 2}}px">
+	<view class="tips-itleft"></view>
+	<view class="tips-content">添加到我的小程序下次访问更方便。</view>	
+	<view class="tips-iarrowtop {{isIphoneX ? 'tips-iarrow-iphoneX' : ''}}"></view>
+	<view class="tips-close" bindtap="closeTips"></view>
+</view>
+  

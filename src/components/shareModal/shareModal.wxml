@@ -1,0 +1,26 @@
+<!--components/shareModal/shareModal.wxml-->
+<view class="share-modal">
+  <view class="share-btn" bindtap="showSharePanel"></view>
+  <view class="share-bg" wx:if="{{shareModelShow}}"></view>
+
+  <view class="share-Panel {{shareModelShow ? 'share-Panel-show' : ''}}">
+    <view class="share-Panel-title">
+      <text class="share-Panel-text">立即分享给好友</text>
+      <view class="share-Panel-close" bindtap="hideSharePanel"></view>
+    </view>
+    <view class="share-Panel-conent">
+      <view class="share-Panel-item" bindtap="toShare" data-type="weChart">
+        <button open-type="share" data-buttonType="bottom">
+          <view class="share-Panel-img1"></view>
+          <view class="share-Panel-text">微信聊天</view>
+        </button>
+       
+      </view>
+      <view class="share-Panel-item" bindtap="toShare" data-type="image">
+        <view class="share-Panel-img2"></view>
+        <view class="share-Panel-text">二维码海报</view>
+      </view>
+    </view>
+  </view> 
+</view>
+  

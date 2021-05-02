@@ -1,0 +1,10 @@
+<!-- 评分 -->
+<view name='grade' bindtap='gradeBind' class='grade'>
+  <view class='grade-title' wx:if='{{gradeData.title}}'>{{gradeData.title}}</view>
+  <view class='flex grade-item' wx:for='{{gradeData.list}}' wx:key='{{index}}' wx:for-item='p_item' wx:for-index='p_index'>
+    <view class='grade-desc'>{{p_item.title}}</view>
+    <view class='grade-star flex'>
+      <view wx:for='{{p_item.level}}' wx:key='{{index}}' data-name='{{p_item.name}}' data-level='{{index+1}}' class='icon-star iconfont flex-item {{grade[p_item.name]>=(index+1)&&"star-active"}} star'></view>
+    </view>
+  </view>
+</view>

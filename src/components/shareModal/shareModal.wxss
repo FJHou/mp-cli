@@ -1,0 +1,101 @@
+/* components/shareModal/shareModal.wxss */
+.share-btn {
+	background: url(https://img11.360buyimg.com/imagetools/jfs/t1/91207/37/5561/9769/5dede599Eb694f671/665b4cf1fbbc1e9e.png)
+		center/100% no-repeat;
+	width: 88rpx;
+	height: 88rpx;
+	z-index: 1;
+	position: fixed;
+	right: 35rpx;
+	bottom: calc(150rpx + env(safe-area-inset-bottom));
+}
+.share-Panel {
+	/* 层级要高于share-bg */
+	z-index: 1;
+	position: fixed;
+	bottom: -480rpx;
+	left: 0;
+	width: 100%;
+	height: 480rpx;
+	background: #ffffff;
+	border-radius: 20rpx 20rpx 0px 0px;
+	transition: bottom .3s;
+}
+.share-Panel-show {
+	bottom: 0;
+	transition: bottom .3s;
+}
+.share-bg {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	/* 层级要高于topNav */
+	z-index: 1;
+	background: rgba(0, 0, 0, 1);
+	opacity: 0.4955;
+}
+.share-Panel-item {
+	width: 130rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: -40rpx 100rpx 0 100rpx;
+}
+.share-Panel-title {
+	padding: 30rpx 0;
+	margin: 0 30rpx;
+	height: 150rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 1rpx solid rgba(152, 152, 152, .3);
+}
+.share-Panel-title .share-Panel-text {
+	height: 40rpx;
+	line-height: 40rpx;
+	font-size: 40rpx;
+	color: rgba(46, 45, 45, 1);
+}
+.share-Panel-close {
+	position: absolute;
+	background: url(https://img11.360buyimg.com/imagetools/jfs/t1/97682/12/5575/2867/5dedf130E67b33d80/cff661c6ddb35066.png)
+		no-repeat;
+	background-size: 100% 100%;
+	width: 38rpx;
+	height: 38rpx;
+	right: 30rpx;
+	top: 30rpx;
+}
+.share-Panel-conent {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	height: 330rpx;
+}
+.share-Panel-img1 {
+	background: url(https://img11.360buyimg.com/imagetools/jfs/t1/92480/2/5598/28344/5dedf1b1Efb7e2618/7685c568e5a370d4.png)
+		no-repeat;
+	background-size: 100% 100%;
+	width: 116rpx;
+	height: 116rpx;
+}
+.share-Panel-img2 {
+	background: url(https://img13.360buyimg.com/imagetools/jfs/t1/104618/18/5592/32295/5dedf1b4Ec87da465/cbdd7eef3696a12a.png)
+		no-repeat;
+	background-size: 100% 100%;
+	width: 116rpx;
+	height: 116rpx;
+}
+.share-Panel-text {
+	text-align: center;
+	height: 100%;
+	line-height: 36rpx;
+	font-size: 26rpx;
+	color: rgba(51, 56, 64, 1);
+	padding: 20rpx 0 0 0;
+}

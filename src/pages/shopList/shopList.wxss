@@ -1,0 +1,100 @@
+ .list-location{
+  display: flex;
+  justify-content:space-between;
+  padding:36rpx 30rpx; 
+  letter-spacing: 0;  
+  line-height: 30rpx; 
+  font-size: 30rpx;
+	color: rgba(46,45,45,1); 
+} 
+.list-addressImg {
+	width: 24rpx; 
+	height: 28rpx; 
+	margin-right: 10rpx;
+	transform: translateY(1px);
+	}
+.list-MoreImage{
+	width: 10rpx;
+	height: 20rpx; 
+	margin-top: 8rpx; 
+}
+
+.list-shop{  
+	 padding:20rpx;
+	overflow:hidden
+}
+.list-shopImg{  
+	float:left;
+	width:148rpx;
+	height:148rpx;
+	border-radius:8rpx; 
+	margin-right:16rpx;
+}
+ 
+.list-shopDetail{ 
+	margin-left:162rpx; 
+}
+.list-shoInfo{
+	margin:24rpx 0 12rpx 0;
+	line-height: 40rpx;
+	overflow:hidden;
+}
+.list-shopName{ 
+  font-family: PingFangSC-Medium;
+  font-size: 28rpx;
+  color: rgba(34,34,34,1);
+  margin-right:100rpx;
+}
+.list-shopDistance{
+	float:right;
+	text-align: right;
+ width:100rpx;
+  font-family: JDZhengHei-01-Light;
+  font-size: 22rpx;
+  color: rgba(130,130,130,1);
+}
+.list-shopName{ 
+	line-height: 40rpx;
+	font-family: PingFangSC-Medium;
+	font-size: 28rpx;
+	color: rgba(34,34,34,1);
+} 
+.list-shopAddress{
+	line-height: 33rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 24rpx;
+	color: rgba(175,175,176,1);
+	overflow: hidden;white-space: nowrap;text-overflow: ellipsis;	
+}
+.list-no{
+	text-align: center;
+	padding-top: 160rpx;
+}
+.list-noImg{
+	width: 240rpx; 
+	height: 150rpx;
+}
+.list-noText{
+	font-size: 30rpx; 
+	color: #BFBFBF;
+}
+.list-bg{
+	width: 100%;
+	height: 20rpx;
+	background: rgba(240,241,245,1);
+}
+.nomore-wrap {
+  color: #9e9e9e;
+  font-size: 20rpx;
+  text-align: center;
+}
+.nomore-wrap .icon-nomore {
+	height: 92rpx;
+	width: 325rpx;
+	display: block;
+	margin: 50rpx auto 5rpx;
+	background-size: 100%; 
+	background-repeat: no-repeat;  
+	background-image: url('http://newbuz.360buyimg.com/jingshop/coupon/icon_more.png');
+          }
+/* pages/shopList/shopList.wxss */

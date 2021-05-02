@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "index-layer": "../../components/JDH-pharmacy/distribution/indexLayer/indexLayer",
+    "date-picker": "../../components/JDH-pharmacy/distribution/picker/picker",
+    "maskTip": "../../components/JDH-pharmacy/distribution/maskTip/maskTip",
+    "tabbar-coverview": "../../components/JDH-pharmacy/distribution/tabbarCoverview/tabbarCoverview"
+  }
+}

@@ -1,0 +1,43 @@
+<view class='container'>
+  <view class='header'>
+    <text class='header-redicon'></text>
+    <text class='header-value'>商品问题</text>
+  </view>
+
+  <view class='select-list' >
+    <block wx:if='{{loading}}'>
+      <my-loading />
+    </block>
+    <view wx:if='{{!loading}}' wx:for='{{correctData}}' wx:key='correctData' class='select-item' bindtap='onSelect' data-error-code='{{item.errorCode}}'>
+      <view>{{item.errorDesc}}</view>
+      <view class='active-icon' wx:if='{{errorCode == item.errorCode}}'>
+        <text class='icon iconfont icon-tijiao'></text>
+      </view>
+    </view>
+  </view>
+
+  <view class='header'>
+    <text class='header-redicon'></text>
+    <text class='header-value'>问题描述（选填）</text>
+  </view>
+  <textarea
+    wx:if='{{!showSuccessModal}}' 
+    placeholder-class='placeholder'
+    class='textarea' 
+    maxlength='200' 
+    bindinput='textareaChange' 
+    placeholder='请输入您的问题描述'
+  />
+  <view wx:else class='textarea {{errorRemark?errorRemark:"placeholder"}}'>{{errorRemark?errorRemark:'请输入您的问题描述'}}</view>
+  <view class='btn-red' bindtap='submit'>提交</view>
+</view>
+
+<view class='modal-wrap' wx:if='{{showSuccessModal}}'>
+  <view class='modal'>
+    <view class='modal-title'>反馈成功</view>
+    <view class='modal-content'>
+      感谢您的反馈，工作人员会尽快处理~
+    </view>
+    <view class='modal-btn' bindtap='gotoPrevPage'>知道了</view>
+  </view>
+</view>

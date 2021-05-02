@@ -1,0 +1,15 @@
+<view> 
+    <block wx:if="{{productionList.length > 0}}">
+        <goods-item-unmember wx:for="{{productionList}}" referenceUserInfo="{{referenceUserInfo}}" wx:key='itemId' bind:event_share="listenShare" itemObj="{{item}}" />
+    </block>
+    <!-- 没有数据 -->
+    <block wx:if="{{hasNoData}}">
+        <no-data-page tipMsg="暂无相关商品～" />
+    </block>
+    <!-- 下拉时没有更多数据 -->
+    <block wx:if="{{!hasMoreData}}">
+        <no-data tipMsg="我们是有底线的" marginTop='20' />
+    </block> 
+</view>
+<!-- 分享赚 -->
+<my-cps-share productInfo='{{productInfo}}' codeCall="{{codeCallCpsShare}}" />

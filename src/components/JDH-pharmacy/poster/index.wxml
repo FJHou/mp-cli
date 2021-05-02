@@ -1,0 +1,13 @@
+<view class="canvasToImg" wx:if="{{canvasShow}}" catchtouchmove="() => canvasShow">
+    <!-- <view class="canvasBg"></view> -->
+    <view class="canvas-outer">
+        <view class="canvas-close">
+            <view class="close-button" bindtap='closePoster'></view>
+        </view>
+        <canvas canvas-id="shareCanvas" class='canvas-container' style="width:{{posterWidth}}px; height:{{posterHeight}}px;"></canvas>
+        <view class='poster-text'>保存图片后，可分享朋友圈</view>
+        <view class='poster-save' style="width:{{posterWidth}}px;" bindtap='savePoster'>
+            保存到手机相册
+        </view>
+    </view>
+</view>

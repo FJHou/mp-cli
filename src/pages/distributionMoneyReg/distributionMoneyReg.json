@@ -1,0 +1,10 @@
+{
+	"backgroundColor": "#fff",
+	"backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "提现认证",
+  "navigationBarTextStyle":"black", 
+  "enablePullDownRefresh":true,
+  "usingComponents": { 
+  }
+}

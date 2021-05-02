@@ -1,0 +1,49 @@
+<!--商品列表项-->
+<wxs module="filters">
+  var filters = {
+    toFix: function(value) {
+      var val = parseFloat(value);
+      val = isNaN(val) ? 0 : val;
+      return val.toFixed(2);
+    },
+    cpsImgUrl: function(url, width){
+  	  // "img14.360buyimg.com" 是接口返回使用的域名, 放到最后
+  	  var jdImgHostArr = [ "img10.360buyimg.com", "img11.360buyimg.com","img12.360buyimg.com",
+  	  "img13.360buyimg.com",  "img20.360buyimg.com", "img30.360buyimg.com", "img14.360buyimg.com"];
+  	  return url.replace('/ads/jfs','/ads/s'+width+'x'+width+'_jfs');
+    }
+  }
+  module.exports = {
+    toFix: filters.toFix,
+    cpsImgUrl: filters.cpsImgUrl
+  }
+</wxs>
+<wxs src="../../../../utils/JDH-pharmacy/tools.wxs" module="tools" />
+<view bindtap='goDetail'hover-class="other-navigator-hover">
+  <view class='list-item' style='width:{{width}}rpx'>
+    <view class='img-item' style='width:{{width}}rpx;height: {{width}}rpx;'>
+      <image 
+        lazy-load='{{true}}' 
+        bindload='imgOnLoad' 
+        style='display:{{imgLoaded?"block": "none"}}; width:{{width}}rpx; height: {{width}}rpx;' 
+        src="{{item.itemMainPicUrl ? 'https:' + tools.cpsImgUrl(item.itemMainPicUrl, 400): defaultPic}}" />
+      <image 
+        src='{{productDefaultImg}}' 
+        class='center' 
+        style='display:{{imgLoaded?"none": "block"}}' 
+      />
+    </view>
+    <view class='list-item-title'>{{item.itemName}}</view>
+    <view class='list-item-price'>
+      <text class='price-red'>¥ {{filters.toFix(item.salePrice)}}</text>
+      <text class='price-gray' wx:if='{{filters.toFix(item.referPrice) != filters.toFix(item.salePrice)}}'>¥{{filters.toFix(item.referPrice)}}</text>
+    </view>
+    <view class='font0' wx:if='{{isVip}}'>
+      <view class='zhuan-block'>
+        <view class='zhuan-block-content'>
+          分享赚<text> ¥ </text>{{filters.toFix(item.rebatePrice)}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

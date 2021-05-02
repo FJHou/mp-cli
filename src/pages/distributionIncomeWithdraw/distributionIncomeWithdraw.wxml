@@ -1,0 +1,118 @@
+ 
+<wxs module="m1">
+  module.exports = {
+    getAuthTxt:function(code){
+      if(code == -1){
+        return ''
+      }
+      if(code == '00'){
+        return '未认证'
+      } 
+      if(code == '01'){
+        return '已认证'
+      } 
+      if(code == '02'){
+        return '驳回'
+      }
+       if(code == '03'){ 
+        return '待审核'
+      }
+    }
+  }
+</wxs>  
+<view class='container'>
+  <view class='m-wrap'>
+    <view class='m-txt'>可提现金额</view>
+    <view class='m-num'>
+      ￥ {{settlementAmount}}
+    </view>
+    <view class="m-btn {{nowDate < moneyDate ? 'no-get' : 'get-red'}}" bindtap="{{submitFlag?'':'getMoney'}}">提现</view>
+  </view>
+  <view class='m-acount' catchtap='willGo' data-key='auth'>
+    <view class='m-ti'>提现认证</view>
+    <view class='m-xian'> 
+      <!-- 根据条件显示不同状态颜色、和文本/ -->
+      <text class="{{'color-'+extract}}">{{m1.getAuthTxt(extract)}}</text>
+
+      <text class='m-icon iconfont icon-youcejiantou' />
+    </view>
+  </view>
+  <view class='m-acount' catchtap='willGo' data-key='record'>
+    <view class='m-ti'>提现记录</view>
+    <view class='m-xian'>
+      <text class='m-icon iconfont icon-youcejiantou' />
+    </view>
+  </view>
+  <view class='m-acount' catchtap='willGo' data-key='card'>
+      <view class='m-ti'>银行卡</view>
+      <view class='m-xian'>
+        <text class="{{isHasbankCardNo ? 'color-00' : 'color-04'}}">{{isHasbankCardNo ? '已维护' : '需维护银行卡信息'}}</text>
+        <text class='m-icon iconfont icon-youcejiantou' />
+      </view>
+  </view>
+  <view class='m-acount' catchtap='willGo' data-key='settle'>
+      <view class='m-ti'>结算单记录</view>
+      <view class='m-xian'>
+        <view hidden="{{!settleMsg}}" class='account-lbl'>{{settleMsg}}</view>
+        <text class='m-icon iconfont icon-youcejiantou' />
+      </view>
+  </view> 
+  <view class='seprate-view-line'></view>
+  <view class='lbl-view lbl-txt'>
+    <text class='lbl-title'>结算单说明</text>
+    <block> 
+      <text>1. 每月<text class='bold-day'> {{moneyDate}}号 </text>出上月结算单</text>
+      <text><text class='hid'>3.</text> 收益可在当月{{moneyDate}}号至月底全天申请提现</text>
+      <text><text class='hid'>3.</text> 错过需要等下个月,提现金额会在1-5个工作日到账</text>
+      <text>2. 会员需要在提现前完成 <text class='bold-key'>提现认证</text> 并审核通过</text>
+      <text><text class='hid'>3.</text> 维护完善 <text class='bold-key'>银行卡信息</text> ，否则将影响提现进行</text>
+      <text>3. 结算单收益：订单完成时间在上个月的总收益</text>
+      <text><text class='hid'>3.</text> 上个月【已付款】但未完成订单可在下个月提现</text>
+      <text>4. 可提现金额已扣除各项税费，提现金额需大于1元</text>
+      <text>5. 本月未提现收益不会清 0</text>
+      <text><text class='hid'>3.</text> 会累积到账户余额，下个月合并提现</text> 
+    </block>  
+  </view>
+</view>
+
+
+<!-- 未认证的弹窗提示 -->
+<view class='rg-modal' hidden='{{showModal}}'>
+  <view class='rg-content'>
+    <view class='rg-ts'>
+      <view class='sorry'>很抱歉，您还未进行提现认证，</view>
+      <view class='sorry'>请先提交认证申请。</view>
+    </view>
+    <view class='rg-btn'>
+      <view class='rgbtn-sy' data-opt='yet' bindtap='getShow'>暂不认证</view>
+      <view class='rgbtn-sy rgbtn-rg' bindtap='goDetailreg'>立即认证</view>
+    </view>
+  </view>
+</view>
+
+<!-- 审核被拒绝，的弹窗提示 -->
+<view class='rg-modal' hidden='{{showModal_refuse}}'>
+  <view class='rg-content-refuse'>
+    <view class='rg-ts-refuse'>
+      <view class='refuse-t'>您的提现认证申请，<text class="txt-bold">未通过审核</text></view>
+      <view class='refuse-c'>原因：{{remark || '未描述'}}</view> 
+    </view>
+    <view class='rg-btn'>
+      <view class='rgbtn-sy' data-opt='refuse' bindtap='getShowRefuse'>暂不处理</view>
+      <view class='rgbtn-sy rgbtn-rg' data-opt='refuse' bindtap='goDetailreg'>重新认证</view>
+    </view>
+  </view>
+</view>
+
+<!-- 提现后提示信息 --> 
+<view class='rg-modal' hidden='{{showModalMoney}}'> 
+  <view class='rg-content'> 
+    <view class='rg-ts-2'> 
+      <view>提现已被受理</view> 
+      <view>请在提现记录中查看进度。</view>
+    </view> 
+    <view class='rg-btn'> 
+      <view class='rgbtn-sy-2 rgbtn-rg' bindtap='toolTip_tap'>确定</view> 
+    </view> 
+  </view> 
+</view>

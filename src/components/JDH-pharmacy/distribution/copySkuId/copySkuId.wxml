@@ -1,0 +1,6 @@
+
+  <view class='copy-wrap'>
+    <text>商品编号: </text>
+    <text class='copy-text'>{{skuId || '无数据'}}</text>
+    <view class='copy-skuid-btn' bindtap='onCopy' >复制</view>
+  </view>

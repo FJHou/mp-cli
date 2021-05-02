@@ -1,0 +1,10 @@
+<!--components/listLoading/loading.wxml-->
+<!-- 
+  该组件用于: 列表底部加载时的  loading 效果
+  参数 [无] 
+  维护者：jingxl 
+-->
+
+<view>
+  <button class='btn-load' loading="{{true}}" > 努力加载... </button>
+</view>

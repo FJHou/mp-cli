@@ -1,0 +1,9 @@
+{
+    "component": true,
+    "usingComponents": {
+        "title": "../../title/index",
+		"card": "../../card/index",
+        "slide": "../../slider/index",
+        "points-coupon": "../pointsCoupon/index"
+    }
+}

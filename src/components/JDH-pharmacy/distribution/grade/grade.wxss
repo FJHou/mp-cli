@@ -1,0 +1,47 @@
+/* components/grade/grade.wxss */
+/* @import '../../resource/iconfont/iconfont'; */
+.grade{
+  color:#444;
+}
+/* 标题 */
+.grade-title{
+  font-size:32rpx;
+  height:96rpx;
+  line-height:96rpx;
+  border-bottom:1rpx solid #edeeef;
+}
+/* 列表 */
+.grade-item{
+  margin:30rpx 0;
+}
+/* 描述 */
+.grade-desc{
+  font-size:28rpx;
+}
+/* 星 */
+.grade-star{
+  margin-left:5%;
+}
+.grade-star .star{
+  font-size:36rpx;
+  color:#ddd;
+  margin-left:20rpx;
+}
+
+.grade-star .star-active{
+  color:#f10216;
+}
+/* 通用 */
+.flex{
+  display:flex;
+}
+.flex-item{
+  flex:1;
+}
+.flex-grow-2{
+  flex-grow:2;
+}
+
+.flex-grow-3{
+  flex-grow:3;
+}

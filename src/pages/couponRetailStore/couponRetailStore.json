@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "可用门店",
+  "usingComponents": {
+    "return-top": "../../components/returnTop/returnTop"
+  }
+}

@@ -1,0 +1,16 @@
+<view class="h-fresher-coupons">
+    <view class="title">
+        <view class="text">您有{{coupons.length}}张新人入会优惠券待领取</view>
+        <view class="button" bindtap="joinMember"></view>
+    </view>
+    <scroll-view class="content" scroll-x="{{true}}" style="width: 100%">
+        <view class="scroller">
+            <view class="coupon" wx:for="{{coupons}}" wx:key="index">
+                <view class="name">到店券</view>
+                <price price="{{item.couponAmount}}" price-class="price" symbol-class="symbol" number-class="number"></price>
+                <view class="divider"></view>
+                <view class="description">满5元可用</view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

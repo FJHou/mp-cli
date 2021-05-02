@@ -1,0 +1,340 @@
+/* pages/cardInfo/cardInfo.wxss */
+@import '../../css/common.wxss';
+@import '../../css/JDfont.wxss';
+page {
+	background: #f6f6f6;
+}
+.card-inof-content {
+	padding-bottom: 20rpx;
+}
+.p_top {
+	height: 210rpx;
+	padding-top: 150rpx;
+	background: #ccc;
+	box-sizing: content-box;
+}
+.cardli {
+	position: relative;
+	width: 690rpx;
+	height: 320rpx;
+	margin: -200rpx auto 0;
+	border-radius: 20rpx;
+}
+.cardli:first-child,
+.cardli.card-open:first-child {
+	margin-top: 0;
+}
+.cardli.card-open {
+	margin-top: 30rpx;
+}
+.card-h {
+	display: flex;
+	padding: 30rpx;
+	align-items: center;
+	color: #fff;
+}
+.card-h .logo {
+	width: 72rpx;
+	height: 72rpx;
+	margin-right: 20rpx;
+	border-radius: 50%;
+}
+.card-h .name {
+	flex: 1;
+	font-size: 30rpx;
+}
+.card-h .grade {
+	width: 160rpx;
+	text-align: right;
+	white-space: nowrap;
+	overflow: hidden;
+	font-size: 20rpx;
+}
+.card-h .grade text {
+	font-size: 36rpx;
+}
+.card-b {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 78rpx;
+	font-size: 24rpx;
+	color: #fff;
+}
+.card-b .num {
+	flex: 1;
+	padding-left: 30rpx;
+}
+.card-b .ctype {
+	/* width: 120rpx; */
+	padding-bottom: 10rpx;
+	padding-right: 10rpx;
+	font-size: 22rpx;
+}
+
+.zhan {
+	height: 110rpx;
+	background-color: #fff;
+}
+.liberty {
+	padding: 40rpx 30rpx;
+	overflow: hidden;
+	border-bottom: 1px solid #e8e8e8;
+	background: #fff;
+	clear: both;
+}
+.now-right {
+	margin-bottom: 20rpx;
+	border-bottom: none;
+}
+.liberty-tit {
+	display: flex;
+	align-items: center;
+	font-size: 26rpx;
+}
+.liberty-tit image {
+	width: 36rpx;
+	height: 41rpx;
+	margin-right: 20rpx;
+}
+.liberty-tit .right-text {
+	flex: 1 1 auto;
+}
+.liberty-tit .icon-more {
+	margin-right: 0;
+	height: 26rpx;
+	flex: 0 0 30rpx;
+}
+.liberty-item {
+	float: left;
+	text-align: center;
+	width: 172rpx;
+	margin-top: 40rpx;
+	font-size: 22rpx;
+}
+.liberty-item .logo {
+	display: block;
+	width: 100rpx;
+	height: 100rpx;
+	margin: 0 auto 20rpx;
+	border-radius: 50%;
+	background-color: #fff;
+}
+
+.liberbtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 70rpx;
+	text-align: center;
+	font-size: 24rpx;
+	background: #fff;
+}
+.liberbtn image {
+	width: 26rpx;
+	height: 26rpx;
+	margin-left: 6rpx;
+}
+.member {
+	background: white;
+	margin-top: 20rpx;
+}
+.member-tit {
+	height: 70rpx;
+	display: flex;
+	color: rgb(46, 45, 45);
+	font-size: 26rpx;
+	font-family: PingFangSC-Regular;
+	align-items: center;
+	padding-left: 30rpx;
+	border-bottom: 1px solid rgb(232, 232, 232);
+}
+.member-tit image {
+	width: 36rpx;
+	height: 36rpx;
+	margin-right: 10rpx;
+}
+.member-gift {
+	height: 200rpx;
+	box-sizing: border-box;
+	padding: 30rpx 60rpx 30rpx 70rpx;
+	display: flex;
+	align-items: center;
+}
+.member-gift image {
+	width: 140rpx;
+	height: 140rpx;
+	margin-right: 20rpx;
+	background: #ccc;
+}
+.member-gtmsg {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+.member-gtmsg-tit {
+	line-height: 37rpx;
+	margin-bottom: 11rpx;
+	color: rgb(46, 45, 45);
+	font-size: 26rpx;
+	font-family: PingFangSC-Regular;
+}
+.member-gtmsg-sub {
+	font-family: PingFangSC-Light;
+	font-size: 22rpx;
+	color: rgb(46, 45, 45);
+	opacity: 0.84;
+	line-height: 20rpx;
+}
+.member-btn {
+	width: 120rpx;
+	height: 48rpx;
+	font-size: 22rpx;
+	font-family: PingFangSC-Regular;
+	line-height: 48rpx;
+	border-radius: 30rpx;
+	color: white;
+	text-align: center;
+	background: -webkit-linear-gradient(left, rgb(241, 0, 0) 0%, rgb(255, 79, 24) 100%);
+	box-shadow: 0 6rpx 12rpx 0 rgba(255, 62, 62, 0.2);
+}
+.gift-float {
+	position: fixed;
+	right: 18rpx;
+	top: 640rpx;
+	width: 138rpx;
+	height: 191rpx;
+}
+.gredenum {
+	font-family: JDZhengHei-01-Bold;
+}
+.store {
+	background: white;
+	margin-top: 20rpx;
+}
+.store-tit {
+	height: 70rpx;
+	display: flex;
+	color: rgb(46, 45, 45);
+	font-size: 26rpx;
+	font-family: PingFangSC-Regular;
+	align-items: center;
+	padding: 0 30rpx;
+	border-bottom: 1px solid rgb(232, 232, 232);
+}
+.store-tit image {
+	width: 40rpx;
+	height: 40rpx;
+	margin-right: 16rpx;
+}
+.store-tit .tit-text {
+	flex: 1 1 auto;
+}
+.store-tit .icon-more {
+	margin-right: 0;
+	height: 26rpx;
+	flex: 0 0 30rpx;
+}
+.store-item {
+	padding: 11rpx 30rpx 13rpx;
+	border-bottom: 1px solid #e8e8e8;
+	display: flex;
+	align-items: center;
+	font: 22rpx PingFangSC-Light;
+	color: #2e2d2d;
+}
+.store-item .logo {
+	flex: 0 0 110rpx;
+	height: 110rpx;
+	margin-right: 24rpx;
+}
+.store-item .store-name {
+	font: 24rpx/32rpx PingFangSC-Medium;
+	margin-bottom: 8rpx;
+}
+.store-item .store-addr {
+	display: flex;
+	align-items: center;
+	margin-bottom: 8rpx;
+}
+.store-item .icon-position {
+	width: 30rpx;
+	height: 28rpx;
+	margin-right: 8rpx;
+}
+.store-item .store-label {
+	display: inline-block;
+	margin-right: 8rpx;
+	width: 108rpx;
+	height: 30rpx;
+	line-height: 30rpx;
+	text-align: center;
+	background-image: linear-gradient(-45deg, #ff4f18 0%, #f10000 100%);
+	box-shadow: 0 6rpx 12rpx 0 rgba(255, 62, 62, 0.20);
+	border-radius: 30rpx;
+	font-size: 20rpx;
+	font-family: PingFangSC-Regular;
+	color: #fff;
+}
+
+.rule-detail {
+	position: fixed;
+	bottom: -888rpx;
+	width: 100%;
+	background: white;
+	z-index: 997;
+}
+.rule-tit {
+	height: 80rpx;
+	line-height: 80rpx;
+	position: relative;
+	font-family: PingFangSC-Regular;
+	font-size: 30rpx;
+	color: rgb(46, 45, 45);
+	text-align: center;
+	border-bottom: 1px solid rgb(232, 232, 232);
+}
+.rule-tit image {
+	position: absolute;
+	width: 24rpx;
+	height: 24rpx;
+	right: 30rpx;
+	top: 30rpx;
+}
+.rule-content {
+	height: 700rpx;
+	box-sizing: border-box;
+	padding: 30rpx;
+	overflow-y: scroll;
+	font-family: PingFangSC-Regular;
+	font-size: 24rpx;
+	color: rgb(46, 45, 45);
+	opacity: 0.84;
+}
+.rule-know {
+	height: 108rpx;
+	line-height: 108rpx;
+	font-family: PingFangSC-Medium;
+	font-size: 32rpx;
+	color: rgb(46, 45, 45);
+	text-align: center;
+	border-top: 1px solid rgb(232, 232, 232);
+}
+.rule-detail-cover {
+	background: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 996;
+}
+.shop-nomore {
+	color: #232326;
+	line-height: 100rpx;
+	font-size: 22rpx;
+	padding: 0 0 0 30rpx;
+}

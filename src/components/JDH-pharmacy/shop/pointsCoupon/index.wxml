@@ -1,0 +1,11 @@
+<!-- 积分商城优惠券 -->
+<view class="h-points-coupon points-coupon-class {{size ? 'size-'+size : ''}}">
+    <price price="{{price}}"></price>
+    <view class="condition">{{condition}}</view>
+    <view class="description">{{description}}</view>
+    <view class="points">
+        <text class="icon"></text>
+        <text class="num">{{points}}积分</text>
+    </view>
+    <view class="button coupon-button-class" bindtap="handleClick">{{buttonStatus}}</view>
+</view>

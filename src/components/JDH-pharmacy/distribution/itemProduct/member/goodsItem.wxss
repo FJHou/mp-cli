@@ -1,0 +1,12 @@
+@import '../list.wxss';
+
+.my-iconfont{ 
+  margin-right: 20rpx; 
+  font-size: 40rpx; 
+} 
+.icon-xuanzhong{ 
+  color: #F10216; 
+} 
+.icon-weixuanze{ 
+  color: #D8DCE0; 
+} 

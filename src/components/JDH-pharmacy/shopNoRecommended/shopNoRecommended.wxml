@@ -1,0 +1,11 @@
+<!-- 无门店推荐页 -->
+<view class='noShop'>
+		<image class="empty-image" src="https://img13.360buyimg.com/imagetools/jfs/t1/128926/18/14772/11511/5f85834bE6e1c6a8c/6a37ac6feb5df66a.png"></image>
+		<view class='noShop-title'>当前地址下暂无推荐门店</view>
+		<view wx:if="{{showFloorMap.jumpJdhApplet}}" class='noShop-note'>欢迎使用京东健康在线商城购买，支持全国快递配送，最快1-3天送达</view>
+		<view wx:if="{{showFloorMap.jumpJdhApplet}}">
+				<view class="modify-address" bindtap="modifyAddress">修改地址</view>
+				<view class="redirect-toJDH" bindtap="redirectToJDH">前往京东健康</view>
+		</view>
+		<view wx:else class="modify-address-only" bindtap="modifyAddress">修改地址</view>
+</view>

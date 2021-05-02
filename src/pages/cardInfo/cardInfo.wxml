@@ -1,0 +1,123 @@
+<!-- pages/cardInfo/cardInfo.wxml -->
+<view class='content card-inof-content'>
+  <view class='p_top' style="background:#ccc url(https://thunder.jd.com/jpass/img/card_bg2.png);background-size:100% 100%;">
+    <view class="cardli" bindtap="checkMembersPoint" style="background:{{liberty.cardColor ? liberty.cardColor : '#ccc'}} url({{liberty.cardUrl ? liberty.cardUrl : 'https://thunder.jd.com/jpass/img/card_deco.png'}}); background-size:100% 100%;">
+      <view class="card-h">
+        <image class="logo" mode='widthFix' src='{{liberty.brandLogo}}'></image>
+        <text class="name textellipse">{{liberty.brandName}}</text>
+        <view class="grade" wx:if="{{liberty.points != null}}">
+          <text class="gredenum">{{liberty.points}}</text>
+          积分 >
+        </view>
+      </view>
+      <view class="card-b">
+        <view class="num">
+          <text wx:if="{{liberty.cardNo}}">NO. {{liberty.cardNo}}</text>
+        </view>
+        <text class="ctype">{{liberty.customerLevelName}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='zhan'></view>
+  <view class='liberty now-right'>
+    <view class='liberty-tit'>
+      <image src='https://thunder.jd.com/jpass/img/j4icon_liberty@3x.png'></image>
+      <text>当前等级特权</text>
+    </view>
+    <view class='liberty-content'>
+      <view class='liberty-item' wx:for="{{liberty.rightsList}}" wx:key="index" data-url="{{item.url}}" bindtap="checkLevelRight">
+        <image class='logo' src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{showliber}}" class='liberty'>
+    <view class='liberty-tit'>
+      <image src='https://thunder.jd.com/jpass/img/level_next.png'></image>
+      <text class="right-text">下一等级特权</text>
+      <!-- <text class="rule-text" bindtap="openRulePro">升级规则</text>
+      <image class="icon-more" src='https://thunder.jd.com/jpass/img/icon_more.png' bindtap="openRulePro"></image> -->
+    </view>
+    <view class='liberty-content'>
+      <view class='liberty-item' wx:for="{{liberty.nextRightsList}}" wx:key="index" data-url="{{item.url}}" bindtap="checkLevelRight">
+        <image class='logo' src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <view bindtap='toggle' wx:if="{{!showliber && liberty.nextRightsList.length > 0}}" class='liberbtn'>
+    查看下一级等级特权
+    <image src='https://thunder.jd.com/jpass/img/more_open.png'></image>
+  </view>
+  <view bindtap='toggle' wx:if="{{showliber}}" class='liberbtn'>
+    收起下一级等级特权
+    <image src='https://thunder.jd.com/jpass/img/more_close.png'></image>
+  </view>
+  <view class='member' wx:if="{{hasGift}}">
+    <view class='member-tit'>
+      <image src='https://thunder.jd.com/jpass/img/gift.png'></image>
+      <text>会员专属活动</text>
+    </view>
+    <view class='member-gift'>
+      <image src='https://thunder.jd.com/jpass/img/giftbag_member_day.jpeg'></image>
+      <view class='member-gtmsg'>
+        <view class='member-gtmsg-tit'>会员日礼包</view>
+        <view class='member-gtmsg-sub'>为您精心准备，购物更优惠</view>
+      </view>
+      <view class='member-btn' data-eid="card_information_memberday" bindtap='openGift' data-type="hasGiftStatus">
+        立即领取
+      </view>
+    </view>
+  </view>
+  <!-- <view class='store'>
+    <view class='store-tit'>
+      <image src='https://thunder.jd.com/jpass/img/brand/title_recommended.png'></image>
+      <text class="tit-text">推荐门店</text>
+      <navigator hover-class="none" url='/pages/shopList/shopList'>
+        <text class="more-text">更多</text>
+        <image class="icon-more" src='https://thunder.jd.com/jpass/img/icon_more.png'></image>
+      </navigator>
+    </view>
+    <view class='coupon-nomore shop-nomore' wx:if="{{list.length==0}}">
+      <text wx:if="{{shopLoad}}">门店搜索中...</text>
+      <text wx:else>附近没有可用的门店</text>
+    </view>
+    <view class='store-list'>
+      <navigator wx:for="{{list}}" wx:key="index" hover-class="none" open-type='navigate' url='/pages/newShop/shopFront?storeId={{item.storeId}}&venderId={{item.venderId}}'>
+        <view class='store-item'>
+          <image class='logo' src="{{item.storePic}}"></image>
+          <view class="item-info">
+            <view class="store-name">{{item.storeName}}</view>
+            <view class="store-addr">
+              <image class="icon-position" src='https://thunder.jd.com/jpass/img/icon_lacation3.png'></image>
+              <text>{{item.storeAddress}}</text>
+            </view>
+            <text class="store-label">距离最近</text>
+            <text>距您{{item.distance}}km</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view> -->
+  <return-top show-flag="{{false}}" isReturnTop="{{false}}" isReturnHome="{{true}}"></return-top>
+</view>
+<!-- <view wx:if="true" class='footer'>
+  <view class='bottom_name'>京东会员码</view>
+  <image class='bottom_logo' src='https://thunder.jd.com/jpass/img/logo_buttom.png'></image>
+</view> -->
+<image bindtap='openGift' data-type="memHasGiftStatus" data-eid="card_information_couponpack" wx:if="{{memHasGift}}" class='gift-float' mode='widthFix' src='https://thunder.jd.com/jpass/img/gift_float.png'></image>
+<giftbag wx:if="{{hasGift && hasGiftStatus}}" brandid="{{param.brandId}}" bid="{{param.bId}}" brandsid="{{param.brandsId}}" fromtype="{{fromtype}}" list="{{couponList}}" activityid="{{activityid}}" activitytype="{{activitytype}}" bind:closegift="closegift"></giftbag>
+<giftbag wx:if="{{memHasGift && memHasGiftStatus}}" brandid="{{param.brandId}}" bid="{{param.bId}}" brandsid="{{param.brandsId}}" fromtype="{{fromtype}}" list="{{memCouponList}}" activityid="{{memActivityid}}" activitytype="{{memActivitytype}}" bind:closegift="closegift"></giftbag>
+<!-- <import src="../../libs/wxParse/wxParse.wxml" /> -->
+<!-- <view wx:if="{{openRule}}">
+  <view class='rule-detail-cover' catchtouchmove='true'></view>
+  <view class='rule-detail' animation="{{ruleProAnimation}}">
+    <view class='rule-tit'>
+      <text>升级规则</text>
+      <image mode='widthFix' src='https://thunder.jd.com/jpass/img/close.png' catchtap='closeRulePro'></image>
+    </view>
+    <view class='rule-content'>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view>
+</view> -->

@@ -1,0 +1,344 @@
+/* components/at-once/goodsItem.wxss */
+/* @import '../../resource/iconfont/iconfont'; */
+
+.before-load {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.row-container {
+	padding: 30rpx;
+	margin-top: 20rpx;
+	background:#fff;
+	border-radius: 20rpx;
+}
+.row-content {
+  display: flex;
+}
+
+.row-left {
+  display: flex;
+  margin-right:16rpx;
+  width: 230rpx;
+  height: 230rpx;
+  align-items: center;
+  justify-content: center;
+  background-color: #F7F7F7;
+}
+
+.row-right {
+	position: relative;
+  flex: 1;
+  flex-direction:column;
+  display: flex; 
+  justify-content:space-around;
+}
+
+.row-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row-img {
+  width: 230rpx;
+  height: 230rpx;
+}
+.row-img-default {
+  width: 160rpx;
+  height: 115rpx;
+}
+.row-name {
+  display: flex;
+  /* height: 84rpx; */
+}
+.row-comment {
+  display:flex;
+  justify-content:space-between;
+  /* flex: 1; */
+  align-items:center;
+}
+.row-tip {
+  display:flex;
+  justify-content:flex-end;
+  padding-top:6rpx;
+}
+.join-tip{
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #FF3500 ;
+  background:#FEF7E5;
+  border-radius:18rpx;
+  align-items:center;
+  width:70%;
+  justify-content:center;
+  display:flex;
+}
+.flex-r{
+  justify-content:flex-end;
+  padding-right:12rpx;
+}
+.arrow-r{
+  font-size:18rpx;
+  margin:1px 0 0 5px;
+  color:#bbb;
+}
+.row-coupon-v { 
+	line-height: 22rpx;  
+}
+.lbl-line{
+	display: inline-block;
+	width: 0;
+	height: 13rpx;
+	margin: 0 12rpx;
+	border: 1px solid rgba(227,232,238,1);
+}
+.row-price {
+	height: 70rpx;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.row-buy-now{ 
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.row-price-vip { 
+	padding: 30rpx 0 0 60rpx;
+  display:flex;
+  flex: 1;
+  align-items:center; 
+}
+
+.lbl-comment{
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color:rgba(152,156,165,1);
+}
+
+.line-through{
+  text-decoration: line-through;
+}
+
+.jd-flag{
+  background: #F10216;
+  border-radius: 18rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #FFFFFF; 
+	height:32rpx;
+	padding: 0 12rpx;
+  line-height: 32rpx;
+  display:inline-block;
+  text-align:center;
+  margin-right:10rpx;
+}
+.p-name{
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color:  rgba(38,38,38,1);
+}
+
+.coupon-rect {
+    height:36rpx;
+    line-height:36rpx;
+}
+
+.coupon-rect2 {
+   font-size:30rpx;
+   background:#F10216;
+  color:#FFFFFF;
+  display:inline-block;
+  text-align:center;
+  background-image:linear-gradient(-90deg, #FF6900 0%, #F10216 100%);
+  padding:0 20rpx;
+}
+
+.coupon-flag{
+  background: #F10216;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  display:inline-block;
+  text-align:center;
+  background-image: linear-gradient(-90deg, #FF6900 0%, #F10216 100%);
+  padding:0 20rpx;
+}
+
+
+.lbl-price{
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #F10216;
+}
+.price{
+  font-family: PingFangSC-Medium;
+	font-size: 30rpx;
+	line-height: 30rpx; 
+	margin: 30rpx 0 18rpx;
+  color: #F10216;
+  font-weight: bold;
+}
+.price-logo{
+	font-size: 20rpx;
+}
+
+.color-gray{
+  color: #999999;
+}
+
+.size-gray{
+  font-size: 20rpx;
+  font-weight: normal;
+}
+
+.m-l-10{
+  margin-left: 10rpx;
+}
+
+/* 单行文字溢出...样式 */
+.one-text-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 多行文字溢出...样式 */
+.multi-text-overflow {
+  line-height: 36rpx;
+  word-break: break-all;
+  -webkit-line-clamp: 2; /* 限制在一个块元素显示的文本的行数 */
+  line-clamp: 2;
+  display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+  -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 割线(用在view上) */
+.seprate-view-line {
+  border-top:2rpx solid #edeeef;
+  margin-left:20rpx;
+}
+
+/* 普通按钮样式 */
+.m-r-14{
+  margin-right:14rpx;
+}
+
+/* 普通按钮样式 */ 
+.common-btn { 
+  width: 150rpx;
+	height: 56rpx;
+	border: 1px solid rgba(254,59,0,1);
+	background-color: #fff;
+	border-radius: 36rpx;
+  line-height: 56rpx; 
+  font-family: PingFangSC-Medium; 
+  font-size: 26rpx;
+	color: rgba(242,20,12,1);
+  text-align: center;  
+  font-weight:bold; 
+}
+ 
+.bg-red {
+  background-image: linear-gradient(-133deg, #FC7149 0%, #F10216 100%);
+  color: #fff;  
+}
+
+/* 优惠券-样式 */
+.com-item-info-ticket {  
+	position: relative; 
+	height: 30rpx; 
+	padding: 0 10rpx;
+	margin-top: 12rpx;
+  line-height: 30rpx;
+  font-size: 20rpx;
+  color: #fff;
+	text-align: center;
+	border-radius: 4rpx;  
+	background: linear-gradient(135deg, rgba(242,20,12,1) 0%,rgba(242,39,12,1) 70%,rgba(242,77,12,1) 100%);
+	/* z-index: -99; */
+} 
+.decorate{
+	position: absolute;
+	top: 12rpx;
+	width: 8rpx;
+	height: 8rpx;
+	border-radius: 50%;
+	background-color: #fff;
+}
+.decorate-left{ 
+	left: -4rpx; 
+}
+.decorate-right{
+	right: -4rpx;
+}
+
+/* 自购省-按钮 */
+.btn{
+  width:150rpx;
+  height:82rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx; 
+  border-radius: 8rpx;
+  font-weight: bold;
+} 
+.btn-now{
+	width: 180rpx; 
+	padding:8rpx 0;
+	border: 1px solid rgba(254,59,0,1);
+	border-radius: 36rpx;
+	font-size: 22rpx;
+	color: rgba(242,20,12,1); 
+	margin-right: 20rpx;
+	text-align: center;
+}  
+/* 分享赚-按钮 */
+ .btn-share{
+  width: 180rpx;
+	padding:8rpx 0; 
+	background: linear-gradient(135deg, rgba(242,20,12,1) 0%,rgba(242,39,12,1) 70%,rgba(242,77,12,1) 100%);
+	border-radius: 36rpx;  
+	border: 1px solid rgba(254,59,0,1);
+	font-size: 22rpx;
+	color: rgba(255,255,255,1);
+	text-align: center;
+}
+.buyBtn-top{
+	line-height: 30rpx;
+	font-family: PingFangSC-Medium;
+	font-size: 22rpx; 
+	color: rgba(242,20,12,1);
+}
+.buyBtn-bottom{
+	line-height: 28rpx;
+	font-family: PingFangSC-Medium;  
+	font-size: 28rpx; 
+	color: rgba(242,20,12,1);
+}
+.buyBtn-flag{
+	font-size: 18rpx;
+}
+.shareBtn-top{
+	line-height: 30rpx;
+	font-family: PingFangSC-Medium;
+	font-size: 22rpx;
+	color: rgba(255,255,255,1);
+}
+.shareBtn-bottom{
+	line-height: 28rpx;
+	font-family: PingFangSC-Medium;
+	font-size: 28rpx;
+	color: rgba(255,255,255,1);
+}
+  
+.circle{
+  border: 1rpx solid #fff;
+  background-color: #ffffff;
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+}

@@ -1,0 +1,11 @@
+<!--pages/components/returnTop/returnTop.wxml-->
+<view class="fixed-box">
+  <!-- <view class='to-home' bindtap='toTop' hidden="{{!isReturnHome}}">
+      <image mode='widthFix' src='../../../images/icon_home.png'></image>
+  </view> -->
+  <view class='to-top' bindtap='toTop' hidden="{{!isReturnTop || !showFlag}}">
+      <!-- <image mode='widthFix' src='../../../images/icon_top.png'></image> -->
+  </view>
+  <!-- <view class='to-top' hidden="{{isReturnTop && showFlag}}">
+  </view> -->
+</view>

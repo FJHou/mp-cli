@@ -1,0 +1,181 @@
+<import src="../../components/noData/noData.wxml" />
+<page class="wrap">
+  <!--顶部fixed-->
+  <!-- <view class="top-fixed">
+    <view class="{{use?'active':''}}" bindtap="useClick">
+      <view>
+        <text>可用优惠券({{ totalCount > 99 ? '99+' : totalCount }})</text>
+        <text wx:if="{{hasCoupon}}">({{couponNumb}})</text>
+      </view>
+    </view>
+    <view class="{{unUse?'active':''}}" bindtap="unUseClick">
+      <view>
+        不可用优惠券
+      </view>
+    </view>
+  </view> -->
+  <view class="top-fixed">
+    <form class="{{use?'active':''}}" report-submit="true" bindsubmit="useClick">
+      <view>
+        <button class="message-push-btn" hover-class="none" form-type="submit">
+          <text>可用优惠券({{ totalCount > 99 ? '99+' : totalCount }})</text>
+          <text wx:if="{{hasCoupon}}">({{couponNumb}})</text>
+        </button>
+      </view>
+    </form>
+    <form class="{{unUse?'active':''}}" report-submit="true" bindsubmit="unUseClick">
+      <view>
+        <button class="message-push-btn" hover-class="none" form-type="submit">
+          不可用优惠券
+        </button>
+      </view>
+    </form>
+  </view>  
+  <!-- 可用优惠券 -->
+  <scroll-view class="coupon-list" scroll-y="true" bindscrolltolower="loadMoreCoupons" style="height:{{screenHeight}}px" scroll-top="{{scrollTop}}" bindscroll="listScroll">
+    <block wx:if="{{ couponList.length > 0 }}">
+      <view wx:key="" wx:for="{{couponList}}" style="display:{{use?'block':'none'}}">
+        <view catchtap='goToUse' data-jumptype='{{item.jumpType}}' data-id="{{ item.id }}" data-batchid='{{item.batchId}}' data-storeid="{{item.storeId}}" data-activetips='{{item.activeTips}}'>
+          <view class="coupon-box {{ couponTypeObj[item.typeCoupon].colorType }}">
+            <view class="left-box">
+              <view class="m-box">
+                <block wx:if="{{ item.typeCoupon == 2 }}">
+                  <view class="f36">可抵扣{{item.faceValue}}元</view>
+                </block>
+                <block wx:elif="{{ item.typeCoupon == 3 }}">
+                  <block wx:if="{{item.faceType==1}}">
+                      <view class="f76">{{item.faceValue}}</view>
+                      <view class="f30 d-unit">折</view>
+                  </block>
+                  <block wx:elif="{{item.faceType==2}}">
+                      <view class="f76 multi-discount">{{item.faceValue}}</view>
+                      <view class="f30 d-unit">折</view>
+                  </block>
+                </block>
+                <block wx:else>
+                  <view class="f30 bi">¥</view>
+                  <view class="f76">{{item.faceValue}}</view>
+                </block>
+              </view>
+              <block wx:if="{{ item.amountMoney > 0 && item.typeCoupon != 2}}" >
+                  <view wx:if="{{item.typeCoupon == 3 }}"  catchtap="toggleDiscountInfo" data-tab="1" data-type="{{item.typeCoupon}}" data-id="{{item.id}}" class="n-m {{couponUseList[item.id]?'topArrow':''}}" >
+                    <view class="discountWrap">
+                        <view class="discountDesc">{{item.withAvailable}}</view>
+                        <view class="arrow-icon"></view>  
+                    </view>
+                  </view>
+                  <view wx:else class="n-m">
+                      满{{item.amountMoney}}元可用
+                  </view>
+              </block>
+              <view class="r"></view>
+            </view>
+            <view class="right-box">
+              <view class="right-l">
+                <view class="coupon-l">
+                  <view wx:if="{{ item.typeDescription == '折扣券' }}" class="coupon-bg">东券</view>
+                  <view wx:else class="coupon-bg">{{item.typeDescription}}</view>
+
+                  <view wx:if="{{ item.typeDescription == '运费券' }}" class="coupon-tip" catchtap="couponShowInfo">
+                    <view class="info-icon"></view>
+                  </view>
+
+                  <view wx:if="{{ item.typeDescription == '店铺东券' || item.typeDescription == '店铺京券' }}" class="coupon-font shop-coupon-font">{{item.scope}}</view>
+                  <view wx:elif="{{ item.typeDescription == '运费券' }}" class="coupon-font freight-font">{{item.scope}}</view>
+                  <view wx:else class="coupon-font">{{item.scope}}</view>
+                </view>
+                <view class='overlay-wrap'></view>
+                <view class="use-t">{{item.fromTime}}-{{item.endTime}}</view>
+              </view>
+              <view wx:if="{{ item.jumpType != 0 }}" class='right_button right_button_east' >去使用</view>
+            </view>
+          </view>
+          <view wx:if="{{couponUseList[item.id]}}" class="moreDisInfo">
+            <rich-text nodes="{{item.couponFaceDescription}}"></rich-text>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{ !isHaveMore && use }}" class="nomore-wrap">
+        <view class="icon-nomore"></view>
+        <view>没有更多了~</view>
+      </view>      
+    </block>
+    <block wx:elif="{{ use && !isHaveMore }}">
+      <template is="noMoreData" data="{{...noDataItem}}" />
+    </block>
+   <!-- 不可用优惠券 -->
+    <block wx:if="{{ unCouponList.length>0 }}">
+      <view wx:if="{{ unUse }}" class="unuse-tip"><view class="icon-tip"></view>当前小程序暂不支持使用以下优惠券哦</view>
+      <view wx:key="" wx:for="{{unCouponList}}" style="display:{{unUse?'block':'none'}}">
+        <view  bindtap="toggleDiscountInfo" data-tab="0" data-type="{{item.typeCoupon}}" data-id="{{item.id}}">
+          <view class="coupon-box gray {{ couponTypeObj[item.typeCoupon].colorType }}">
+            <view class="left-box">
+              <view class="m-box">
+                <block wx:if="{{ item.typeCoupon == 2 }}">
+                  <view class="f36">可抵扣{{item.faceValue}}元</view>
+                </block>
+                <block wx:elif="{{ item.typeCoupon == 3 }}">
+                  <block wx:if="{{item.faceType==1}}">
+                      <view class="f76">{{item.faceValue}}</view>
+                      <view class="f30 d-unit">折</view>
+                  </block>
+                  <block wx:elif="{{item.faceType==2}}">
+                      <view class="f76 multi-discount">{{item.faceValue}}</view>
+                      <view class="f30 d-unit">折</view>
+                  </block>
+                </block>
+                <block wx:else>
+                  <view class="f30 bi">¥</view>
+                  <view class="f76">{{item.faceValue}}</view>
+                </block>
+              </view>
+              <block wx:if="{{ item.amountMoney > 0 && item.typeCoupon != 2}}" >
+                <view wx:if="{{ item.typeCoupon == 3 }}"  class="n-m {{couponUseList[item.id]?'topArrow':''}}" >
+                    <view class="discountWrap">
+                        <view class="discountDesc">{{item.withAvailable}}</view>
+                        <view class="arrow-icon"></view> 
+                    </view>
+                  </view>
+                  <view wx:else class="n-m">
+                      满{{item.amountMoney}}元可用
+                  </view>
+              </block>
+              <view class="r"></view>
+            </view>
+            <view class="right-box">
+              <view class="right-l">
+                <view class="coupon-l">
+                  <view wx:if="{{ item.typeDescription == '折扣券' }}" class="coupon-bg">东券</view>
+                  <view wx:else class="coupon-bg">{{item.typeDescription}}</view>
+
+                  <view wx:if="{{ item.typeDescription == '运费券' }}" class="coupon-tip" catchtap="couponShowInfo">
+                    <view class="info-icon"></view>
+                  </view>
+
+                  <view wx:if="{{ item.typeDescription == '店铺东券' || item.typeDescription == '店铺京券' }}" class="coupon-font shop-coupon-font">{{item.scope}}</view>
+                  <view wx:elif="{{ item.typeDescription == '运费券' }}" class="coupon-font freight-font">{{item.scope}}</view>
+                  <view wx:else class="coupon-font">{{item.scope}}</view>
+                </view>
+                <view class='overlay-wrap'></view>
+                <view class="use-t">{{item.fromTime}}-{{item.endTime}}</view>
+              </view>
+            </view>
+          </view>
+          <view wx:if="{{item.typeCoupon == 3&&couponUseList[item.id]}}" class="moreDisInfo">
+            <rich-text nodes="{{item.couponFaceDescription}}"></rich-text>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{ !isUnCounponHaveMore && unUse }}" class="nomore-wrap">
+        <view class="icon-nomore"></view>
+        <view>没有更多了~</view>
+      </view>
+    </block>
+    <block wx:elif="{{ unUse && !isUnCounponHaveMore}}">
+      <template is="noMoreData" data="{{...noUnavailableItem}}" />
+    </block>
+    
+    <image class="bottom-to-top" src="http://commonst.360buyimg.com/common/wx-images/scroll-to-top-icon.png" style="display:{{toTopDisplay}}" bindtap="toTopTap"></image>
+  </scroll-view>
+  
+</page>

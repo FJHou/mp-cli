@@ -1,0 +1,283 @@
+.hotsale {
+    margin-top: 30rpx;
+}
+.card {
+    margin-top: 20rpx;
+}
+
+.hot-swiper {
+	height: 386rpx;
+}
+ .swiper-item {
+	display: flex;
+	justify-content: space-between;
+}
+
+ .goods {
+	width: 200rpx;
+	letter-spacing: 0;
+	padding-top: 0;
+}
+
+ .goods .imgPanle {
+	width: 200rpx;
+	height: 200rpx;
+	background: #fbf7f7;
+	border-radius: 10px;
+}
+
+ .goods .imgPanle .goods-image {
+	width: 100%;
+	height: 100%;
+	border-radius: 10rpx;
+}
+
+ .goods .name {
+	font-size: 26rpx;
+	color: #333840;
+	line-height: 36rpx;
+	text-align: center;
+	padding: 0 14rpx;
+	margin-top: 14rpx;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	height: 72rpx;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+ .goods .pice {
+	margin-top: 10rpx;
+	color: var(--color-theme);
+	font-size: 30rpx;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+ .goods .pice .icon {
+	font-size: 20rpx;
+	margin-top: 10rpx;
+	margin-right: 2rpx;
+}
+ 
+.item .itemBg {
+	position: absolute;
+	width: 578rpx;
+	height: 222rpx;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.item .itemPanel {
+	position: relative;
+	z-index: 2;
+	width: 526rpx;
+	height: 170rpx;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	top: 20rpx;
+}
+
+.itemPanel .panelL {
+	width: 150rpx;
+	height: 170rpx;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	line-height: 20rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 20rpx;
+	color: rgba(182, 71, 0, 1);
+}
+
+.itemPanel .panelL image {
+	width: 23rpx;
+	height: 29rpx;
+	margin-right: 10rpx;
+}
+
+.itemPanel .panelL view {
+	height: 60rpx;
+	line-height: 60rpx;
+
+	font-size: 60rpx;
+	color: rgba(254, 59, 0, 1);
+	margin-bottom: 10rpx;
+}
+
+.itemPanel .panelL view .pice {
+	font-family: JDZhengHei-01-Bold;
+}
+
+.itemPanel .panelR {
+	margin-top: 20rpx;
+	height: 125rpx;
+	width: 340rpx;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: left;
+}
+
+.itemPanel .panelR .title {
+	line-height: 24rpx;
+	font-family: PingFangSC-Medium;
+	font-size: 24rpx;
+	color: #000;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.panelR .rTag {
+	display: inline-block;
+	width: auto;
+	padding: 0 8rpx;
+	height: 30rpx;
+	background: linear-gradient(326deg, rgba(255, 79, 0, 1) 0%, rgba(255, 134, 0, 1) 100%);
+	border-radius: 15rpx;
+	line-height: 30rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 20rpx;
+	color: rgba(255, 255, 255, 1);
+}
+
+.panelR .btText {
+	line-height: 20rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 18rpx;
+	color: #b64700;
+	height: 46rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.btText .b {
+	font-size: 20rpx;
+	font-family: JDZhengHei-01-Regular;
+	color: #b64700;
+	line-height: 20rpx;
+}
+
+.couponTipPanel {
+	width: 580rpx;
+	height: 601rpx;
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+.couponTipPanel .Bg {
+	position: absolute;
+	width: 580rpx;
+	height: 601rpx;
+	top: 0;
+	left: 0;
+}
+
+.couponTipPanel .tipPanel {
+	height: 216rpx;
+	min-width: 100rpx;
+	position: relative;
+	padding: 0 70rpx;
+}
+
+.tipPanel .tipT {
+	height: 50rpx;
+	line-height: 50rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 36rpx;
+	color: rgba(255, 255, 255, 1);
+	margin-bottom: 20rpx;
+}
+
+.tipPanel .tipInfo {
+	height: 26rpx;
+	line-height: 26rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 26rpx;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.bold {
+	font-weight: bold;
+}
+ 
+
+.six {
+	background-image: url(https://img13.360buyimg.com/imagetools/jfs/t1/98537/40/4859/48873/5dea17f5E5ee75a05/e91005deb65e2626.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-size: 100% 82rpx;
+	background-color: #ffffff;
+	border-radius: 10rpx;
+	padding: 20rpx;
+	width: 100%;
+	height: 480rpx;
+	margin-bottom: 30rpx;
+}
+ 
+
+.list-product {
+	width: 100%;
+	overflow-x: auto;
+	display: flex;
+	flex-direction: row;
+}
+
+.list-product-more {
+	width: 70rpx;
+	height: 305rpx;
+	background: rgba(236, 240, 245, 1);
+	border-radius: 10rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 26rpx;
+	color: rgba(164, 167, 174, 1);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 86rpx 22rpx;
+	margin: 0 0 0 20rpx;
+}
+
+.ori-price {
+	font-family: PingFangSC-Regular;
+	font-size: 20rpx;
+	color: rgba(179, 179, 179, 1);
+	padding: 0 0 0 10rpx;
+	text-decoration: line-through;
+}
+
+.six  .item .pice {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+ 
+.list-product-inner{
+	width:33.3%
+}
+.top3Img{
+	width:100%;
+	height:100%;
+	margin: auto;
+
+}
+.topThree-more{
+	width:100%;
+	height:70rpx;
+	font-size: 24rpx;
+	line-height: 70rpx;
+	margin:30rpx 0;
+	text-align: center;
+	background-color: #fff;
+}

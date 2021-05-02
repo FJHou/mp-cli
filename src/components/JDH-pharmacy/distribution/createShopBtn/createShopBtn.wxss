@@ -1,0 +1,52 @@
+/* 开店按钮 */
+/* @import "../../resource/iconfont/iconfont.wxss"; */
+.pad-r-20{
+  padding-right:20rpx
+}
+.create-shop{
+  background-image: linear-gradient(90deg, #F8B10E 0%, #F76B1C 100%);
+  box-shadow: 0 2px 6px 0 #DD6513;
+  font-size:28rpx;
+  color:#fff;
+  z-index:900;
+  height:64rpx;
+  line-height:64rpx;
+}
+.create-shop .iconfont{
+  float:left;
+  margin-left:30rpx;
+  margin-right:10rpx;
+}
+.right{
+  border-radius: 32rpx 0px 0px 32rpx;
+}
+.left{
+  border-radius: 0 32rpx 32rpx 0;
+}
+
+.circle-v{
+  padding:18rpx;
+  border-radius:100%;
+  font-weight:bold;
+}
+
+.add-to-shop {
+  width: 64rpx;
+  height: 64rpx;
+  opacity: 0.9;
+  z-index: 3;
+  border-radius: 100%;
+  text-align: center;
+}
+.add-to-shop text{
+  display: block;
+  font-family: PingFangSC-Semibold;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 0rpx;
+  line-height: 26rpx;
+}
+.add-to-shop text:first-child{
+  margin-top: 10rpx;
+}
