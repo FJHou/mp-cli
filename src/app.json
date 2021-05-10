@@ -1,244 +1,244 @@
 {
-	"pages": [
-		"pages/newShop/shopFront",
-		"pages/newShop/shopInfo/index",
-		"pages/distributionIndex/distributionIndex",
-		"pages/personalHealth/personalHealth",
-		"pages/login/index/index",
-		"pages/login/web-view/web-view",
-		"pages/login/wv-common/wv-common" 
-	],
-	"subPackages": [
-		{
-			"root":"pages/pointsMall",
-			"pages":["index"]
-		},
-		{
-			"root":"pages/webview",
-			"pages":["webview"]
-		},
-		{
-			"root":"pages/wechatpay",
-			"pages":["wechatpay"]
-		},
-		{
-			"root":"pages/wxmm",
-			"pages":["wxmm"]
-		},
-		{
-			"root":"pages/skuList",
-			"pages":["skuList"]
-		},
-		{
-			"root":"pages/orderTrack",
-			"pages":["orderTrack"]
-		},
-		{
-			"root":"pages/wepay",
-			"pages":["wepay"]
-		},
-		{
-			"root":"pages/shopCoupon",
-			"pages":["shopCoupon"]
-		}, 
-		{
-			"root":"pages/distributionPromotionCenter",
-			"pages":["promotionCenter"]
-		}, 
-		{
-			"root":"pages/distributionPromotionOrder",
-			"pages":["promotionOrder"]
-		}, 
-		{
-			"root": "pages/distributionFanManagement",
-			"pages": [ "distributionFanManagement" ]
-		},
-		{
-			"root": "pages/distributionInviteFan",
-			"pages": [ "distributionInviteFan" ]
-		},
-		{
-			"root": "pages/distributionIncomeDetails",
-			"pages": [ "distributionIncomeDetails" ]
-		},
-		{
-			"root": "pages/distributionIncomeWithdraw",
-			"pages": [ "distributionIncomeWithdraw" ]
-		},
-		{
-			"root": "pages/distributionSettleRecord",
-			"pages": [ "distributionSettleRecord" ]
-		},
-		{
-			"root": "pages/distributionSetBank",
-			"pages": [ "distributionSetBank" ]
-		},
-		{
-			"root": "pages/distributionMoneyReg",
-			"pages": [ "distributionMoneyReg" ]
-		},
-		{
-			"root": "pages/distributionWithdrawRecord",
-			"pages": [ "distributionWithdrawRecord" ]
-		},
-		{
-			"root": "pages/distributionProtocol",
-			"pages": [ "distributionProtocol" ]
-		},
-		{
-			"root": "pages/distributionMoneyHelp",
-			"pages": [ "distributionMoneyHelp" ]
-		},
-		{
-			"root": "pages/posterTest",
-			"pages": ["index"]
-		},
-		{
-			"root": "pages/record/",
-			"pages": [ "record","refundDetail/refundDetail"]
-		},  
-		{
-			"root": "pages/shopList",
-			"pages": [ "shopList" ]
-		},
-		{
-			"root": "pages/location",
-			"pages": [ "location" ]
-		}, 
-		{
-			"root": "pages/switchShop",
-			"pages": [ "switchShop" ]
-		}, 
-		{
-			"root": "pages/customerCouponBag",
-			"pages": [ "customerCouponBag" ]
-		},
-		{
-			"root": "pages/couponInfo",
-			"pages": [ "couponInfo" ]
-		},
-		{
-			"root": "pages/myShopCoupon",
-			"pages": [ "myShopCoupon" ]
-		},
-		{
-			"root": "pages/memberCode",
-			"pages": [ "memberCode" ]
-		},
-		{
-			"root": "pages/couponRetailStore",
-			"pages": [ "couponRetailStore" ]
-		},
-		{
-			"root": "pages/cardInfo",
-			"pages": [ "cardInfo" ]
-		},
-		{
-			"root": "pages/addVip",
-			"pages": [ "addVip" ]
-		},
-		{
-			"root": "pages/order/",
-			"pages": [ "order" ]
-		},
-		{
-			"root": "pages/orderDetail/",
-			"pages": [ "orderDetail" ]
-		},
-		{
-			"root": "pages/upgrade/",
-			"pages": [ "upgrade" ]
-		},
-		{
-			"root": "pages/address/",
-			"pages": [ "address" ]
-		},
-		{
-			"root": "pages/coupon/",
-			"pages": [ "coupon", "allCoupon", "getCoupon/getCoupon" ]
-		},
-		{
-			"root": "pages/addressul/",
-			"pages": [ "addressul" ]
-		},
-		{
-			"root": "pages/myFeedback/",
-			"pages": [ "myFeedback" ]
-		},
-		{
-			"root": "pages/distributionBePromoter/",
-			"pages": [ "bePromoter" ]
-		},
-		{
-			"root": "pages/distributionSearchList/",
-			"pages":[ "distributionSearchList" ]
-		},
-		{
-			"root": "pages/distributionGoodDetail/",
-			"pages":[ "distributionGoodDetail" ]
-		},
-		{
-			"root": "pages/distributionCorrection/",
-			"pages":[ "distributionCorrection" ]
-		},
-		{
-			"root":"pages/distributionIconDetail/",
-			"pages":["distributionIconDetail"]
-		}, 
-		{
-			"root": "pages/chooseaddress/",
-			"pages": [ "chooseaddress" ]
-		}
-	],
-	"window": {
-		"navigationBarBackgroundColor": "#fff",
-		"navigationBarTextStyle": "black"
-	},
-	"tabBar": {
-		"color": "#B3B3B3",
-		"selectedColor": "#FF413F",
-		"backgroundColor": "#ffffff",
-		"borderStyle": "black",
-		"list": [
-			{
-				"pagePath": "pages/newShop/shopFront",
-				"text": "门店",
-				"iconPath": "images/index.png",
-				"selectedIconPath": "images/shopSel.png"
-			},
-			{
-				"pagePath": "pages/distributionIndex/distributionIndex",
-				"text": "优惠购",
-				"iconPath": "images/shop.png",
-				"selectedIconPath": "images/shopon.png"
-			},
-			{
-				"pagePath": "pages/personalHealth/personalHealth",
-				"text": "个人中心",
-				"iconPath": "images/grzx.png",
-				"selectedIconPath": "images/grzxon.png"
-			}
-		],
-		"position": "bottom"
-	},
-	"networkTimeout": {
-		"request": 10000,
-		"downloadFile": 10000
-	},
-	"plugins": {
-		"loginPlugin": {
-			"version": "1.3.2",
-			"provider": "wxefe655223916819e"
-		},
-		"memberCode": {
-			"version": "2.1.34",
-			"provider": "wx9c31ad78936fd8fd"
-		}
-	},
-	"debug": true,
-	"permission": {
-		"scope.userLocation": {
-			"desc": "你的位置信息将用于小程序获取附近门店信息"
-		}
-	}
+    "pages": [
+        "pages/newShop/shopFront",
+        "pages/newShop/shopInfo/index",
+        "pages/distributionIndex/distributionIndex",
+        "pages/personalHealth/personalHealth",
+        "pages/login/index/index",
+        "pages/login/web-view/web-view",
+        "pages/login/wv-common/wv-common"
+    ],
+    "subPackages": [
+        {
+            "root": "pages/pointsMall",
+            "pages": ["index"]
+        },
+        {
+            "root": "pages/webview",
+            "pages": ["webview"]
+        },
+        {
+            "root": "pages/wechatpay",
+            "pages": ["wechatpay"]
+        },
+        {
+            "root": "pages/wxmm",
+            "pages": ["wxmm"]
+        },
+        {
+            "root": "pages/skuList",
+            "pages": ["skuList"]
+        },
+        {
+            "root": "pages/orderTrack",
+            "pages": ["orderTrack"]
+        },
+        {
+            "root": "pages/wepay",
+            "pages": ["wepay"]
+        },
+        {
+            "root": "pages/shopCoupon",
+            "pages": ["shopCoupon"]
+        },
+        {
+            "root": "pages/distributionPromotionCenter",
+            "pages": ["promotionCenter"]
+        },
+        {
+            "root": "pages/distributionPromotionOrder",
+            "pages": ["promotionOrder"]
+        },
+        {
+            "root": "pages/distributionFanManagement",
+            "pages": ["distributionFanManagement"]
+        },
+        {
+            "root": "pages/distributionInviteFan",
+            "pages": ["distributionInviteFan"]
+        },
+        {
+            "root": "pages/distributionIncomeDetails",
+            "pages": ["distributionIncomeDetails"]
+        },
+        {
+            "root": "pages/distributionIncomeWithdraw",
+            "pages": ["distributionIncomeWithdraw"]
+        },
+        {
+            "root": "pages/distributionSettleRecord",
+            "pages": ["distributionSettleRecord"]
+        },
+        {
+            "root": "pages/distributionSetBank",
+            "pages": ["distributionSetBank"]
+        },
+        {
+            "root": "pages/distributionMoneyReg",
+            "pages": ["distributionMoneyReg"]
+        },
+        {
+            "root": "pages/distributionWithdrawRecord",
+            "pages": ["distributionWithdrawRecord"]
+        },
+        {
+            "root": "pages/distributionProtocol",
+            "pages": ["distributionProtocol"]
+        },
+        {
+            "root": "pages/distributionMoneyHelp",
+            "pages": ["distributionMoneyHelp"]
+        },
+        {
+            "root": "pages/posterTest",
+            "pages": ["index"]
+        },
+        {
+            "root": "pages/record/",
+            "pages": ["record", "refundDetail/refundDetail"]
+        },
+        {
+            "root": "pages/shopList",
+            "pages": ["shopList"]
+        },
+        {
+            "root": "pages/location",
+            "pages": ["location"]
+        },
+        {
+            "root": "pages/switchShop",
+            "pages": ["switchShop"]
+        },
+        {
+            "root": "pages/customerCouponBag",
+            "pages": ["customerCouponBag"]
+        },
+        {
+            "root": "pages/couponInfo",
+            "pages": ["couponInfo"]
+        },
+        {
+            "root": "pages/myShopCoupon",
+            "pages": ["myShopCoupon"]
+        },
+        {
+            "root": "pages/memberCode",
+            "pages": ["memberCode"]
+        },
+        {
+            "root": "pages/couponRetailStore",
+            "pages": ["couponRetailStore"]
+        },
+        {
+            "root": "pages/cardInfo",
+            "pages": ["cardInfo"]
+        },
+        {
+            "root": "pages/addVip",
+            "pages": ["addVip"]
+        },
+        {
+            "root": "pages/order/",
+            "pages": ["order"]
+        },
+        {
+            "root": "pages/orderDetail/",
+            "pages": ["orderDetail"]
+        },
+        {
+            "root": "pages/upgrade/",
+            "pages": ["upgrade"]
+        },
+        {
+            "root": "pages/address/",
+            "pages": ["address"]
+        },
+        {
+            "root": "pages/coupon/",
+            "pages": ["coupon", "allCoupon", "getCoupon/getCoupon"]
+        },
+        {
+            "root": "pages/addressul/",
+            "pages": ["addressul"]
+        },
+        {
+            "root": "pages/myFeedback/",
+            "pages": ["myFeedback"]
+        },
+        {
+            "root": "pages/distributionBePromoter/",
+            "pages": ["bePromoter"]
+        },
+        {
+            "root": "pages/distributionSearchList/",
+            "pages": ["distributionSearchList"]
+        },
+        {
+            "root": "pages/distributionGoodDetail/",
+            "pages": ["distributionGoodDetail"]
+        },
+        {
+            "root": "pages/distributionCorrection/",
+            "pages": ["distributionCorrection"]
+        },
+        {
+            "root": "pages/distributionIconDetail/",
+            "pages": ["distributionIconDetail"]
+        },
+        {
+            "root": "pages/chooseaddress/",
+            "pages": ["chooseaddress"]
+        }
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#B3B3B3",
+        "selectedColor": "#FF413F",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/newShop/shopFront",
+                "text": "门店",
+                "iconPath": "images/index.png",
+                "selectedIconPath": "images/shopSel.png"
+            },
+            {
+                "pagePath": "pages/distributionIndex/distributionIndex",
+                "text": "优惠购",
+                "iconPath": "images/shop.png",
+                "selectedIconPath": "images/shopon.png"
+            },
+            {
+                "pagePath": "pages/personalHealth/personalHealth",
+                "text": "个人中心",
+                "iconPath": "images/grzx.png",
+                "selectedIconPath": "images/grzxon.png"
+            }
+        ],
+        "position": "bottom"
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "downloadFile": 10000
+    },
+    "plugins": {
+        "loginPlugin": {
+            "version": "1.3.2",
+            "provider": "wxefe655223916819e"
+        },
+        "memberCode": {
+            "version": "2.1.34",
+            "provider": "wx9c31ad78936fd8fd"
+        }
+    },
+    "debug": true,
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序获取附近门店信息"
+        }
+    }
 }

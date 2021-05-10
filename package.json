@@ -28,6 +28,7 @@
     "wxml-loader": "^0.3.0"
   },
   "dependencies": {
+    "fs-extra": "^10.0.0",
     "query-string": "^7.0.0"
   }
 }
