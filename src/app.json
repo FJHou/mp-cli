@@ -4,7 +4,6 @@
         "pages/newShop/shopInfo/index",
         "pages/distributionIndex/distributionIndex",
         "pages/personalHealth/personalHealth",
-        "pages/login/index/index",
         "pages/login/web-view/web-view",
         "pages/login/wv-common/wv-common"
     ],

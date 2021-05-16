@@ -40,9 +40,10 @@ class MPWebpackPlugin {
         const { context } = compiler;
 
         compiler.hooks.make.tapAsync('makeAddScriptEntry', (compilation, callback) => {
-            this.pages.slice(0, 6).forEach((page) => {
+            this.pages.forEach((page) => {
                 const opt = {
-                    name: path.basename(page),
+                    // TODO: 调整这里的路径
+                    name: path.relative(context + '/src', page),
                 };
                 const dep = EntryPlugin.createDependency(page, opt);
 
